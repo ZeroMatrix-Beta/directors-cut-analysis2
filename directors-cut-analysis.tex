@@ -1,0 +1,148 @@
+\documentclass[11pt,a4paper]{article}
+
+% ==========================================
+% NEW ELEGANT PREAMBLE
+% ==========================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+
+% --- FONT CONFIGURATION ---
+% Elegant Palatino font (Currently active)
+\usepackage{mathpazo} 
+
+% Alternative Font Options (Uncomment one to try):
+% \usepackage{lmodern} % Latin Modern: The clean, standard LaTeX look.
+% \usepackage{libertine} \usepackage{libertinust1math} % Linux Libertine: Very elegant, classic book feel.
+% \usepackage{fourier} % Utopia: Robust, slightly heavier strokes, fantastic for complex math.
+% \usepackage{stix2} % STIX2: Times-based, incredibly comprehensive math symbol support.
+
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable, theorems}
+
+% Fail-Safe TikZ Configuration
+\usepackage{tikz}
+\usetikzlibrary{calc, arrows.meta, positioning, shapes.geometric, decorations.pathreplacing, patterns}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Refined "Modern Academic" Color Palette
+\definecolor{profwhite}{RGB}{255, 255, 255}
+\definecolor{proforange}{HTML}{D35400} 
+\definecolor{profyellow}{HTML}{F1C40F} 
+\definecolor{profgreen}{HTML}{27AE60}  
+\definecolor{profred}{HTML}{C0392B}    
+\definecolor{profblue}{HTML}{2980B9}   
+\definecolor{profpurple}{HTML}{8E44AD} % New: Wisteria purple
+\definecolor{profgray}{HTML}{7F8C8D}   % New: Asbestos gray
+\definecolor{bglight}{HTML}{F8F9FA}    
+
+% Math operators
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Vol}{Vol}
+
+% Standard Math Environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+% ==========================================
+% REDESIGNED META-ENVIRONMENTS
+% ==========================================
+
+% 1. Clean Spoken Protocol
+\newtcolorbox{spoken_clean}[1][]{
+    enhanced,
+    frame hidden,
+    colback=profblue!5!white,
+    borderline west={3pt}{0pt}{profblue},
+    title={\sffamily\bfseries\textcolor{profblue}{Cleaned Spoken Protocol [Time: #1]}},
+    attach title to upper=\par\vspace{1ex},
+    breakable,
+    fontupper=\itshape
+}
+
+% 2. AI Stroke-by-Stroke Note
+\newtcolorbox{ainote}[1][]{
+    enhanced,
+    colback=bglight,
+    colframe=gray!40,
+    boxrule=0.5pt,
+    drop fuzzy shadow,
+    title={\sffamily\bfseries Board State \& Physical Actions: #1},
+    coltitle=black,
+    attach boxed title to top left={xshift=10pt, yshift=-10pt},
+    boxed title style={colback=gray!20, colframe=white, boxrule=0pt},
+    breakable
+}
+
+% 3. Best Teacher / Didactic Insight
+\newtcolorbox{didactic_insight}[1][Pedagogical Concept]{
+    enhanced,
+    arc=3mm,
+    colback=profgreen!5!white,
+    colframe=profgreen!80!black,
+    title={\sffamily\bfseries Insight: #1},
+    breakable
+}
+
+% 4. Semantic Formula Box
+\newtcolorbox{orangeformula}[1][Highlighted Board Formula]{
+    enhanced,
+    colback=profwhite,
+    colframe=proforange,
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=proforange!30
+}
+
+% 5. Mathematical Setup (Stroke-by-Stroke)
+\newtcolorbox{math_stroke}[1][Mathematical Setup (Stroke-by-Stroke)]{
+    enhanced,
+    frame hidden,
+    colback=white,
+    borderline west={2pt}{0pt}{profblue!30},
+    title={\sffamily\bfseries\textcolor{profblue!80!black}{#1}},
+    attach title to upper=\par\vspace{1ex},
+    breakable
+}
+
+% 6. Redundant Explanation
+\newtcolorbox{redundant_explanation}[1][Redundant Explanation of Step]{
+    enhanced,
+    arc=2mm,
+    colback=profpurple!5!white,
+    colframe=profpurple!60!black,
+    title={\sffamily\bfseries #1},
+    breakable
+}
+
+% 7. Meta-Note
+\newtcolorbox{meta_note}[1][Administrative Meta-Note]{
+    enhanced,
+    frame hidden,
+    colback=profgray!10,
+    borderline={0.5pt}{0pt}{profgray, dashed},
+    title={\sffamily\bfseries\textcolor{profgray!90!black}{#1}},
+    attach title to upper=\par\vspace{1ex},
+    breakable
+}
+
+\begin{document}
+
+\include{content/4-15-monday-first_half-part1.tex}
+\include{content/4-15-monday-first_half-part2.tex}  
+\include{content/4-15-monday-first_half-part3.tex}
+
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
