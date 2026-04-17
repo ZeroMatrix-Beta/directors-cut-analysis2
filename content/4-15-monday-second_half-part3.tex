@@ -1,0 +1,144 @@
+
+% ==========================================
+% LECTURE METADATA
+% ==========================================
+\section{From Cavalieri to Fubini: Integrating Functions via Hypographs}
+
+\emph{AI Extraction Protocol}
+
+\textit{Segment: 30:42 -- 45:00 (End of Lecture)}
+
+\begin{meta_note}[Segment Transition]
+The professor has just finished the rigorous dyadic-cube proof of Cavalieri's Principle for $n$-dimensional sets. He erases the center and right chalkboards to transition to the ultimate goal of the lecture: applying this geometric slicing principle to the calculus of multi-variable functions. 
+\end{meta_note}
+
+% ==========================================
+% SECTION 10: THE TRANSITION TO FUNCTIONS
+% ==========================================
+\section{From Sets to Functions: The Hypograph}
+
+\begin{spoken_clean}[30:42 - 34:15]
+We have successfully and rigorously established Cavalieri's Principle for the volumes of multi-dimensional sets. But we are taking a class on Analysis, not just geometry, so we must now ask: how do we extend this logic to the integration of functions? 
+
+You will recall that much earlier in the semester, when we first defined the Riemann integral of a positive function $f$ over a domain $A$, we defined it strictly in terms of the measure of its hypograph. 
+
+What is the hypograph geometrically? It is the $(n+1)$-dimensional solid region situated directly beneath the graph of the function and directly above the base domain $A$. If we wish to integrate a function $f(x,y)$ over a product space $\mathbb{R}^k \times \mathbb{R}^{n-k}$, we are effectively seeking the $(n+1)$-dimensional volume of this overarching solid block. 
+
+Therefore, integrating a function is fundamentally identical to measuring a physical shape. We can simply apply Cavalieri's Principle directly to this $(n+1)$-dimensional hypograph. By taking vertical slices of this solid, we reduce a massive multi-dimensional volume calculation into an iterated sequence of much simpler lower-dimensional integrals. This elegant corollary is what we call Fubini's Theorem.
+\end{spoken_clean}
+
+\begin{ainote}[Board State 10: Recalling the Hypograph Connection]
+The professor moves to the freshly cleaned center board. He writes down the formal definition of an integral via the hypograph, establishing the crucial bridge between the pure geometry of Cavalieri and the operational calculus of Fubini.
+\end{ainote}
+
+\begin{math_stroke}[Integral as a Measure of the Hypograph]
+Let $f: A \to \mathbb{R}_{\ge 0}$ be a Riemann integrable function over a Jordan measurable set $A \subset \mathbb{R}^n$.
+The hypograph of $f$ is defined as the $(n+1)$-dimensional set:
+\[
+\text{Hypo}(f) = \{ (x, z) \in \mathbb{R}^n \times \mathbb{R} \mid x \in A, \ 0 \le z \le f(x) \}
+\]
+By our foundational definition, the integral of the function is identically the measure of this set:
+\[
+\int_A f(x) \, dx = \mu_{n+1}(\text{Hypo}(f))
+\]
+\end{math_stroke}
+
+\begin{didactic_insight}[The Geometric Unification]
+This is the grand unification of the lecture. By framing the integral not as an abstract analytic operation, but as a literal physical volume (the hypograph), the professor allows the students to seamlessly apply the "potato slicing" intuition they just mastered with Cavalieri's Principle directly to abstract function integration.
+\end{didactic_insight}
+
+% ==========================================
+% SECTION 11: STATEMENT OF FUBINI'S THEOREM
+% ==========================================
+\section{Statement of Fubini's Theorem}
+
+\begin{spoken_clean}[34:15 - 38:00]
+Let us formalize this into a proper theorem. Suppose we partition our base domain space $\mathbb{R}^n$ into a Cartesian product $\mathbb{R}^k \times \mathbb{R}^{n-k}$, utilizing coordinate vectors $x$ and $y$ respectively. Let $A$ be our domain of integration, and $f(x,y)$ be our continuous, integrable function hovering above it.
+
+If we freeze a base coordinate $x \in \mathbb{R}^k$, treating it strictly as a constant, we can restrict our function to the corresponding vertical slice of the domain, $A_x$. We shall denote this restricted, lower-dimensional function as $f_x(y)$. 
+
+Under Fubini's Theorem, assuming the requisite integrability conditions hold over the individual slices, the total $n$-dimensional integral of $f$ over the entire domain $A$ is exactly equivalent to the iterated integral! 
+
+Operationally, what does this mean? You first integrate the restricted function $f_x(y)$ with respect to $y$ over the slice $A_x$. Because $x$ was held constant, the result of this inner integral is a new marginal function purely in terms of $x$. Subsequently, you integrate this resulting marginal function with respect to $x$ over the base projection of the domain.
+\end{spoken_clean}
+
+\begin{ainote}[Board State 11: Formalizing the Sliced Function]
+The professor meticulously writes out the notation for the restricted function $f_x(y)$. He taps the board with his chalk under the $x$ variable to emphasize to the students that $x$ must be treated purely as a constant scalar during the inner integration step. He then writes the full statement of Fubini's Theorem in bright orange chalk.
+\end{ainote}
+
+\begin{math_stroke}[Function Restriction and Iteration]
+Given a function $f: A \to \mathbb{R}$ where the domain $A \subset \mathbb{R}^k \times \mathbb{R}^{n-k}$. \\
+For a fixed, constant $x \in \mathbb{R}^k$, define the slice domain $A_x = \{y \mid (x,y) \in A\}$. \\
+We define the restricted slice function $f_x: A_x \to \mathbb{R}$ as:
+\[
+f_x(y) = f(x,y) \quad \text{(treating } x \text{ strictly as a constant)}
+\]
+\end{math_stroke}
+
+\begin{orangeformula}[Fubini's Theorem]
+Let $A = X \times Y$ be a compact, Jordan measurable domain, and $f: A \to \mathbb{R}$ be integrable. The multiple integral can be evaluated sequentially as an iterated integral:
+\[
+\int_A f(x,y) \, d(x,y) = \int_X \left( \int_{A_x} f(x,y) \, dy \right) dx = \int_Y \left( \int_{A_y} f(x,y) \, dx \right) dy
+\]
+\end{orangeformula}
+
+% ==========================================
+% SECTION 12: VISUALIZING THE ITERATED INTEGRAL
+% ==========================================
+\section{Visualizing the Iterated Integral}
+
+\begin{spoken_clean}[38:00 - 42:30]
+To truly grasp the mechanics of Fubini's Theorem and prevent algebraic mistakes, one must visualize the sequential nature of this volume accumulation. 
+
+When we evaluate the inner integral—integrating $f(x,y)$ strictly with respect to $y$ while holding $x$ frozen at some value $x_0$—what are we calculating geometrically? We are calculating the exact 2D cross-sectional area of the solid hypograph at that specific coordinate $x_0$. 
+
+This inner integral effectively collapses the massive $(n+1)$-dimensional solid into a one-dimensional density function residing on the base axis. The outer integral then sweeps this cross-sectional area across the entire length of the domain $X$, accumulating those differential slices to arrive at the total total measure of the solid. 
+
+The symmetry of the theorem ensures that the order of accumulation—whether sweeping left-to-right along the $x$-axis or front-to-back along the $y$-axis—is irrelevant to the final numerical volume, provided your integration boundaries $A_x$ and $A_y$ are properly accounted for.
+\end{spoken_clean}
+
+\begin{ainote}[Board State 12: The Hypograph Cross-Section]
+The professor moves to the right board to draw a masterful 3D perspective of a curved surface floating above a rectangular domain in the $xy$-plane. He uses red chalk to shade a specific 2D planar cross-section beneath the surface, labeling its area as the exact result of the inner integral, $\int f(x_0, y) dy$.
+\end{ainote}
+
+\begin{math_stroke}[Geometric Visualization of Fubini's Theorem]
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+    % Axes
+    \draw[->, thick, profgreen] (0,0,0) -- (4,0,0) node[right] {$y$ axis};
+    \draw[->, thick, profgreen] (0,0,0) -- (0,3,0) node[above] {$z = f(x,y)$};
+    \draw[->, thick, profgreen] (0,0,0) -- (0,0,4) node[below left] {$x$ axis};
+
+    % Domain in xy-plane
+    \draw[dashed, profblue, thick] (1,0,1) -- (3,0,1) -- (3,0,3) -- (1,0,3) -- cycle;
+    \node[profblue] at (2,-0.3,3.5) {Base Domain $A = X \times Y$};
+
+    % Surface
+    \draw[thick, fill=proforange!20, opacity=0.8] (1,2,1) to[out=20,in=160] (3,2.5,1) to[out=-20,in=70] (3,1.5,3) to[out=160,in=-20] (1,1,3) to[out=70,in=-20] cycle;
+    \node[proforange!80!black] at (2,2.8,1) {Surface $z = f(x,y)$};
+
+    % The Slice at constant x_0
+    \draw[thick, profred, fill=profred!20, opacity=0.7] (1,0,2) -- (3,0,2) -- (3,2.0,2) to[out=150,in=-10] (1,1.5,2) -- cycle;
+    
+    % Slice Annotations
+    \draw[dashed, profred, thick] (0,0,2) -- (1,0,2);
+    \node[left, profred] at (0,0,2) {$x_0$};
+    \node[profred, fill=white, inner sep=1pt] at (2, 0.8, 2) {Area $= \int f(x_0, y) \, dy$};
+
+\end{tikzpicture}
+\end{center}
+\end{math_stroke}
+
+\begin{redundant_explanation}[Why the Order Matters for Limits]
+The visual clarifies a crucial stumbling block for students: why the bounds of integration change when you swap $dx$ and $dy$. The red slice represents the inner integral: evaluating the area of the 2D plane at a constant $x_0$. As $x_0$ moves along the $x$-axis, the boundaries of that slice might grow or shrink if the base domain $A$ is not a perfect rectangle (e.g., a triangle or a circle). The outer integral then integrates this continuously changing 1D area function along the $x$-axis to get the final 3D volume.
+\end{redundant_explanation}
+
+\begin{spoken_clean}[42:30 - 45:00]
+So, Fubini's Theorem is not magic; it is simply Cavalieri's Principle applied to the volume under a graph. By treating one variable as a constant, you reduce a multivariable problem into a sequence of single-variable calculus problems that you already know how to solve from Analysis I. 
+
+We will spend the next lecture doing heavy computational examples of this, swapping the bounds of integration, and looking at how this interacts with our Change of Variables theorem from last week. Please review your single-variable integration techniques tonight, because you will be doing them twice as much now. Have a good afternoon, everyone.
+\end{spoken_clean}
+
+\begin{meta_note}[End of Lecture]
+The professor sets down his chalk and addresses the class. The students begin packing up. The lecture concludes exactly at 45:00, having successfully bridged the geometric theory of measures to the operational computation of multiple integrals.
+\end{meta_note}

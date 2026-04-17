@@ -1,0 +1,169 @@
+\section{Cavalieri's Principle: Integration of Step Functions and The Squeeze}
+
+\emph{AI Extraction Protocol}
+
+\textit{Segment: 15:15 -- 30:42}
+
+
+\begin{meta_note}[Segment Continuation]
+Continuing directly from the previous segment, the professor has just established that the $n$-dimensional set $A$ can be approximated from the inside and the outside using a discrete grid of dyadic cubes ("pixels"). He now transitions to the algebraic formalization of these geometric bounds.
+\end{meta_note}
+
+% ==========================================
+% SECTION 5: FORMALIZING THE APPROXIMATIONS
+% ==========================================
+\section{Formalizing the Approximations}
+
+\begin{spoken_clean}[15:15 - 18:22]
+Let us formalize these geometric bounds. Given any arbitrary precision $\varepsilon > 0$, we can choose a sufficiently fine pixel size—let us say, governed by some integer $p \in \mathbb{N}$ determining the side length $2^{-p}$. By the very definition of Jordan measurability, there must exist an inner dyadic set $F$ and an outer dyadic set $G$ such that our set $A$ is completely sandwiched between them.
+
+Furthermore, we are guaranteed that the total volume of the large outer approximation minus the total volume of the small inner approximation is strictly less than $\varepsilon$. 
+
+Now, let us examine the vertical cross-sections of these pixelated approximations. For any base coordinate $x$ residing within our bounding box $[-c, c]^k$, we define the slice of the outer approximation, $G_x$, as the set of all vertical $y$-coordinates such that the composite point $(x,y)$ belongs to $G$. We define the slice of the inner approximation, $F_x$, in the exact same manner. Recall that both $F$ and $G$ are simply finite unions of dyadic cubes of pixel size $2^{-p}$.
+\end{spoken_clean}
+
+\begin{ainote}[Board State 6: Establishing Jordan Bounds]
+The professor moves to a clean section of the center board to begin the formal algebraic proof. He writes down the standard definition of a Jordan measurable set using the dyadic approximations $F$ and $G$, followed by the set-builder notation for their respective vertical slices.
+\end{ainote}
+
+\begin{math_stroke}[Inner and Outer Dyadic Sets and Slices]
+Given $\varepsilon > 0$, $\exists p \in \mathbb{N}$ and dyadic sets $F, G$ (composed of cubes of side length $2^{-p}$) such that:
+\[
+F \subset A \subset G \quad \text{and} \quad \mu_n(G) - \mu_n(F) < \varepsilon
+\]
+For all $x \in [-c, c]^k$, we define the vertical slices:
+\begin{align*}
+G_x &= \{ y \in \mathbb{R}^{n-k} \mid (x,y) \in G \} \\
+F_x &= \{ y \in \mathbb{R}^{n-k} \mid (x,y) \in F \}
+\end{align*}
+\end{math_stroke}
+
+% ==========================================
+% SECTION 6: PIXELS TO STEP FUNCTIONS
+% ==========================================
+\section{Pixels to Step Functions}
+
+\begin{spoken_clean}[18:22 - 21:50]
+Let us define a new function, $f(x)$, which represents the $(n-k)$-dimensional volume of the inner slice $F_x$. Similarly, let $g(x)$ represent the volume of the outer slice $G_x$. 
+
+Because these sets are constructed entirely from a uniform grid of dyadic cubes, the geometry of the vertical slice does not change continuously as you move $x$. As long as your coordinate $x$ remains within the boundaries of a single base pixel $Q_p^k(a)$, the volume of the vertical slice intersecting it remains perfectly constant. 
+
+What does it mean for a function to be piecewise constant across a grid of cubes? It means that $f(x)$ and $g(x)$ are, by definition, dyadic step functions. Additionally, since our entire set is contained within the bounding box, these functions trivially evaluate to zero outside of $[-c, c]^k$. Consequently, we have successfully bounded our continuous problem with adequate step functions, which are exactly the tools we need to approximate the Riemann integral.
+\end{spoken_clean}
+
+\begin{didactic_insight}[The Geometric Leap]
+The professor explicitly bridges the physical drawing of "pixels" to the algebraic definition of a step function. Because $F$ is constructed purely of vertical columns of uniform width $2^{-p}$, moving $x$ horizontally within the boundary of a single column does not change the vertical cross-section $F_x$. Thus, the volume function $f(x)$ is perfectly flat (constant) across that entire base pixel.
+\end{didactic_insight}
+
+\begin{math_stroke}[Step Function Property]
+Define the slice volume functions $f, g: [-c, c]^k \to \mathbb{R}$ as:
+\begin{align*}
+f(x) &:= \mu_{n-k}(F_x) \\
+g(x) &:= \mu_{n-k}(G_x)
+\end{align*}
+Because $F$ and $G$ are finite unions of dyadic cubes, $f(x)$ and $g(x)$ are constant on every base cube $Q_p^k(a)$. Furthermore, $f(x) = g(x) = 0$ outside of $[-c, c]^k$. \\
+$\implies f$ and $g$ are \textbf{dyadic step functions}.
+\end{math_stroke}
+
+% ==========================================
+% SECTION 7: THE COMBINATORIAL COUNTING ARGUMENT
+% ==========================================
+\section{The Combinatorial Counting Argument}
+
+\begin{spoken_clean}[21:50 - 25:30]
+Now, let us integrate these step functions. What is the integral of $f(x) \, dx$ over our base space? 
+
+Because we are operating in the pixelated world of dyadic cubes, integrating the volume of the slices over the base domain degenerates into a simple counting argument! You are merely looking at each column and asking, ``How many pixels are stacked here?'' When you integrate, you are simply summing those discrete columns together to recover the total number of pixels in the entire shape. 
+
+There are no limits here, and no continuous approximation errors. It is pure combinatorics. Therefore, the integral of our inner step function $f(x)$ evaluates exactly to the total $n$-dimensional volume of the inner approximation, $\mu_n(F)$. By identical reasoning, the integral of $g(x)$ evaluates exactly to $\mu_n(G)$.
+\end{spoken_clean}
+
+\begin{ainote}[Board State 7: Integrating the Step Functions]
+He writes the integral of $f(x)$ and $g(x)$ across the base space. He explicitly equates the integral over the base space to the total volumetric measure of the multi-dimensional approximation sets.
+\end{ainote}
+
+\begin{math_stroke}[Combinatorial Integration]
+Because $f$ and $g$ are dyadic step functions, their Riemann integrals are precisely the sum of the volumes of their constituent $n$-dimensional cubes:
+\begin{align*}
+\int_{[-c,c]^k} f(x) \, dx &= \mu_n(F) \\
+\int_{[-c,c]^k} g(x) \, dx &= \mu_n(G)
+\end{align*}
+\end{math_stroke}
+
+\begin{redundant_explanation}[Calculus Becomes Counting]
+This is a beautiful pedagogical moment. The professor demystifies multi-dimensional integration by showing that when dealing with step functions constructed from a uniform grid, the Riemann integral becomes simple addition. You take the volume of a 2D slice, multiply it by the tiny 1D width of the base pixel ($dx$), and you get the 3D volume of that column. Summing them all up gives the total volume.
+\end{redundant_explanation}
+
+% ==========================================
+% SECTION 8: THE CHAIN OF INEQUALITIES
+% ==========================================
+\section{The Chain of Inequalities}
+
+\begin{spoken_clean}[25:30 - 27:30]
+We now rely on our fundamental geometric inclusion. Because the inner approximation $F$ is contained within $A$, which is in turn contained within $G$, this strict nesting applies to every single vertical slice. Thus, $F_x \subset A_x \subset G_x$. 
+
+This geometric nesting forces a strict ordering on the measures of these slices. The measure of the inner slice, $f(x)$, must be less than or equal to the inner measure of $A_x$, which is our lower marginal $\underline{\varphi}(x)$. In turn, the outer measure of $A_x$, which is our upper marginal $\overline{\varphi}(x)$, must be less than or equal to the measure of the outer slice, $g(x)$. 
+
+We have successfully constructed a chain of inequalities for our functions. A foundational property of Riemann integration is that if functions are strictly ordered, their integrals maintain that exact order. We will apply the lower Riemann integral to the lower marginal, and the upper Riemann integral to the upper marginal, preserving the entire inequality chain from end to end.
+\end{spoken_clean}
+
+\begin{ainote}[Board State 8: Establishing the Squeeze]
+The professor moves back to the center board. He uses the geometric inclusion to establish an ordered chain of marginal densities. He then applies the lower and upper Riemann integrals to this chain, drawing a long series of inequalities.
+\end{ainote}
+
+\begin{math_stroke}[Squeezing the Marginals]
+From the inclusion $F \subset A \subset G$, we have for all slices $x$:
+\[
+F_x \subset A_x \subset G_x
+\]
+Taking the respective measures preserves the ordering:
+\[
+\underbrace{\mu_{n-k}(F_x)}_{f(x)} \le \underbrace{\mu_{n-k,\text{in}}(A_x)}_{\underline{\varphi}(x)} \le \underbrace{\mu_{n-k,\text{out}}(A_x)}_{\overline{\varphi}(x)} \le \underbrace{\mu_{n-k}(G_x)}_{g(x)}
+\]
+Integrating across $[-c, c]^k$ preserves the inequality chain:
+\[
+\int f(x) \, dx \le \underline{\int} \underline{\varphi}(x) \, dx \le \overline{\int} \overline{\varphi}(x) \, dx \le \int g(x) \, dx
+\]
+\end{math_stroke}
+
+% ==========================================
+% SECTION 9: CONCLUSION OF CAVALIERI'S PRINCIPLE
+% ==========================================
+\section{Conclusion of the Proof}
+
+\begin{spoken_clean}[27:30 - 30:42]
+Let us substitute the combinatorial volumes we found earlier into the bounding ends of this inequality. We know that the integral of $f(x)$ is exactly $\mu_n(F)$, and the integral of $g(x)$ is exactly $\mu_n(G)$. 
+
+Therefore, our unknown marginal integrals are permanently trapped between the volume of the inner approximation and the volume of the outer approximation. But remember our initial premise! We constructed our pixels specifically such that the difference between the large outer volume and the small inner volume is strictly less than $\varepsilon$. 
+
+What happens as we send $\varepsilon$ to zero? The outer and inner bounds squeeze tightly together. Because the marginal integrals are trapped in the middle, and because they are entirely independent of our arbitrary choice of $\varepsilon$, they are forced to equal the exact same value. 
+
+This simultaneously proves two things: first, because the lower and upper integrals coincide, the marginal functions are definitively Riemann integrable. Second, because they are squeezed between bounds that converge to the true volume of the shape, their integral evaluates exactly to $\mu_n(A)$. And that completes the proof of Cavalieri's Principle.
+\end{spoken_clean}
+
+\begin{ainote}[Board State 9: Substituting and Concluding]
+He substitutes $\mu_n(F)$ and $\mu_n(G)$ into the bounding ends of the integral inequality chain. He circles the $\varepsilon$ condition, shows the bounds collapsing, and writes the final conclusion, boxing the result with a triumphant Q.E.D. mark.
+\end{ainote}
+
+\begin{math_stroke}[The Final Inequality Chain]
+Substituting the known combinatorial integrals:
+\[
+\mu_n(F) \le \underline{\int} \underline{\varphi}(x) \, dx \le \overline{\int} \overline{\varphi}(x) \, dx \le \mu_n(G)
+\]
+We know by our initial choice of dyadic approximations that:
+\[
+\mu_n(G) - \mu_n(F) < \varepsilon
+\]
+\end{math_stroke}
+
+\begin{orangeformula}[Conclusion of Cavalieri's Principle]
+Since the upper and lower integrals of the marginal functions are squeezed between $\mu_n(F)$ and $\mu_n(G)$ for any $\varepsilon > 0$, and the length of that interval vanishes as $\varepsilon \to 0$, we conclude:
+\[
+\int_{[-c,c]^k} \underline{\varphi}(x) \, dx = \int_{[-c,c]^k} \overline{\varphi}(x) \, dx = \mu_n(A)
+\]
+Therefore, $\underline{\varphi}$ and $\overline{\varphi}$ are Riemann integrable, completing the proof. $\blacksquare$
+\end{orangeformula}
+
+\begin{meta_note}[End of Segment]
+The lecture video segment concludes precisely here at 30:42 with the completion of Cavalieri's Principle for sets.
+\end{meta_note}
