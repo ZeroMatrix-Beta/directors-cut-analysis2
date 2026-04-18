@@ -94,14 +94,14 @@ A_x = \{ y \in \mathbb{R}^{n-k} \mid (x,y) \in A \}
 
 To bypass slices that are not Jordan measurable, we define the \textbf{marginal densities}:
 \begin{align*}
-\overline{\Phi}(x) &= \mu_{n-k}^{\text{out}}(A_x) \quad (\text{Upper Marginal}) \\
-\underline{\Phi}(x) &= \mu_{n-k}^{\text{in}}(A_x) \quad (\text{Lower Marginal})
+\overline{\varphi}(x) &= \mu_{n-k}^{\text{out}}(A_x) \quad (\text{Upper Marginal}) \\
+\underline{\varphi}(x) &= \mu_{n-k}^{\text{in}}(A_x) \quad (\text{Lower Marginal})
 \end{align*}
 
 \begin{orangeformula}[Cavalieri's Principle]
 Both marginal functions are Riemann integrable over $x$, and their integrals yield the total volume of $A$:
 \[
-\int \overline{\Phi}(x) \, dx = \int \underline{\Phi}(x) \, dx = \mu_n(A)
+\int \overline{\varphi}(x) \, dx = \int \underline{\varphi}(x) \, dx = \mu_n(A)
 \]
 \end{orangeformula}
 
@@ -153,13 +153,13 @@ The professor illustrates the inner ($F$) and outer ($G$) approximations. He not
 \end{tikzpicture}
 \end{center}
 
-\textbf{Proof Logic (Redundant Mathematical Breakdown):}
+\textbf{Explanation of Steps (Proof Logic):}
 1. $A$ is sandwiched: $F \subset A \subset G$.
 2. This forces the slices to be sandwiched: $F_x \subset A_x \subset G_x$.
 3. Taking the measure of the slices: 
-   \[ \mu(F_x) \le \underline{\Phi}(x) \le \overline{\Phi}(x) \le \mu(G_x) \]
+   \[ \mu(F_x) \le \underline{\varphi}(x) \le \overline{\varphi}(x) \le \mu(G_x) \]
 4. Integrating the step functions $\mu(F_x)$ and $\mu(G_x)$ over the base $dx$ simply counts the total number of pixels in $F$ and $G$. Thus:
-   \[ \Vol(F) \le \int \underline{\Phi}(x) dx \le \int \overline{\Phi}(x) dx \le \Vol(G) \]
+   \[ \Vol(F) \le \int \underline{\varphi}(x) dx \le \int \overline{\varphi}(x) dx \le \Vol(G) \]
 5. Since we chose our grid such that $\Vol(G) - \Vol(F) < \epsilon$, as $\epsilon \to 0$, the outer and inner pixel volumes squeeze the marginal integrals perfectly to $\Vol(A)$.
 
 % ==========================================

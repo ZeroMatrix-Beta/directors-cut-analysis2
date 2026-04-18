@@ -31,7 +31,7 @@ The Parameter Domain $D$:
 D = \underbrace{(0,1)}_{\text{Radius } y_1} \times \underbrace{(0, 2\pi)}_{\text{Angle } y_2} \implies \Psi: D \to B_1
 \]
 
-\textbf{Redundant Explanation of Step:}
+\textbf{Explanation of Steps:}
 We are transitioning from Cartesian coordinates $(x_1, x_2)$ to polar coordinates $(y_1, y_2)$. The domain $D$ is strictly an \textit{open} rectangle. This strict open boundary guarantees that $\Psi$ remains a proper diffeomorphism (bijective and smooth), as including $y_1 = 0$ (the origin) or $y_2 = 0, 2\pi$ (the overlapping seam) would break the bijection.
 
 \begin{spoken_clean}[00:18:37 - 00:20:17]
@@ -101,11 +101,11 @@ J\Psi(y_1, y_2) = \begin{pmatrix}
 \begin{align*}
 \det J\Psi &= \big(\cos(y_2) \cdot y_1 \cos(y_2)\big) - \big(-y_1 \sin(y_2) \cdot \sin(y_2)\big) \\
 &= y_1 \cos^2(y_2) + y_1 \sin^2(y_2) \\
-&= y_1 \underbrace{(\cos^2(y_2) + \sin^2(y_2))}_{=1 \text{ (Axiom)}} \\
+&= y_1 \underbrace{(\cos^2(y_2) + \sin^2(y_2))}_{=1 \text{ (Pythagorean identity)}} \\
 &= y_1
 \end{align*}
 
-\textbf{Redundant Explanation of Step:}
+\textbf{Explanation of Steps:}
 The Jacobian determinant tells us exactly how much a tiny square of parameter space $dy_1 dy_2$ is stretched when it is mapped into the disk. Because the determinant is $y_1$, it means the "stretching" scales linearly with the radius. Grids near the outer edge of the circle are stretched much larger than grids near the origin.
 
 \begin{spoken_clean}[00:22:55 - 00:26:33]
@@ -163,7 +163,7 @@ The professor completes the proof not with calculus, but by drawing a 3D boundin
 \end{tikzpicture}
 \end{center}
 
-\textbf{Redundant Explanation of Step:}
+\textbf{Explanation of Steps:}
 By interpreting the integral physically, we see the function $y_1$ creates a wedge. Because the wedge is a perfect diagonal bisection of a rectangular prism, we can compute its volume using simple geometry instead of advanced integration rules.
 \[
 \mu_2(B_1) = \frac{1}{2} \Vol(\text{Bounding Box}) = \frac{1}{2} \big(1 \cdot 2\pi \cdot 1\big) = \pi
@@ -217,7 +217,7 @@ x_2 &= y_1 \sin(y_2) \underbrace{\cos(y_3)}_{\text{Corrected}} \label{eq:correct
 x_3 &= y_1 \underbrace{\sin(y_3)}_{\text{Corrected}} \nonumber
 \end{align}
 
-\textbf{Redundant Explanation of Step:}
+\textbf{Explanation of Steps:}
 By setting $x_3 = y_1 \sin(y_3)$, we ensure that when the elevation angle $y_3 = 0$, our height $x_3$ is $0$ (putting us on the equator). When $y_3 = \pi/2$, $\sin(\pi/2) = 1$, putting us exactly at the North Pole $x_3 = y_1$.
 
 The parameter domain $D$ is formally defined as:

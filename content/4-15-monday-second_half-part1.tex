@@ -6,10 +6,10 @@
 \textit{Segment: 00:00 -- 15:15}
 
 
-\begin{meta_note}[Previous Board State]
-As the video begins, there is a pre-existing formula on the left blackboard from the previous session:
-$\mu_3(B^3_1) = \mu_3(\Psi(D)) = \int_{(0,1) \times (0,2\pi) \times (\frac{\pi}{2}, \pi)} y_1^2 \cos y_3 \, dy = \dots$ with the words ``Slicing idea'' written above it. On the right board, the heading ``Cavalieri principle'' is written alongside a 3D sketch of a body $A \subset \mathbb{R}^3$ being sliced into parallel disks, with the formula: $\text{volume}(A) = \sum_{\text{all slices}} \dots$ 
-\end{meta_note}
+% \begin{meta_note}[Previous Board State]
+% As the video begins, there is a pre-existing formula on the left blackboard from the previous session:
+% $\mu_3(B^3_1) = \mu_3(\Psi(D)) = \int_{(0,1) \times (0,2\pi) \times (\frac{\pi}{2}, \pi)} y_1^2 \cos y_3 \, dy = \dots$ with the words ``Slicing idea'' written above it. On the right board, the heading ``Cavalieri principle'' is written alongside a 3D sketch of a body $A \subset \mathbb{R}^3$ being sliced into parallel disks, with the formula: $\text{volume}(A) = \sum_{\text{all slices}} \dots$ 
+% \end{meta_note}
 
 % ==========================================
 % SECTION 1: GEOMETRIC SETUP OF CAVALIERI'S PRINCIPLE
@@ -25,10 +25,6 @@ Let me do a drawing of the measure space. We have our set $A$, right, that is co
 
 Okay, now we are saying that our set is contained in some bounding box. It is a very large box, going from $-c$ to $c$. Now, let's look inside this box. If we pick some point $x$ here on the X-axis, I will consider the slice. The relevant piece of the set is this vertical slice over here, right? This is what I am calling $A_x$. The set $A_x$ will be the projection of this slice onto the vertical axis.
 \end{spoken_clean}
-
-\begin{nice-box}[Board State 1: The Potato and the Slice]
-The professor moves to a clean section of the left board. He draws a large, smooth, blob-like shape (the ``potato'') and labels it $A$. He draws the Cartesian coordinate axes, explicitly defining the X-axis as $\mathbb{R}^k$ and the Y-axis as $\mathbb{R}^{n-k}$. He draws a dashed bounding box around $A$. He then picks a specific point $x$ on the horizontal axis, draws a vertical line segment exactly through $A$, and projects that 1D slice onto the Y-axis, labeling it $A_x$.
-\end{nice-box}
 
 \begin{math_stroke}[Geometric Visualization Setup]
 \begin{center}
@@ -71,10 +67,6 @@ Because we know the entire set $A$ is Jordan measurable, we might hope the slice
 The measure from the inside and the outside of the set is always well-defined, and this defines the functions $\overline{\varphi}(x)$ and $\underline{\varphi}(x)$, right? So this is the setup.
 \end{spoken_clean}
 
-\begin{nice-box}[Board State 2: Formalizing the Slices]
-The professor moves to the right board to formalize the geometric picture into strict mathematical notation. He writes the definition of the slice $A_x$ and the upper/lower marginal densities.
-\end{nice-box}
-
 \begin{math_stroke}[Formal Definition of the Slice and Marginals]
 Let $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$, with coordinates $(x,y) \in \mathbb{R}^n$. \\
 Let $A \subset \mathbb{R}^n$ be Jordan measurable, with $A \subset (-c, c)^n$. \\
@@ -89,9 +81,8 @@ We define the upper and lower marginal densities $\overline{\varphi}, \underline
 \end{align*}
 \end{math_stroke}
 
-\begin{redundant_explanation}[Inner and Outer Guarantees]
+\textbf{Explanation of Steps (Inner and Outer Guarantees):} \\
 Even if a solid body $A$ is perfectly measurable, a specific 1D slice could theoretically intersect a fractal boundary or a cloud of points, making that exact slice non-measurable. To bypass this entirely, the professor rigorously defines the marginals using the universally safe inner and outer measures.
-\end{redundant_explanation}
 
 % ==========================================
 % SECTION 2: THE THEOREM STATEMENT
@@ -129,10 +120,6 @@ The difference between these two is less than epsilon. We can make the volume of
 
 Now we will see what happens when we take a slice of this pixelated set. Let's say we take $x$ and we slice, right? What we see is that the slice of $A$ contains the slice of the yellow, which is contained in the slice of the red. And when you start to move $x$, whenever you move $x$ less than the size of the pixel, you are not jumping to a new cube!
 \end{spoken_clean}
-
-\begin{nice-box}[Board State 3: The Pixelated Sandwich]
-The professor moves to a new board. He redraws the smooth blob $A$. Using yellow chalk, he meticulously draws a jagged, pixelated boundary entirely inside $A$ (the inner approximation $F$). Using red chalk, he draws a larger pixelated boundary entirely enclosing $A$ (the outer approximation $G$). He draws a vertical line to show how the 1D slice of $F$ is a subset of the slice of $A$, which is a subset of the slice of $G$.
-\end{nice-box}
 
 \begin{math_stroke}[Geometric Proof Setup: Inner and Outer Approximations]
 \begin{center}
@@ -172,10 +159,6 @@ Now, if $z$ is of the form $(a,b)$ where $a \in \mathbb{R}^k$ and $b \in \mathbb
 So I am saying something very complicated to write, but very trivial geometrically. On the picture, I am saying that the $n$-dimensional cube over here is always the product of a base cube over here times the vertical cube over there!
 \end{spoken_clean}
 
-\begin{nice-box}[Board State 4: Formalizing the Dyadic Cubes]
-The professor moves to the far right board to set up the rigorous notation for the dyadic cubes (the ``pixels''). He shows how an $n$-dimensional cube factors smoothly into a Cartesian product of a $k$-dimensional cube and an $(n-k)$-dimensional cube, matching the $X$ and $Y$ axis splitting perfectly.
-\end{nice-box}
-
 \begin{math_stroke}[Dyadic Cube Definitions]
 A dyadic cube of side length $2^{-p}$ in $\mathbb{R}^n$ anchored at $z$ is defined as:
 \[
@@ -190,6 +173,11 @@ Where, generally for any dimension $m$:
 Q_p^m(i) = i + 2^{-p}[0, 1)^m \subset \mathbb{R}^m
 \]
 \end{math_stroke}
+
+\textbf{Explanation of Steps (The LEGO Analogy \& Factoring Cubes):} \\
+The geometric idea here is simple despite the rigorous notation. Imagine building a replica of the shape entirely out of LEGO bricks (``dyadic cubes''). If you slice this LEGO shape vertically at position $x$, the cross-section does not change at all as long as your slice stays within the width of that specific column of bricks. It only jumps to a new value when $x$ crosses into the next column. This is why the marginal densities become \textit{step functions}. 
+
+Mathematically, the formula $Q_p^n(z) = Q_p^k(a) \times Q_p^{n-k}(b)$ proves that an $n$-dimensional brick is constructed simply by taking a $k$-dimensional base square on the floor, and extruding it upwards along an $(n-k)$-dimensional vertical line. This factorization is what rigorously justifies isolating the variables to integrate them one dimension at a time.
 
 \begin{didactic_insight}[Calculus via Combinatorics]
 By replacing the continuous, smooth curve with a grid of literal squares (dyadic cubes), the nasty continuous calculus problem drops away. As long as your $x$-coordinate stays within the width of a single vertical column of squares, the vertical slice does not change its length. It is piecewise constant. A terrifying integration problem becomes the simple integration of a step function!
