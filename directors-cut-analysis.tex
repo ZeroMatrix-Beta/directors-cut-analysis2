@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper]{report}
 
 % ==========================================
 % NEW ELEGANT PREAMBLE
@@ -28,6 +28,11 @@
 \usetikzlibrary{calc, arrows.meta, positioning, shapes.geometric, decorations.pathreplacing, patterns}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
+
+% ==========================================
+% CUSTOM CHAPTER & SECTION FORMATTING
+% ==========================================
+\usepackage{titlesec}
 
 % Refined "Modern Academic" Color Palette
 \definecolor{profwhite}{RGB}{255, 255, 255}
@@ -63,7 +68,7 @@
     title={\sffamily\bfseries\textcolor{profblue}{Cleaned Spoken Protocol [Time: #1]}},
     attach title to upper=\par\vspace{1ex},
     breakable,
-    fontupper=\itshape
+    %fontupper=\itshape
 }
 
 % 2. AI Stroke-by-Stroke Note
@@ -135,6 +140,40 @@
     attach title to upper=\par\vspace{1ex},
     breakable
 }
+
+
+
+
+% ==========================================
+% CUSTOM CHAPTER & SECTION FORMATTING
+% ==========================================
+
+
+% ==========================================
+% CUSTOM CHAPTER & SECTION FORMATTING
+% ==========================================
+\usepackage{titlesec}
+
+% --- Chapter Formatting ---
+% Removes the massive default whitespace at the top of the page
+\titlespacing*{\chapter}{0pt}{-20pt}{40pt}
+
+% Redesigns the chapter header (Elegant, right-aligned, with stable rules)
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\Huge\bfseries\color{profblue!90!black}}
+  {\raggedleft\Large\color{profgray}\MakeUppercase{\chaptertitlename}\ \thechapter}
+  {1ex}
+  {\rule{\textwidth}{1.5pt}\vspace{2ex}\raggedleft}
+  [\vspace{1ex}\rule{\textwidth}{1.5pt}]
+
+% --- Section Formatting ---
+\titleformat{\section}
+  {\normalfont\sffamily\Large\bfseries\color{profblue}}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\sffamily\large\bfseries\color{proforange}}
+  {\thesubsection}{1em}{}
 
 \begin{document}
 
