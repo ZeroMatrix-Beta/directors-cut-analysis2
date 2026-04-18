@@ -1,0 +1,89 @@
+\section{Example: The Gaussian Integral}
+
+\begin{nice-box}[Board State \& Problem Setup: Evaluating the Gaussian Integral]
+The professor moves to a fresh blackboard to provide a capstone example. This problem combines the new theory of improper integrals, Fubini's theorem, and the Change of Variables formula.
+
+\begin{exercise}[The Gaussian Integral]
+Compute the integral over the entirety of $\mathbb{R}^2$ of the 2D Gaussian function:
+\[
+\int_{\mathbb{R}^2} e^{-x^2-y^2} \, dx \, dy
+\]
+\end{exercise}
+\end{nice-box}
+
+\begin{proof}[Step-by-Step Evaluation of the Gaussian Integral]
+
+\textbf{Step 1: Exhausting $\mathbb{R}^2$ with Expanding Balls}
+\begin{spoken_clean}[16:58 - 19:22]
+Now, we will do a practical example so that you see exactly what I mean by exhausting an open set. I will do an example to practice both improper integrals and the change of variables formula. Let us compute the integral over $\mathbb{R}^2$ of the function $e^{-x^2 - y^2}$. 
+
+This is an improper integral because $\mathbb{R}^2$ is an open set; it is not a compact set. However, the function $e^{-x^2 - y^2}$ is strictly positive everywhere. Therefore, we can safely apply our new definition for non-negative functions. How will we exhaust $\mathbb{R}^2$? I will exhaust it by taking a sequence of expanding balls. We will take the limit as $R$ goes to infinity of the integral over the ball of radius $R$, centered at zero, of this function. This sequence of nested balls clearly exhausts the entire space.
+\end{spoken_clean}
+
+\begin{math_stroke}[Exhaustion by Expanding Balls]
+Because the integrand is non-negative, we apply the sequential evaluation property, exhausting $\mathbb{R}^2$ using closed balls $B_R(0)$:
+\[
+\int_{\mathbb{R}^2} e^{-x^2-y^2} \, dx \, dy = \underbrace{\lim_{R \to \infty} \int_{B_R(0)} e^{-x^2-y^2} \, dx \, dy}_{\text{``limit as } R \text{ goes to infinity over the ball of radius } R \text{''}}
+\]
+\end{math_stroke}
+
+\textbf{Step 2: Transforming to Polar Coordinates}
+\begin{spoken_clean}[19:22 - 24:00]
+Now, how do I actually compute this integral over the ball? I will use a change of variables, specifically polar coordinates. As we saw before, $x^2 + y^2$ becomes $r^2$. The Jacobian determinant of this transformation gives me an extra factor of $r$. The limits of integration for the angle $\phi$ are $0$ to $2\pi$, and for the radius $r$, from $0$ up to $R$. 
+
+We can then apply Fubini's corollary to evaluate it iteratively. The integral with respect to $\phi$ is trivial and just gives $2\pi$. What is the primitive of $r e^{-r^2}$? It is simply $-\frac{1}{2} e^{-r^2}$. Evaluating this primitive from $0$ to $R$, we plug in the boundaries and obtain exactly $\pi(1 - e^{-R^2})$.
+\end{spoken_clean}
+
+\begin{math_stroke}[Polar Coordinates and Fubini's Theorem]
+Applying the polar substitution $x = r\cos\phi$, $y = r\sin\phi$ with the Jacobian volume scaling factor $|\det J| = r$:
+\[
+\int_{B_R(0)} e^{-x^2-y^2} \, dx \, dy = \int_0^{2\pi} \int_0^R \underbrace{e^{-r^2}}_{\text{``becomes } r^2 \text{''}} \underbrace{r}_{\text{``extra factor of } r \text{''}} \, dr \, d\phi
+\]
+Using Fubini's theorem to separate the variables and evaluate the iterated integral:
+\[
+= \underbrace{\left( \int_0^{2\pi} 1 \, d\phi \right)}_{\text{``just gives } 2\pi \text{''}} \left( \int_0^R r e^{-r^2} \, dr \right) = 2\pi \underbrace{\left[ -\frac{1}{2} e^{-r^2} \right]_0^R}_{\text{``evaluating this primitive from } 0 \text{ to } R \text{''}} 
+\]
+\[
+= 2\pi \left( -\frac{1}{2} e^{-R^2} - \left(-\frac{1}{2}\right) \right) = \underbrace{\pi (1 - e^{-R^2})}_{\text{``we obtain exactly this''}}
+\]
+\end{math_stroke}
+
+\textbf{Step 3: Taking the Limit to Infinity}
+\begin{spoken_clean}[24:00 - 25:00]
+Finally, we must take the limit as our radius $R$ goes to infinity. As $R$ becomes infinitely large, the term $e^{-R^2}$ decays to $0$, leaving us with exactly $\pi$. So, the improper integral over all of $\mathbb{R}^2$ for this Gaussian function is simply $\pi$.
+\end{spoken_clean}
+
+\begin{math_stroke}[Evaluating the Limit]
+\[
+\lim_{R \to \infty} \pi (1 - \underbrace{e^{-R^2}}_{\text{``decays to } 0 \text{''}}) = \pi (1 - 0) = \underbrace{\pi}_{\text{``integral over all of } \mathbb{R}^2 \text{''}}
+\]
+\end{math_stroke}
+
+\textbf{Step 4: The 1D Gaussian Integral (Exhausting by Squares)}
+\begin{spoken_clean}[25:00 - 29:00]
+But wait! Because the value of an improper integral is completely independent of the sequence of compact sets we choose to exhaust the space, we can exhaust $\mathbb{R}^2$ in another way. Let us exhaust it by squares instead of balls! We define our sequence of expanding squares as $K_R = [-R, R] \times [-R, R]$. Because the sequence doesn't matter, the limit as $R$ goes to infinity over these expanding squares must also evaluate to exactly $\pi$. 
+
+Notice that our function $e^{-x^2 - y^2}$ can be split into $e^{-x^2} e^{-y^2}$. Using Fubini's theorem, we can split this two-dimensional integral over the square into the product of two identical, independent one-dimensional integrals. This gives us the square of the integral from $-R$ to $R$ of $e^{-x^2}$. Taking the limit as $R$ goes to infinity, we find that the integral from $-\infty$ to $\infty$ of $e^{-x^2}$ squared is $\pi$. Therefore, taking the square root, the one-dimensional integral is exactly $\sqrt{\pi}$. This is the famous Gaussian integral, which you will see absolutely everywhere in probability!
+\end{spoken_clean}
+
+\begin{math_stroke}[Exhaustion by Squares and Algebraic Factoring]
+By the topological independence of the exhausting sequence, we evaluate the same improper integral using squares $K_R = [-R, R]^2$:
+\[
+\lim_{R \to \infty} \int_{[-R,R]^2} e^{-x^2-y^2} \, dx \, dy = \pi
+\]
+Using Fubini's theorem to cleanly factor the separable integrand across the rectangular domain:
+\[
+\int_{-R}^R \int_{-R}^R \underbrace{e^{-x^2} e^{-y^2}}_{\text{``split into...''}} \, dx \, dy = \left( \int_{-R}^R e^{-x^2} \, dx \right) \left( \int_{-R}^R e^{-y^2} \, dy \right) = \underbrace{\left( \int_{-R}^R e^{-x^2} \, dx \right)^2}_{\text{``the square of the integral''}}
+\]
+Equating the limits to our known 2D volume yields the standard 1D Gaussian integral:
+\[
+\left( \int_{-\infty}^\infty e^{-x^2} \, dx \right)^2 = \pi \implies \underbrace{\int_{-\infty}^\infty e^{-x^2} \, dx = \sqrt{\pi}}_{\text{``the famous Gaussian integral''}}
+\]
+\end{math_stroke}
+\end{proof}
+
+\begin{meta_note}[End of Lecture]
+The professor steps back from the board, satisfied with the final proof.
+"Okay, so I think this is a good place to stop. Tomorrow we will have an exercise session... Have a nice afternoon."
+The students begin packing their bags, and the lecture formally concludes at 29:21.
+\end{meta_note}
