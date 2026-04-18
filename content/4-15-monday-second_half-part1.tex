@@ -26,9 +26,9 @@ Let me do a drawing of the measure space. We have our set $A$, right, that is co
 Okay, now we are saying that our set is contained in some bounding box. It is a very large box, going from $-c$ to $c$. Now, let's look inside this box. If we pick some point $x$ here on the X-axis, I will consider the slice. The relevant piece of the set is this vertical slice over here, right? This is what I am calling $A_x$. The set $A_x$ will be the projection of this slice onto the vertical axis.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 1: The Potato and the Slice]
+\begin{nice-box}[Board State 1: The Potato and the Slice]
 The professor moves to a clean section of the left board. He draws a large, smooth, blob-like shape (the ``potato'') and labels it $A$. He draws the Cartesian coordinate axes, explicitly defining the X-axis as $\mathbb{R}^k$ and the Y-axis as $\mathbb{R}^{n-k}$. He draws a dashed bounding box around $A$. He then picks a specific point $x$ on the horizontal axis, draws a vertical line segment exactly through $A$, and projects that 1D slice onto the Y-axis, labeling it $A_x$.
-\end{ainote}
+\end{nice-box}
 
 \begin{math_stroke}[Geometric Visualization Setup]
 \begin{center}
@@ -71,9 +71,9 @@ Because we know the entire set $A$ is Jordan measurable, we might hope the slice
 The measure from the inside and the outside of the set is always well-defined, and this defines the functions $\overline{\varphi}(x)$ and $\underline{\varphi}(x)$, right? So this is the setup.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 2: Formalizing the Slices]
+\begin{nice-box}[Board State 2: Formalizing the Slices]
 The professor moves to the right board to formalize the geometric picture into strict mathematical notation. He writes the definition of the slice $A_x$ and the upper/lower marginal densities.
-\end{ainote}
+\end{nice-box}
 
 \begin{math_stroke}[Formal Definition of the Slice and Marginals]
 Let $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$, with coordinates $(x,y) \in \mathbb{R}^n$. \\
@@ -130,9 +130,9 @@ The difference between these two is less than epsilon. We can make the volume of
 Now we will see what happens when we take a slice of this pixelated set. Let's say we take $x$ and we slice, right? What we see is that the slice of $A$ contains the slice of the yellow, which is contained in the slice of the red. And when you start to move $x$, whenever you move $x$ less than the size of the pixel, you are not jumping to a new cube!
 \end{spoken_clean}
 
-\begin{ainote}[Board State 3: The Pixelated Sandwich]
+\begin{nice-box}[Board State 3: The Pixelated Sandwich]
 The professor moves to a new board. He redraws the smooth blob $A$. Using yellow chalk, he meticulously draws a jagged, pixelated boundary entirely inside $A$ (the inner approximation $F$). Using red chalk, he draws a larger pixelated boundary entirely enclosing $A$ (the outer approximation $G$). He draws a vertical line to show how the 1D slice of $F$ is a subset of the slice of $A$, which is a subset of the slice of $G$.
-\end{ainote}
+\end{nice-box}
 
 \begin{math_stroke}[Geometric Proof Setup: Inner and Outer Approximations]
 \begin{center}
@@ -172,9 +172,9 @@ Now, if $z$ is of the form $(a,b)$ where $a \in \mathbb{R}^k$ and $b \in \mathbb
 So I am saying something very complicated to write, but very trivial geometrically. On the picture, I am saying that the $n$-dimensional cube over here is always the product of a base cube over here times the vertical cube over there!
 \end{spoken_clean}
 
-\begin{ainote}[Board State 4: Formalizing the Dyadic Cubes]
+\begin{nice-box}[Board State 4: Formalizing the Dyadic Cubes]
 The professor moves to the far right board to set up the rigorous notation for the dyadic cubes (the ``pixels''). He shows how an $n$-dimensional cube factors smoothly into a Cartesian product of a $k$-dimensional cube and an $(n-k)$-dimensional cube, matching the $X$ and $Y$ axis splitting perfectly.
-\end{ainote}
+\end{nice-box}
 
 \begin{math_stroke}[Dyadic Cube Definitions]
 A dyadic cube of side length $2^{-p}$ in $\mathbb{R}^n$ anchored at $z$ is defined as:
@@ -194,4 +194,3 @@ Q_p^m(i) = i + 2^{-p}[0, 1)^m \subset \mathbb{R}^m
 \begin{didactic_insight}[Calculus via Combinatorics]
 By replacing the continuous, smooth curve with a grid of literal squares (dyadic cubes), the nasty continuous calculus problem drops away. As long as your $x$-coordinate stays within the width of a single vertical column of squares, the vertical slice does not change its length. It is piecewise constant. A terrifying integration problem becomes the simple integration of a step function!
 \end{didactic_insight}
-

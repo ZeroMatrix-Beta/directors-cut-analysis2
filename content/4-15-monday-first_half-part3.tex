@@ -1,10 +1,3 @@
-\chapter{Hyper-Detailed Pedagogical Blueprint \\ Real Analysis: Change of Variables \& Rigorous Foundations (Part 3)}
-
-\emph{Director's Cut \& AI Extraction Protocol}
-
-\textit{First Half: 32:00 -- End}
-
-
 \setcounter{section}{4} % Continuing from Volume of the 3D Unit Ball
 
 % ==========================================
@@ -20,11 +13,10 @@ In the end, the determinant of the Jacobian evaluates to $y_1^2 \cos(y_3)$. Noti
 Using our Change of Variables formula, the volume of the unit ball in $\mathbb{R}^3$ is equal to the integral over our rectangular parameter domain $D$.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 13: Finalizing the 3D Integral]
+\begin{nice-box}[Board State 13: Finalizing the 3D Integral]
 The professor skips the brute-force matrix algebra, writes the final Jacobian determinant, and constructs the triple integral on the board.
-\end{ainote}
+\end{nice-box}
 
-\textbf{Mathematical Setup (Stroke-by-Stroke):}
 The Jacobian determinant simplifies to:
 \[
 \det J\Psi = y_1^2 \cos(y_3)
@@ -51,9 +43,9 @@ Let me motivate the slicing idea informally. The Cavalieri Principle states that
 Imagine a potato. If you take a potato and cut a very thin vertical slice, that slice is almost perfectly uniform from its front face to its back face. You can approximate the volume of that single slice by multiplying its cross-sectional area by its tiny thickness. If you sum the volumes of all these slices, the total volume of the potato is perfectly preserved.
 \end{spoken_clean}
 
-\begin{ainote}[TikZ: The Potato Analogy]
+\begin{nice-box}[TikZ: The Potato Analogy]
 The professor draws a 3D blob (a potato) and highlights a single, thin vertical slice to illustrate the concept of $V \approx \sum A(x) \Delta x$.
-\end{ainote}
+\end{nice-box}
 
 \begin{center}
 \begin{tikzpicture}[scale=1.2]
@@ -86,11 +78,10 @@ Let $A \subset \mathbb{R}^n$ be a Jordan measurable set. For a specific base poi
 Here is the technical hurdle: Just because $A$ is Jordan measurable in $\mathbb{R}^n$ does not guarantee that the slice $A_x$ is Jordan measurable in the lower-dimensional space $\mathbb{R}^{n-k}$. But we don't care! The outer measure and inner measure are *always* well-defined for any bounded set. So, we define the upper marginal density $\overline{\Phi}(x)$ using the outer measure, and the lower marginal density $\underline{\Phi}(x)$ using the inner measure.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 14: Formalizing the Slices]
+\begin{nice-box}[Board State 14: Formalizing the Slices]
 The professor writes down the formal set notation for slices and explicitly addresses the "non-measurable slice" edge case using inner/outer measures.
-\end{ainote}
+\end{nice-box}
 
-\textbf{Mathematical Setup (Stroke-by-Stroke):}
 Split the space: $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$. A point is $(x,y)$.
 Let $A \subset \mathbb{R}^n$ be Jordan measurable.
 
@@ -131,9 +122,9 @@ For any $\epsilon > 0$, we can find an inner approximation $F$ (made entirely of
 Because these sets are built from perfect cubes aligned to a grid, what happens when we slice them? As long as our base point $x$ stays within the same column of the grid, the slice of $F$ or $G$ cannot change! Therefore, the measures of these slices, $\mu(F_x)$ and $\mu(G_x)$, are just dyadic step functions. 
 \end{spoken_clean}
 
-\begin{ainote}[TikZ: The Dyadic Pixel Proof]
+\begin{nice-box}[TikZ: The Dyadic Pixel Proof]
 The professor illustrates the inner ($F$) and outer ($G$) approximations. He notes that integrating a dyadic step function is just combinatorics—counting the total number of pixels.
-\end{ainote}
+\end{nice-box}
 
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
@@ -193,4 +184,3 @@ The proof is identical. In fact, remember that the integral of a function is jus
 \begin{didactic_insight}[The Grand Finale]
 The entire lecture culminates here. The 2D disk trick (where the function $x_3 = y_1$ created a wedge) was a manual, geometric application of Fubini's theorem! The professor used a visual trick to solve the integral before proving the theorem that justifies it, completing the pedagogical loop.
 \end{didactic_insight}
-

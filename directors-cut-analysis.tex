@@ -97,19 +97,6 @@
     %fontupper=\itshape
 }
 
-% 2. AI Stroke-by-Stroke Note
-\newtcolorbox{ainote}[1][]{
-    enhanced,
-    colback=bglight,
-    colframe=gray!40,
-    boxrule=0.5pt,
-    drop fuzzy shadow,
-    title={\sffamily\bfseries Board State \& Physical Actions: #1},
-    coltitle=black,
-    attach boxed title to top left={xshift=10pt, yshift=-10pt},
-    boxed title style={colback=gray!20, colframe=white, boxrule=0pt},
-    breakable
-}
 
 % 2. AI Stroke-by-Stroke Note
 \newtcolorbox{nice-box}[1][]{
@@ -182,7 +169,19 @@
 }
 
 
-
+% 4. Semantic Formula Box
+\newtcolorbox{ainote}[1][ainote:]{
+    enhanced,
+    colback=profwhite,
+    colframe=proforange,
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=proforange!30
+}
 
 % ==========================================
 % CUSTOM CHAPTER & SECTION FORMATTING
@@ -229,9 +228,8 @@
 \include{content/4-15-wednesday-first_half-part2.tex}
 \include{content/4-15-wednesday-first_half-part3.tex}
 
-
-\include{content/4-15-wednesday-second-half-part-1.tex}
-\include{content/4-15-wednesday-first_half-part2.tex}
+\include{content/4-16-wednesday-second-half-part-1.tex}
+\include{content/4-16-wednesday-second-half-part2.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}

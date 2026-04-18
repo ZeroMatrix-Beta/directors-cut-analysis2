@@ -1,4 +1,4 @@
-\chapter{Monday, April 15th: Hyper-Detailed Pedagogical Blueprint \\ Real Analysis: Change of Variables \& Rigorous Foundations}
+\chapter{Real Analysis: Change of Variables \& Rigorous Foundations}
 
 \emph{Director's Cut \& AI Extraction Protocol}
 
@@ -20,11 +20,10 @@ I hope you all had a great holiday and have recovered from the first half of the
 As always, we begin with our domain $U \subset \mathbb{R}^n$. We apply a diffeomorphism—which we call $\Phi$—that maps $U$ to another domain $V$. 
 \end{spoken_clean}
 
-\begin{ainote}[Board State 1: The Diffeomorphism]
+\begin{nice-box}[Board State 1: The Diffeomorphism]
 The professor writes the title "Change of vars." and begins defining the mathematical environment on the far left board. He writes the mapping $U \to V$ and explicitly writes "diffeo" in orange chalk beneath the arrow.
-\end{ainote}
+\end{nice-box}
 
-\textbf{Mathematical Setup (Stroke-by-Stroke):}
 Let $U, V \subset \mathbb{R}^n$. We define the mapping between these spaces:
 \[
 U \xrightarrow[\text{\textcolor{proforange}{diffeo}}]{\Phi} V
@@ -54,11 +53,10 @@ We establish a transformation $\Phi$ mapping a domain $U$ to a codomain $V$. The
 We then consider a Jordan measurable set $A \subset \mathbb{R}^n$, with the strict condition that its closure, $\overline{A}$, must be entirely contained within the domain $U$ of our diffeomorphism. Next, we need a continuous function to integrate. We define a function $f$ mapping from the closure $\overline{A}$ to the real numbers $\mathbb{R}$.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 2: Domain Correction]
+\begin{nice-box}[Board State 2: Domain Correction]
 The professor writes $A \subset \mathbb{R}^n$ J. m. st. $\overline{A} \subset U$. When defining the function $f$, he initially says "from $U$ or from $A$ to $\mathbb{R}$", but immediately catches his imprecision and writes $\overline{A} \to \mathbb{R}$ continuous.
-\end{ainote}
+\end{nice-box}
 
-\textbf{Mathematical Setup (Continued):}
 We restrict our attention to a specific subset of $U$:
 \[
 A \subset \mathbb{R}^n \text{ is Jordan measurable, such that } \overline{A} \subset U
@@ -80,9 +78,9 @@ Why the closure $\overline{A}$? By requiring the \textit{closure} of $A$ to be s
 With this setup, the theorem states that the integral of $f(x)$ over the region $A$ is equivalent to the integral evaluated over the mapped image, $\Phi(A)$. However, to calculate this, we must evaluate our function $f$ at the pre-image, $\Phi^{-1}(y)$. Furthermore, the differential element $dy$ must be corrected by the distortion of the volume, which is exactly the absolute value of the determinant of the Jacobian of $\Phi$, evaluated at $\Phi^{-1}(y)$.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 3: The Clunky Formula]
+\begin{nice-box}[Board State 3: The Clunky Formula]
 The professor writes out the full Change of Variables formula exactly as it was derived in the previous lecture. It is notationally heavy due to the inverse mappings inside the arguments.
-\end{ainote}
+\end{nice-box}
 
 \textbf{The Initial Theorem (Inline Annotated):}
 \begin{equation} \label{eq:cov_clunky}
@@ -109,9 +107,9 @@ Let us rewrite this theorem into a format that is much easier to use in practice
 If we substitute this into our theorem, the integration region $\Phi(A)$ remains, but the function evaluation $f(\Phi^{-1}(y))$ simply becomes $f(\Psi(y))$. But what happens to that clunky determinant in the denominator? 
 \end{spoken_clean}
 
-\begin{ainote}[Board State 4: Defining Psi]
+\begin{nice-box}[Board State 4: Defining Psi]
 The professor moves to the center board to clean up the notation. He defines $\Psi$ and prepares to algebraically manipulate the Jacobian fraction.
-\end{ainote}
+\end{nice-box}
 
 \textbf{Simplifying the Notation:}
 Let us define the inverse map explicitly:
@@ -131,9 +129,9 @@ By applying the chain rule, the differential of this composition evaluated at a 
 Because the determinant is a multiplicative property for matrices, the determinant of one matrix must be the exact inverse (reciprocal) of the other. Therefore, instead of dividing by the determinant of $J\Phi$, we can simply multiply by the determinant of $J\Psi$!
 \end{spoken_clean}
 
-\begin{ainote}[Board State 5: Chain Rule Derivation]
+\begin{nice-box}[Board State 5: Chain Rule Derivation]
 The professor formally derives the relationship between the determinants on the board, line by line, mapping the abstract function composition to concrete matrix algebra.
-\end{ainote}
+\end{nice-box}
 
 \textbf{Derivation of the Jacobian Reciprocal Relation:}
 \begin{align*}
@@ -159,9 +157,9 @@ The professor takes a moment here to show how beautifully linear algebra serves 
 This gives us a highly practical, informal way to remember the substitution rule. Just like in Analysis 1, when you substitute $x = \Psi(y)$, you must replace the differential. But instead of replacing $dx$ with the 1D derivative $\Psi'(y) \, dy$, you replace it with the absolute determinant of the Jacobian matrix, $|\det J\Psi(y)| \, dy$.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 6: The Orange Rule]
+\begin{nice-box}[Board State 6: The Orange Rule]
 To emphasize its importance for practical computation, the professor writes this finalized substitution rule on the board in bright orange chalk.
-\end{ainote}
+\end{nice-box}
 
 \begin{orangeformula}[The Practical Substitution Rule]
 When substituting $x = \Psi(y)$, the differential transforms as:
@@ -189,9 +187,9 @@ Exactly! You know many things about $\pi$ from geometry, but your official, rigo
 The sine and cosine functions themselves are defined purely analytically (usually via power series), and their defining properties are that the derivative of sine is cosine, the derivative of cosine is negative sine, $\sin(0) = 0$, and $\cos(0) = 1$. Those relations are definitive.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 7: Defining Pi rigorously]
+\begin{nice-box}[Board State 7: Defining Pi rigorously]
 The professor steps to the far right board to lay down the absolute axioms of Analysis 1 before computing the area of a circle. He wants to prove the area is $\pi$ *without* using circular geometric logic.
-\end{ainote}
+\end{nice-box}
 
 \textbf{Rigorous Axioms from Analysis 1:}
 The trigonometric functions are defined purely by their analytical properties (not triangles):
@@ -213,4 +211,3 @@ This is a brilliant teaching moment. It is very easy for students to take geomet
 \end{didactic_insight}
 
 \textit{Note: The video segment ends right as the professor finishes writing these trigonometric axioms on the board. In the next segment, he will define the polar coordinate mapping $\Psi(y_1, y_2)$ and use the Orange Substitution Rule to calculate the Jacobian determinant and prove the area of the unit disk is exactly $\pi$.}
-
