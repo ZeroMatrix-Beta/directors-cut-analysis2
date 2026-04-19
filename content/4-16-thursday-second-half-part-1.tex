@@ -1,7 +1,8 @@
 \section{Proof: Differentiation Under the Integral Sign}
 
-\begin{nice-box}[Board State \& Formal Proof Setup: Differentiation Under the Integral Sign]
+\begin{nice-box}[Formal Proof Setup: Differentiation Under the Integral Sign]
 Before finishing the proof, the professor references the formal theorem established on the board.
+\end{nice-box}
 
 \begin{orangeformula}
 \begin{theorem}[Differentiation Under the Integral Sign]
@@ -13,7 +14,6 @@ Then for every $t_0 \in (a,b)$:
 \]
 \end{theorem}
 \end{orangeformula}
-\end{nice-box}
 
 \begin{proof}[Step-by-Step Proof of Differentiation Under the Integral Sign]
 
@@ -35,7 +35,7 @@ To do this, we will use the Mean Value Theorem, right? By the Mean Value Theorem
 \end{spoken_clean}
 
 \begin{math_stroke}[MVT Substitution]
-The professor applies the Mean Value Theorem (MVT) to the integrand for each fixed $x$:
+Applying the Mean Value Theorem (MVT) to the integrand for each fixed $x$:
 \[
 \text{By MVT: } \underbrace{\frac{f(x, t_0+h) - f(x, t_0)}{h}}_{\text{``incremental quotient''}} = \underbrace{\partial_t f(x, \xi_x)}_{\text{``partial derivative at some intermediate point''}}
 \]
@@ -91,7 +91,7 @@ So, again, what is very important, what you should remember, is the intuition on
 
 \section{Improper Integrals}
 
-\begin{nice-box}[Board State \& Formal Definition: Improper Integrals]
+\begin{orangeformula}
 \begin{definition}[Improper Integral]
 Let $U \subset \mathbb{R}^n$ be an open set. Let $f: U \to \mathbb{R}$ be a continuous function such that $f \ge 0$.
 We define the improper integral of $f$ over $U$ as the supremum of integrals over compact, Jordan measurable subsets:
@@ -99,7 +99,7 @@ We define the improper integral of $f$ over $U$ as the supremum of integrals ove
 \int_U f(x) \, dx = \sup \left\{ \int_K f \mid K \subset U, K \text{ compact and Jordan measurable} \right\}
 \]
 \end{definition}
-\end{nice-box}
+\end{orangeformula}
 
 \begin{spoken_clean}[00:08:45 - 00:12:07]
 This is our last, and very easy, definition. Sometimes you may think you have a function that does not really satisfy all of the assumptions to be strictly Jordan-Riemann integrable. However, you can still give a very good, rigorous meaning to the integral in many concrete situations, especially if the function is defined on an open set.
@@ -110,19 +110,20 @@ Whatever the exact definition of the set $U$ is, intuitively, the integral over 
 \end{spoken_clean}
 
 \begin{math_stroke}[Approximating the Open Set]
-\begin{equation}
-\underbrace{\int_U f(x) \, dx}_{\text{``integral over the whole open set''}} = \sup \left\{ \underbrace{\int_K f}_{\text{``bigger than over any compact subset''}} \mid \underbrace{K \subset U}_{\text{``approximate inside''}}, K \text{ cpt J.m.} \right\}
-\end{equation}
+\begin{align*}
+&\underbrace{\int_U f(x) \, dx}_{\text{``integral over the whole open set''}} \\
+&\quad = \sup \left\{ \underbrace{\int_K f}_{\text{``bigger than over any compact subset''}} \mid \underbrace{K \subset U}_{\text{``approximate inside''}}, K \text{ cpt. J.m.} \right\}
+\end{align*}
 \end{math_stroke}
 
-\begin{nice-box}[Board State \& Formal Proposition: Exhaustion by Compact Sets]
+\begin{orangeformula}
 \begin{proposition}[Sequential Evaluation of Improper Integrals]
 If we have an increasing sequence of compact sets $K_0 \subset K_1 \subset \dots \subset K_\ell \dots$ such that $U = \bigcup_{\ell=0}^\infty K_\ell$, then:
 \[
 \int_U f(x) \, dx = \lim_{\ell \to \infty} \int_{K_\ell} f(x) \, dx
 \]
 \end{proposition}
-\end{nice-box}
+\end{orangeformula}
 
 \begin{proof}[Instructive Proof of Sequential Exhaustion]
 \begin{spoken_clean}[00:12:07 - 00:15:00]
@@ -149,7 +150,3 @@ Taking the supremum over all such $K \subset U$ proves that the supremum is boun
 \]
 \end{math_stroke}
 \end{proof}
-
-\begin{meta_note}[System]
-Output length limit reached. The highly polished 15-minute sequence is complete. Please prompt "Continue" for the next segment (15:00 - 30:00).
-\end{meta_note}

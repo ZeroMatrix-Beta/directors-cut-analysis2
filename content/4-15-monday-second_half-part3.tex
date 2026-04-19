@@ -27,7 +27,7 @@ What is the hypograph geometrically? It is the $(n+1)$-dimensional solid region 
 Therefore, integrating a function is fundamentally identical to measuring a physical shape. We can simply apply Cavalieri's Principle directly to this $(n+1)$-dimensional hypograph. By taking vertical slices of this solid, we reduce a massive multi-dimensional volume calculation into an iterated sequence of much simpler lower-dimensional integrals. This elegant corollary is what we call Fubini's Theorem.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 10: Recalling the Hypograph Connection]
+\begin{ainote}[Recalling the Hypograph Connection]
 The professor moves to the freshly cleaned center board. He writes down the formal definition of an integral via the hypograph, establishing the crucial bridge between the pure geometry of Cavalieri and the operational calculus of Fubini.
 \end{ainote}
 
@@ -44,7 +44,7 @@ By our foundational definition, the integral of the function is identically the 
 \end{math_stroke}
 
 \begin{didactic_insight}[The Geometric Unification]
-This is the grand unification of the lecture. By framing the integral not as an abstract analytic operation, but as a literal physical volume (the hypograph), the professor allows the students to seamlessly apply the "potato slicing" intuition they just mastered with Cavalieri's Principle directly to abstract function integration.
+This is the grand unification of the lecture. By framing the integral not as an abstract analytic operation, but as a literal physical volume (the hypograph), the "potato slicing" intuition mastered with Cavalieri's Principle can be seamlessly applied directly to abstract function integration.
 \end{didactic_insight}
 
 % ==========================================
@@ -62,7 +62,7 @@ Under Fubini's Theorem, assuming the requisite integrability conditions hold ove
 Operationally, what does this mean? You first integrate the restricted function $f_x(y)$ with respect to $y$ over the slice $A_x$. Because $x$ was held constant, the result of this inner integral is a new marginal function purely in terms of $x$. Subsequently, you integrate this resulting marginal function with respect to $x$ over the base projection of the domain.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 11: Formalizing the Sliced Function]
+\begin{ainote}[Formalizing the Sliced Function]
 The professor meticulously writes out the notation for the restricted function $f_x(y)$. He taps the board with his chalk under the $x$ variable to emphasize to the students that $x$ must be treated purely as a constant scalar during the inner integration step. He then writes the full statement of Fubini's Theorem in bright orange chalk.
 \end{ainote}
 
@@ -99,7 +99,7 @@ This inner integral effectively collapses the massive $(n+1)$-dimensional solid 
 The symmetry of the theorem ensures that the order of accumulation—whether sweeping left-to-right along the $x$-axis or front-to-back along the $y$-axis—is irrelevant to the final numerical volume, provided your integration boundaries $A_x$ and $A_y$ are properly accounted for.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 12: The Hypograph Cross-Section]
+\begin{ainote}[The Hypograph Cross-Section]
 The professor moves to the right board to draw a 3D perspective of a curved surface floating above a rectangular domain in the $xy$-plane. He uses red chalk to shade a specific 2D planar cross-section beneath the surface, labeling its area as the exact result of the inner integral, $\int f(x_0, y) dy$.
 \end{ainote}
 
@@ -129,17 +129,13 @@ The professor moves to the right board to draw a 3D perspective of a curved surf
 
 \end{tikzpicture}
 \end{center}
-\end{math_stroke}
 
 \textbf{Explanation of Steps (Why the Order Matters for Limits):} \\
-The visual clarifies a crucial stumbling block for students: why the bounds of integration change when you swap $dx$ and $dy$. The red slice represents the inner integral: evaluating the area of the 2D plane at a constant $x_0$. As $x_0$ moves along the $x$-axis, the boundaries of that slice might grow or shrink if the base domain $A$ is not a perfect rectangle (e.g., a triangle or a circle). The outer integral then integrates this continuously changing 1D area function along the $x$-axis to get the final 3D volume.
+The visual clarifies a crucial geometric concept: why the bounds of integration change when swapping $dx$ and $dy$. The red slice represents the inner integral: evaluating the area of the 2D plane at a constant $x_0$. As $x_0$ moves along the $x$-axis, the boundaries of that slice might grow or shrink if the base domain $A$ is not a perfect rectangle (e.g., a triangle or a circle). The outer integral then integrates this continuously changing 1D area function along the $x$-axis to get the final 3D volume.
+\end{math_stroke}
 
 \begin{spoken_clean}[42:30 - 45:00]
 So, Fubini's Theorem is not magic; it is simply Cavalieri's Principle applied to the volume under a graph. By treating one variable as a constant, you reduce a multivariable problem into a sequence of single-variable calculus problems that you already know how to solve from Analysis I. 
 
 We will spend the next lecture doing heavy computational examples of this, swapping the bounds of integration, and looking at how this interacts with our Change of Variables theorem from last week. Please review your single-variable integration techniques tonight, because you will be doing them twice as much now. Have a good afternoon, everyone.
 \end{spoken_clean}
-
-\begin{meta_note}[End of Lecture]
-The professor sets down his chalk and addresses the class. The students begin packing up. The lecture concludes exactly at 45:00, having successfully bridged the geometric theory of measures to the operational computation of multiple integrals.
-\end{meta_note}

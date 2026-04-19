@@ -1,7 +1,7 @@
 \chapter{Real Analysis: Change of Variables \& Rigorous Foundations}
 
 \begin{didactic_insight}[The "Wall" of Multivariable Calculus]
-This segment serves as the bridge between computational calculus and rigorous Real Analysis. The professor is actively shifting the students' mindset away from "memorizing integration formulas" and towards "understanding the geometric distortions of space via linear algebra (Jacobians)." Notice how carefully he handles domains and inverse mappings—this rigor is the core of the discipline.
+This segment serves as the bridge between computational calculus and rigorous Real Analysis. It actively shifts the mindset away from "memorizing integration formulas" and towards "understanding the geometric distortions of space via linear algebra (Jacobians)." The careful handling of domains and inverse mappings enforces the rigorous core of the discipline.
 \end{didactic_insight}
 
 % ==========================================
@@ -71,7 +71,6 @@ With this setup, the theorem states that the integral of $f(x)$ over the region 
 \end{spoken_clean}
 
 \begin{math_stroke}[The Substitution Formula]
-\textbf{The Initial Theorem (Inline Annotated):}
 \begin{equation} \label{eq:cov_clunky}
 \underbrace{\int_A f(x) \, dx}_{\text{Integral in Original Space}} = \int_{\Phi(A)} f(\underbrace{\Phi^{-1}(y)}_{\text{Pre-image under }\Phi}) \, \underbrace{\frac{1}{|\det J\Phi(\Phi^{-1}(y))|}}_{\text{Correction for Volume Distortion}} \, dy
 \end{equation}
@@ -98,7 +97,6 @@ If we substitute this into our theorem, the integration region $\Phi(A)$ remains
 \end{spoken_clean}
 
 \begin{math_stroke}[Simplifying the Notation]
-\textbf{Simplifying the Notation:}
 Let us define the inverse map explicitly:
 \[
 \Psi = \Phi^{-1}
@@ -118,7 +116,6 @@ Because the determinant is a multiplicative property for matrices, the determina
 \end{spoken_clean}
 
 \begin{math_stroke}[Jacobian Reciprocal Derivation]
-\textbf{Derivation of the Jacobian Reciprocal Relation:}
 \begin{align*}
 \underbrace{\Phi \circ \Psi = \id}_{\text{Function Composition}} &\implies \underbrace{D\Phi_{\Psi(y)} \circ D\Psi_y = \id}_{\text{Taking the Differential (Chain Rule)}} \\
 &\implies \underbrace{J\Phi(\Psi(y))}_{\text{Matrix 1}} \cdot \underbrace{J\Psi(y)}_{\text{Matrix 2}} = \underbrace{I_n}_{\text{Identity Matrix}}
@@ -126,7 +123,7 @@ Because the determinant is a multiplicative property for matrices, the determina
 
 \textbf{Explanation of Steps:}
 The chain rule in multivariable calculus dictates that the derivative of a composition of functions is the matrix product of their Jacobian matrices. Since the composition yields the identity function ($y \mapsto y$), the product of their Jacobians must yield the identity matrix $I_n$. 
-\end{math_stroke}
+
 
 Taking the determinant of both sides, and using the property that $\det(AB) = \det(A)\det(B)$ and $\det(I_n) = 1$:
 \begin{align*}
@@ -134,9 +131,10 @@ Taking the determinant of both sides, and using the property that $\det(AB) = \d
 \det(J\Phi(\Psi(y))) \cdot \det(J\Psi(y)) &= 1 \\
 \implies \underbrace{\frac{1}{\det J\Phi(\Psi(y))}}_{\text{Clunky Denominator}} &= \underbrace{\det J\Psi(y)}_{\text{Clean Numerator}}
 \end{align*}
+\end{math_stroke}
 
 \begin{didactic_insight}[The Power of Linear Algebra]
-The professor takes a moment here to show how beautifully linear algebra serves calculus. The geometric reality that "stretching space forward by factor $k$, then pulling it backward, returns it to normal" is flawlessly encoded in the algebraic fact that the determinants of inverse matrices multiply to 1.
+This demonstrates how beautifully linear algebra serves calculus. The geometric reality that "stretching space forward by factor $k$, then pulling it backward, returns it to normal" is flawlessly encoded in the algebraic fact that the determinants of inverse matrices multiply to 1.
 \end{didactic_insight}
 
 \begin{spoken_clean}[00:10:45 - 00:12:15]
@@ -172,7 +170,6 @@ The sine and cosine functions themselves are defined purely analytically (usuall
 \end{spoken_clean}
 
 \begin{math_stroke}[Analytical Definitions of Trigonometric Functions]
-\textbf{Analytical Properties from Analysis 1:}
 The trigonometric functions are defined purely by their analytical properties (not triangles):
 \begin{align}
 \sin'(x) &= \cos(x) \label{prop:sin_deriv} \\
@@ -183,11 +180,12 @@ The constant $\pi$ is defined analytically as the unique root:
 \[
 \sin(\pi) = 0 \quad (\text{for the first positive root})
 \]
-\end{math_stroke}
+
 
 \textbf{Explanation of Steps:}
-By establishing these purely algebraic definitions, the professor is ensuring that when we compute the integral of a disk and get the symbol $\pi$, we are arriving at it through rigorous calculus and limits, not by relying on a high-school geometric formula ($A = \pi r^2$) which assumes the conclusion we are trying to prove.
+By establishing these purely algebraic definitions, we ensure that when computing the integral of a disk and getting the symbol $\pi$, we are arriving at it through rigorous calculus and limits, not by relying on a high-school geometric formula ($A = \pi r^2$) which assumes the conclusion we are trying to prove.
+\end{math_stroke}
 
 \begin{didactic_insight}[Avoiding Circular Logic]
-This is a brilliant teaching moment. It is very easy for students to take geometry for granted. By forcing them to recall that $\pi$ is just "the root of a specific power series", the professor elevates the upcoming Change of Variables computation from a "boring high-school geometry problem" into a "profound demonstration of analytical power." 
+This is a brilliant teaching moment. It is very easy to take geometry for granted. Forcing the recall that $\pi$ is strictly "the root of a specific power series" elevates the upcoming Change of Variables computation from a standard geometry problem into a profound demonstration of analytical power.
 \end{didactic_insight}

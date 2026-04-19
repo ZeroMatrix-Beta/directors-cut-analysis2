@@ -17,12 +17,12 @@ Continuing directly from the previous segment, the professor has just establishe
 \begin{spoken_clean}[15:15 - 18:22]
 Let us formalize these geometric bounds. Given any arbitrary precision $\varepsilon > 0$, we can choose a sufficiently fine pixel size—let us say, governed by some integer $p \in \mathbb{N}$ determining the side length $2^{-p}$. By the very definition of Jordan measurability, there must exist an inner dyadic set $F$ and an outer dyadic set $G$ such that our set $A$ is completely sandwiched between them.
 
-Furthermore, we are guaranteed that the total volume of the large outer approximation minus the total volume of the small inner approximation is strictly less than $\varepsilon$. 
+Furthermore, we are guaranteed that the total volume of the large outer approximation minus the total volume of the small inner approximation is strictly less than $\varepsilon$ (i.e., $\mu_n(G) - \mu_n(F) < \varepsilon$). 
 
 Now, let us examine the vertical cross-sections of these pixelated approximations. For any base coordinate $x$ residing within our bounding box $[-c, c]^k$, we define the slice of the outer approximation, $G_x$, as the set of all vertical $y$-coordinates such that the composite point $(x,y)$ belongs to $G$. We define the slice of the inner approximation, $F_x$, in the exact same manner. Recall that both $F$ and $G$ are simply finite unions of dyadic cubes of pixel size $2^{-p}$.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 6: Establishing Jordan Bounds]
+\begin{ainote}[Establishing Jordan Bounds]
 The professor moves to a clean section of the center board to begin the formal algebraic proof. He writes down the standard definition of a Jordan measurable set using the dyadic approximations $F$ and $G$, followed by the set-builder notation for their respective vertical slices.
 \end{ainote}
 
@@ -52,7 +52,7 @@ What does it mean for a function to be piecewise constant across a grid of cubes
 \end{spoken_clean}
 
 \begin{didactic_insight}[The Geometric Leap]
-The professor explicitly bridges the physical drawing of "pixels" to the algebraic definition of a step function. Because $F$ is constructed purely of vertical columns of uniform width $2^{-p}$, moving $x$ horizontally within the boundary of a single column does not change the vertical cross-section $F_x$. Thus, the volume function $f(x)$ is perfectly flat (constant) across that entire base pixel.
+This explicitly bridges the physical drawing of "pixels" to the algebraic definition of a step function. Because $F$ is constructed purely of vertical columns of uniform width $2^{-p}$, moving $x$ horizontally within the boundary of a single column does not change the vertical cross-section $F_x$. Thus, the volume function $f(x)$ is perfectly flat (constant) across that entire base pixel.
 \end{didactic_insight}
 
 \begin{math_stroke}[Step Function Property]
@@ -78,7 +78,7 @@ Because we are operating in the pixelated world of dyadic cubes, integrating the
 There are no limits here, and no continuous approximation errors. It is pure combinatorics. Therefore, the integral of our inner step function $f(x)$ evaluates exactly to the total $n$-dimensional volume of the inner approximation, $\mu_n(F)$. By identical reasoning, the integral of $g(x)$ evaluates exactly to $\mu_n(G)$.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 7: Integrating the Step Functions]
+\begin{ainote}[Integrating the Step Functions]
 He writes the integral of $f(x)$ and $g(x)$ across the base space. He explicitly equates the integral over the base space to the total volumetric measure of the multi-dimensional approximation sets.
 \end{ainote}
 
@@ -91,7 +91,7 @@ Because $f$ and $g$ are dyadic step functions, their Riemann integrals are preci
 \end{math_stroke}
 
 \begin{didactic_insight}[Calculus Becomes Counting]
-This is a beautiful pedagogical moment. The professor demystifies multi-dimensional integration by showing that when dealing with step functions constructed from a uniform grid, the Riemann integral becomes simple addition. You take the volume of a 2D slice, multiply it by the tiny 1D width of the base pixel ($dx$), and you get the 3D volume of that column. Summing them all up gives the total volume.
+This is a beautiful pedagogical moment. Multi-dimensional integration is demystified by showing that when dealing with step functions constructed from a uniform grid, the Riemann integral becomes simple addition. Taking the volume of a 2D slice and multiplying it by the tiny 1D width of the base pixel ($dx$) yields the 3D volume of that column. Summing them all up gives the total volume.
 \end{didactic_insight}
 
 % ==========================================
@@ -102,12 +102,12 @@ This is a beautiful pedagogical moment. The professor demystifies multi-dimensio
 \begin{spoken_clean}[25:30 - 27:30]
 We now rely on our fundamental geometric inclusion. Because the inner approximation $F$ is contained within $A$, which is in turn contained within $G$, this strict nesting applies to every single vertical slice. Thus, $F_x \subset A_x \subset G_x$. 
 
-This geometric nesting forces a strict ordering on the measures of these slices. The measure of the inner slice, $f(x)$, must be less than or equal to the inner measure of $A_x$, which is our lower marginal $\underline{\varphi}(x)$. In turn, the outer measure of $A_x$, which is our upper marginal $\overline{\varphi}(x)$, must be less than or equal to the measure of the outer slice, $g(x)$. 
+This geometric nesting forces a strict ordering on the measures of these slices. The measure of the inner slice, $f(x)$, must be less than or equal to the inner measure of $A_x$, which is our lower marginal $\underline{\varphi}(x)$ (i.e., $f(x) \le \underline{\varphi}(x)$). In turn, the outer measure of $A_x$, which is our upper marginal $\overline{\varphi}(x)$, must be less than or equal to the measure of the outer slice, $g(x)$ (i.e., $\overline{\varphi}(x) \le g(x)$). 
 
 We have successfully constructed a chain of inequalities for our functions. A foundational property of Riemann integration is that if functions are strictly ordered, their integrals maintain that exact order. We will apply the lower Riemann integral to the lower marginal, and the upper Riemann integral to the upper marginal, preserving the entire inequality chain from end to end.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 8: Establishing the Squeeze]
+\begin{ainote}[Establishing the Squeeze]
 The professor moves back to the center board. He uses the geometric inclusion to establish an ordered chain of marginal densities. He then applies the lower and upper Riemann integrals to this chain, drawing a long series of inequalities.
 \end{ainote}
 
@@ -141,7 +141,7 @@ What happens as we send $\varepsilon$ to zero? The outer and inner bounds squeez
 This simultaneously proves two things: first, because the lower and upper integrals coincide, the marginal functions are definitively Riemann integrable. Second, because they are squeezed between bounds that converge to the true volume of the shape, their integral evaluates exactly to $\mu_n(A)$. And that completes the proof of Cavalieri's Principle.
 \end{spoken_clean}
 
-\begin{nice-box}[Board State \& Concept: Substituting and Concluding]
+\begin{nice-box}[Substituting and Concluding]
 He substitutes $\mu_n(F)$ and $\mu_n(G)$ into the bounding ends of the integral inequality chain. He circles the $\varepsilon$ condition, shows the bounds collapsing, and writes the final conclusion, boxing the result.
 \end{nice-box}
 

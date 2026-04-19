@@ -11,7 +11,7 @@ As with every theorem, there are two aspects: the theoretical proof and the prac
 \end{spoken_clean}
 
 \begin{didactic_insight}[Bridging Abstraction and Calculation]
-The professor explicitly acknowledges the cognitive load of $n$-dimensional abstraction. By explicitly giving students "permission" to focus on the mechanical application of Fubini's theorem first, he lowers their anxiety, ensuring they don't get stuck on the rigorous $n$-dimensional notation while they are still building their intuition in 3D space.
+Explicitly acknowledging the cognitive load of $n$-dimensional abstraction lowers anxiety. By giving "permission" to focus on the mechanical application of Fubini's theorem first, it ensures one doesn't get stuck on the rigorous $n$-dimensional notation while still building intuition in 3D space.
 \end{didactic_insight}
 
 
@@ -28,8 +28,7 @@ Consider a scenario in physics where you are integrating a density of charge, sa
 \end{spoken_clean}
 
 \begin{math_stroke}[Formal Statement of the Theorem (37:40 - 41:03)]
-The professor formalizes the physical analogy into rigorous mathematics. 
-He defines a compact spatial set $K$ and a time interval $[a,b]$.
+The physical analogy is formalized into rigorous mathematics by defining a compact spatial set $K$ and a time interval $[a,b]$.
 
 \textbf{Setup:}
 Let $K \subset \mathbb{R}^n$ be a compact set. Let $f: K \times [a,b] \to \mathbb{R}$ defined by $(x,t) \mapsto f(x,t)$.
@@ -47,7 +46,7 @@ For every $t_0 \in (a,b)$:
 \begin{spoken_clean}[37:40 - 41:03]
 Let us formalize this. Let $K$ be a compact subset in $\mathbb{R}^n$, representing our space. We define a real-valued function $f$ mapping from $K \times [a,b]$—where the interval represents our time domain—to $\mathbb{R}$. We assume not only that $f$ is continuous, but also that its partial derivative with respect to the time variable, $\frac{\partial f}{\partial t}$, is continuous on this closed product space. 
 
-Under these conditions, for any time $t_0$ in the open interval, the total derivative with respect to $t$ of the integral of $f(x,t)$ over $K$ is exactly equal to the integral over $K$ of the partial derivative of $f$ evaluated at $t_0$. When you take a function that depends on space and time, and you integrate with respect to space, the only free variable remaining is time. So, taking the derivative on the outside is a standard Analysis 1 derivative of a single variable, but pushing it inside turns it into a partial derivative.
+Under these conditions, for any time $t_0$ in the open interval, the total derivative with respect to $t$ of the integral of $f(x,t)$ over $K$ is exactly equal to the integral over $K$ of the partial derivative of $f$ evaluated at $t_0$ (i.e., $\frac{d}{dt} \big|_{t_0} \int_K f(x,t) \, dx = \int_K \frac{\partial f}{\partial t}(x,t_0) \, dx$). When you take a function that depends on space and time, and you integrate with respect to space, the only free variable remaining is time. So, taking the derivative on the outside is a standard Analysis 1 derivative of a single variable, but pushing it inside turns it into a partial derivative.
 \end{spoken_clean}
 
 \begin{redundant_explanation}[Swapping Operations]
@@ -80,7 +79,7 @@ F'(t_0) = \lim_{h \to 0} \int_K \frac{f(x, t_0 + h) - f(x, t_0)}{h} \, dx
 \end{math_stroke}
 
 \begin{spoken_clean}[41:03 - 44:55]
-Let us begin the proof. We want to compute the derivative with respect to $t$ at $t_0$. By definition, this is the limit as $h$ approaches zero of the difference quotient. To make this cleaner, let's introduce a new function $F(t)$ representing the spatial integral of $f(x,t)$. 
+Let us begin the proof. We want to compute the derivative with respect to $t$ at $t_0$. By definition, this is the limit as $h$ approaches zero of the difference quotient (i.e., $\lim_{h \to 0} \frac{F(t_0 + h) - F(t_0)}{h}$). To make this cleaner, let's introduce a new function $F(t)$ representing the spatial integral of $f(x,t)$ (i.e., $F(t) = \int_K f(x,t) \, dx$). 
 
 We are simply computing $F'(t_0)$, which is the limit of $\frac{F(t_0 + h) - F(t_0)}{h}$. Because the integral is a linear operator, we can group these two integrals into one. We bring the difference quotient inside, dividing the difference $f(x, t_0 + h) - f(x, t_0)$ by $h$. 
 

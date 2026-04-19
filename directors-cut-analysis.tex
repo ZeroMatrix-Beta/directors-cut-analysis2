@@ -169,29 +169,18 @@
 }
 
 
-% 4. Semantic Formula Box
-\newtcolorbox{ainote}[1][ainote:]{
+% 8. AI Observational Note
+\newtcolorbox{ainote}[1][AI Note]{
     enhanced,
-    colback=profwhite,
-    colframe=proforange,
+    colback=profyellow!5!white,
+    colframe=profyellow!90!black,
     fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
+    coltitle=black,
     title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=proforange!30
+    boxrule=1pt,
+    arc=3pt,
+    breakable
 }
-
-% ==========================================
-% CUSTOM CHAPTER & SECTION FORMATTING
-% ==========================================
-
-
-% ==========================================
-% CUSTOM CHAPTER & SECTION FORMATTING
-% ==========================================
-\usepackage{titlesec}
 
 % --- Chapter Formatting ---
 % Removes the massive default whitespace at the top of the page

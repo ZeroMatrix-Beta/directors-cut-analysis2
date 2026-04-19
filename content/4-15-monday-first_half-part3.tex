@@ -13,7 +13,7 @@ In the end, the determinant of the Jacobian evaluates to $y_1^2 \cos(y_3)$. Noti
 Using our Change of Variables formula, the volume of the unit ball in $\mathbb{R}^3$ is equal to the integral over our rectangular parameter domain $D$.
 \end{spoken_clean}
 
-\begin{nice-box}[Board State \& Concept: Finalizing the 3D Integral]
+\begin{nice-box}[Finalizing the 3D Integral]
 The professor writes the final Jacobian determinant and constructs the triple integral on the board.
 \end{nice-box}
 
@@ -45,10 +45,11 @@ Let me motivate the slicing idea informally. The Cavalieri Principle states that
 Imagine a potato. If you take a potato and cut a very thin vertical slice, that slice is almost perfectly uniform from its front face to its back face. You can approximate the volume of that single slice by multiplying its cross-sectional area by its tiny thickness. If you sum the volumes of all these slices, the total volume of the potato is perfectly preserved.
 \end{spoken_clean}
 
-\begin{nice-box}[Board State \& Concept: The Potato Analogy]
+\begin{nice-box}[The Potato Analogy]
 The professor draws a 3D blob (a potato) and highlights a single, thin vertical slice to illustrate the concept of $V \approx \sum A(x) \Delta x$.
 \end{nice-box}
 
+\begin{math_stroke}[Geometric Visualization: Slicing a Volume]
 \begin{center}
 \begin{tikzpicture}[scale=1.2]
     % Axes
@@ -71,6 +72,7 @@ The professor draws a 3D blob (a potato) and highlights a single, thin vertical 
     \draw[<->, profred] (3.5, 0.3) -- (3.7, 0.3) node[midway, below] {$dx$};
 \end{tikzpicture}
 \end{center}
+\end{math_stroke}
 
 \begin{spoken_clean}[00:42:00 - 00:46:30]
 How do we do this systematically? We state it in terms of Jordan measures. We split our $n$-dimensional space, $\mathbb{R}^n$, into a product space: $\mathbb{R}^k \times \mathbb{R}^{n-k}$. Let the base coordinates be $x$ and the vertical coordinates be $y$. 
@@ -80,21 +82,25 @@ Let $A \subset \mathbb{R}^n$ be a Jordan measurable set. For a specific base poi
 Here is the technical hurdle: Just because $A$ is Jordan measurable in $\mathbb{R}^n$ does not guarantee that the slice $A_x$ is Jordan measurable in the lower-dimensional space $\mathbb{R}^{n-k}$. But we don't care! The outer measure and inner measure are *always* well-defined for any bounded set. So, we define the upper marginal density $\overline{\Phi}(x)$ using the outer measure, and the lower marginal density $\underline{\Phi}(x)$ using the inner measure.
 \end{spoken_clean}
 
-\begin{nice-box}[Board State \& Concept: Formalizing the Slices]
+\begin{nice-box}[Formalizing the Slices]
 The professor writes down the formal set notation for slices and explicitly addresses the "non-measurable slice" edge case using inner/outer measures.
 \end{nice-box}
 
-\begin{math_stroke}[Formal Definition of Slices and Marginals]
+\begin{math_stroke}[Formal Notation of Slices]
 Split the space: $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$. A point is $(x,y)$.
 Let $A \subset \mathbb{R}^n$ be Jordan measurable.
+\end{math_stroke}
 
+\begin{orangeformula}
 \begin{definition}[Slices]
 For a fixed base coordinate $x \in \mathbb{R}^k$, the slice $A_x$ is defined as:
 \[
 A_x = \{ y \in \mathbb{R}^{n-k} \mid (x,y) \in A \}
 \]
 \end{definition}
+\end{orangeformula}
 
+\begin{math_stroke}[Marginal Densities]
 To bypass slices that are not Jordan measurable, we define the \textbf{marginal densities}:
 \begin{align*}
 \overline{\varphi}(x) &= \mu_{n-k}^{\text{out}}(A_x) \quad (\text{Upper Marginal}) \\
@@ -112,7 +118,7 @@ For a Jordan measurable set $A \subset \mathbb{R}^n \equiv \mathbb{R}^k \times \
 \end{orangeformula}
 
 \begin{didactic_insight}[The "I Don't Care" Philosophy]
-When the professor says "I don't care" about the slice not being Jordan measurable, he is imparting profound mathematical wisdom. In integration, sets of measure zero or pathological boundary anomalies disappear when you sum over them. The upper and lower integrals act as a squeeze theorem—even if individual slices are "fuzzy," integrating over the entire domain squeezes that fuzziness down to zero.
+The colloquial "I don't care" regarding slices that are not Jordan measurable imparts profound mathematical wisdom. In integration, sets of measure zero or pathological boundary anomalies disappear when summed over. The upper and lower integrals act as a squeeze theorem—even if individual slices are "fuzzy," integrating over the entire domain squeezes that fuzziness down to zero.
 \end{didactic_insight}
 
 % ==========================================
@@ -128,11 +134,11 @@ For any $\epsilon > 0$, we can find an inner approximation $F$ (made entirely of
 Because these sets are built from perfect cubes aligned to a grid, what happens when we slice them? As long as our base point $x$ stays within the same column of the grid, the slice of $F$ or $G$ cannot change! Therefore, the measures of these slices, $\mu(F_x)$ and $\mu(G_x)$, are just dyadic step functions. 
 \end{spoken_clean}
 
-\begin{nice-box}[Board State \& Concept: The Dyadic Pixel Proof]
+\begin{nice-box}[The Dyadic Pixel Proof]
 The professor illustrates the inner ($F$) and outer ($G$) approximations. He notes that integrating a dyadic step function is just combinatorics—counting the total number of pixels.
 \end{nice-box}
 
-\begin{math_stroke}[Geometric Proof Setup: The Dyadic Pixel Count]
+\begin{math_stroke}[Dyadic Pixel Approximation]
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
     % Grid
@@ -193,5 +199,5 @@ Let $A \subset \mathbb{R}^k \times \mathbb{R}^{n-k}$ be a Jordan measurable set,
 \end{orangeformula}
 
 \begin{didactic_insight}[The Grand Finale]
-The entire lecture culminates here. The 2D disk trick (where the function $x_3 = y_1$ created a wedge) was a manual, geometric application of Fubini's theorem! The professor used a visual trick to solve the integral before proving the theorem that justifies it, completing the pedagogical loop.
+The entire lecture culminates here. The 2D disk trick (where the function $x_3 = y_1$ created a wedge) was a manual, geometric application of Fubini's theorem! Using a visual trick to solve the integral before proving the theorem that justifies it beautifully completes the pedagogical loop.
 \end{didactic_insight}
