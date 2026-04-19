@@ -122,3 +122,100 @@ Before we prove that our integral formula actually survives this reparametrizati
 
 We cannot just write down an integral, compute it, and blindly accept it as "length." There are fundamental, axiomatic properties that any concept of length must satisfy in Euclidean space. If our formula fails even one of these, it is not a valid measure. So we must set the ground rules.
 \end{spoken_clean}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% GEMINI WAS ABLE TO PRODUCE THIS IN ONE SHOT, WITHOUT ANY PROMPTING. THIS IS A SIGN OF A VERY STRONG MODEL. IT SHOWS THAT THE MODEL HAS INTERNALIZED THE STRUCTURE OF THE LECTURE AND CAN REPRODUCE IT WITH HIGH FIDELITY.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ==========================================
+% SECTION 5: THE FOUR AXIOMS OF LENGTH
+% ==========================================
+
+\begin{spoken_clean}[11:00 - 12:30]
+If we are going to define a concept as fundamental as length, it cannot just be a random formula we pull from the air. It has to behave in the way our physical universe expects lengths to behave. If it does not, then we have defined something else entirely. 
+
+So, before we even look at the integral of the norm of the velocity, we must ask ourselves: what properties \textit{must} length satisfy? What are the absolute baseline requirements? There will be four. So there will be four fundamental axioms that govern any valid measurement of length.
+\end{spoken_clean}
+
+\begin{nice-box}[Classroom Interaction: The Catchbox]
+The professor holds up the toy gavel, pacing slightly as he transitions from delivering a lecture to soliciting class participation. He writes the numbers 1 through 4 on the blackboard, leaving them blank, and then grabs a bright red throwable "Catchbox" microphone, tossing it to a student in the audience to gather the geometric axioms.
+\end{nice-box}
+
+\begin{spoken_clean}[12:30 - 14:15]
+Okay, so what properties must length satisfy? I have written four empty slots on the board. Maybe you can tell me two, and I will complete the other two. Who wants to catch this? Tell me what properties length must satisfy. Who has a guess for the most obvious property a length should have?
+\end{spoken_clean}
+
+\begin{student_question}
+It has to be positive? You can't have a negative length. And you just add them together if you have multiple pieces?
+\end{student_question}
+
+\begin{spoken_clean}[14:15 - 17:30]
+Exactly! First, we have positivity, but more rigorously, we need normalization. The length of the straight unit interval (i.e., $[0,1] \times \{0\}$ in $\mathbb{R}^n$) must exactly equal 1. And yes, it must be additive. If we split a curve into two pieces, the total length must be the sum of the lengths of the individual pieces. 
+
+Now I will complete the other two, which are the geometric anchors. We already discussed one: it should be independent of the chosen parametrization. The geometric length does not care how fast you draw the curve. And finally, invariance under Euclidean isometry. If I rotate or translate the curve rigidly in space, its length cannot change.
+\end{spoken_clean}
+
+\begin{orangeformula}[The Four Axioms of Length]
+For a definition of length $L(\gamma)$ to be geometrically valid for a curve $\gamma: [a, b] \to \mathbb{R}^n$, it \textit{must} satisfy:
+\begin{enumerate}
+    \item \textbf{Independence of Parametrization:} $L(\gamma \circ \phi) = L(\gamma)$ for any valid reparametrization $\phi$.
+    \item \textbf{Additivity:} For any $c \in (a, b)$, $L(\gamma|_{[a, b]}) = L(\gamma|_{[a, c]}) + L(\gamma|_{[c, b]})$.
+    \item \textbf{Euclidean Isometry Invariance:} Rigid rotations and translations do not alter $L(\gamma)$.
+    \item \textbf{Normalization:} The standard unit interval $[0,1] \times \{0\}$ has a length of $1$.
+\end{enumerate}
+\end{orangeformula}
+
+% ==========================================
+% SECTION 6: PROVING REPARAMETRIZATION INVARIANCE
+% ==========================================
+
+\section{Proving the Invariance}
+
+\begin{spoken_clean}[17:30 - 18:45]
+Let us focus on the first property: Independence of Parametrization. We need to prove that our integral formula actually honors this axiom. 
+
+Suppose we have our reparametrization $\phi$ mapping the interval $[c, d]$ to $[a, b]$. We assume $\phi$ is strictly increasing, so its derivative is strictly positive (i.e., $\phi'(s) > 0$). We want to compute the length of the new curve $\tilde{\gamma}(s) = \gamma(\phi(s))$. How do we find its velocity vector? We just apply the Chain Rule. The derivative $\tilde{\gamma}'(s)$ is simply the derivative of the outer function evaluated at the inner function, multiplied by the derivative of the inner function (i.e., $\tilde{\gamma}'(s) = \gamma'(\phi(s)) \cdot \phi'(s)$).
+\end{spoken_clean}
+
+\begin{math_stroke}[Applying the Chain Rule]
+Given the reparametrized curve $\tilde{\gamma}(s) = \gamma(\phi(s))$ for $s \in [c, d]$.
+
+By the Chain Rule, the velocity vector is:
+\[
+\tilde{\gamma}'(s) = \gamma'(\phi(s)) \phi'(s)
+\]
+Taking the Euclidean norm of both sides:
+\[
+\|\tilde{\gamma}'(s)\| = \|\gamma'(\phi(s)) \phi'(s)\| = \|\gamma'(\phi(s))\| |\phi'(s)|
+\]
+Since we assume $\phi$ is strictly increasing, $\phi'(s) > 0$, yielding $|\phi'(s)| = \phi'(s)$.
+\[
+\implies \|\tilde{\gamma}'(s)\| = \|\gamma'(\phi(s))\| \phi'(s)
+\]
+\end{math_stroke}
+
+\begin{spoken_clean}[18:45 - 20:00]
+Now we plug this norm directly into our length formula for $\tilde{\gamma}$. We get the integral from $c$ to $d$ of $\|\gamma'(\phi(s))\| \phi'(s) \, ds$. 
+
+Does this look familiar? It is exactly the setup for the 1-dimensional Change of Variables formula—or as you likely learned it in Analysis I, Integration by Substitution. If we substitute $t = \phi(s)$, then our differential $dt$ is exactly $\phi'(s) ds$. The limits of integration change from $c$ and $d$ to $\phi(c)=a$ and $\phi(d)=b$. And as if by magic, the formula collapses back perfectly into the length of the original curve $\gamma$. The geometry is entirely preserved.
+\end{spoken_clean}
+
+\begin{math_stroke}[Integration by Substitution]
+Computing the length of the reparametrized curve $\tilde{\gamma}$:
+\begin{align*}
+L(\tilde{\gamma}) &= \int_c^d \|\tilde{\gamma}'(s)\| \, ds \\
+&= \int_c^d \|\gamma'(\phi(s))\| \underbrace{\phi'(s) \, ds}_{\text{Substitution: } dt}
+\end{align*}
+
+Let $t = \phi(s)$. The differential becomes $dt = \phi'(s) ds$.
+The boundaries transform as: $t(c) = \phi(c) = a$ and $t(d) = \phi(d) = b$.
+
+\begin{align*}
+L(\tilde{\gamma}) &= \int_a^b \|\gamma'(t)\| \, dt \\
+&= L(\gamma)
+\end{align*}
+
+\textbf{Explanation of Steps [Completing the Proof]:} We have successfully demonstrated that the total arc length is invariant under an orientation-preserving reparametrization, confirming the first fundamental axiom of length. The 1D substitution rule elegantly offsets the scaling of the velocity vectors.
+\end{math_stroke}
