@@ -13,10 +13,11 @@ In the end, the determinant of the Jacobian evaluates to $y_1^2 \cos(y_3)$. Noti
 Using our Change of Variables formula, the volume of the unit ball in $\mathbb{R}^3$ is equal to the integral over our rectangular parameter domain $D$.
 \end{spoken_clean}
 
-\begin{nice-box}[Board State 13: Finalizing the 3D Integral]
-The professor skips the brute-force matrix algebra, writes the final Jacobian determinant, and constructs the triple integral on the board.
+\begin{nice-box}[Board State \& Concept: Finalizing the 3D Integral]
+The professor writes the final Jacobian determinant and constructs the triple integral on the board.
 \end{nice-box}
 
+\begin{math_stroke}[Computing the 3D Volume Integral]
 The Jacobian determinant simplifies to:
 \[
 \det J\Psi = y_1^2 \cos(y_3)
@@ -25,6 +26,7 @@ Because $y_3 \in (-\pi/2, \pi/2)$, $\cos(y_3) > 0$. Applying the substitution ru
 \begin{equation} \label{eq:ball_3d_integral}
 \mu_3(B_1) = \int_{D} \underbrace{y_1^2 \cos(y_3)}_{\text{Distortion Factor}} \, dy = \int_0^1 \int_0^{2\pi} \int_{-\pi/2}^{\pi/2} y_1^2 \cos(y_3) \, dy_3 \, dy_2 \, dy_1
 \end{equation}
+\end{math_stroke}
 
 \begin{spoken_clean}[00:36:10 - 00:40:07]
 Now, you might ask me: "How do we do a geometric trick to compute this, like we did with the 2D wedge?" The answer is, we don't. I know of no simple geometric trick to evaluate this 4-dimensional hyper-volume. 
@@ -43,7 +45,7 @@ Let me motivate the slicing idea informally. The Cavalieri Principle states that
 Imagine a potato. If you take a potato and cut a very thin vertical slice, that slice is almost perfectly uniform from its front face to its back face. You can approximate the volume of that single slice by multiplying its cross-sectional area by its tiny thickness. If you sum the volumes of all these slices, the total volume of the potato is perfectly preserved.
 \end{spoken_clean}
 
-\begin{nice-box}[TikZ: The Potato Analogy]
+\begin{nice-box}[Board State \& Concept: The Potato Analogy]
 The professor draws a 3D blob (a potato) and highlights a single, thin vertical slice to illustrate the concept of $V \approx \sum A(x) \Delta x$.
 \end{nice-box}
 
@@ -78,10 +80,11 @@ Let $A \subset \mathbb{R}^n$ be a Jordan measurable set. For a specific base poi
 Here is the technical hurdle: Just because $A$ is Jordan measurable in $\mathbb{R}^n$ does not guarantee that the slice $A_x$ is Jordan measurable in the lower-dimensional space $\mathbb{R}^{n-k}$. But we don't care! The outer measure and inner measure are *always* well-defined for any bounded set. So, we define the upper marginal density $\overline{\Phi}(x)$ using the outer measure, and the lower marginal density $\underline{\Phi}(x)$ using the inner measure.
 \end{spoken_clean}
 
-\begin{nice-box}[Board State 14: Formalizing the Slices]
+\begin{nice-box}[Board State \& Concept: Formalizing the Slices]
 The professor writes down the formal set notation for slices and explicitly addresses the "non-measurable slice" edge case using inner/outer measures.
 \end{nice-box}
 
+\begin{math_stroke}[Formal Definition of Slices and Marginals]
 Split the space: $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$. A point is $(x,y)$.
 Let $A \subset \mathbb{R}^n$ be Jordan measurable.
 
@@ -97,12 +100,15 @@ To bypass slices that are not Jordan measurable, we define the \textbf{marginal 
 \overline{\varphi}(x) &= \mu_{n-k}^{\text{out}}(A_x) \quad (\text{Upper Marginal}) \\
 \underline{\varphi}(x) &= \mu_{n-k}^{\text{in}}(A_x) \quad (\text{Lower Marginal})
 \end{align*}
+\end{math_stroke}
 
-\begin{orangeformula}[Cavalieri's Principle]
-Both marginal functions are Riemann integrable over $x$, and their integrals yield the total volume of $A$:
+\begin{orangeformula}
+\begin{theorem}[Cavalieri's Principle]
+For a Jordan measurable set $A \subset \mathbb{R}^n \equiv \mathbb{R}^k \times \mathbb{R}^{n-k}$, both marginal functions are Riemann integrable over the base space $\mathbb{R}^k$. Their integrals perfectly yield the total $n$-dimensional volume of $A$:
 \[
-\int \overline{\varphi}(x) \, dx = \int \underline{\varphi}(x) \, dx = \mu_n(A)
+\int_{\mathbb{R}^k} \overline{\varphi}(x) \, dx = \int_{\mathbb{R}^k} \underline{\varphi}(x) \, dx = \mu_n(A)
 \]
+\end{theorem}
 \end{orangeformula}
 
 \begin{didactic_insight}[The "I Don't Care" Philosophy]
@@ -122,10 +128,11 @@ For any $\epsilon > 0$, we can find an inner approximation $F$ (made entirely of
 Because these sets are built from perfect cubes aligned to a grid, what happens when we slice them? As long as our base point $x$ stays within the same column of the grid, the slice of $F$ or $G$ cannot change! Therefore, the measures of these slices, $\mu(F_x)$ and $\mu(G_x)$, are just dyadic step functions. 
 \end{spoken_clean}
 
-\begin{nice-box}[TikZ: The Dyadic Pixel Proof]
+\begin{nice-box}[Board State \& Concept: The Dyadic Pixel Proof]
 The professor illustrates the inner ($F$) and outer ($G$) approximations. He notes that integrating a dyadic step function is just combinatorics—counting the total number of pixels.
 \end{nice-box}
 
+\begin{math_stroke}[Geometric Proof Setup: The Dyadic Pixel Count]
 \begin{center}
 \begin{tikzpicture}[scale=0.8]
     % Grid
@@ -161,6 +168,7 @@ The professor illustrates the inner ($F$) and outer ($G$) approximations. He not
 4. Integrating the step functions $\mu(F_x)$ and $\mu(G_x)$ over the base $dx$ simply counts the total number of pixels in $F$ and $G$. Thus:
    \[ \Vol(F) \le \int \underline{\varphi}(x) dx \le \int \overline{\varphi}(x) dx \le \Vol(G) \]
 5. Since we chose our grid such that $\Vol(G) - \Vol(F) < \epsilon$, as $\epsilon \to 0$, the outer and inner pixel volumes squeeze the marginal integrals perfectly to $\Vol(A)$.
+\end{math_stroke}
 
 % ==========================================
 % SECTION 8: FUBINI'S THEOREM
@@ -175,10 +183,13 @@ If you have a function $f(x,y)$ that is Riemann integrable over $A$, you can com
 The proof is identical. In fact, remember that the integral of a function is just the volume of its hypograph! Fubini's Theorem is quite literally just Cavalieri's Principle applied to the $n+1$ dimensional hypograph wedge of the function.
 \end{spoken_clean}
 
-\begin{orangeformula}[Fubini's Theorem]
+\begin{orangeformula}
+\begin{theorem}[Fubini's Theorem (Informal)]
+Let $A \subset \mathbb{R}^k \times \mathbb{R}^{n-k}$ be a Jordan measurable set, and let $f(x,y)$ be Riemann integrable over $A$. The multiple integral can be evaluated by integrating over the vertical slices $A_x$ first, and then over the base coordinates $x$:
 \[
-\int_A f(x,y) \, d(x,y) = \int_{\mathbb{R}^k} \left( \int_{\mathbb{R}^{n-k}} \tilde{f}_x(y) \, dy \right) dx
+\int_A f(x,y) \, d(x,y) = \int_{\mathbb{R}^k} \left( \int_{A_x} f(x,y) \, dy \right) dx
 \]
+\end{theorem}
 \end{orangeformula}
 
 \begin{didactic_insight}[The Grand Finale]

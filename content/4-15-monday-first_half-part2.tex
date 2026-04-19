@@ -13,10 +13,11 @@ In our rigorous language, we are asking for the 2-dimensional Jordan measure of 
 Let the first parameter $y_1$ represent the radius, and the second parameter $y_2$ represent the angle. We define our coordinate mapping $\Psi$ such that $x_1 = y_1 \cos(y_2)$ and $x_2 = y_1 \sin(y_2)$. Our parameter domain $D$ will be the open rectangle where the radius $y_1$ goes from $0$ to $1$, and the angle $y_2$ goes from $0$ to $2\pi$.
 \end{spoken_clean}
 
-\begin{nice-box}[Board State 8: Setting up the Transformation]
+\begin{nice-box}[Board State \& Concept: Setting up the Transformation]
 The professor writes down the set definition for the disk and formally defines the polar mapping $\Psi$ alongside its parameter domain $D$.
 \end{nice-box}
 
+\begin{math_stroke}[Formalizing the Polar Transformation]
 The Unit Disk in the original coordinates:
 \[
 B_1 = \{ (x_1, x_2) \in \mathbb{R}^2 \mid x_1^2 + x_2^2 \le 1 \}
@@ -33,6 +34,7 @@ D = \underbrace{(0,1)}_{\text{Radius } y_1} \times \underbrace{(0, 2\pi)}_{\text
 
 \textbf{Explanation of Steps:}
 We are transitioning from Cartesian coordinates $(x_1, x_2)$ to polar coordinates $(y_1, y_2)$. The domain $D$ is strictly an \textit{open} rectangle. This strict open boundary guarantees that $\Psi$ remains a proper diffeomorphism (bijective and smooth), as including $y_1 = 0$ (the origin) or $y_2 = 0, 2\pi$ (the overlapping seam) would break the bijection.
+\end{math_stroke}
 
 \begin{spoken_clean}[00:18:37 - 00:20:17]
 Our first crucial observation is that the image of our parameter domain, $\Psi(D)$, is not entirely equal to the closed disk $B_1$. Because we are using the open interval $(0,1)$ for the radius and $(0, 2\pi)$ for the angle, our mapping completely misses the origin and the line segment lying on the positive x-axis. 
@@ -76,13 +78,11 @@ The professor draws the mapping, actively highlighting the "missing" seam on the
 \begin{spoken_clean}[00:20:17 - 00:22:55]
 Because the measures are equal, we can apply our Change of Variables substitution rule. The area of the disk is the integral of the constant function $1$ over our domain $D$, multiplied by the determinant of the Jacobian matrix of $\Psi$. 
 
-Let us compute this Jacobian matrix. Taking the partial derivatives with respect to $y_1$ and $y_2$, we construct our $2 \times 2$ matrix. When we compute the determinant, we get $y_1 \cos^2(y_2) + y_1 \sin^2(y_2)$. Factoring out the $y_1$, we use our analytical axiom that $\cos^2 + \sin^2 = 1$. The determinant is simply $y_1$. Because $y_1$ is strictly positive on our domain, its absolute value is just $y_1$.
+Let us compute this Jacobian matrix. Taking the partial derivatives with respect to $y_1$ and $y_2$, we construct our $2 \times 2$ matrix. When we compute the determinant, we get $y_1 \cos^2(y_2) + y_1 \sin^2(y_2)$. Factoring out the $y_1$, we use our analytical axiom that $\cos^2 + \sin^2 = 1$ (i.e., $y_1(\cos^2(y_2) + \sin^2(y_2)) = y_1$). The determinant is simply $y_1$. Because $y_1$ is strictly positive on our domain, its absolute value is just $y_1$ (i.e., $|\det J\Psi| = y_1$).
 \end{spoken_clean}
 
-\begin{nice-box}[Board State 9: The Jacobian Calculation]
-The professor explicitly writes out the matrix and its determinant. He jokes about making arithmetic mistakes, but executes it flawlessly.
-\end{nice-box}
 
+\begin{math_stroke}[Calculating the Jacobian Determinant]
 \textbf{Applying the Substitution Rule:}
 \[
 \mu_2(B_1) = \int_{\Psi(D)} 1 \, dx = \int_D 1 \cdot \underbrace{|\det J\Psi(y_1, y_2)|}_{\text{Distortion Factor}} \, dy
@@ -107,20 +107,22 @@ J\Psi(y_1, y_2) = \begin{pmatrix}
 
 \textbf{Explanation of Steps:}
 The Jacobian determinant tells us exactly how much a tiny square of parameter space $dy_1 dy_2$ is stretched when it is mapped into the disk. Because the determinant is $y_1$, it means the "stretching" scales linearly with the radius. Grids near the outer edge of the circle are stretched much larger than grids near the origin.
+\end{math_stroke}
 
 \begin{spoken_clean}[00:22:55 - 00:26:33]
-Substituting this back in, we must compute the double integral of $y_1$ over our rectangular domain $D$. But we have a problem: we haven't learned how to systematically compute multivariable integrals yet! 
+Substituting this back in, we must compute the double integral of $y_1$ over our rectangular domain $D$ (i.e., $\int_D y_1 \, dy$). But we have a problem: we haven't learned how to systematically compute multivariable integrals yet! 
 
 We can solve this using a geometric trick. The integral of a positive function over a 2D domain represents the 3-dimensional volume of its \textit{hypograph}—the physical region trapped underneath the function's surface. 
 
 Let's add a vertical coordinate, $x_3$. We want the volume where $x_3 \le y_1$, over our base rectangle $(0,1) \times (0, 2\pi)$. 
-Consider a full 3D bounding box with dimensions $1 \times 2\pi \times 1$. The total volume is $2\pi$. Our function, $x_3 = y_1$, forms a slanted plane that cuts this box perfectly in half along its diagonal. Therefore, the volume of our hypograph is exactly half the volume of the box, which gives us $\pi$.
+Consider a full 3D bounding box with dimensions $1 \times 2\pi \times 1$. The total volume is $2\pi$. Our function, $x_3 = y_1$, forms a slanted plane that cuts this box perfectly in half along its diagonal. Therefore, the volume of our hypograph is exactly half the volume of the box, which gives us $\pi$ (i.e., $\frac{1}{2} (1 \cdot 2\pi \cdot 1) = \pi$).
 \end{spoken_clean}
 
-\begin{nice-box}[Board State 10: The Hypograph Wedge]
-The professor completes the proof not with calculus, but by drawing a 3D bounding box and showing how the function $f(y_1, y_2) = y_1$ cuts it precisely in half.
+\begin{nice-box}[Board State \& Concept: The Hypograph Wedge]
+The professor draws a 3D bounding box and shows how the function $f(y_1, y_2) = y_1$ cuts it precisely in half.
 \end{nice-box}
 
+\begin{math_stroke}[Evaluating the Volume via Geometry]
 \textbf{The Final Integration via Geometry:}
 \begin{equation} \label{eq:disk_integral}
 \mu_2(B_1) = \int_{(0,1) \times (0, 2\pi)} \underbrace{y_1}_{\text{Height } x_3} \, \underbrace{dy_1 \, dy_2}_{\text{Base Area}}
@@ -168,6 +170,7 @@ By interpreting the integral physically, we see the function $y_1$ creates a wed
 \[
 \mu_2(B_1) = \frac{1}{2} \Vol(\text{Bounding Box}) = \frac{1}{2} \big(1 \cdot 2\pi \cdot 1\big) = \pi
 \]
+\end{math_stroke}
 
 % ==========================================
 % SECTION 5: VOLUME OF THE 3D UNIT BALL
@@ -182,16 +185,18 @@ We will try the exact same approach using 3D polar coordinates—spherical coord
 The first coordinate, $y_1$, is always the radius. The second coordinate, $y_2$, is the longitude—the deviation from a fixed meridian. The third coordinate, $y_3$, represents the elevation. Let me write the formulas down...
 \end{spoken_clean}
 
-\begin{nice-box}[Board State 11: The Famous Mistake]
-The professor attempts to write the spherical coordinates. He intends for $y_3$ to be the "elevation" (latitude, measured from the equator). However, muscle memory kicks in, and he writes the standard physics convention where the angle is measured from the North Pole (colatitude). This is mathematically incorrect for his stated domain.
+\begin{nice-box}[Board State \& Concept: The Coordinate Convention Trap]
+The professor writes the spherical coordinates. He intends for $y_3$ to be the "elevation" (latitude, measured from the equator). However, he writes the standard physics convention where the angle is measured from the North Pole (colatitude). This is mathematically incorrect for his stated domain.
 \end{nice-box}
 
+\begin{math_stroke}[The Initial Incorrect Formulation]
 \textbf{The Initial (Incorrect) Board State:}
 \begin{align} 
 x_1 &= y_1 \cos(y_2) \sin(y_3) \nonumber \\
 x_2 &= y_1 \sin(y_2) \sin(y_3) \label{eq:wrong_spherical} \\
 x_3 &= y_1 \cos(y_3) \nonumber
 \end{align}
+\end{math_stroke}
 
 \begin{didactic_insight}[The Coordinate Trap]
 There are two competing standards for spherical coordinates. Mathematics often uses latitude (angle from the equator, meaning $z = r\sin\phi$). Physics usually uses colatitude (angle from the North Pole, meaning $z = r\cos\phi$). The professor mixed the words of one with the math of the other. This happens to the best of us, and it is a phenomenal active-learning moment for the room.
@@ -205,10 +210,11 @@ Wait, looking at this... did I make a mistake?
 Ah! The $y_3$ is the elevation, right? Yes, you are completely right. If we use the cosine for the $x_3$ coordinate, we are measuring the deviation from the North Pole. If we want the elevation from the equator, the vertical $x_3$ coordinate must be governed by the sine function. Let me fix this on the board. The $x_3$ gets the sine, and the others get the cosine. Excellent catch.
 \end{spoken_clean}
 
-\begin{nice-box}[Board State 12: The Correction]
-The professor erases the sines and cosines and formally swaps them, bringing the math into perfect alignment with his intended domain for elevation.
+\begin{nice-box}[Board State \& Concept: Correcting the Spherical Coordinates]
+The professor erases the sines and cosines and formally swaps them.
 \end{nice-box}
 
+\begin{math_stroke}[The Corrected Spherical Coordinates]
 \textbf{The Corrected Board State (Stroke-by-Stroke):}
 The mapping $\Psi: D \to \mathbb{R}^3$ for elevation-based spherical coordinates:
 \begin{align} 
@@ -224,8 +230,9 @@ The parameter domain $D$ is formally defined as:
 \[
 D = \underbrace{(0,1)}_{y_1 (\text{Radius})} \times \underbrace{(0, 2\pi)}_{y_2 (\text{Longitude})} \times \underbrace{\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)}_{y_3 (\text{Elevation})}
 \]
+\end{math_stroke}
 
-\begin{nice-box}[TikZ: Spherical Coordinates Visualized]
+\begin{nice-box}[Board State \& Concept: Spherical Coordinates Visualized]
 Visual representation of the corrected coordinate system, explicitly showing $y_3$ sweeping up from the equatorial plane.
 \end{nice-box}
 
@@ -261,7 +268,3 @@ Visual representation of the corrected coordinate system, explicitly showing $y_
     \fill[black] (P) circle (1.5pt) node[above right] {$(x_1, x_2, x_3)$};
 \end{tikzpicture}
 \end{center}
-
-\begin{nice-box}[End of Second Segment]
-The lecture protocol currently ends here. The next mathematical step will be computing the $3 \times 3$ Jacobian determinant of this corrected system, leading directly into Cavalieri's Principle to evaluate the resulting 4-dimensional integral.
-\end{nice-box}

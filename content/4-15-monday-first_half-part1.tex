@@ -1,9 +1,5 @@
 \chapter{Real Analysis: Change of Variables \& Rigorous Foundations}
 
-\emph{Director's Cut \& AI Extraction Protocol}
-
-\textit{First Half: 00:00 -- 15:00}
-
 \begin{didactic_insight}[The "Wall" of Multivariable Calculus]
 This segment serves as the bridge between computational calculus and rigorous Real Analysis. The professor is actively shifting the students' mindset away from "memorizing integration formulas" and towards "understanding the geometric distortions of space via linear algebra (Jacobians)." Notice how carefully he handles domains and inverse mappings—this rigor is the core of the discipline.
 \end{didactic_insight}
@@ -20,6 +16,7 @@ I hope you all had a great holiday and have recovered from the first half of the
 As always, we begin with our domain $U \subset \mathbb{R}^n$. We apply a diffeomorphism—which we call $\Phi$—that maps $U$ to another domain $V$. 
 \end{spoken_clean}
 
+\begin{math_stroke}[Domain Mapping and Function Definitions]
 Let $U, V \subset \mathbb{R}^n$. We define the mapping between these spaces:
 \[
 U \xrightarrow[\text{\textcolor{proforange}{diffeo}}]{\Phi} V
@@ -44,11 +41,13 @@ We establish a transformation $\Phi$ mapping a domain $U$ to a codomain $V$. The
     \draw[->, very thick, profblue] (1.8, 0) to[bend left=20] node[midway, above] {\textbf{Diffeomorphism $\Phi$}} (3.2, 0);
 \end{tikzpicture}
 \end{center}
+\end{math_stroke}
 
 \begin{spoken_clean}[00:01:29 - 00:02:45]
 We then consider a Jordan measurable set $A \subset \mathbb{R}^n$, with the strict condition that its closure, $\overline{A}$, must be entirely contained within the domain $U$ of our diffeomorphism. Next, we need a continuous function to integrate. We define a function $f$ mapping from the closure $\overline{A}$ to the real numbers $\mathbb{R}$.
 \end{spoken_clean}
 
+\begin{math_stroke}[Defining the Integrand]
 We restrict our attention to a specific subset of $U$:
 \[
 A \subset \mathbb{R}^n \text{ is Jordan measurable, such that } \overline{A} \subset U
@@ -60,6 +59,7 @@ f: \overline{A} \to \mathbb{R} \quad (\text{continuous})
 
 \textbf{Explanation of Steps:}
 Why the closure $\overline{A}$? By requiring the \textit{closure} of $A$ to be strictly contained within the open set $U$, we ensure that the boundary of $A$ behaves nicely under the mapping $\Phi$, and we avoid pathological singularities that could exist on the absolute edge of the domain $U$. We then ensure $f$ is continuous over this closed, bounded region, guaranteeing Riemann integrability.
+\end{math_stroke}
 
 % ==========================================
 % SECTION 2: THE CLUNKY THEOREM
@@ -70,6 +70,7 @@ Why the closure $\overline{A}$? By requiring the \textit{closure} of $A$ to be s
 With this setup, the theorem states that the integral of $f(x)$ over the region $A$ is equivalent to the integral evaluated over the mapped image, $\Phi(A)$. However, to calculate this, we must evaluate our function $f$ at the pre-image, $\Phi^{-1}(y)$. Furthermore, the differential element $dy$ must be corrected by the distortion of the volume, which is exactly the absolute value of the determinant of the Jacobian of $\Phi$, evaluated at $\Phi^{-1}(y)$.
 \end{spoken_clean}
 
+\begin{math_stroke}[The Substitution Formula]
 \textbf{The Initial Theorem (Inline Annotated):}
 \begin{equation} \label{eq:cov_clunky}
 \underbrace{\int_A f(x) \, dx}_{\text{Integral in Original Space}} = \int_{\Phi(A)} f(\underbrace{\Phi^{-1}(y)}_{\text{Pre-image under }\Phi}) \, \underbrace{\frac{1}{|\det J\Phi(\Phi^{-1}(y))|}}_{\text{Correction for Volume Distortion}} \, dy
@@ -77,9 +78,11 @@ With this setup, the theorem states that the integral of $f(x)$ over the region 
 
 \textbf{Explanation of Steps:}
 To evaluate the integral in the distorted space $V$ (where the variable is $y$), every $x$ in the original function must be replaced with the mapping that takes $y$ back to $x$, which is $\Phi^{-1}(y)$. Because the transformation $\Phi$ stretches and squishes space, the resulting "volume pixels" ($dy$) are distorted. To preserve the total "mass" of the integral, we must divide by the scaling factor of that distortion. The scaling factor of a linear transformation is the determinant of its matrix—hence, we divide by the determinant of the Jacobian matrix of $\Phi$.
+\end{math_stroke}
 
 \begin{spoken_clean}[00:03:50 - 00:06:50]
 I previously explained the geometric intuition behind why this theorem is true, but we didn't have time to complete the formal proof. I propose that we leave the proof for now. Instead, we will look at some concrete examples to see how we apply this theorem in actual calculations. Once you see it in action, you will understand why it is worth the effort to prove it. We will revisit the formal proof in two weeks during our revision buffer week. 
+
 
 \end{spoken_clean}
 
@@ -94,6 +97,7 @@ Let us rewrite this theorem into a format that is much easier to use in practice
 If we substitute this into our theorem, the integration region $\Phi(A)$ remains, but the function evaluation $f(\Phi^{-1}(y))$ simply becomes $f(\Psi(y))$. But what happens to that clunky determinant in the denominator? 
 \end{spoken_clean}
 
+\begin{math_stroke}[Simplifying the Notation]
 \textbf{Simplifying the Notation:}
 Let us define the inverse map explicitly:
 \[
@@ -103,6 +107,7 @@ Substituting this directly into Equation \ref{eq:cov_clunky}, we get an intermed
 \[
 \int_A f(x) \, dx = \int_{\Phi(A)} f(\Psi(y)) \frac{1}{|\det J\Phi(\Psi(y))|} \, dy
 \]
+\end{math_stroke}
 
 \begin{spoken_clean}[00:08:20 - 00:10:45]
 Remember the lemma we proved regarding the differential of an inverse function. If we compose $\Phi$ with its inverse $\Psi$, we get the identity map. 
@@ -112,6 +117,7 @@ By applying the chain rule, the differential of this composition evaluated at a 
 Because the determinant is a multiplicative property for matrices, the determinant of one matrix must be the exact inverse (reciprocal) of the other. Therefore, instead of dividing by the determinant of $J\Phi$, we can simply multiply by the determinant of $J\Psi$!
 \end{spoken_clean}
 
+\begin{math_stroke}[Jacobian Reciprocal Derivation]
 \textbf{Derivation of the Jacobian Reciprocal Relation:}
 \begin{align*}
 \underbrace{\Phi \circ \Psi = \id}_{\text{Function Composition}} &\implies \underbrace{D\Phi_{\Psi(y)} \circ D\Psi_y = \id}_{\text{Taking the Differential (Chain Rule)}} \\
@@ -120,6 +126,7 @@ Because the determinant is a multiplicative property for matrices, the determina
 
 \textbf{Explanation of Steps:}
 The chain rule in multivariable calculus dictates that the derivative of a composition of functions is the matrix product of their Jacobian matrices. Since the composition yields the identity function ($y \mapsto y$), the product of their Jacobians must yield the identity matrix $I_n$. 
+\end{math_stroke}
 
 Taking the determinant of both sides, and using the property that $\det(AB) = \det(A)\det(B)$ and $\det(I_n) = 1$:
 \begin{align*}
@@ -136,7 +143,8 @@ The professor takes a moment here to show how beautifully linear algebra serves 
 This gives us a highly practical, informal way to remember the substitution rule. Just like in Analysis 1, when you substitute $x = \Psi(y)$, you must replace the differential. But instead of replacing $dx$ with the 1D derivative $\Psi'(y) \, dy$, you replace it with the absolute determinant of the Jacobian matrix, $|\det J\Psi(y)| \, dy$.
 \end{spoken_clean}
 
-\begin{orangeformula}[The Practical Substitution Rule]
+\begin{orangeformula}
+\begin{theorem}[The Practical Substitution Rule]
 When substituting $x = \Psi(y)$, the differential transforms as:
 \[
 \underbrace{dx}_{\text{Original Volume}} = \underbrace{|\det J\Psi(y)|}_{\text{Scaling Factor}} \, \underbrace{dy}_{\text{New Volume}}
@@ -145,6 +153,7 @@ Yielding the clean theorem:
 \[
 \int_A f(x) \, dx = \int_{\Phi(A)} f(\Psi(y)) |\det J\Psi(y)| \, dy
 \]
+\end{theorem}
 \end{orangeformula}
 
 % ==========================================
@@ -162,6 +171,7 @@ Exactly! You know many things about $\pi$ from geometry, but your official, rigo
 The sine and cosine functions themselves are defined purely analytically (usually via power series), and their defining properties are that the derivative of sine is cosine, the derivative of cosine is negative sine, $\sin(0) = 0$, and $\cos(0) = 1$. Those relations are definitive.
 \end{spoken_clean}
 
+\begin{math_stroke}[Analytical Definitions of Trigonometric Functions]
 \textbf{Analytical Properties from Analysis 1:}
 The trigonometric functions are defined purely by their analytical properties (not triangles):
 \begin{align}
@@ -173,6 +183,7 @@ The constant $\pi$ is defined analytically as the unique root:
 \[
 \sin(\pi) = 0 \quad (\text{for the first positive root})
 \]
+\end{math_stroke}
 
 \textbf{Explanation of Steps:}
 By establishing these purely algebraic definitions, the professor is ensuring that when we compute the integral of a disk and get the symbol $\pi$, we are arriving at it through rigorous calculus and limits, not by relying on a high-school geometric formula ($A = \pi r^2$) which assumes the conclusion we are trying to prove.

@@ -24,27 +24,30 @@ Example 2 The Math Jargon (The Pixels)
 Do NOT summarize. Do NOT skip ahead. Do NOT omit trivial steps.
 The 60-Second Sequential Lockdown You must internally parse the data in rigid, 60-second intervals. This is a non-negotiable anti-summarization measure. Every line of dialogue, every physical analogy, and every board update within that minute must be accounted for before proceeding to the next.
 
-## The 7 Hard Specifications
+## The 9 Hard Specifications
 
 1. Raw Audio Primary Extraction Prioritize the raw audio track for the transcript. Identify mathematical jargon phonetically (e.g., A sub x, Phi bar) and correct it using visual evidence from the chalkboard.
-2. Refined First-Person Register Clean the spoken delivery into grammatically sound, professional English while strictly maintaining the first-person perspective (I, We). Remove fillers, stutters, and repetitions.
-3. Analogy Preservation You MUST preserve all physical metaphors and analogies. Map these specifically to `didactic_insight` environments. Use proper LaTeX quotation marks (``...'') for colloquialisms.
-4. Structural Rigor Structure the document logically using `section{}` and `subsection{}`. Enclose rigorous mathematical statements in `begin{theorem}`, `begin{definition}`, `begin{proposition}`, and `begin{proof}` environments.
-5. Visual Math Syncing Cross-reference the audio with the physical chalk strokes. If a professor speaks a variable while writing it, that variable must be perfectly formatted in LaTeX in the corresponding `math_stroke`.
-6. No Data Loss Every theorem, proof, remark, and side-note must be logged. If it is on the board, it MUST be in the protocol.
-7. Fallback for the Illegible If a board state is completely illegible and the professor does not dictate the formula verbally, do not hallucinate the math. Use the placeholder `textbf{[Illegible formula]}` inside the `math_stroke` environment, accompanied by a brief description of what you can see.
+2. Refined First-Person Register Clean the spoken delivery into grammatically sound, professional English while strictly maintaining the first-person perspective (I, We). Remove fillers, stutters, and enforce conversational comma rules (e.g., "So,", "Now,", "Therefore,").
+3. The `(i.e., ...)` Calibration Anchor Inject explicit inline LaTeX annotations directly into the `spoken_clean` text when the professor references a formula verbally (e.g., "the incremental quotient (i.e., $\frac{f(x, t_0+h) - f(x, t_0)}{h})$"). This anchors the audio to the visual track and prevents AI hallucinations.
+4. Analogy Preservation You MUST preserve all physical metaphors and analogies. Map these specifically to `didactic_insight` environments. Use proper LaTeX quotation marks (``...'') for colloquialisms.
+5. Structural Rigor Structure the document logically using `section{}` and `subsection{}`. Enclose rigorous mathematical statements in `begin{theorem}`, `begin{definition}`, `begin{proposition}`, and `begin{proof}` environments.
+6. Visual Math Syncing Cross-reference the audio with the physical chalk strokes. If a professor speaks a variable while writing it, that variable must be perfectly formatted in LaTeX in the corresponding `math_stroke`.
+7. No Data Loss Every theorem, proof, remark, and side-note must be logged. If it is on the board, it MUST be in the protocol.
+8. Eradicate "Naked Math" NEVER leave math floating outside a container. ALL standalone equations, derivations, and board diagrams must be explicitly wrapped in a `math_stroke` or `orangeformula` with a descriptive title.
+9. Fallback for the Illegible If a board state is completely illegible and the professor does not dictate the formula verbally, do not hallucinate the math. Use the placeholder `textbf{[Illegible formula]}` inside the `math_stroke` environment, accompanied by a brief description of what you can see.
 
 ## The Environments
 
-You must weave Standard Math Environments (`theorem`, `definition`, `proposition`, `proof`) together with these 7 Custom Semantic Environments
+You must weave Standard Math Environments (`theorem`, `definition`, `proposition`, `proof`) together with these 8 Custom Semantic Environments. Maintain the strict rhythm of Action (`nice-box`) -> Evidence (`math_stroke` / `orangeformula`) -> Verbal Explanation (`spoken_clean`).
 
 1. `begin{spoken_clean}[Timestamp]` - Polished first-person academic transcription.
-2. `\begin{ainote}[Title]` - Can be used for anything.
-3. `begin{math_stroke}[Title]` - Formal LaTeX tracking of board equationsdrawings.
-4. `begin{orangeformula}[Title]` - Use for the main boxed theorems or core conclusions.
-5. `begin{didactic_insight}[Title]` - Explanations of analogies and core intuition.
-6. `begin{redundant_explanation}[Title]` - Detailed why for foundational steps.
-7. `begin{meta_note}[Title]` - Scene transitions or administrative notes.
+2. `\begin{nice-box}[Board State & Concept]` - Stage directions detailing the professor's physical actions on the board.
+3. `\begin{ainote}[Title]` - Additional AI observational notes.
+4. `begin{math_stroke}[Title]` - Formal LaTeX tracking of board equations/drawings. Use this for all standard derivations and step-by-step algebraic work.
+5. `begin{orangeformula}[Title]` - The VIP treatment. Use ONLY for the main boxed theorems, definitions, or core conclusions. Must contain an inner `theorem`, `definition`, or `proposition` environment.
+6. `begin{didactic_insight}[Title]` - Explanations of analogies and core intuition.
+7. `begin{redundant_explanation}[Title]` - Detailed why for foundational steps.
+8. `begin{meta_note}[Title]` - Scene transitions or administrative notes.
 
 ## Execution Workflow
 

@@ -141,9 +141,9 @@ What happens as we send $\varepsilon$ to zero? The outer and inner bounds squeez
 This simultaneously proves two things: first, because the lower and upper integrals coincide, the marginal functions are definitively Riemann integrable. Second, because they are squeezed between bounds that converge to the true volume of the shape, their integral evaluates exactly to $\mu_n(A)$. And that completes the proof of Cavalieri's Principle.
 \end{spoken_clean}
 
-\begin{ainote}[Board State 9: Substituting and Concluding]
-He substitutes $\mu_n(F)$ and $\mu_n(G)$ into the bounding ends of the integral inequality chain. He circles the $\varepsilon$ condition, shows the bounds collapsing, and writes the final conclusion, boxing the result with a triumphant Q.E.D. mark.
-\end{ainote}
+\begin{nice-box}[Board State \& Concept: Substituting and Concluding]
+He substitutes $\mu_n(F)$ and $\mu_n(G)$ into the bounding ends of the integral inequality chain. He circles the $\varepsilon$ condition, shows the bounds collapsing, and writes the final conclusion, boxing the result.
+\end{nice-box}
 
 \begin{math_stroke}[The Final Inequality Chain]
 Substituting the known combinatorial integrals:
@@ -156,14 +156,12 @@ We know by our initial choice of dyadic approximations that:
 \]
 \end{math_stroke}
 
-\begin{orangeformula}[Conclusion of Cavalieri's Principle]
+\begin{orangeformula}
+\begin{theorem}[Conclusion of Cavalieri's Principle]
 Since the upper and lower integrals of the marginal functions are squeezed between $\mu_n(F)$ and $\mu_n(G)$ for any $\varepsilon > 0$, and the length of that interval vanishes as $\varepsilon \to 0$, we conclude:
 \[
 \int_{[-c,c]^k} \underline{\varphi}(x) \, dx = \int_{[-c,c]^k} \overline{\varphi}(x) \, dx = \mu_n(A)
 \]
 Therefore, $\underline{\varphi}$ and $\overline{\varphi}$ are Riemann integrable, completing the proof. $\blacksquare$
+\end{theorem}
 \end{orangeformula}
-
-\begin{meta_note}[End of Segment]
-The lecture video segment concludes precisely here at 30:42 with the completion of Cavalieri's Principle for sets.
-\end{meta_note}

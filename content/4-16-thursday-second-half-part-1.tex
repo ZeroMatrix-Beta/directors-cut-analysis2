@@ -3,6 +3,7 @@
 \begin{nice-box}[Board State \& Formal Proof Setup: Differentiation Under the Integral Sign]
 Before finishing the proof, the professor references the formal theorem established on the board.
 
+\begin{orangeformula}
 \begin{theorem}[Differentiation Under the Integral Sign]
 Let $K \subset \mathbb{R}^n$ be a compact subset. Let $f: K \times [a,b] \to \mathbb{R}$ be a continuous function, $f(x,t)$. 
 Assume that both $f$ and its partial derivative $\partial_t f$ are continuous on $K \times [a,b]$.
@@ -11,6 +12,7 @@ Then for every $t_0 \in (a,b)$:
 \frac{d}{dt} \bigg|_{t=t_0} \underbrace{\int_K f(x,t) \, dx}_{F(t)} = \int_K \partial_t f(x,t_0) \, dx
 \]
 \end{theorem}
+\end{orangeformula}
 \end{nice-box}
 
 \begin{proof}[Step-by-Step Proof of Differentiation Under the Integral Sign]
@@ -64,7 +66,7 @@ And when we do this, we can plug it into our integral. Let me continue the chain
 
 I can say this is equal to the integral of the partial derivative $\partial_t f(x, t_0)$ plus some error term, which I will call $E(x)$. This error $E(x)$ is exactly the difference between the partial derivative at the intermediate point and the partial derivative at $t_0$. Because of the uniform continuity we just established, we know that this error $E(x)$ is bounded in absolute value by $\varepsilon$. 
 
-So, you are integrating an error term over a set $K$ that has bounded measure. The measure of our compact set $K$ is just a constant, right? So the integral of the error is bounded by $\varepsilon$ times this constant measure. Then, when you send $h$ to $0$, you can take $\delta$ to be very, very small, which forces $\varepsilon$ to go to $0$ as well. As $\varepsilon$ goes to zero, the error integral vanishes, and you get the exact equality we wanted to prove in the theorem.
+So, you are integrating an error term over a set $K$ that has bounded measure. The measure of our compact set $K$ is just a constant, right? So, the integral of the error is bounded by $\varepsilon$ times this constant measure (i.e., $\varepsilon \cdot \mu(K)$). Then, when you send $h$ to $0$, you can take $\delta$ to be very, very small, which forces $\varepsilon$ to go to $0$ as well. As $\varepsilon$ goes to zero, the error integral vanishes, and you get the exact equality we wanted to prove in the theorem.
 \end{spoken_clean}
 
 \begin{math_stroke}[Vanishing Error Term]
@@ -83,9 +85,9 @@ Taking the limit as $h \to 0$ forces $\varepsilon \to 0$, making the error term 
 \end{math_stroke}
 \end{proof}
 
-\begin{meta_note}[Pedagogical Transition]
-So again, what is very important, what you should remember, is the intuition on this blackboard over here. When you compute the derivative under the integral sign, what you're essentially doing is taking an incremental quotient. Because the integral is linear, you can always put the incremental quotient inside the integral. Then, to justify it fully and rigorously mathematically, you need to use the uniform continuity of the partial derivative, and then everything works out perfectly.
-\end{meta_note}
+\begin{spoken_clean}[00:06:18 - 00:08:45]
+So, again, what is very important, what you should remember, is the intuition on this blackboard over here. When you compute the derivative under the integral sign, what you're essentially doing is taking an incremental quotient. Because the integral is linear, you can always put the incremental quotient inside the integral. Then, to justify it fully and rigorously mathematically, you need to use the uniform continuity of the partial derivative, and then everything works out perfectly.
+\end{spoken_clean}
 
 \section{Improper Integrals}
 

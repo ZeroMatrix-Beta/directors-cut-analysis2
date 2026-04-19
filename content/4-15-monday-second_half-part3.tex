@@ -75,11 +75,13 @@ f_x(y) = f(x,y) \quad \text{(treating } x \text{ strictly as a constant)}
 \]
 \end{math_stroke}
 
-\begin{orangeformula}[Fubini's Theorem]
+\begin{orangeformula}
+\begin{theorem}[Fubini's Theorem]
 Let $A = X \times Y$ be a compact, Jordan measurable domain, and $f: A \to \mathbb{R}$ be integrable. The multiple integral can be evaluated sequentially as an iterated integral:
 \[
 \int_A f(x,y) \, d(x,y) = \int_X \left( \int_{A_x} f(x,y) \, dy \right) dx = \int_Y \left( \int_{A_y} f(x,y) \, dx \right) dy
 \]
+\end{theorem}
 \end{orangeformula}
 
 % ==========================================
@@ -98,7 +100,7 @@ The symmetry of the theorem ensures that the order of accumulation—whether swe
 \end{spoken_clean}
 
 \begin{ainote}[Board State 12: The Hypograph Cross-Section]
-The professor moves to the right board to draw a masterful 3D perspective of a curved surface floating above a rectangular domain in the $xy$-plane. He uses red chalk to shade a specific 2D planar cross-section beneath the surface, labeling its area as the exact result of the inner integral, $\int f(x_0, y) dy$.
+The professor moves to the right board to draw a 3D perspective of a curved surface floating above a rectangular domain in the $xy$-plane. He uses red chalk to shade a specific 2D planar cross-section beneath the surface, labeling its area as the exact result of the inner integral, $\int f(x_0, y) dy$.
 \end{ainote}
 
 \begin{math_stroke}[Geometric Visualization of Fubini's Theorem]
