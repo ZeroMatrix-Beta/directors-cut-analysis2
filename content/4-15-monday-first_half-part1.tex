@@ -1,8 +1,8 @@
 \chapter{Real Analysis: Change of Variables \& Rigorous Foundations}
 
-\begin{didactic_insight}[The "Wall" of Multivariable Calculus]
+\begin{nice-box}[The "Wall" of Multivariable Calculus]
 This segment serves as the bridge between computational calculus and rigorous Real Analysis. It actively shifts the mindset away from "memorizing integration formulas" and towards "understanding the geometric distortions of space via linear algebra (Jacobians)." The careful handling of domains and inverse mappings enforces the rigorous core of the discipline.
-\end{didactic_insight}
+\end{nice-box}
 
 % ==========================================
 % SECTION 1: THE "FINAL BOSS" SETUP
@@ -57,10 +57,12 @@ We define our integrand function:
 f: \overline{A} \to \mathbb{R} \quad (\text{continuous})
 \]
 
-\textbf{Explanation of Steps:}
-Why the closure $\overline{A}$? By requiring the \textit{closure} of $A$ to be strictly contained within the open set $U$, we ensure that the boundary of $A$ behaves nicely under the mapping $\Phi$, and we avoid pathological singularities that could exist on the absolute edge of the domain $U$. We then ensure $f$ is continuous over this closed, bounded region, guaranteeing Riemann integrability.
+
 \end{math_stroke}
 
+\begin{didactic_insight}
+Why the closure $\overline{A}$? By requiring the \textit{closure} of $A$ to be strictly contained within the open set $U$, we ensure that the boundary of $A$ behaves nicely under the mapping $\Phi$, and we avoid pathological singularities that could exist on the absolute edge of the domain $U$. We then ensure $f$ is continuous over this closed, bounded region, guaranteeing Riemann integrability.
+\end{didactic_insight}
 % ==========================================
 % SECTION 2: THE CLUNKY THEOREM
 % ==========================================

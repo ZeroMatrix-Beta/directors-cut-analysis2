@@ -182,6 +182,17 @@
     breakable
 }
 
+% 9. Student Question
+\newtcolorbox{student_question}[1][Student Question]{
+    enhanced,
+    frame hidden,
+    colback=profgray!10,
+    borderline={0.5pt}{0pt}{profgray, dashed},
+    title={\sffamily\bfseries\textcolor{profgray!90!black}{#1}},
+    attach title to upper=\par\vspace{1ex},
+    breakable
+}
+
 % --- Chapter Formatting ---
 % Removes the massive default whitespace at the top of the page
 \titlespacing*{\chapter}{0pt}{-20pt}{40pt}
@@ -221,4 +232,5 @@
 \include{content/4-16-wednesday-second-half-part2.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\include{content/thursday-new-approach.tex}
 \end{document}
