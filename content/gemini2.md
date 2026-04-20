@@ -17,7 +17,7 @@ Do NOT summarize. Every line of dialogue, physical analogy, and board update mus
 5. **Structural Rigor:** Use `\section{}`, `\subsection{}`, and standard math environments (`theorem`, `proof`, etc.).
 6. **Visual Math Syncing:** Variables spoken while being written must be perfectly formatted in the corresponding `math_stroke`.
 7. **No Data Loss:** Every board note must be logged.
-8. **Eradicate "Naked Math":** ALL equations/diagrams must be wrapped in `math_stroke` or `orangeformula`.
+8. **Eradicate "Naked Math":** ALL equations/diagrams must be wrapped in a semantic environment (e.g., `math_stroke`, `orangeformula`, `nice-box`, or `spoken_clean`).
 9. **Fallback for the Illegible:** Use `\textbf{[Illegible formula]}` for non-dictated, unreadable board states.
 
 ## Execution Workflow

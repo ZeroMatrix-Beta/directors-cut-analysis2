@@ -84,8 +84,9 @@ We define the upper and lower marginal densities $\overline{\varphi}, \underline
 \underline{\varphi}(x) &= \mu_{n-k}^{\text{in}}(A_x)
 \end{align*}
 
-\textbf{Explanation of Steps (Inner and Outer Guarantees):} \\
+\begin{explanation-of-steps}
 Even if a solid body $A$ is perfectly measurable, a specific 1D slice could theoretically intersect a fractal boundary or a cloud of points, making that exact slice non-measurable. To bypass this entirely, the marginals are rigorously defined using the universally safe inner and outer measures.
+\end{explanation-of-steps}
 \end{math_stroke}
 
 % ==========================================
@@ -187,10 +188,11 @@ Where, generally for any dimension $m$:
 Q_p^m(i) = i + 2^{-p}[0, 1)^m \subset \mathbb{R}^m
 \]
 
-\textbf{Explanation of Steps (The LEGO Analogy \& Factoring Cubes):} \\
+\begin{explanation-of-steps}
 The geometric idea here is simple despite the rigorous notation. Imagine building a replica of the shape entirely out of LEGO bricks (``dyadic cubes''). If you slice this LEGO shape vertically at position $x$, the cross-section does not change at all as long as your slice stays within the width of that specific column of bricks. It only jumps to a new value when $x$ crosses into the next column. This is why the marginal densities become \textit{step functions}. 
 
 Mathematically, the formula $Q_p^n(z) = Q_p^k(a) \times Q_p^{n-k}(b)$ proves that an $n$-dimensional brick is constructed simply by taking a $k$-dimensional base square on the floor, and extruding it upwards along an $(n-k)$-dimensional vertical line. This factorization is what rigorously justifies isolating the variables to integrate them one dimension at a time.
+\end{explanation-of-steps}
 \end{math_stroke}
 
 \begin{didactic_insight}[Calculus via Combinatorics]

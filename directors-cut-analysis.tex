@@ -91,7 +91,7 @@
     frame hidden,
     colback=profblue!5!white,
     borderline west={3pt}{0pt}{profblue},
-    title={\sffamily\bfseries\textcolor{profblue}{Cleaned Spoken Protocol [#1]}},
+    title={\sffamily\bfseries\textcolor{profblue}{Spoken Protocol [#1]}},
     attach title to upper=\par\vspace{1ex},
     breakable,
     %fontupper=\itshape
@@ -191,6 +191,14 @@
     title={\sffamily\bfseries\textcolor{profgray!90!black}{#1}},
     attach title to upper=\par\vspace{1ex},
     breakable
+}
+
+
+% 10. Explanation of Steps
+\newenvironment{explanation-of-steps}{
+    \par\vspace{1ex}\noindent\textbf{Explanation of Steps:}
+}{
+    \par\vspace{1ex}
 }
 
 % --- Chapter Formatting ---

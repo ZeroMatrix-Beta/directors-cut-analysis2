@@ -166,7 +166,7 @@ The professor illustrates the inner ($F$) and outer ($G$) approximations. He not
 \end{tikzpicture}
 \end{center}
 
-\textbf{Explanation of Steps (Proof Logic):}
+\begin{explanation-of-steps}
 1. $A$ is sandwiched: $F \subset A \subset G$.
 2. This forces the slices to be sandwiched: $F_x \subset A_x \subset G_x$.
 3. Taking the measure of the slices: 
@@ -174,6 +174,7 @@ The professor illustrates the inner ($F$) and outer ($G$) approximations. He not
 4. Integrating the step functions $\mu(F_x)$ and $\mu(G_x)$ over the base $dx$ simply counts the total number of pixels in $F$ and $G$. Thus:
    \[ \Vol(F) \le \int \underline{\varphi}(x) dx \le \int \overline{\varphi}(x) dx \le \Vol(G) \]
 5. Since we chose our grid such that $\Vol(G) - \Vol(F) < \epsilon$, as $\epsilon \to 0$, the outer and inner pixel volumes squeeze the marginal integrals perfectly to $\Vol(A)$.
+\end{explanation-of-steps}
 \end{math_stroke}
 
 % ==========================================
