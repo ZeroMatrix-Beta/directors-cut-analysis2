@@ -1,6 +1,6 @@
 \section{Integration, Volumes, and Fubini's Theorem}
 
-\begin{nice-box}[Polar Coordinates Substitution in $\mathbb{R}^3$]
+\begin{nicebox}[Polar Coordinates Substitution in $\mathbb{R}^3$]
 The mapping $\Psi: D \to \mathbb{R}^3$ for spherical (polar) coordinates is defined as:
 \[
 \Psi(y_1, y_2, y_3) = 
@@ -18,7 +18,7 @@ The volume transformation leverages the Jacobian determinant:
 \[
 \underbrace{dx}_{\text{Original Volume Element}} = \underbrace{|\det J\Psi(y)| \, dy}_{\text{Scaled Volume Element}} = y_1^2 \cos y_3 \, dy
 \]
-\end{nice-box}
+\end{nicebox}
 
 \begin{orangeformula}
 \begin{theorem}[Fubini's Theorem Formulation]
@@ -33,29 +33,29 @@ where the upper and lower marginals are:
 \end{theorem}
 \end{orangeformula}
 
-\begin{spoken_clean}[00:00:03 - 00:02:08]
+\begin{spokenclean}[00:00:03 - 00:02:08]
 The plan for today is to finish our discussion of integration and provide more details on the proof of the Change of Variables formula. We will return to the formal proof later, but for now, I want to finish these parts, especially the examples, so that you can begin computing them. We will see many examples: some with me, some in the problem sessions, and some by yourselves. Once we do this, all this abstract theory will land on solid ground, and you will be able to understand it much better.
 
 As motivation from Monday's lecture, we were trying to compute the volume of a ball in $\mathbb{R}^3$. We computed the volume of the disk in $\mathbb{R}^2$ with a trick, but when we try to do the same in $\mathbb{R}^3$, we must apply the Change of Variables formula using polar coordinates. Look at the board: these are the polar coordinates. We established that in polar coordinates, the volume element $dx$ is replaced by the new volume element $dy$, scaled by the determinant of the Jacobian. If you compute the Jacobian matrix and then its determinant, you will see exactly this value.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{spoken_clean}[00:02:08 - 00:04:18]
+\begin{spokenclean}[00:02:08 - 00:04:18]
 So, we need to compute this integral. I mentioned last time that the image of our polar coordinate domain $D$ is not the completely full ball, but it equals the full ball up to a measure-zero set (i.e., the boundary planes that are excluded from the open domain $D$ have no volume). Therefore, the volume of this domain equals the volume of the ball itself. We can compute this volume using the Change of Variables formula as an integral. But here we got stuck, because we did not know how to evaluate this multivariable integral.
 
 Then we introduced the Cavalieri principle. This is a classic example of ``divide and conquer'' in mathematics. If you do not know how to compute an integral over a full volume, you compute it over a slice, thereby reducing the problem by one dimension to yield an easier integral. We stated the theorem for volumes of bodies, and then we stated the same theorem for integrals of functions. That was a bit complicated, but now, we will establish a corollary that is much easier to apply in practice.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{didactic_insight}[Divide and Conquer Algorithm]
+\begin{didacticinsight}[Divide and Conquer Algorithm]
 The Cavalieri principle is beautifully framed not just as a geometric trick, but as an algorithmic strategy. A seemingly impossible 3D volume integral is broken down (``divide'') into a continuous sequence of 2D slices (``conquer''), systematically reducing the dimensional complexity step-by-step.
-\end{didactic_insight}
+\end{didacticinsight}
 
-\begin{spoken_clean}[00:04:18 - 00:06:07]
+\begin{spokenclean}[00:04:18 - 00:06:07]
 Let me remind you of our setting. We are splitting the space $\mathbb{R}^n$ as a Cartesian product of $\mathbb{R}^k$ and $\mathbb{R}^{n-k}$. The $x$ variable lives in $\mathbb{R}^k$, and the $y$ variable lives in $\mathbb{R}^{n-k}$. Now, suppose we have a function that is Riemann integrable. We can assume that every Riemann integrable function is zero outside of a bounded set (since we are integrating over bounded domains), right? Let's say that the large box where the function is non-zero is $[-C, C]^n$. 
 
 You can define these marginals—the lower and upper marginals. This means you fix one $x$, and then you look at the vertical slice on top of that $x$. You now have a function of $y$. Because the $x$ is fixed, you can integrate this new function with respect to $y$. Sometimes, when you fix a specific $x$, you might be unlucky (e.g., the slice might intersect a pathological boundary), and the resulting function of $y$ is no longer strictly Riemann integrable. However, what you can always do is define the lower and upper integrals. These are universally well-defined. Then, you plug them back in: you integrate this lower or upper marginal with respect to $x$. You do not need to care which one you choose, as both will yield the exact integral of $f$.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Defining the Marginals]
+\begin{mathstroke}[Defining the Marginals]
     
 \begin{equation}
     \begin{aligned}
@@ -64,13 +64,13 @@ You can define these marginals—the lower and upper marginals. This means you f
         &= \int f    
     \end{aligned}
 \end{equation}
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:06:07 - 00:08:02]
+\begin{spokenclean}[00:06:07 - 00:08:02]
 This is the general theorem. But now, we will look at a practical corollary so that we do not have to deal with so many bars on the top and bottom of our integral signs. We will consider a very simple situation. Let $K$ be a closed box, which we can express as a product of intervals forming a subset of $\mathbb{R}^n$. Furthermore, we are given a continuous function $f$ mapping from $K$ to $\mathbb{R}$. 
 
 We know, because we proved earlier that uniformly continuous functions over a Jordan measurable set are Riemann integrable, that this will work out perfectly (i.e., we do not need the upper and lower integrals because continuity guarantees integrability). This box is Jordan measurable, and the function is continuous over a compact set. Therefore, it is uniformly continuous, and thus, it is automatically Riemann integrable. I no longer need to be concerned about verifying this assumption. I simply want to state the following: the integral over the box of $f(x) \, dx$ can be computed iteratively. You first integrate with respect to $x_n$.
-\end{spoken_clean}
+\end{spokenclean}
 
 \begin{orangeformula}
 \begin{corollary}[The Practical Fubini Iteration]
@@ -81,40 +81,41 @@ Let $K = [a_1, b_1] \times [a_2, b_2] \times \dots \times [a_n, b_n]$ be a close
 \end{corollary}
 \end{orangeformula}
 
-\begin{spoken_clean}[00:08:02 - 00:10:22]
+\begin{spokenclean}[00:08:02 - 00:10:22]
 For now, we will put parentheses around the integrals, but later on, I will erase them to save time. The iteration continues with the integral over the second variable, all the way up to the last variable, $x_n$. What I mean is this: I take my function, which depends on $n$ variables, and I first integrate it with respect to the $n$-th variable. The other variables are held constant; they are essentially frozen. 
 
 Once I integrate with respect to this variable (i.e., after evaluating the definite integral from $a_n$ to $b_n$), the result only depends on the remaining variables, from $x_1$ up to $x_{n-1}$. Then, I integrate again, this time with respect to the next variable, and I continue this process until I get a final number. Let me apply it to a concrete example, so that you can see what this implies in reality. You first evaluate the interval from $a_1$ to $b_1$, then $a_2$ to $b_2$, and finally $a_3$ to $b_3$. The last integral you write down is actually the first one you compute. It acts like a parenthesis. An integral is naturally closed by its corresponding differential (e.g., $dx_3$). That is exactly why you do not need the parentheses; the $dx_3$ implicitly closes the innermost integral block, $dx_2$ closes the next one, and so on. 
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{spoken_clean}[00:10:22 - 00:12:46]
+\begin{spokenclean}[00:10:22 - 00:12:46]
 Let's look at an example. What is the integral of $y_1^2 \cos(y_3)$? Since the boundary has measure zero, the boundary of the set forms a box, and I can apply our theorem directly. Whether we integrate over the open set or the closed set is entirely the same (since the boundary is a set of measure zero and does not contribute to the integral's value), so please do not complain that our domain here is open! Notice I am also just changing the variable names. Instead of calling them $x$, I will call them $y$, but the math is exactly the same. The intervals are $y_1$ in $[0, 1]$, $y_2$ in $[0, 2\pi]$, and $y_3$ in $[-\pi/2, \pi/2]$. Now, we are ready to start computing.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Setting up the Iterated Integral]
+\begin{mathstroke}[Setting up the Iterated Integral]
 Mapping the polar coordinate domain $D$ into the iterated framework:
-\[ 
-\text{Volume}(B_3) = \underbrace{\int_{0}^{1}}_{\text{``} y_1 \text{ in } [0, 1] \text{''}} \underbrace{\int_{0}^{2\pi}}_{\text{``} y_2 \text{ in } [0, 2\pi] \text{''}} \underbrace{\int_{-\pi/2}^{\pi/2} y_1^2 \cos(y_3) \, \underbrace{dy_3}_{\text{``implicitly closes the inner block''}}}_{\text{``The last integral you write down is the first one you compute''}} \, dy_2 \, dy_1 
-\]
-\end{math_stroke}
+\begin{align*}
+  &\text{Volume}(B_3) = \\
+  & \qquad = \underbrace{\int_{0}^{1}}_{\text{``} y_1 \text{ in } [0, 1] \text{''}} \underbrace{\int_{0}^{2\pi}}_{\text{``} y_2 \text{ in } [0, 2\pi] \text{''}} \underbrace{\int_{-\pi/2}^{\pi/2} y_1^2 \cos(y_3) \, \underbrace{dy_3}_{\text{``implicitly closes the inner block''}}}_{\text{``The last integral you write down is the first one you compute''}} \, dy_2 \, dy_1
+\end{align*}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:12:46 - 00:14:05]
+\begin{spokenclean}[00:12:46 - 00:14:05]
 First, I need to compute the inner integral, from $-\pi/2$ to $\pi/2$, of $y_1^2 \cos(y_3) \, dy_3$. Just as we do with partial derivatives, when you integrate with respect to $y_3$, you must remember that $y_1$ is fixed. So, you can think of it as a constant for now, and pull it completely out of the integral. This leaves us with $y_1^2$ multiplied by the integral of the cosine function. The primitive of cosine is sine, and we evaluate it between $-\pi/2$ and $\pi/2$ (i.e., $\sin(\pi/2) - \sin(-\pi/2) = 1 - (-1) = 2$).
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Step 1: The Inner Integral]
+\begin{mathstroke}[Step 1: The Inner Integral]
 \[
 \int_{-\pi/2}^{\pi/2} y_1^2 \cos(y_3) \, dy_3 = \underbrace{y_1^2}_{\text{``think of it as a constant... pull it out''}} \cdot \underbrace{\Big[ \sin(y_3) \Big]_{-\pi/2}^{\pi/2}}_{\text{``i.e., } \sin(\pi/2) - \sin(-\pi/2) = 2\text{''}} = 2y_1^2 
 \]
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:14:05 - 00:15:00]
+\begin{spokenclean}[00:14:05 - 00:15:00]
 Once we have the result of this first integral, we insert it right back into the next layer. So, now, we need to compute the integral between $0$ and $2\pi$ of $2y_1^2 \, dy_2$. This is trivial because our integrand is now a constant with respect to $y_2$. It factors out of the integral, and you simply multiply it by the length of the interval, $2\pi$, giving you $4\pi y_1^2$. 
 
 Finally, we reach the third step. We need to compute the integral from $0$ to $1$ of this remaining expression. The primitive of $y_1^2$ is $y_1^3 / 3$. Evaluating this between $y_1 = 0$ and $y_1 = 1$, I get exactly $\frac{4}{3}\pi$. That is the volume of the unit ball! Yes, we already knew this, and we remember being told this, right? But the earth is not flat, and some people still doubt it. Therefore, we must prove the things we were told in high school for ourselves to ensure the math is sound. And as you can see, we have successfully proven it.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Step 2 and 3: Resolving the Final Volume]
+\begin{mathstroke}[Step 2 and 3: Resolving the Final Volume]
 \textbf{Step 2 (Middle Integral):}
 \[ 
 \int_{0}^{2\pi} \underbrace{2y_1^2}_{\text{``trivial, because our integrand is now a constant''}} \, dy_2 = 2y_1^2 \Big[ y_2 \Big]_{0}^{2\pi} = 4\pi y_1^2 
@@ -124,4 +125,4 @@ Finally, we reach the third step. We need to compute the integral from $0$ to $1
 \[ 
 \int_{0}^{1} 4\pi y_1^2 \, dy_1 = 4\pi \underbrace{\left[ \frac{y_1^3}{3} \right]_0^1}_{\text{``The primitive of } y_1^2 \text{ is } y_1^3 / 3 \text{''}} = 4\pi \left( \frac{1}{3} - 0 \right) = \frac{4\pi}{3} 
 \]
-\end{math_stroke}
+\end{mathstroke}

@@ -1,8 +1,8 @@
 \chapter{Real Analysis: Measuring Volumes on Submanifolds}
 
-\begin{didactic_insight}[The Gavel and the "Extra Circus"]
+\begin{didacticinsight}[The Gavel and the "Extra Circus"]
 The professor opens the lecture holding a toy gavel, explicitly preparing the students for an "extra circus." This playful, theatrical prop serves a distinct pedagogical purpose: acknowledging the escalating difficulty of the material ("The Final Boss of Analysis II") while keeping the classroom atmosphere grounded and engaged. He then beautifully recalls his earlier, informal ``potato'' analogies to show how far their rigor has come.
-\end{didactic_insight}
+\end{didacticinsight}
 
 % ==========================================
 % SECTION 1: THE FINAL BOSS (DIVERGENCE THEOREM)
@@ -10,7 +10,7 @@ The professor opens the lecture holding a toy gavel, explicitly preparing the st
 
 \section{Recall: The Final Boss of Analysis II}
 
-\begin{spoken_clean}[00:00:00 - 00:01:28]
+\begin{spokenclean}[00:00:00 - 00:01:28]
 So I brought back the gavel because today I expect extra circus, okay? 
 
 So, remember that I told you the first day the final goal, or the final boss of Analysis II, or one of the most representative theorems, is this Divergence Theorem. And the first days I needed to state it very informally using ``potatoes'' and stuff because you didn't know mathematically any of the elements. But now we saw the statement again some weeks ago, and we already knew some parts. And now we know almost all of it. Right? 
@@ -18,7 +18,7 @@ So, remember that I told you the first day the final goal, or the final boss of 
 I'll remind you of the statement. Now we know many elements: $\Omega$ in $\mathbb{R}^n$ is an open, bounded set. The boundary $\partial \Omega$ will be a $C^1$ submanifold. This we know what it means. Now, $F$ will be a $C^1$ function up to the boundary, taking values in $\mathbb{R}^n$. This is a vector field. And the theorem says that the integral over $\Omega$ of this combination of partial derivatives—the derivative $i$ of the component $i$ of the vector field—and you integrate with respect to the Jordan measure, Riemann integral... this is equal to this integral over the boundary of the domain with respect to the surface measure of the boundary. 
 
 Now we know, and this is $F$ multiplied by the normal vector (i.e., $F \cdot \nu$), which we already saw what is a tangent vector and a normal vector to the boundary. So more or less everything you know what it is now, except for one thing: this integral over a surface, of the differential of volume in the surface (i.e., $dS$). We know how to integrate on the full space, but not over a curved surface.
-\end{spoken_clean}
+\end{spokenclean}
 
 \begin{orangeformula}
 \begin{theorem}[Divergence Theorem (The Final Boss)]
@@ -35,15 +35,15 @@ Let $\Omega \subset \mathbb{R}^n$ be an open, bounded set, and $\partial \Omega$
 
 \section{Defining Integrals over d-dimensional Submanifolds}
 
-\begin{spoken_clean}[00:01:28 - 00:03:50]
+\begin{spokenclean}[00:01:28 - 00:03:50]
 And this is where we are going today. We are going to learn, to define what is the integral over the surface. Okay, so next step in our quest: define integral over $d$-dimensional submanifolds. 
 
 And to define an integral, as it happened in the case of $\mathbb{R}^n$, first we need to define how to measure the volume of sets over a submanifold. So today, towards this goal, what we will do is measure volumes over submanifolds of dimension $d$. 
 
 Towards this goal, we start by the easiest case. What is the easiest possible submanifold? It is the submanifold of dimension one. Right? So let's start by $d=1$. A submanifold of dimension one, we call it a curve. And we will see how to measure length. So we need to introduce length.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Quest Log: Volumes and Curves]
+\begin{mathstroke}[Quest Log: Volumes and Curves]
 \textbf{Next Step:} Define $\int$ over $d$-dim submanifolds.
 
 \textbf{Today's Objective:} Measure volumes over submanifolds of $\dim d$.
@@ -52,7 +52,7 @@ We build intuition starting with the simplest case:
 \begin{itemize}
     \item $\dim d = 1 \implies$ \textbf{Curve} $\implies$ ``Volume'' is defined as \textbf{Length}.
 \end{itemize}
-\end{math_stroke}
+\end{mathstroke}
 
 % ==========================================
 % SECTION 3: PARAMETRIZED CURVES AND ARC LENGTH
@@ -60,13 +60,13 @@ We build intuition starting with the simplest case:
 
 \section{Formalizing Curves in $\mathbb{R}^n$}
 
-\begin{spoken_clean}[03:50 - 05:20]
+\begin{spokenclean}[03:50 - 05:20]
 So, how do we rigorously characterize a one-dimensional submanifold? We use what we call a parametrized curve. We start with a simple interval, let us call it $[a, b]$, on the real line, and we map it into our higher-dimensional space $\mathbb{R}^n$ using a function that we will denote as $\gamma$. 
 
 Now, we cannot just use any arbitrary function. We want our curve to be smooth, without any jagged edges or sudden jumps. Therefore, we require $\gamma$ to be continuously differentiable (i.e., $\gamma \in C^1([a, b], \mathbb{R}^n)$). Furthermore, to avoid pathological cases where the curve stops or creates a sharp cusp, we must enforce that the derivative vector—the velocity—is never the zero vector at any point $t$ (i.e., $\gamma'(t) \neq 0$ for all $t$). If these conditions hold, we say the curve is regular.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Definition of a Regular Parametrized Curve]
+\begin{mathstroke}[Definition of a Regular Parametrized Curve]
 We define a \textbf{parametrized curve} as a map:
 \[
 \gamma: [a, b] \to \mathbb{R}^n
@@ -76,13 +76,13 @@ We say that $\gamma$ is a \textbf{regular curve} if it satisfies two conditions:
     \item $\gamma \in C^1([a, b], \mathbb{R}^n)$ 
     \item $\gamma'(t) \neq 0$ for all $t \in [a, b]$ 
 \end{enumerate}
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[05:20 - 07:15]
+\begin{spokenclean}[05:20 - 07:15]
 Once we have this regular curve, the immediate next question is: how do we compute its length? Think about physics for a second. If $\gamma(t)$ represents your position in space at time $t$, then the derivative $\gamma'(t)$ is your velocity vector. If you want to know how far you have traveled, you do not just look at the velocity vector; you look at your speed, which is the magnitude of that velocity vector (i.e., $\|\gamma'(t)\|$).
 
 If you integrate your speed over the entire duration of your journey, from time $a$ to time $b$, you obtain the total distance traveled. This total distance is exactly what we define as the length of the curve.
-\end{spoken_clean}
+\end{spokenclean}
 
 \begin{orangeformula}
 \begin{definition}[Length of a Parametrized Curve]
@@ -93,9 +93,9 @@ L(\gamma) = \int_a^b \|\gamma'(t)\| \, dt
 \end{definition}
 \end{orangeformula}
 
-\begin{didactic_insight}[The Speedometer Analogy]
+\begin{didacticinsight}[The Speedometer Analogy]
 The professor relies on a classical kinematic analogy here. The formula for arc length is presented not just as an abstract analytical construct, but as a physical one: Length is the accumulation of speed over time. This effectively maps the abstract $dt$ integration back to familiar real-world intuition.
-\end{didactic_insight}
+\end{didacticinsight}
 
 % ==========================================
 % SECTION 4: THE AXIOMS OF LENGTH
@@ -103,13 +103,13 @@ The professor relies on a classical kinematic analogy here. The formula for arc 
 
 \section{Geometric Independence and the Axioms of Length}
 
-\begin{spoken_clean}[07:15 - 09:30]
+\begin{spokenclean}[07:15 - 09:30]
 Now, here is the conceptual leap we must make. The length $L(\gamma)$ that we just defined depends explicitly on the parametrization $\gamma$. It depends on the specific function and the specific time interval. But length, fundamentally, is a geometric property of the set of points in space, not a property of how fast you drive along them. 
 
 If two different people drive along the exact same path, but one drives twice as fast, the geometric length of the path they covered is exactly the same, even though their parametrizations are completely different. Therefore, if our formula is to make any geometric sense, we need to prove that it is invariant under reparametrization.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Reparametrization Setup]
+\begin{mathstroke}[Reparametrization Setup]
 Let $\phi: [c, d] \to [a, b]$ be a bijective, $C^1$ function with $\phi'(s) \neq 0$ for all $s \in [c, d]$.
 We define a reparametrization of $\gamma$ as:
 \[
@@ -117,13 +117,13 @@ We define a reparametrization of $\gamma$ as:
 \]
 
 \textbf{Our analytical goal:} We must show that $L(\tilde{\gamma}) = L(\gamma)$.
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[09:30 - 11:00]
+\begin{spokenclean}[09:30 - 11:00]
 Before we prove that our integral formula actually survives this reparametrization mathematically, we have to take a step back. We are constructing a measure of volume—specifically, a 1-dimensional volume, which is length. But what does it even mean to be a valid measure of length? 
 
 We cannot just write down an integral, compute it, and blindly accept it as "length." There are fundamental, axiomatic properties that any concept of length must satisfy in Euclidean space. If our formula fails even one of these, it is not a valid measure. So we must set the ground rules.
-\end{spoken_clean}
+\end{spokenclean}
 
 
 
@@ -135,29 +135,29 @@ We cannot just write down an integral, compute it, and blindly accept it as "len
 % SECTION 5: THE FOUR AXIOMS OF LENGTH
 % ==========================================
 
-\begin{spoken_clean}[11:00 - 12:30]
+\begin{spokenclean}[11:00 - 12:30]
 If we are going to define a concept as fundamental as length, it cannot just be a random formula we pull from the air. It has to behave in the way our physical universe expects lengths to behave. If it does not, then we have defined something else entirely. 
 
 So, before we even look at the integral of the norm of the velocity, we must ask ourselves: what properties \textit{must} length satisfy? What are the absolute baseline requirements? There will be four. So there will be four fundamental axioms that govern any valid measurement of length.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{nice-box}[Classroom Interaction: The Catchbox]
+\begin{nicebox}[Classroom Interaction: The Catchbox]
 The professor holds up the toy gavel, pacing slightly as he transitions from delivering a lecture to soliciting class participation. He writes the numbers 1 through 4 on the blackboard, leaving them blank, and then grabs a bright red throwable "Catchbox" microphone, tossing it to a student in the audience to gather the geometric axioms.
-\end{nice-box}
+\end{nicebox}
 
-\begin{spoken_clean}[12:30 - 14:15]
+\begin{spokenclean}[12:30 - 14:15]
 Okay, so what properties must length satisfy? I have written four empty slots on the board. Maybe you can tell me two, and I will complete the other two. Who wants to catch this? Tell me what properties length must satisfy. Who has a guess for the most obvious property a length should have?
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{student_question}
+\begin{studentquestion}
 It has to be positive? You can't have a negative length. And you just add them together if you have multiple pieces?
-\end{student_question}
+\end{studentquestion}
 
-\begin{spoken_clean}[14:15 - 17:30]
+\begin{spokenclean}[14:15 - 17:30]
 Exactly! First, we have positivity, but more rigorously, we need normalization. The length of the straight unit interval (i.e., $[0,1] \times \{0\}$ in $\mathbb{R}^n$) must exactly equal 1. And yes, it must be additive. If we split a curve into two pieces, the total length must be the sum of the lengths of the individual pieces. 
 
 Now I will complete the other two, which are the geometric anchors. We already discussed one: it should be independent of the chosen parametrization. The geometric length does not care how fast you draw the curve. And finally, invariance under Euclidean isometry. If I rotate or translate the curve rigidly in space, its length cannot change.
-\end{spoken_clean}
+\end{spokenclean}
 
 \begin{orangeformula}
 \begin{definition}[The Four Axioms of Length]
@@ -177,13 +177,13 @@ For a definition of length $L(\gamma)$ to be geometrically valid for a curve $\g
 
 \section{Proving the Invariance}
 
-\begin{spoken_clean}[17:30 - 18:45]
+\begin{spokenclean}[17:30 - 18:45]
 Let us focus on the first property: Independence of Parametrization. We need to prove that our integral formula actually honors this axiom. 
 
 Suppose we have our reparametrization $\phi$ mapping the interval $[c, d]$ to $[a, b]$. We assume $\phi$ is strictly increasing, so its derivative is strictly positive (i.e., $\phi'(s) > 0$). We want to compute the length of the new curve $\tilde{\gamma}(s) = \gamma(\phi(s))$. How do we find its velocity vector? We just apply the Chain Rule. The derivative $\tilde{\gamma}'(s)$ is simply the derivative of the outer function evaluated at the inner function, multiplied by the derivative of the inner function (i.e., $\tilde{\gamma}'(s) = \gamma'(\phi(s)) \cdot \phi'(s)$).
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Applying the Chain Rule]
+\begin{mathstroke}[Applying the Chain Rule]
 Given the reparametrized curve $\tilde{\gamma}(s) = \gamma(\phi(s))$ for $s \in [c, d]$.
 
 By the Chain Rule, the velocity vector is:
@@ -198,15 +198,15 @@ Since we assume $\phi$ is strictly increasing, $\phi'(s) > 0$, yielding $|\phi'(
 \[
 \implies \|\tilde{\gamma}'(s)\| = \|\gamma'(\phi(s))\| \phi'(s)
 \]
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[18:45 - 20:00]
+\begin{spokenclean}[18:45 - 20:00]
 Now we plug this norm directly into our length formula for $\tilde{\gamma}$. We get the integral from $c$ to $d$ of $\|\gamma'(\phi(s))\| \phi'(s) \, ds$. 
 
 Does this look familiar? It is exactly the setup for the 1-dimensional Change of Variables formula—or as you likely learned it in Analysis I, Integration by Substitution. If we substitute $t = \phi(s)$, then our differential $dt$ is exactly $\phi'(s) ds$. The limits of integration change from $c$ and $d$ to $\phi(c)=a$ and $\phi(d)=b$. And as if by magic, the formula collapses back perfectly into the length of the original curve $\gamma$. The geometry is entirely preserved.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Integration by Substitution]
+\begin{mathstroke}[Integration by Substitution]
 Computing the length of the reparametrized curve $\tilde{\gamma}$:
 \begin{align*}
 L(\tilde{\gamma}) &= \int_c^d \|\tilde{\gamma}'(s)\| \, ds \\
@@ -222,4 +222,4 @@ L(\tilde{\gamma}) &= \int_a^b \|\gamma'(t)\| \, dt \\
 \end{align*}
 
 \textbf{Explanation of Steps [Completing the Proof]:} We have successfully demonstrated that the total arc length is invariant under an orientation-preserving reparametrization, confirming the first fundamental axiom of length. The 1D substitution rule elegantly offsets the scaling of the velocity vectors.
-\end{math_stroke}
+\end{mathstroke}

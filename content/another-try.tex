@@ -1,8 +1,8 @@
-\begin{spoken_clean}[00:00:00 - 00:00:12]
+\begin{spokenclean}[00:00:00 - 00:00:12]
 Okay, so let me continue with the statement. So, we were trying to state this theorem that I informally described as ``cutting the potato'', right? But now we are trying to be more serious, and I was introducing these notations.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Transition from Spherical Coordinates to Slicing Ideas]
+\begin{mathstroke}[Transition from Spherical Coordinates to Slicing Ideas]
 The previous discussion led to the volume integral for the unit ball:
 \[
 \mu_3(B_1) = \mu_3(\Psi(D)) = \int_{(0,1)\times(0,2\pi)\times(-\pi/2,\pi/2)} y_1^2 \cos y_3 \, dy = \, \textcolor{red}{?}
@@ -11,16 +11,16 @@ This naturally introduces the concept of ``Slicing ideas'':
 \begin{center}
 %\includegraphics[width=0.4\textwidth]{path/to/cavalieri_principle_concept.png} % Placeholder for visible board image
 \end{center}
-\begin{explanation-of-steps}
+\begin{explanationofsteps}
 The board visually summarizes the core idea of Cavalieri's principle: for an $n$-dimensional body, its total volume can be computed by summing the "areas" (measures) of its $(n-1)$-dimensional slices, multiplied by an infinitesimal thickness.
-\end{explanation-of-steps}
-\end{math_stroke}
+\end{explanationofsteps}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:00:12 - 00:02:20]
+\begin{spokenclean}[00:00:12 - 00:02:20]
 So, this theorem, you will see, is a bit the opposite as the Change of Variables formula. The Change of Variables formula is a very simple statement but a very hard proof. This is a very complicated statement, but the proof is very easy, right? So, it's a bit of a contrast. We have our measurable set. Let me do a drawing of it. So we have our set $A$, right, that is contained in a box. So here, we will put the $y$-axis, right? And this is the $x$-axis. This is actually $\mathbb{R}^k$, and on the $y$-axis, we have $\mathbb{R}^{n-k}$, right? And the whole space is $\mathbb{R}^n$, the product of the two (i.e., $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$).
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Geometric Visualization Setup]
+\begin{mathstroke}[Geometric Visualization Setup]
 \begin{center}
 \begin{tikzpicture}[scale=1.0]
     % Axes
@@ -41,14 +41,14 @@ So, this theorem, you will see, is a bit the opposite as the Change of Variables
     \node[right, red] at (1.75, 1.5) {$A_x$};
 \end{tikzpicture}
 \end{center}
-\begin{explanation-of-steps}
+\begin{explanationofsteps}
 The professor draws a set $A$ within a bounding box in $\mathbb{R}^n$, split into $\mathbb{R}^k$ (x-axis) and $\mathbb{R}^{n-k}$ (y-axis). A vertical slice at a specific $x$ value is indicated in red and labeled $A_x$. This $A_x$ represents the $y$ coordinates corresponding to a fixed $x$ within $A$.
-\end{explanation-of-steps}
-\end{math_stroke}
+\end{explanationofsteps}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:02:20 - 00:03:37]
+\begin{spokenclean}[00:02:20 - 00:03:37]
 Okay, now we are saying that our set is contained in some box, but this is not very important. So this is the box, a very large box. And now for inside of, so for $x$ inside of my box, so this will be some $x$ here, an $x$ point, I will consider the slice. So, the relevant piece is this slice over here. This is what I'm calling $A_x$. Well, the projection, so $A_x$ will be the projection onto this axis, right? So you take this set and you project it.
-\end{spoken_clean}
+\end{spokenclean}
 
 \begin{orangeformula}
 \begin{theorem}[Cavalieri's Principle for Sets]
@@ -71,12 +71,12 @@ And their integrals over $[-C,C]^k$ are equal to the $n$-dimensional measure of 
 \end{theorem}
 \end{orangeformula}
 
-\begin{spoken_clean}[00:03:37 - 00:04:08]
+\begin{spokenclean}[00:03:37 - 00:04:08]
 So, let's prove that. So, remember always when we want to prove something about Jordan measure, we remember that we were approximating our set from inside and outside.
-\end{spoken_clean}
+\end{spokenclean}
 
 \begin{proof}[Cavalieri's Principle for Sets]
-\begin{math_stroke}[Approximation by Dyadic Cubes (Upgraded Visual)]
+\begin{mathstroke}[Approximation by Dyadic Cubes (Upgraded Visual)]
 \begin{center}
 \begin{tikzpicture}[scale=1.8]
     % Faint Background Grid to emphasize the "pixels"
@@ -114,12 +114,12 @@ So, let's prove that. So, remember always when we want to prove something about 
     \node[profyellow!80!black, right] at (1.625, 0.85) {$F_x$};
 \end{tikzpicture}
 \end{center}
-\begin{explanation-of-steps}
+\begin{explanationofsteps}
 To rigorously prove Cavalieri's Principle, we exploit the definition of Jordan measurability. We trap the smooth set $A$ between two ``pixelated'' approximations made entirely of dyadic cubes: an inner approximation $F$ (yellow) and an outer approximation $G$ (red). Because these sets are built from orthogonal blocks, taking a 1D vertical slice at a fixed $x$ yields perfectly vertical piecewise-constant line segments. The true slice $A_x$ is rigorously trapped: $F_x \subset A_x \subset G_x$.
-\end{explanation-of-steps}
-\end{math_stroke}
+\end{explanationofsteps}
+\end{mathstroke}
 
-\begin{math_stroke}[Approximation by Dyadic Cubes (Original Visual)]
+\begin{mathstroke}[Approximation by Dyadic Cubes (Original Visual)]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Axes
@@ -151,24 +151,24 @@ To rigorously prove Cavalieri's Principle, we exploit the definition of Jordan m
     \draw[densely dashed, profgreen, thin] (1.7, 0.9) -- (1.7, 2.3);
 \end{tikzpicture}
 \end{center}
-\begin{explanation-of-steps}
+\begin{explanationofsteps}
 To prove the theorem, we rely on approximating the Jordan measurable set $A$ from both the inside and the outside using unions of small dyadic cubes. The outer approximation is shown with a red outline, and the inner approximation with a green outline. When we take a slice ($x$) of these approximations, the slices of the actual set $A$ are bounded by the slices of the approximations.
-\end{explanation-of-steps}
-\end{math_stroke}
+\end{explanationofsteps}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:04:08 - 00:05:00]
+\begin{spokenclean}[00:04:08 - 00:05:00]
 We will take the approximation from inside, right? Something like this. So some approximation from inside. And then there will be the approximation from outside, right? Let me describe a bit with a picture what we are going to do in the proof, and later we do the symbols. So what we will say is, okay, since our set is measurable, it is Jordan measurable, we can take a very small pixel size (i.e., $2^{-p}$). This will be the pixel size. And we can take an inner and an outer approximation of our set by dyadic cubes, so by ``pixels'', right? By the dyadic sets. This is the inner, this is the outer. And now the difference between these two is very small, it is less than $\epsilon$. We can take the volume of the red minus the volume of the yellow is less than $\epsilon$ for every $\epsilon$ we want. And now we will see what happens when we take a slice of this set. When we take a slice of this set like this, let's say we take $x$ and we slice, what we see is that the slice of my set $A$ contains the slice of the yellow, and is contained in the slice of the red.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Idea: Marginal Densities for Dyadic Approximations]
+\begin{mathstroke}[Idea: Marginal Densities for Dyadic Approximations]
 \textbf{Idea:} The marginal densities computed for dyadic inner and outer approximations are dyadic step functions.
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:05:00 - 00:06:00]
+\begin{spokenclean}[00:05:00 - 00:06:00]
 But when you start to move $x$ like this, you will see that whenever you move $x$ less than the size of the pixel, you are not jumping here, so the function, the function... so the marginals.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Definition of Dyadic Cubes in $\mathbb{R}^n$]
+\begin{mathstroke}[Definition of Dyadic Cubes in $\mathbb{R}^n$]
 Given a dyadic cube (``pixel'' of size $2^{-p}$) in $\mathbb{R}^n$:
 \[
 Q_p^n(z) = z + 2^{-p} [0,1]^n, \quad \text{where } z = (a,b), \quad a \in \mathbb{R}^k, b \in \mathbb{R}^{n-k}
@@ -177,28 +177,28 @@ The full $n$-dimensional dyadic cube can be decomposed into a product of lower-d
 \[
 Q_p^n(z) = Q_p^k(a) \times Q_p^{n-k}(b)
 \]
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:06:00 - 00:07:10]
+\begin{spokenclean}[00:06:00 - 00:07:10]
 So, I will take the size of a pixel $2^{-p}$ in $\mathbb{R}^n$. Now we have, so we will say, okay, $Q_p^n(z)$ is $z + 2^{-p} [0,1]^n$, right? And since now there will be cubes of several dimensions, let me put the dimension here as a sub-index: $Q_p^n(z)$ is $n$. Now if $z$ is of the form $(a,b)$ where $a$ is in $\mathbb{R}^k$ and $b$ is in $\mathbb{R}^{n-k}$, right, in this coordinate splitting, I take a $z$ that has coordinates $a$ and $b$, right? Then I... this cube $Q_p^n(z)$ is equal to $Q_p^k(a) \times Q_p^{n-k}(b)$, right?
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Definition of Dyadic Cubes in $\mathbb{R}^m$]
+\begin{mathstroke}[Definition of Dyadic Cubes in $\mathbb{R}^m$]
 Where, in general, for $m$-dimensions:
 \[
 Q_p^m(\bar{z}) = \bar{z} + 2^{-p} [0,1]^m \subset \mathbb{R}^m
 \]
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:07:10 - 00:07:37]
+\begin{spokenclean}[00:07:10 - 00:07:37]
 So, something very complicated to write but very trivial on the picture. I'm saying that the cube over here, the dyadic cube over here, is always the product of a cube over here times a dyadic cube over here. A dyadic cube in the full space is the product of a dyadic cube of the same size here times a dyadic cube of the same size here.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{spoken_clean}[00:07:37 - 00:08:15]
+\begin{spokenclean}[00:07:37 - 00:08:15]
 Now, given $\epsilon > 0$, let $p \in \mathbb{N}$ be such that $F$ and $G$ are dyadic sets (i.e., unions of dyadic cubes of pixel size $2^{-p}$) such that $F \subset A \subset G$, and the measure of $G$ minus the measure of $F$ (i.e., $\mu(G) - \mu(F)$) is less than $\epsilon$. This is the definition of a Jordan measurable set. So we can trap it between dyadic sets, and the measure of the outer minus the measure of the inner is less than $\epsilon$.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Defining Dyadic Slices]
+\begin{mathstroke}[Defining Dyadic Slices]
 For all $x \in [-C,C]^k$, we define the slices:
 \[
 G_x = \{ y \in \mathbb{R}^{n-k} \mid (x,y) \in G \} \quad \text{and} \quad F_x = \{ y \in \mathbb{R}^{n-k} \mid (x,y) \in F \}
@@ -207,17 +207,17 @@ G_x = \{ y \in \mathbb{R}^{n-k} \mid (x,y) \in G \} \quad \text{and} \quad F_x =
 \[
 F_x = F_{x'} \quad \text{and} \quad G_x = G_{x'}
 \]
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:08:15 - 00:09:47]
+\begin{spokenclean}[00:08:15 - 00:09:47]
 And now we, for all $x$ in $[-C,C]^k$, define the slices of $G_x$ (the set of $y$ in $\mathbb{R}^{n-k}$ such that $(x,y)$ belongs to $G$) and similarly with $F$. The observation that is what I was trying to say with the drawing: if $Q_p(a) \subset \mathbb{R}^k$ is a dyadic cube of pixel size $2^{-p}$, then what we see is because every cube in $\mathbb{R}^n$ is a product of cubes, you see that $F_x$ is equal to $F_{x'}$ for all $x, x'$ in this cube $Q_p(a)$. As long as the base point is moving in this cube, the slices cannot change. The slice is always constant. And the same is with the $G$.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Defining Dyadic Step Functions]
+\begin{mathstroke}[Defining Dyadic Step Functions]
 What does it mean? It means that if we define:
 \[
 f(x) := \mu(F_x) \quad \text{and} \quad g(x) := \mu(G_x)
 \]
 Then these functions are constant in each dyadic cube $Q_p(a)$, and are zero outside of $(-C,C)^k$.
-\end{math_stroke}
+\end{mathstroke}
 \end{proof}

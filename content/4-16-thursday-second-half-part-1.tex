@@ -1,8 +1,8 @@
 \section{Proof: Differentiation Under the Integral Sign}
 
-\begin{nice-box}[Formal Proof Setup: Differentiation Under the Integral Sign]
+\begin{nicebox}[Formal Proof Setup: Differentiation Under the Integral Sign]
 Before finishing the proof, the professor references the formal theorem established on the board.
-\end{nice-box}
+\end{nicebox}
 
 \begin{orangeformula}
 \begin{theorem}[Differentiation Under the Integral Sign]
@@ -15,26 +15,26 @@ Then for every $t_0 \in (a,b)$:
 \end{theorem}
 \end{orangeformula}
 
-\begin{proof}[Step-by-Step Proof of Differentiation Under the Integral Sign]
+\begin{proof}[Differentiation Under the Integral Sign]
 
 \textbf{Step 1: Formulating the Difference Quotient}
-\begin{spoken_clean}[00:00:09 - 00:01:20]
+\begin{spokenclean}[00:00:09 - 00:01:20]
 Let's finish this proof. All that remains to show is how to handle the limit of our incremental quotient. By the definition of the derivative for our integral $F(t)$, we pull the limit outside. Because the integral is linear, we can combine the terms into a single integral. We would like to replace this incremental quotient inside the integral by the partial derivative, which is almost there. However, we need to compute the estimate a bit better.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[The Incremental Quotient]
+\begin{mathstroke}[The Incremental Quotient]
 Using $F(t) = \int_K f(x,t) \, dx$, we express the derivative as a limit:
 \[
 F'(t_0) = \lim_{h \to 0} \frac{F(t_0+h) - F(t_0)}{h} = \lim_{h \to 0} \int_K \underbrace{\frac{f(x,t_0+h) - f(x,t_0)}{h}}_{\text{``incremental quotient''}} \, dx
 \]
-\end{math_stroke}
+\end{mathstroke}
 
 \textbf{Step 2: Applying the Mean Value Theorem}
-\begin{spoken_clean}[00:01:20 - 00:02:10]
+\begin{spokenclean}[00:01:20 - 00:02:10]
 To do this, we will use the Mean Value Theorem, right? By the Mean Value Theorem, we know that $f(x, t_0 + h) - f(x, t_0)$ divided by $h$ is equal to the partial derivative at some intermediate point. Let's call this intermediate point $\xi_x$, noting that it depends on $x$. If we assume that $h$ is positive, just for simplicity, then this $\xi_x$ belongs to the open interval $(t_0, t_0 + h)$.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[MVT Substitution]
+\begin{mathstroke}[MVT Substitution]
 Applying the Mean Value Theorem (MVT) to the integrand for each fixed $x$:
 \[
 \text{By MVT: } \underbrace{\frac{f(x, t_0+h) - f(x, t_0)}{h}}_{\text{``incremental quotient''}} = \underbrace{\partial_t f(x, \xi_x)}_{\text{``partial derivative at some intermediate point''}}
@@ -42,14 +42,14 @@ Applying the Mean Value Theorem (MVT) to the integrand for each fixed $x$:
 \[
 \text{where } \underbrace{\xi_x \in (t_0, t_0+h) \quad \text{for } (h>0)}_{\text{``this } \xi_x \text{ belongs to the interval''}}
 \]
-\end{math_stroke}
+\end{mathstroke}
 
 \textbf{Step 3: Leveraging Uniform Continuity}
-\begin{spoken_clean}[00:02:10 - 00:03:00]
+\begin{spokenclean}[00:02:10 - 00:03:00]
 On the other hand, because our partial derivative $\partial_t f$ is continuous on the compact set $K \times [a,b]$ by assumption, it is also uniformly continuous. This means that for every $\varepsilon$, there exists a $\delta$ such that if $h$ is less than $\delta$, then the difference between our intermediate point $\xi_x$ and $t_0$ is also less than $\delta$. Therefore, if the difference is small, the partial derivative at the point $(x, \xi_x)$ minus the partial derivative at $(x, t_0)$ is less than $\varepsilon$. Uniform continuity allows me to uniformly control how close these values are. This is crucial because $\xi_x$ is a point that is very, very close to $t_0$.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Uniform Continuity Bound]
+\begin{mathstroke}[Uniform Continuity Bound]
 Because $\partial_t f \in C^0(K \times [a,b])$ and the domain is compact, $\partial_t f$ is uniformly continuous:
 \[
 \underbrace{\forall \varepsilon > 0 \, \exists \delta > 0 \text{ s.t. } |h| \le \delta \implies |\xi_x - t_0| \le \delta}_{\text{``uniformly control how close these values are''}}
@@ -58,18 +58,18 @@ This guarantees that the deviation of the partial derivative is uniformly bounde
 \[
 \implies \underbrace{| \partial_t f(x, \xi_x) - \partial_t f(x, t_0) | \le \varepsilon}_{\text{``is less than } \varepsilon \text{''}}
 \]
-\end{math_stroke}
+\end{mathstroke}
 
 \textbf{Step 4: Bounding the Error Term and Passing the Limit}
-\begin{spoken_clean}[00:03:00 - 00:06:18]
+\begin{spokenclean}[00:03:00 - 00:06:18]
 And when we do this, we can plug it into our integral. Let me continue the chain of equalities using this estimate. I want to compute the limit, when $h$ goes to $0$, of the integral of the incremental quotient with respect to $x$. 
 
 I can say this is equal to the integral of the partial derivative $\partial_t f(x, t_0)$ plus some error term, which I will call $E(x)$. This error $E(x)$ is exactly the difference between the partial derivative at the intermediate point and the partial derivative at $t_0$. Because of the uniform continuity we just established, we know that this error $E(x)$ is bounded in absolute value by $\varepsilon$. 
 
 So, you are integrating an error term over a set $K$ that has bounded measure. The measure of our compact set $K$ is just a constant, right? So, the integral of the error is bounded by $\varepsilon$ times this constant measure (i.e., $\varepsilon \cdot \mu(K)$). Then, when you send $h$ to $0$, you can take $\delta$ to be very, very small, which forces $\varepsilon$ to go to $0$ as well. As $\varepsilon$ goes to zero, the error integral vanishes, and you get the exact equality we wanted to prove in the theorem.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Vanishing Error Term]
+\begin{mathstroke}[Vanishing Error Term]
 We decompose the integral into the desired derivative and a residual error:
 \[
 \int_K \underbrace{\frac{f(x, t_0+h) - f(x, t_0)}{h}}_{\partial_t f(x, \xi_x)} \, dx = \int_K \big( \underbrace{\partial_t f(x, t_0)}_{\text{``the partial derivative''}} + \underbrace{E(x)}_{\text{``some error term''}} \big) \, dx
@@ -82,12 +82,12 @@ Taking the limit as $h \to 0$ forces $\varepsilon \to 0$, making the error term 
 \[
 \lim_{h \to 0} \int_K \frac{f(x, t_0+h) - f(x, t_0)}{h} \, dx = \int_K \partial_t f(x, t_0) \, dx
 \]
-\end{math_stroke}
+\end{mathstroke}
 \end{proof}
 
-\begin{spoken_clean}[00:06:18 - 00:08:45]
+\begin{spokenclean}[00:06:18 - 00:08:45]
 So, again, what is very important, what you should remember, is the intuition on this blackboard over here. When you compute the derivative under the integral sign, what you're essentially doing is taking an incremental quotient. Because the integral is linear, you can always put the incremental quotient inside the integral. Then, to justify it fully and rigorously mathematically, you need to use the uniform continuity of the partial derivative, and then everything works out perfectly.
-\end{spoken_clean}
+\end{spokenclean}
 
 \section{Improper Integrals}
 
@@ -101,20 +101,20 @@ We define the improper integral of $f$ over $U$ as the supremum of integrals ove
 \end{definition}
 \end{orangeformula}
 
-\begin{spoken_clean}[00:08:45 - 00:12:07]
+\begin{spokenclean}[00:08:45 - 00:12:07]
 This is our last, and very easy, definition. Sometimes you may think you have a function that does not really satisfy all of the assumptions to be strictly Jordan-Riemann integrable. However, you can still give a very good, rigorous meaning to the integral in many concrete situations, especially if the function is defined on an open set.
 
 Here is the definition. Suppose we have some open set $U \subset \mathbb{R}^n$, and we have a continuous function $f$ from $U$ to $\mathbb{R}$. Let's assume that $f$ is non-negative. We can then define the improper integral of $f$ over $U$. We define this integral as the supremum of the integral of $f$ over $K$, where $K$ is any compact, Jordan measurable subset of $U$.
 
 Whatever the exact definition of the set $U$ is, intuitively, the integral over the whole open set should be bigger than the integral over any compact subset $K$, because $f$ is non-negative. You can approximate any open set from the inside by a sequence of Jordan measurable compact sets, as fine as you want. By declaring that the value of the total integral is this supremum, I now have a solid way to integrate non-negative functions over open sets.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Approximating the Open Set]
+\begin{mathstroke}[Approximating the Open Set]
 \begin{align*}
 &\underbrace{\int_U f(x) \, dx}_{\text{``integral over the whole open set''}} \\
 &\quad = \sup \left\{ \underbrace{\int_K f}_{\text{``bigger than over any compact subset''}} \mid \underbrace{K \subset U}_{\text{``approximate inside''}}, K \text{ cpt. J.m.} \right\}
 \end{align*}
-\end{math_stroke}
+\end{mathstroke}
 
 \begin{orangeformula}
 \begin{proposition}[Sequential Evaluation of Improper Integrals]
@@ -125,16 +125,16 @@ If we have an increasing sequence of compact sets $K_0 \subset K_1 \subset \dots
 \end{proposition}
 \end{orangeformula}
 
-\begin{proof}[Instructive Proof of Sequential Exhaustion]
-\begin{spoken_clean}[00:12:07 - 00:15:00]
+\begin{proof}[Proof of Sequential Exhaustion]
+\begin{spokenclean}[00:12:07 - 00:15:00]
 Let's make a first observation. Whenever I have an increasing sequence of nested open sets—or rather, compact sets—let's call them $K_0 \subset K_1 \subset \dots \subset K_\ell \dots$, such that their union covers $U$. 
 
 So, if $U$ is the union of all $K_\ell$, then the integral over $U$ of $f$ is exactly the same as the limit, when $\ell$ goes to infinity, of the integral of $f$ over $K_\ell$. In our definition, we are taking the supremum over a massive collection of all possible Jordan measurable compact sets. But in practice, it is enough to take just one increasing sequence of compact sets that exhausts your open set. You can easily construct sequences like this using cubes.
 
 Why is the limit of the sequence the same as the supremum? Because if you give me any fixed compact set $K$, and I have a sequence of sets whose interiors eventually cover everything, then $K$ will be covered by a finite subcover.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Finite Subcover Argument]
+\begin{mathstroke}[Finite Subcover Argument]
 To prove this sequential limit equals the supremum, we take an arbitrary compact, Jordan measurable set $K \subset U$. 
 Because the interiors of the sequence $K_\ell$ cover $U$ (and therefore $K$), the compact set $K$ admits a finite subcover from this sequence:
 \[
@@ -148,5 +148,5 @@ Taking the supremum over all such $K \subset U$ proves that the supremum is boun
 \[
 \sup_{K \subset U} \int_K f = \lim_{\ell \to \infty} \int_{K_\ell} f
 \]
-\end{math_stroke}
+\end{mathstroke}
 \end{proof}

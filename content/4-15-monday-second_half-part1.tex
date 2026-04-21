@@ -1,4 +1,4 @@
-\section{Monday, April 15th: Second Half of the Lecture \\
+\section{Monday, April 15th: Second Half of the Lecture \texorpdfstring{\\}{\&}
     Cavalieri's Principle: Statement and Proof via Dyadic Cubes}
 
 \emph{AI Extraction Protocol}
@@ -16,7 +16,7 @@
 % ==========================================
 \subsection{Geometric Setup of Cavalieri's Principle}
 
-\begin{spoken_clean}[00:00:08 - 00:02:20]
+\begin{spokenclean}[00:00:08 - 00:02:20]
 Let me continue with the statement. We are trying to formalize this theorem that I informally described as ``cutting the potato.'' But now we are trying to be more serious, and I will introduce the proper notations. 
 
 This theorem, you will see, is a bit the opposite of the Change of Variables. It is a very simple statement, but it has a very hard proof. The setup involves very complicated statements, but the proof itself is actually very easy, right? 
@@ -24,44 +24,44 @@ This theorem, you will see, is a bit the opposite of the Change of Variables. It
 Let me do a drawing of the measure space. We have our set $A$, right, that is contained in a box. Here we will put the X-axis and the Y-axis. The X-axis actually represents $\mathbb{R}^k$, and the Y-axis represents $\mathbb{R}^{n-k}$. The whole space is $\mathbb{R}^n$, which is the product of the two. 
 
 Okay, now we are saying that our set is contained in some bounding box. It is a very large box, going from $-c$ to $c$. Now, let's look inside this box. If we pick some point $x$ here on the X-axis, I will consider the slice. The relevant piece of the set is this vertical slice over here, right? This is what I am calling $A_x$. The set $A_x$ will be the projection of this slice onto the vertical axis.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{nice-box}[Geometric Visualization Setup]
+\begin{nicebox}[Geometric Visualization Setup]
 The professor draws the bounding box and the sets $A$ and $A_x$ to geometrically define the slicing operation.
-\end{nice-box}
+\end{nicebox}
 
-\begin{math_stroke}[Geometric Visualization Setup]
+\begin{mathstroke}[Geometric Visualization Setup]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
-    % Axes with defined dimensions
-    \draw[->, thick, profgreen] (0,0) -- (4,0) node[right] {$x \in \mathbb{R}^k$};
-    \draw[->, thick, profgreen] (0,0) -- (0,3) node[above] {$y \in \mathbb{R}^{n-k}$};
-    \node[above right, profgreen] at (3.5, 2.8) {$\mathbb{R}^n$};
-    
-    % Bounding Box [-c, c]^n
-    \draw[dashed, gray] (0.5, 0.5) rectangle (3.5, 2.5);
-    \node[below, gray] at (0.5, 0) {$-c$};
-    \node[below, gray] at (3.5, 0) {$c$};
+  % Axes with defined dimensions
+  \draw[->, thick, profgreen] (0,0) -- (4,0) node[right] {$x \in \mathbb{R}^k$};
+  \draw[->, thick, profgreen] (0,0) -- (0,3) node[above] {$y \in \mathbb{R}^{n-k}$};
+  \node[above right, profgreen] at (3.5, 2.8) {$\mathbb{R}^n$};
+  
+  % Bounding Box [-c, c]^n
+  \draw[dashed, gray] (0.5, 0.5) rectangle (3.5, 2.5);
+  \node[below, gray] at (0.5, 0) {$-c$};
+  \node[below, gray] at (3.5, 0) {$c$};
 
-    % The Set A
-    \draw[thick, profblue, fill=profblue!5] (1.5,1.5) to[out=45,in=135] (2.5,2.0) to[out=-45,in=45] (3.0,1.2) to[out=-135,in=-45] (2.0,0.8) to[out=135,in=-135] cycle;
-    \node[profblue] at (2.4, 1.5) {$A$};
+  % The Set A
+  \draw[thick, profblue, fill=profblue!5] (1.5,1.5) to[out=45,in=135] (2.5,2.0) to[out=-45,in=45] (3.0,1.2) to[out=-135,in=-45] (2.0,0.8) to[out=135,in=-135] cycle;
+  \node[profblue] at (2.4, 1.5) {$A$};
 
-    % The Slice
-    \draw[thick, profred] (1.8, 0.95) -- (1.8, 2.05);
-    \node[below, profgreen] at (1.8, 0) {$x$};
-    \draw[dashed, profgreen] (1.8, 0) -- (1.8, 0.95);
-    
-    % Projection Ax
-    \draw[thick, proforange] (0, 0.95) -- (0, 2.05);
-    \node[left, proforange] at (0, 1.5) {$A_x$};
-    \draw[dashed, proforange, ->] (1.8, 2.05) -- (0, 2.05);
-    \draw[dashed, proforange, ->] (1.8, 0.95) -- (0, 0.95);
+  % The Slice
+  \draw[thick, profred] (1.8, 0.95) -- (1.8, 2.05);
+  \node[below, profgreen] at (1.8, 0) {$x$};
+  \draw[dashed, profgreen] (1.8, 0) -- (1.8, 0.95);
+  
+  % Projection Ax
+  \draw[thick, proforange] (0, 0.95) -- (0, 2.05);
+  \node[left, proforange] at (0, 1.5) {$A_x$};
+  \draw[dashed, proforange, ->] (1.8, 2.05) -- (0, 2.05);
+  \draw[dashed, proforange, ->] (1.8, 0.95) -- (0, 0.95);
 \end{tikzpicture}
 \end{center}
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:02:20 - 00:04:50]
+\begin{spokenclean}[00:02:20 - 00:04:50]
 So, you take this set, and you project what? You take the $y$-coordinates. Given the $x$, you take the $y$-coordinates of the pairs $(x,y)$ that belong to $A$. Since $x$ is fixed, what you are looking at is: you go to $x$, you look at which $y$-coordinates you have inside the set, and this is the set $A_x$. 
 
 Now, this set here is very nice because in the drawing it is just a 1D interval, right? But we might be in very high dimensions. So $A_x$ is just a subset of $\mathbb{R}^{n-k}$ a priori, and it is a bounded set. We know that it is strictly contained within $(-c, c)^{n-k}$. 
@@ -69,9 +69,9 @@ Now, this set here is very nice because in the drawing it is just a 1D interval,
 Because we know the entire set $A$ is Jordan measurable, we might hope the slice is too. But maybe for some pathological slices, the set is not measurable because the outer and inner measures do not coincide. However, we can surely consider the marginals! We can always measure the outer measure $\mu_{n-k, \text{out}}$ and the inner measure $\mu_{n-k, \text{in}}$. 
 
 The measure from the inside and the outside of the set is always well-defined, and this defines the functions $\overline{\varphi}(x)$ and $\underline{\varphi}(x)$, right? So, this is the setup.
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Formal Definition of the Slice and Marginals]
+\begin{mathstroke}[Formal Definition of the Slice and Marginals]
 Let $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$, with coordinates $(x,y) \in \mathbb{R}^n$. \\
 Let $A \subset \mathbb{R}^n$ be Jordan measurable, with $A \subset (-c, c)^n$. \\
 Define the slices: for $x \in (-c, c)^k$,
@@ -84,33 +84,33 @@ We define the upper and lower marginal densities $\overline{\varphi}, \underline
 \underline{\varphi}(x) &= \mu_{n-k}^{\text{in}}(A_x)
 \end{align*}
 
-\begin{explanation-of-steps}
+\begin{explanationofsteps}
 Even if a solid body $A$ is perfectly measurable, a specific 1D slice could theoretically intersect a fractal boundary or a cloud of points, making that exact slice non-measurable. To bypass this entirely, the marginals are rigorously defined using the universally safe inner and outer measures.
-\end{explanation-of-steps}
-\end{math_stroke}
+\end{explanationofsteps}
+\end{mathstroke}
 
 % ==========================================
 % SECTION 2: THE THEOREM STATEMENT
 % ==========================================
 \section{The Theorem Statement}
 
-\begin{spoken_clean}[00:04:50 - 00:07:30]
+\begin{spokenclean}[00:04:50 - 00:07:30]
 And the theorem says that under these assumptions, both functions $\overline{\varphi}$ and $\underline{\varphi}$ mapping from $[-c,c]^k \to \mathbb{R}$ are Riemann integrable. 
 
 And the integral of them over the set $[-c, c]^k$—the integral of $\underline{\varphi}(x)\,dx$ is equal to the integral of $\overline{\varphi}(x)\,dx$, and both are equal to the measure of $A$, $\mu_n(A)$.
 
 So, this integral is just you summing up the $\overline{\varphi}$. The $\overline{\varphi}$ is the measure of each slice (i.e., $\mu_{n-k, \text{out}}(A_x)$)! 
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{student_question}
+\begin{studentquestion}
 Maybe for some slices this measure is not well-defined because the outer and the inner measure do not coincide!
-\end{student_question}
+\end{studentquestion}
 
-\begin{spoken_clean}[00:06:15 - 00:07:30]
+\begin{spokenclean}[00:06:15 - 00:07:30]
 Do not worry! Just put either the outer or the inner. I don't care, because when you integrate the outer, or the inner, or anything in between, you will always recover the exact measure of your set $A$. 
 
 Okay, let's prove that. To do the proof, I will do another drawing.
-\end{spoken_clean}
+\end{spokenclean}
 
 \begin{orangeformula}
 \begin{theorem}[Cavalieri's Principle]
@@ -126,7 +126,7 @@ If $A \subset \mathbb{R}^n$ is Jordan measurable, then the marginal functions $\
 % ==========================================
 \section{The Proof Setup: Dyadic Cubes}
 
-\begin{spoken_clean}[00:07:30 - 00:11:00]
+\begin{spokenclean}[00:07:30 - 00:11:00]
 Always when we want to prove something about Jordan measures, remember that we are approximating our set from the inside and the outside. We will take an approximation from the inside, right? I'm approximating from the inside, and then there will be the approximation from the outside. 
 
 Let me describe a bit with a picture of what we are going to do in the proof, and later we will do the symbols. Since our set is Jordan measurable, we can take a small pixel size of $2^{-p}$. We can take an inner and an outer approximation over our set by dyadic cubes. So, by pixels! This is the inner, this is the outer. 
@@ -134,9 +134,9 @@ Let me describe a bit with a picture of what we are going to do in the proof, an
 The difference between these two is less than epsilon. We can make the volume of the red outer approximation minus the volume of the yellow inner approximation less than epsilon for whatever precision we want. 
 
 Now we will see what happens when we take a slice of this pixelated set. Let's say we take $x$ and we slice, right? What we see is that the slice of $A$ contains the slice of the yellow, which is contained in the slice of the red. And when you start to move $x$, whenever you move $x$ less than the size of the pixel, you are not jumping to a new cube!
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Geometric Proof Setup: Inner and Outer Approximations]
+\begin{mathstroke}[Geometric Proof Setup: Inner and Outer Approximations]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Axes
@@ -160,9 +160,9 @@ Now we will see what happens when we take a slice of this pixelated set. Let's s
     \node[below, cyan] at (2.1, 0) {$x$};
 \end{tikzpicture}
 \end{center}
-\end{math_stroke}
+\end{mathstroke}
 
-\begin{spoken_clean}[00:11:00 - 00:15:15]
+\begin{spokenclean}[00:11:00 - 00:15:15]
 Because you are not jumping to a new cube, the marginal densities computed for the inner and outer approximations are dyadic step functions! 
 
 This is the key observation. They are dyadic step functions in $x$, and they will approximate the Riemann integral. The dyadic step functions are what we use to approximate the integral. 
@@ -172,9 +172,9 @@ So, this is how we will try to proceed. Let's write this formally. The idea is t
 Now, if $z$ is of the form $(a,b)$ where $a \in \mathbb{R}^k$ and $b \in \mathbb{R}^{n-k}$—meaning in this splitting I take a $z$ that has coordinates $a$ and $b$—then this $n$-dimensional cube $Q_p^n(z)$ is equal to $Q_p^k(a) \times Q_p^{n-k}(b)$, right? 
 
 So, I am saying something very complicated to write, but very trivial geometrically. On the picture, I am saying that the $n$-dimensional cube over here is always the product of a base cube over here times the vertical cube over there!
-\end{spoken_clean}
+\end{spokenclean}
 
-\begin{math_stroke}[Dyadic Cube Definitions]
+\begin{mathstroke}[Dyadic Cube Definitions]
 A dyadic cube of side length $2^{-p}$ in $\mathbb{R}^n$ anchored at $z$ is defined as:
 \[
 Q_p^n(z) = z + 2^{-p}[0, 1)^n
@@ -188,13 +188,13 @@ Where, generally for any dimension $m$:
 Q_p^m(i) = i + 2^{-p}[0, 1)^m \subset \mathbb{R}^m
 \]
 
-\begin{explanation-of-steps}
+\begin{explanationofsteps}
 The geometric idea here is simple despite the rigorous notation. Imagine building a replica of the shape entirely out of LEGO bricks (``dyadic cubes''). If you slice this LEGO shape vertically at position $x$, the cross-section does not change at all as long as your slice stays within the width of that specific column of bricks. It only jumps to a new value when $x$ crosses into the next column. This is why the marginal densities become \textit{step functions}. 
 
 Mathematically, the formula $Q_p^n(z) = Q_p^k(a) \times Q_p^{n-k}(b)$ proves that an $n$-dimensional brick is constructed simply by taking a $k$-dimensional base square on the floor, and extruding it upwards along an $(n-k)$-dimensional vertical line. This factorization is what rigorously justifies isolating the variables to integrate them one dimension at a time.
-\end{explanation-of-steps}
-\end{math_stroke}
+\end{explanationofsteps}
+\end{mathstroke}
 
-\begin{didactic_insight}[Calculus via Combinatorics]
+\begin{didacticinsight}[Calculus via Combinatorics]
 By replacing the continuous, smooth curve with a grid of literal squares (dyadic cubes), the nasty continuous calculus problem drops away. As long as your $x$-coordinate stays within the width of a single vertical column of squares, the vertical slice does not change its length. It is piecewise constant. A terrifying integration problem becomes the simple integration of a step function!
-\end{didactic_insight}
+\end{didacticinsight}
