@@ -217,7 +217,11 @@
     title={\tikz[baseline=(A.base)]\node[fill=profgray!80!black, text=white, rounded corners=2pt, inner xsep=6pt, inner ysep=3pt, font=\sffamily\bfseries\large] (A) {#1};},
     attach title to upper=\par\vspace{1.5ex},
     % Diagonal "PROOF" watermark overlaid across the nested contents
-    finish unbroken and first={%
+    finish unbroken={%
+        \node[rotate=35, scale=5, text=profgray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
+        \node[anchor=south east, xshift=-4pt, yshift=4pt] at (frame.south east) {\tikz\node[draw=profgray!80!black, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=profgray!80!black] {Q.E.D.};};
+    },
+    finish first={%
         \node[rotate=35, scale=5, text=profgray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
     },
     finish middle={%
@@ -225,9 +229,8 @@
     },
     finish last={%
         \node[rotate=35, scale=5, text=profgray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
-    },
-    % Fancy QED Stamp at the end
-    after upper={\par\vspace{1.5ex}\hfill\tikz[baseline]\node[draw=profgray!80!black, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=profgray!90!black] {Q.E.D.};}
+        \node[anchor=south east, xshift=-4pt, yshift=4pt] at (frame.south east) {\tikz\node[draw=profgray!80!black, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=profgray!80!black] {Q.E.D.};};
+    }
 }
 
 % --- Chapter Formatting ---
