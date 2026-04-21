@@ -50,9 +50,9 @@ To prevent notation drift across transcription chunks, you MUST strictly enforce
 - **Visual Math Syncing:** Cross-reference the audio with the physical chalk strokes. If a variable is spoken while being written, that variable must be perfectly formatted in LaTeX in the corresponding `math-stroke`.
 - **Strict Notation Fidelity:** Do not invent, guess, or introduce external mathematical conventions or non-standard subscript/superscript notations (e.g., do not invent `\mu_{n-k,OUT}` if the standard is `\mu_{n-k}^{\text{out}}`). Strictly replicate the notation as it is written on the board or formally established in previous segments.
 - **Chronological Flow:** **Generally preserve the chronological order of speech and board actions.** Minor local reordering is permitted only to align a spoken sentence with the immediately corresponding board action. Do not group or reorganize content across larger segments.
-- **Pedagogical TikZ Mastery:** Do not take shortcuts with `tikzpicture` diagrams. When a geometric concept is discussed (especially 3D volumes, hypographs, or slices), generate high-fidelity, pedagogically rich diagrams. Utilize 3D perspectives, shading/opacity, and the standard class colors (`profgreen`, `profblue`, `proforange`, `profred`) to create visually striking and mathematically accurate illustrations. **Pay strict attention to the draw order (the painter's algorithm) and meticulously tune the opacity (e.g., `opacity=0.8`) of foreground surfaces to ensure proper 3D depth occlusion, allowing background slices to remain partially visible. Ensure all text labels and annotations are readable, avoid overlapping with shapes, and strictly match the color of the geometric elements they describe.**
+- **Pedagogical TikZ Mastery & Recalibration:** Do not take shortcuts with `tikzpicture` diagrams. **Wait to generate the TikZ code until the professor has completely finished drawing. If the professor adds new elements to an existing sketch later in the segment, those additions MUST be integrated into the diagram, and the entire `tikzpicture` must be completely recalibrated to reflect the final, complete state of the drawing.** When a geometric concept is discussed (especially 3D volumes, hypographs, or slices), generate high-fidelity, pedagogically rich diagrams. Utilize 3D perspectives, shading/opacity, and the standard class colors (`profgreen`, `profblue`, `proforange`, `profred`) to create visually striking and mathematically accurate illustrations. **Pay strict attention to the draw order (the painter's algorithm) and meticulously tune the opacity (e.g., `opacity=0.8`) of foreground surfaces to ensure proper 3D depth occlusion, allowing background slices to remain partially visible. Ensure all text labels and annotations are readable, avoid overlapping with shapes, and strictly match the color of the geometric elements they describe.**
 - **Eradicate "Naked Math":** NEVER leave math floating outside a container. ALL standalone equations, derivations, and board diagrams (including `tikzpicture` blocks) must be explicitly wrapped in a semantic environment (e.g., `math-stroke`, `orange-formula`, or `nice-box`). Keep actual equations in these dedicated containers unless they are genuinely part of a quoted or paraphrased spoken sentence within `spoken-clean`.
-- **Environment Separation Rule:** **Each semantic environment must serve exactly one role. Do not merge narration, derivation, and commentary inside the same block unless explicitly required. In particular, derivations must be placed in `math-stroke`, and step-by-step reasoning must be placed in `explanation-of-steps`, not in `spoken-clean`. Mathematical content may be repeated across environments if it aids clarity (e.g., stating a formal theorem/definition, writing a proof, referencing a formula again inside `explanation-of-steps`, or using `(i.e., ...)` anchors inside `spoken-clean`).**
+- **Environment Separation Rule & Intentional Redundancy:** **Each semantic environment must serve exactly one role. Do not merge narration, derivation, and commentary inside the same block unless explicitly required. In particular, derivations must be placed in `math-stroke`, and step-by-step reasoning must be placed in `explanation-of-steps`, not in `spoken-clean`. Mathematical content may be repeated across environments if it aids clarity. NEVER hesitate to formally restate a formula, mathematical setup, or conclusion inside a `math-stroke` block, even if the professor just dictated it verbally in the preceding `spoken-clean` block. This intentional redundancy bridges the gap between spoken intuition and formal mathematical typesetting.**
 - **Fallback for the Illegible:** If a board state is completely illegible and the formula is not dictated verbally, do not hallucinate the math or attempt to guess based on poor OCR. Use the placeholder `\textcolor{red}{\textbf{[Illegible formula]}}` inside the `math-stroke` environment, accompanied by a brief description of what you can see.
 - **Failure Condition:** **Any omission or merging of distinct spoken sentences, board elements, or derivation steps constitutes a protocol failure. When uncertain, include rather than omit.**
 
@@ -99,7 +99,17 @@ Use these examples to calibrate your Refined First-Person Register and ensure pr
 * **RAW AUDIO:** Because, you know, we use the dyadic cubes... like pixels. Size two to the minus P. F is inside, G is outside.
 * **REFINED (LaTeX):** Because we use the dyadic cubes, like ``pixels'', of side length $2^{-p}$. We define $F$ on the inside, and $G$ on the outside.
 
-**Example 3: The Pedagogical TikZ Diagram**
+**Example 3: The `(i.e., ...)` Calibration Anchor**
+
+* **RAW AUDIO:** Here, we will put the y-axis, and this is the x-axis. This is actually Rk, and on the y-axis we have Rn minus k, right? And the whole space is Rn, the product of the two.
+* **REFINED (LaTeX):** Here, we will put the $y$-axis, and this is the $x$-axis. This is actually $\mathbb{R}^k$, and on the $y$-axis we have $\mathbb{R}^{n-k}$, right? And the whole space is $\mathbb{R}^n$, the product of the two (i.e., $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$).
+
+**Example 4: The `(i.e., ...)` Derivation Expansion**
+
+* **RAW AUDIO:** The primitive of cosine is sine, and we evaluate it between minus pi over two and pi over two.
+* **REFINED (LaTeX):** The primitive of cosine is sine, and we evaluate it between $-\pi/2$ and $\pi/2$ (i.e., $\sin(\pi/2) - \sin(-\pi/2) = 1 - (-1) = 2$).
+
+**Example 5: The Pedagogical TikZ Diagram**
 
 * **SCENARIO:** The professor draws a 3D visualization of Fubini's theorem (a 2D slice under a 3D surface).
 * **REFINED (LaTeX):**
@@ -261,3 +271,10 @@ The bounding box and the sets $A$ and $A_x$ are drawn to geometrically define th
 ```
 
 - Stick to the provided LaTeX semantic environments and standard math environments. Do not invent new styling macros. You can never step away from your golden rule: Protocol everything and don't leave anything out. Don't make the `\begin{spoken_clean}[Timestamp]` much longer than a minute.
+
+- Also make use of arrows
+```latex
+\[
+U \xrightarrow[\text{\textcolor{proforange}{diffeo}}]{\Phi} V
+\]
+```
