@@ -1,24 +1,24 @@
 \chapter{Real Analysis: Cavalieri's Principle}
 
-\begin{spokenclean}[00:00:00 - 00:00:04]
+\begin{spoken-clean}[00:00:00 - 00:00:04]
 Okay, so.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:00:04 - 00:00:10]
+\begin{spoken-clean}[00:00:04 - 00:00:10]
 Let me continue with the statement. So, we were trying to state this theorem that I informally described as cutting the ``potato'', right? But now we are trying to be more serious.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:00:10 - 00:00:19]
+\begin{spoken-clean}[00:00:10 - 00:00:19]
 And I was introducing this notation. So, this theorem, you will see, is a bit the opposite of the Change of Variables formula. The Change of Variables formula is a very simple statement and a very hard proof. This is a very complicated statement, but the proof is very easy, right?
-\end{spokenclean}
+\end{spoken-clean}
 
 \section{The General Setup: Cavalieri's Principle for Sets}
 
-\begin{spokenclean}[00:00:19 - 00:00:39]
+\begin{spoken-clean}[00:00:19 - 00:00:39]
 So, we have our measurable set. Let me do a drawing. So, we have our set $A$, right? That is contained in a box. Here, we will put the $y$-axis, and this is the $x$-axis. This is actually $\mathbb{R}^k$, and on the $y$-axis we have $\mathbb{R}^{n-k}$, right? And the whole space is $\mathbb{R}^n$, the product of the two (i.e., $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$).
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Geometric Visualization Setup for Cavalieri's Principle]
+\begin{math-stroke}[Geometric Visualization Setup for Cavalieri's Principle]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Axes
@@ -39,16 +39,16 @@ So, we have our measurable set. Let me do a drawing. So, we have our set $A$, ri
 \end{tikzpicture}
 \end{center}
 
-\begin{explanationofsteps}
+\begin{explanation-of-steps}
 We visualize an arbitrary Jordan measurable set $A$ within $\mathbb{R}^n$, which is decomposed into a Cartesian product of $\mathbb{R}^k$ (our $x$-axis) and $\mathbb{R}^{n-k}$ (our $y$-axis). This setup allows us to consider ``slices'' of the set $A$.
-\end{explanationofsteps}
-\end{mathstroke}
+\end{explanation-of-steps}
+\end{math-stroke}
 
-\begin{spokenclean}[00:00:39 - 00:01:23]
+\begin{spoken-clean}[00:00:39 - 00:01:23]
 Okay, now we are saying that our set is contained in some box, but this is not very important. So, this is the box, a very large box. And now for $x$ inside of my box, so this will be some $x$ here, an $x$ point, I will consider the slice. So, the relevant piece is this slice over here. This is what I'm calling $A_x$. Well, the projection... So, $A_x$ will be the projection onto this axis, right? So, you take this set and you project it. So, you take the $y$-coordinate, so given the $x$, you take the $y$-coordinates of the pairs $(x,y)$, is over there. The $y$-coordinates of the pairs $(x,y)$ that belong to $A$.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Formalizing the Slices of Set A]
+\begin{math-stroke}[Formalizing the Slices of Set A]
 Let $A \subset \mathbb{R}^n$ be a Jordan measurable set. We can express $\mathbb{R}^n$ as a product space $\mathbb{R}^k \times \mathbb{R}^{n-k}$, where we denote points as $(x,y)$.
 For any fixed $x \in \mathbb{R}^k$, we define the slice $A_x$ as:
 \[
@@ -58,21 +58,21 @@ For $A$ to be Jordan measurable, it must be bounded. We assume $A$ is contained 
 \[
 A_x \subset (-c,c)^{n-k} \subset \mathbb{R}^{n-k}
 \]
-\end{mathstroke}
+\end{math-stroke}
 
-\begin{spokenclean}[00:01:47 - 00:02:20]
+\begin{spoken-clean}[00:01:47 - 00:02:20]
 And now this set, here is very nice, because in the drawing it's an interval, right? But this, we are in very high dimensions, maybe. So, this is just a subset of... $A_x$ is a subset of $\mathbb{R}^{n-k}$. It's a bounded subset, but we just know that it's just containing $(-c,c)^{n-k}$, right? In the box. And what we can do, because we know that $A$ is Jordan measurable, but maybe the slices are not Jordan measurable. But we can surely consider these marginals, the $\bar{\varphi}$ that was the... So, we can always measure the $\mu_{n-k}^{\text{out}}$ and the $\mu_{n-k}^{\text{in}}$. So, the measure from inside and outside of this set is always well-defined. And this is what defines the function $\overline{\varphi}$ and $\underline{\varphi}$ of $x$, right?
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Upper and Lower Measures of Slices]
+\begin{math-stroke}[Upper and Lower Measures of Slices]
 Given the slices $A_x$, even if $A_x$ itself is not Jordan measurable (meaning its inner and outer measures may not coincide), we can always define its $(n-k)$-dimensional outer measure and inner measure:
 \[
 \overline{\varphi}(x) = \mu_{n-k}^{\text{out}}(A_x) \quad \text{and} \quad \underline{\varphi}(x) = \mu_{n-k}^{\text{in}}(A_x)
 \]
 These functions, $\overline{\varphi}(x)$ and $\underline{\varphi}(x)$, map from $\mathbb{R}^k$ to $\mathbb{R}$.
-\end{mathstroke}
+\end{math-stroke}
 
-\begin{orangeformula}
+\begin{orange-formula}
 \begin{theorem}[Cavalieri's Principle for Jordan Measurable Sets]
 Let $A \subset \mathbb{R}^n$ be a Jordan measurable set. We consider the decomposition $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$, with coordinates $(x,y)$. For each $x \in [-c,c]^k$, we define the slices $A_x = \{y \in \mathbb{R}^{n-k} \mid (x,y) \in A \}$. We then define the upper and lower marginal functions:
 \[
@@ -83,18 +83,18 @@ Then, both $\overline{\varphi}: [-c,c]^k \to \mathbb{R}$ and $\underline{\varphi
 \int_{[-c,c]^k} \overline{\varphi}(x) \, dx = \int_{[-c,c]^k} \underline{\varphi}(x) \, dx = \mu_n(A)
 \]
 \end{theorem}
-\end{orangeformula}
+\end{orange-formula}
 
-\begin{spokenclean}[00:02:20 - 00:03:20]
+\begin{spoken-clean}[00:02:20 - 00:03:20]
 So, this is the setup, and the theorem says that under these assumptions, under these definitions, then both functions, the $\bar{\varphi}(x)$ and $\underline{\varphi}(x)$ are Riemann integrable. And the integral of them in the set $[-c,c]^k$ is equal to the integral of the other one, which is equal to the measure of $A$. So this integral is... You sum so the $\bar{\varphi}$ is the measure of each slice. You are taking the measure of these slices. Now you can tell me, maybe for some slices this measure is not well-defined, because the outer measure and the inner measure do not coincide. I tell you, don't worry, just put any, the outer or the inner. I don't care. Because when you integrate, the outer or the inner or anything in between, it will give you always the measure... It will recover the measure of your set $A$.
-\end{spokenclean}
+\end{spoken-clean}
 
 \begin{proof}
-\begin{spokenclean}[00:03:20 - 00:04:31]
+\begin{spoken-clean}[00:03:20 - 00:04:31]
 Okay, so let's prove that. So maybe to do the proof, I will do a drawing. So remember my notation: this is the $y$, this is the $x$-axis. This is my set $A$, right? And now, always when we want to prove something about Jordan measure, remember that we were approximating our set from inside and outside. We will take the approximation from inside, right? Something like this, some approximation from inside. And then there will be the approximation from outside. And now, since our set is measurable, it's Jordan measurable, we can take a very small pixel size, $2^{-p}$. This will be the pixel size. And we can take an inner and an outer approximation of our set by the dyadic... so by by pixels, right? By the dyadic sets. This is the inner, this is the outer. And now, the difference between these two is very, um, is is is less than $\epsilon$. We can take the volume of the red minus the volume of the yellow is less than $\epsilon$ for every $\epsilon$ we want.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Approximation with Dyadic Cubes ($2^{-p}$)]
+\begin{math-stroke}[Approximation with Dyadic Cubes ($2^{-p}$)]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Axes
@@ -121,16 +121,16 @@ Okay, so let's prove that. So maybe to do the proof, I will do a drawing. So rem
     \node[blue, below] at (2,0) {$x$};
 \end{tikzpicture}
 \end{center}
-\begin{explanationofsteps}
+\begin{explanation-of-steps}
 We approximate the Jordan measurable set $A$ from inside and outside using unions of dyadic cubes (``pixels'') of side length $2^{-p}$. Let $F_p$ be the union of dyadic cubes entirely contained within $A$ (inner approximation, shown in green), and $G_p$ be the union of dyadic cubes that intersect $A$ (outer approximation, shown in red). We can choose $p$ large enough such that the difference in their measures is arbitrarily small, $\mu_n(G_p) - \mu_n(F_p) < \epsilon$.
-\end{explanationofsteps}
-\end{mathstroke}
+\end{explanation-of-steps}
+\end{math-stroke}
 
-\begin{spokenclean}[00:04:31 - 00:05:20]
+\begin{spoken-clean}[00:04:31 - 00:05:20]
 And now we will we will see what happens when we take a slice of this set. When we take a slice of this set like this, let's say we take $x$ and we slice, right? What we see is that the the slice of my... the slice of $A$ contains the slices of the yellow and is contained in the slices of the red. But when you when you start to move $x$ like this, when you start to move $x$, you will see that whenever you move $x$ less than the size of the pixel, you're not jumping here. So the the function, the function, um, so the marginal's idea: the marginal densities computed for the two, for the yellow set and for the, um, the dyadic, the dyadic inner and outer approximations. So what is this again? What is this, um, these marginal? The marginal is just take the the yellow set, for instance. Compute, given some $x$, what is the intersection, right? And you see, because this is a union of cubes, when you intersect with a hyperplane parallel to the to the, or with a plane parallel to to to the $y$-axis, this also gives you a union of cubes, just of lesser dimensions. And then the measure of this, then it's constant. When you move $x$ here in the dyadic cube, this you will always get the same. You will always get the same, all the time you will get the same. And then only when you jump to the next dyadic cube, maybe you jump here, because it's like a staircase. So the marginal densities computed in the inner and outer approximations are the dyadic step functions. This is the key observation. And now we will write this, so so they are dyadic step functions in $x$. So this will, they approximate the Riemann integral. The dyadic step functions are what we need, or what we use, to approximate the Riemann integral.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Dyadic Cube Definition and Product Space]
+\begin{math-stroke}[Dyadic Cube Definition and Product Space]
 \textbf{Given a dyadic cube (pixel $2^{-p}$) in $\mathbb{R}^n$:}
 A general dyadic cube $Q_p^n(z)$ of side length $2^{-p}$ at point $z \in \mathbb{R}^n$ is defined as:
 \[
@@ -144,29 +144,29 @@ Similarly, for a dyadic cube of dimension $m$:
 \[
 Q_p^m(\bar{z}) = \bar{z} + 2^{-p} [0,1)^m \subset \mathbb{R}^m
 \]
-\end{mathstroke}
+\end{math-stroke}
 
-\begin{spokenclean}[00:05:20 - 00:06:01]
+\begin{spoken-clean}[00:05:20 - 00:06:01]
 So, this is how we are going to proceed. This is the picture, and now we will write it formally. So, the idea is that, given a dyadic cube of size $2^{-p}$ in $\mathbb{R}^n$, we have... so we will say, okay, $Q_p^n(z)$ is $z + 2^{-p}[0,1)^n$, right? And since now there will be several dimensions, let me put the dimension here as a sub-index $Q_p^n(z)$. This is $n$.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:06:01 - 00:06:57]
+\begin{spoken-clean}[00:06:01 - 00:06:57]
 Now, if $z$ is of the form $(a,b)$ where $a \in \mathbb{R}^k$ and $b \in \mathbb{R}^{n-k}$, right? In this coordinate splitting, I take a $z$ that has coordinates $a$ and $b$, right? Then this cube $Q_p^n(z)$ is equal to $Q_p^k(a) \times Q_p^{n-k}(b)$. Right? Where I'm putting the $Q_p^m$ of some $\bar{z}$ is $\bar{z} + 2^{-p}[0,1)^m$, this is a subset of $\mathbb{R}^m$. Right?
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Dyadic Cubes and Approximations]
+\begin{math-stroke}[Dyadic Cubes and Approximations]
 Given dyadic sets $F$ (inner) and $G$ (outer) such that $F \subset A \subset G$, and their measures satisfy:
 \[
 \mu(G) - \mu(F) < \epsilon
 \]
 This holds for dyadic sets of pixel size $2^{-p}$ where $p \in \mathbb{N}$ is sufficiently large.
-\end{mathstroke}
+\end{math-stroke}
 
-\begin{spokenclean}[00:06:57 - 00:08:14]
+\begin{spoken-clean}[00:06:57 - 00:08:14]
 Something, something very complicated to write, but very trivial on the picture. I'm saying that the cube over here, the dyadic cube over here, is always the product of a cube over here times a dyadic cube over here, right? A cube in the in the dyadic cube in the full space is the product of a dyadic cube of the same size here, times a dyadic cube of the same size here. And a dyadic set, a dyadic set, the yellow or the red, to both applies, is just a finite union of these two cubes, right? Okay. So, now, given $\epsilon > 0$, let $p \in \mathbb{N}$ and $F,G$ be dyadic sets such that $F \subset A \subset G$, and the measure of $G$ minus the measure of $F$ (so the measure of the larger minus the measure of the smaller) is less than $\epsilon$, right? So, this is the definition of a Jordan measurable set. We can trap it between dyadic sets, and the measure of the outer minus the measure of the inner is less than $\epsilon$.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Slicing Dyadic Approximations]
+\begin{math-stroke}[Slicing Dyadic Approximations]
 For $x \in [-c,c]^k$, define the slices of the outer and inner dyadic approximations:
 \[
 G_x = \{ y \in \mathbb{R}^{n-k} \mid (x,y) \in G \}
@@ -178,13 +178,13 @@ F_x = \{ y \in \mathbb{R}^{n-k} \mid (x,y) \in F \}
 \[
 F_x = F_{x'} \quad \text{and} \quad G_x = G_{x'}
 \]
-\end{mathstroke}
+\end{math-stroke}
 
-\begin{spokenclean}[00:08:14 - 00:09:50]
+\begin{spoken-clean}[00:08:14 - 00:09:50]
 And now we, for all $x \in [-c,c]^k$, define the slices $G_x = \{y \in \mathbb{R}^{n-k} \mid (x,y) \in G \}$, and similarly with $F_x$. Okay? So we do the slices of $G_x$. Now, observation, that is what I was trying to say with the drawing: if $Q_p(a) \subset \mathbb{R}^k$ is some dyadic cube of pixel size $2^{-p}$ (so of size of side length $2^{-p}$), then what we see is because every cube in $\mathbb{R}^n$ is a product of cubes. You see that $F_x = F_{x'}$ for all $x, x' \in Q_p(a)$.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Defining Step Functions from Slice Measures]
+\begin{math-stroke}[Defining Step Functions from Slice Measures]
 Let $f(x)$ be the measure of the inner dyadic slice and $g(x)$ be the measure of the outer dyadic slice:
 \[
 f(x) := \mu(F_x)
@@ -193,16 +193,16 @@ f(x) := \mu(F_x)
 g(x) := \mu(G_x)
 \]
 These functions $f(x)$ and $g(x)$ are constant in each dyadic cube $Q_p^k(a)$, and are zero outside a bounding box $(-C,C)^k$. This implies $f(x)$ and $g(x)$ are dyadic step functions.
-\end{mathstroke}
+\end{math-stroke}
 
-\begin{spokenclean}[00:09:50 - 00:10:33]
+\begin{spoken-clean}[00:09:50 - 00:10:33]
 As long as the base point is moving in this cube, the slices cannot change; the slice is always constant. And the same is with the $G$. What does it mean? It means that if we now define... So, since this function, so since these functions are constant in each dyadic cube, this implies that $F$ and $G$ are dyadic step functions. And notice something else. That for each slice... So, this $F$ is measuring...
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Relating Measures to Riemann Integrals]
+\begin{math-stroke}[Relating Measures to Riemann Integrals]
 Since $F_x \subset A_x \subset G_x$, we have the following inequality for the measures of the slices:
 \[
-\underline{f(x)} \equiv \mu(F_x) \leq \mu_{in}(A_x) \leq \mu_{out}(A_x) \leq \mu(G_x) \equiv \overline{g(x)}
+\underline{f(x)} \equiv \mu(F_x) \leq \mu_{n-k}^{\text{in}}(A_x) \leq \mu_{n-k}^{\text{out}}(A_x) \leq \mu(G_x) \equiv \overline{g(x)}
 \]
 Integrating over the entire domain $[-c,c]^k$:
 \[
@@ -220,66 +220,66 @@ Substituting these into the inequality:
 \[
 \mu_n(F) \leq \int_{[-c,c]^k} \underline{\varphi}(x) \, dx \leq \int_{[-c,c]^k} \overline{\varphi}(x) \, dx \leq \mu_n(G)
 \]
-\end{mathstroke}
+\end{math-stroke}
 
-\begin{spokenclean}[00:10:52 - 00:11:42]
+\begin{spoken-clean}[00:10:52 - 00:11:42]
 This $F$ is measuring this, right? For each $x$, this $F$ is measuring the the number of pixels that are in this slice. And the $G$ is measuring the number of pixels that are in the bigger slice of the red. So, what we always have is that for every $x$, $F_x$ is contained in $A_x$, is contained in $G_x$, right? We have this inclusion, and this implies that the measure of $F_x$ is less than the... The measure of an inner approximation is always less than the inner measure, that is less than the outer measure of $A_x$, that is less than or equal to the measure of the outer approximation. This for every $x$.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:11:42 - 00:14:47]
-And this is... by definition, this function over here, this is $\underline{\varphi}(x)$, right? Of $\underline{\varphi}(x)$. And this is less than the... This, the integral of this... I can put the upper integral of the $\bar{\varphi}(x)$ and this is less than the integral of $G$. Which is equal to $\mu_n(G)$. Okay? Does that make sense? So, this is the chain of inequalities. Again, I repeat. This equality is just combinatorial, counting cubes. This equality is because this is a lower approximation of my integral. So, if you have a function that is below your function, and this is the dyadic step function, because the lower integral is defined as the supremum of those... this is always less than or equal to this, right? If two functions are ordered, like this the the, obviously the lower integral is always less than the upper integral. And and the $\underline{\varphi}$, that is the $\mu_{in}$, is less than the $\mu_{out}$. This is the $\bar{\varphi}$. So, the $\mu_{out}$ is the outer marginal. So, this inequality is also trivial, right? It's just because of ordering. And this is again the same function, but from a different argument, but from outside now. So, we know that this $G$ is an approximation of the $\bar{\varphi}$; it is above the $\bar{\varphi}$, the $G$. So, the integral of the $G$ must be bigger than the upper integral of the $\bar{\varphi}$, right? And again, this is combinatorial, the integral of $G$ is the measure of $G$. Counting pixels.
-\end{spokenclean}
+\begin{spoken-clean}[00:11:42 - 00:14:47]
+And this is... by definition, this function over here, this is $\underline{\varphi}(x)$, right? Of $\underline{\varphi}(x)$. And this is less than the... This, the integral of this... I can put the upper integral of the $\bar{\varphi}(x)$ and this is less than the integral of $G$. Which is equal to $\mu_n(G)$. Okay? Does that make sense? So, this is the chain of inequalities. Again, I repeat. This equality is just combinatorial, counting cubes. This equality is because this is a lower approximation of my integral. So, if you have a function that is below your function, and this is the dyadic step function, because the lower integral is defined as the supremum of those... this is always less than or equal to this, right? If two functions are ordered, like this the the, obviously the lower integral is always less than the upper integral. And and the $\underline{\varphi}$, that is the $\mu_{n-k}^{\text{in}}$, is less than the $\mu_{n-k}^{\text{out}}$. This is the $\bar{\varphi}$. So, the $\mu_{n-k}^{\text{out}}$ is the outer marginal. So, this inequality is also trivial, right? It's just because of ordering. And this is again the same function, but from a different argument, but from outside now. So, we know that this $G$ is an approximation of the $\bar{\varphi}$; it is above the $\bar{\varphi}$, the $G$. So, the integral of the $G$ must be bigger than the upper integral of the $\bar{\varphi}$, right? And again, this is combinatorial, the integral of $G$ is the measure of $G$. Counting pixels.
+\end{spoken-clean}
 
-\begin{spokenclean}[00:14:47 - 00:15:39]
+\begin{spoken-clean}[00:14:47 - 00:15:39]
 But now we remember that this minus this was $\epsilon$. But $\mu(G_\epsilon) - \mu(F_\epsilon)$ is less than $\epsilon$. And actually, not only this, but the value... but we know that $G_\epsilon$ is contained in $A$, and sorry, $F_\epsilon$ is contained in $A$, and $A$ is contained in $G_\epsilon$. So, the measure of this is trapped in between, right? And then, putting this together with this, what does it what does it tell you? So, if I if I send $\epsilon$ to zero, all these integrals in between that do not depend on $\epsilon$, you see, this is the depends on $\epsilon$. These integrals need to be the same. When I send $\epsilon$ to zero, you have my squeeze. So, this integral that a priori is less than this needs to be the same. This proved that these functions, both functions, are Riemann integrable, because the upper integral and the lower integral will coincide, right? And actually, all the two functions have the same value of the integral that is $\mu_n(A)$, because these these two values, right? So, what I wanted to say is that $\mu_n(F_\epsilon)$ is less than $\mu_n(A)$, is less than $\mu_n(G_\epsilon)$, right? So, when you send $\epsilon$ to zero, this value and this value are converging to the common value $\mu_n(A)$, right? And everything that is in between needs to converge to the same value.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:15:39 - 00:15:42]
+\begin{spoken-clean}[00:15:39 - 00:15:42]
 So, this is how we prove the theorem.
-\end{spokenclean}
+\end{spoken-clean}
 
 \end{proof}
 
-\begin{spokenclean}[00:15:46 - 00:15:47]
+\begin{spoken-clean}[00:15:46 - 00:15:47]
 Is there any question about this?
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:16:00 - 00:16:21]
+\begin{spoken-clean}[00:16:00 - 00:16:21]
 Okay, so, as I said, the main difficulty of this theorem is the notation. I need to introduce a lot of notation, and this is always confusing to anyone, right? So, when you introduce new notation, until you load it to your RAM memory, all this notation, you are confused by the notation, right? So, if you got lost at some point, you remember the "potato", that is what is important to understand the intuition, and then you go back with a cup of tea on the proof, and then you read step-by-step and you will see there's nothing mysterious. It's just a lot of notation.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:16:21 - 00:16:22]
+\begin{spoken-clean}[00:16:21 - 00:16:22]
 Okay? And the key idea to remember is the counting argument.
-\end{spokenclean}
+\end{spoken-clean}
 
 \section{Extension: Fubini's Theorem for Functions}
 
-\begin{spokenclean}[00:16:22 - 00:16:27]
+\begin{spoken-clean}[00:16:22 - 00:16:27]
 So, now we will do an extension of this of this theorem.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:16:27 - 00:16:28]
+\begin{spoken-clean}[00:16:27 - 00:16:28]
 That is for for functions.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:16:28 - 00:16:32]
+\begin{spoken-clean}[00:16:28 - 00:16:32]
 It will actually be an immediate consequence of this theorem.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Fubini's Theorem: Erasing for Clarity]
+\begin{math-stroke}[Fubini's Theorem: Erasing for Clarity]
 \begin{center}
 \vspace{1cm} % Placeholder for erased content
 \end{center}
-\begin{explanationofsteps}
+\begin{explanation-of-steps}
 The professor erases the board to prepare for Fubini's Theorem. He emphasizes that the previous proof for Cavalieri's Principle for sets is foundational and that Fubini's Theorem for functions is a direct extension, leveraging the same underlying logic.
-\end{explanationofsteps}
-\end{mathstroke}
+\end{explanation-of-steps}
+\end{math-stroke}
 
-\begin{spokenclean}[00:16:58 - 00:17:02]
+\begin{spoken-clean}[00:16:58 - 00:17:02]
 So, Fubini's Theorem is the following. So, now we have a function...
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{orangeformula}
+\begin{orange-formula}
 \begin{theorem}[Fubini's Theorem]
 Let $A \subset \mathbb{R}^n$ be a bounded Jordan measurable set, and $f: A \to \mathbb{R}$ be a Riemann integrable function over $A$.
 We decompose $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$, with coordinates $(x,y)$.
@@ -298,31 +298,31 @@ Then, $\underline{\varphi}(x)$ and $\overline{\varphi}(x)$ are Riemann integrabl
 \int_A f(x,y) \, d(x,y) = \int_{\mathbb{R}^k} \underline{\varphi}(x) \, dx = \int_{\mathbb{R}^k} \overline{\varphi}(x) \, dx
 \]
 \end{theorem}
-\end{orangeformula}
+\end{orange-formula}
 
-\begin{spokenclean}[00:17:02 - 00:17:22]
+\begin{spoken-clean}[00:17:02 - 00:17:22]
 So, we have some $A \subset \mathbb{R}^n$ (bounded). Jordan measurable. Right? Now, as before, I will take the $\mathbb{R}^n$ as $\mathbb{R}^k \times \mathbb{R}^{n-k}$, and we'll call the coordinates here $(x,y)$. Or do I need Jordan measurable? Maybe I don't even need Jordan measurable. I just need set bounded. And then I have a function $f$ from $A$ to $\mathbb{R}$ that is Riemann integrable over $A$.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:17:36 - 00:18:53]
+\begin{spoken-clean}[00:17:36 - 00:18:53]
 And now I define... I will define $\tilde{f}$ just $f$ multiplied by the characteristic function of $A$, right? Or if you want, this is the... So, $\tilde{f}$ will be $\tilde{f}(x,y)$ will be $f(x,y)$ if $(x,y)$ belongs to $A$, and $0$ if $(x,y)$ does not belong to $A$, right? This is just a trivial way to extend the function to be defined everywhere, right? I just take zero where it is not defined. And then, um, I define the marginals. So for $x \in \mathbb{R}^k$, so for $x \in \mathbb{R}^k$, define the marginals. So, as before, $\underline{\varphi}$ will be the lower integral of... Now I take $\tilde{f}$ of $x$, so let me put it like this: $\tilde{f}_x(y) \, dy$. Where I define $\tilde{f}_x(y)$ simply as $\tilde{f}(x,y)$. I'm putting it like this to be entirely sure that this is a function of... So, that you understand that this is a function defined in... So, this is with a tilde, tilde tilde. This is a function defined for $y$ in $\mathbb{R}^{n-k}$.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Fubini's Theorem Statement]
+\begin{math-stroke}[Fubini's Theorem Statement]
 \[
 \int_A f \, d(x,y) = \int_{\mathbb{R}^k} \underline{\varphi}(x) \, dx = \int_{\mathbb{R}^k} \overline{\varphi}(x) \, dx
 \]
-\end{mathstroke}
+\end{math-stroke}
 
-\begin{spokenclean}[00:18:53 - 00:19:14]
+\begin{spoken-clean}[00:18:53 - 00:19:14]
 So, this given $x$, $x$ is fixed now, $x$ is fixed. So, this is a function of $y$, this is a function in $\mathbb{R}^{n-k}$. So, you can compute an integral or a lower integral is always well-defined, the the lower integral and the upper integral. You can compute the lower integral of this function with respect to the variables $y$, right? And we can do the same with the upper. These are definitions.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:19:14 - 00:19:53]
+\begin{spoken-clean}[00:19:14 - 00:19:53]
 Now what the theorem says is that the integral in $A$ of $f(x,y)$, so this is the integral in $\mathbb{R}^n$, right? Is the same as the integral of, um, now I need to integrate with respect to $x$. $x$ lives in $\mathbb{R}^k$, right? Integral in $\mathbb{R}^k$ of $\underline{\varphi}(x) \, dx$. And this is the same as taking the upper.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Visualizing Fubini's Theorem]
+\begin{math-stroke}[Visualizing Fubini's Theorem]
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Axes
@@ -348,15 +348,15 @@ Now what the theorem says is that the integral in $A$ of $f(x,y)$, so this is th
     \node[proforange] at (2,2.8,1) {Surface $z = f(x,y)$};
 \end{tikzpicture}
 \end{center}
-\begin{explanationofsteps}
+\begin{explanation-of-steps}
 The visual clarifies the core concept: the inner integral calculates the area of the 2D cross-sectional slice at a constant $x_0$. Fubini's Theorem simply states that integrating this varying 1D area function across the $x$-axis accumulates the full 3D volume (the hypograph).
-\end{explanationofsteps}
-\end{mathstroke}
+\end{explanation-of-steps}
+\end{math-stroke}
 
-\begin{spokenclean}[00:19:53 - 00:20:16]
+\begin{spoken-clean}[00:19:53 - 00:20:16]
 Which again... So, this is similar to the theorem. And again, going to the picture, what what this tells me is that... This is the $y$, this is the $x$. Is that if you want to integrate a function over a body, you can integrate first for each $x$, you consider the slice of your body, and you can integrate over the slices, and then sum over all the slices.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{spokenclean}[00:20:16 - 00:21:01]
+\begin{spoken-clean}[00:20:16 - 00:21:01]
 This thing is integrating over the slices. And you will tell me, okay, maybe for some slices, if the integral is not well-defined, then just take the upper or the lower integral. You don't care. So, for most of the slices the integral will be defined, a posteriori. But if for some it's not defined, just take any, the upper or the lower integral. When you integrate over the slices, you sum over all the slices, you get the total integral of your function. And this will be very useful, and we will use next time to compute that integral over there that we left. Okay? You will see that with this observation, and we will prove a corollary that is very very nice to use, um, we can compute in one line that integral over there. Okay? But let me say one thing about the proof. The proof of this is just the same, you repeat almost line by line the proof that I gave for the for the Cavalieri Principle. Or if you want to be even smarter, what you can do is you can use the... So, you can take your function, you can decompose it into negative part and positive part. And remember that any integral is just a volume. It's just measuring a volume in one dimension more. So, what you can apply if you apply the Cavalieri Principle to the hypograph, so to the hypograph of this function $F$, you get exactly that. So, remember that any integral is just a volume of a hypograph. So, this is just the Cavalieri Principle applied to the hypograph of the function $F$ when $F$ is positive, or when $F$ is negative. And then you decompose. Okay. So, we are going to use this next time.
-\end{spokenclean}
+\end{spoken-clean}

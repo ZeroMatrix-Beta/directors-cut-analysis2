@@ -2,17 +2,17 @@
 % SECTION 5: CONCLUDING THE PROOF & FINAL REMARKS
 % ==========================================
 
-\begin{spokenclean}[30:32 - 32:44]
+\begin{spoken-clean}[30:32 - 32:44]
 Now you substitute this back, and this yields exactly the formula I wrote before: the triple integral over the bounds $a_1$ to $b_1$, $a_2$ to $b_2$, and $a_3$ to $b_3$ of $f(x_1, x_2, x_3) \, dx_3 \, dx_2 \, dx_1$. And that concludes the proof! 
 
 With this in mind, if you consult the lecture notes, you will see it is the exact same proof in $n$ dimensions. It simply introduces notation for these successive domains that become smaller and smaller as we integrate out variables one by one, and you get the exact same result.
 
 As with every theorem, there are two aspects: the theoretical proof and the practical application. To pass the exam, you need to at least be able to apply the theorem without hesitation. If you still have some doubts about the abstract proof, that understanding will come with time, but understanding how to apply it is absolutely crucial. Are there any questions about this? If it is okay, we can move on.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{didacticinsight}[Bridging Abstraction and Calculation]
+\begin{didactic-insight}[Bridging Abstraction and Calculation]
 Explicitly acknowledging the cognitive load of $n$-dimensional abstraction lowers anxiety. By giving "permission" to focus on the mechanical application of Fubini's theorem first, it ensures one doesn't get stuck on the rigorous $n$-dimensional notation while still building intuition in 3D space.
-\end{didacticinsight}
+\end{didactic-insight}
 
 
 % ==========================================
@@ -21,13 +21,13 @@ Explicitly acknowledging the cognitive load of $n$-dimensional abstraction lower
 
 \section{Differentiation Under the Integral Sign}
 
-\begin{spokenclean}[32:56 - 37:37]
+\begin{spoken-clean}[32:56 - 37:37]
 To wrap up our unit on integration, I will introduce a final, crucial tool: differentiation under the integral sign. This is something you will absolutely need, not just in this class, but extensively in physics and partial differential equations. 
 
 Consider a scenario in physics where you are integrating a density of charge, say $q(x,t)$, which depends on both space $x$ and time $t$. The charge density varies over time, but you integrate it over a fixed spatial volume to find the total mass or total charge. If you then want to compute the rate of change of that total mass with respect to time, you must take the derivative of the integral. Because the spatial volume is fixed, you can pass this time derivative directly inside the integral sign, applying it as a partial derivative to the density function itself. You will use this constantly in physics, often without even saying why it is true. Today, we will establish exactly why.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{mathstroke}[Formal Statement of the Theorem (37:40 - 41:03)]
+\begin{math-stroke}[Formal Statement of the Theorem (37:40 - 41:03)]
 The physical analogy is formalized into rigorous mathematics by defining a compact spatial set $K$ and a time interval $[a,b]$.
 
 \textbf{Setup:}
@@ -41,17 +41,17 @@ For every $t_0 \in (a,b)$:
 \[
 \frac{d}{dt} \bigg|_{t_0} \int_K f(x,t) \, dx = \int_K \frac{\partial f}{\partial t}(x,t_0) \, dx
 \]
-\end{mathstroke}
+\end{math-stroke}
 
-\begin{spokenclean}[37:40 - 41:03]
+\begin{spoken-clean}[37:40 - 41:03]
 Let us formalize this. Let $K$ be a compact subset in $\mathbb{R}^n$, representing our space. We define a real-valued function $f$ mapping from $K \times [a,b]$—where the interval represents our time domain—to $\mathbb{R}$. We assume not only that $f$ is continuous, but also that its partial derivative with respect to the time variable, $\frac{\partial f}{\partial t}$, is continuous on this closed product space. 
 
 Under these conditions, for any time $t_0$ in the open interval, the total derivative with respect to $t$ of the integral of $f(x,t)$ over $K$ is exactly equal to the integral over $K$ of the partial derivative of $f$ evaluated at $t_0$ (i.e., $\frac{d}{dt} \big|_{t_0} \int_K f(x,t) \, dx = \int_K \frac{\partial f}{\partial t}(x,t_0) \, dx$). When you take a function that depends on space and time, and you integrate with respect to space, the only free variable remaining is time. So, taking the derivative on the outside is a standard Analysis 1 derivative of a single variable, but pushing it inside turns it into a partial derivative.
-\end{spokenclean}
+\end{spoken-clean}
 
-\begin{redundantexplanation}[Swapping Operations]
+\begin{redundant-explanation}[Swapping Operations]
 The core of this theorem is the commutative property of limit operations under specific continuity conditions. The integral is a limit of Riemann sums, and the derivative is a limit of a difference quotient. Swapping "$\frac{d}{dt}$" and "$\int$" is only strictly valid because $\frac{\partial f}{\partial t}$ is uniformly continuous on the compact domain $K \times [a,b]$.
-\end{redundantexplanation}
+\end{redundant-explanation}
 
 % ==========================================
 % SECTION 7: PROOF OF THEOREM (PART 1)
@@ -59,7 +59,7 @@ The core of this theorem is the commutative property of limit operations under s
 
 \section{Proof: Differentiation Under the Integral Sign}
 
-\begin{mathstroke}[Setting up the Limit Definition]
+\begin{math-stroke}[Setting up the Limit Definition]
 Let us define a 1-dimensional function for the spatial integral:
 \[
 F(t) = \int_K f(x,t) \, dx
@@ -76,12 +76,12 @@ By the linearity of the integral, we combine the terms:
 \[
 F'(t_0) = \lim_{h \to 0} \int_K \frac{f(x, t_0 + h) - f(x, t_0)}{h} \, dx
 \]
-\end{mathstroke}
+\end{math-stroke}
 
-\begin{spokenclean}[41:03 - 44:55]
+\begin{spoken-clean}[41:03 - 44:55]
 Let us begin the proof. We want to compute the derivative with respect to $t$ at $t_0$. By definition, this is the limit as $h$ approaches zero of the difference quotient (i.e., $\lim_{h \to 0} \frac{F(t_0 + h) - F(t_0)}{h}$). To make this cleaner, let's introduce a new function $F(t)$ representing the spatial integral of $f(x,t)$ (i.e., $F(t) = \int_K f(x,t) \, dx$). 
 
 We are simply computing $F'(t_0)$, which is the limit of $\frac{F(t_0 + h) - F(t_0)}{h}$. Because the integral is a linear operator, we can group these two integrals into one. We bring the difference quotient inside, dividing the difference $f(x, t_0 + h) - f(x, t_0)$ by $h$. 
 
 This is starting to look much better—it strongly resembles the definition of the partial derivative! All that remains is to formally justify that we can pass the limit as $h$ goes to zero inside the integral. We will finish that rigorous justification after the break, showing that this converges exactly to the integral of the partial derivative.
-\end{spokenclean}
+\end{spoken-clean}

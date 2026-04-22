@@ -89,7 +89,7 @@
 % ==========================================
 
 % 1. Clean Spoken Protocol
-\newtcolorbox{spokenclean}[1][]{
+\newtcolorbox{spoken-clean}[1][]{
     enhanced,
     frame hidden,
     colback=profblue!5!white,
@@ -102,7 +102,7 @@
 
 
 % 2. AI Stroke-by-Stroke Note
-\newtcolorbox{nicebox}[1][]{
+\newtcolorbox{nice-box}[1][]{
     enhanced,
     colback=bglight,
     colframe=gray!40,
@@ -116,7 +116,7 @@
 }
 
 % 3. Best Teacher / Didactic Insight
-\newtcolorbox{didacticinsight}[1][Pedagogical Concept]{
+\newtcolorbox{didactic-insight}[1][Pedagogical Concept]{
     enhanced,
     arc=3mm,
     colback=profgreen!5!white,
@@ -126,7 +126,7 @@
 }
 
 % 4. Semantic Formula Box
-\newtcolorbox{orangeformula}[1][Highlighted Board Formula]{
+\newtcolorbox{orange-formula}[1][Highlighted Board Formula]{
     enhanced,
     colback=profwhite,
     colframe=proforange,
@@ -140,7 +140,7 @@
 }
 
 % 5. Mathematical Setup (Stroke-by-Stroke)
-\newtcolorbox{mathstroke}[1][Mathematical Setup (Stroke-by-Stroke)]{
+\newtcolorbox{math-stroke}[1][Mathematical Setup (Stroke-by-Stroke)]{
     enhanced,
     frame hidden,
     colback=white,
@@ -151,7 +151,7 @@
 }
 
 % 6. Redundant Explanation
-\newtcolorbox{redundantexplanation}[1][Redundant Explanation of Step]{
+\newtcolorbox{redundant-explanation}[1][Redundant Explanation of Step]{
     enhanced,
     arc=2mm,
     colback=profpurple!5!white,
@@ -161,7 +161,7 @@
 }
 
 % 7. Meta-Note
-\newtcolorbox{metanote}[1][Administrative Meta-Note]{
+\newtcolorbox{meta-note}[1][Administrative Meta-Note]{
     enhanced,
     frame hidden,
     colback=profgray!10,
@@ -173,7 +173,7 @@
 
 
 % 8. AI Observational Note
-\newtcolorbox{ainote}[1][AI Note]{
+\newtcolorbox{ai-note}[1][AI Note]{
     enhanced,
     colback=profyellow!5!white,
     colframe=profyellow!90!black,
@@ -185,8 +185,8 @@
     breakable
 }
 
-% 9. Student Question
-\newtcolorbox{studentquestion}[1][Student Question]{
+% 9. Student Question, Student Interaction, or Common Confusion.
+\newtcolorbox{student-question}[1][Student Question]{
     enhanced,
     frame hidden,
     colback=profgray!10,
@@ -198,13 +198,13 @@
 
 
 % 10. Explanation of Steps
-\newenvironment{explanationofsteps}{
+\newenvironment{explanation-of-steps}{
     \par\vspace{1ex}\noindent\textbf{Explanation of Steps:}
 }{
     \par\vspace{1ex}
 }
 
-% 11. Spectacular Proof Wrapper (Overrides default amsthm proof)
+% 11. Proof Wrapper (Overrides default amsthm proof)
 \let\proof\relax
 \let\endproof\relax
 \newtcolorbox{proof}[1][Proof]{
