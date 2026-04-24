@@ -42,6 +42,9 @@
 \definecolor{profred}{HTML}{C0392B}    
 \definecolor{profblue}{HTML}{2980B9}   
 \definecolor{profpurple}{HTML}{8E44AD} % New: Wisteria purple
+\definecolor{profviolet}{HTML}{9B59B6} 
+\definecolor{profdarkgreen}{HTML}{1E8449} 
+\definecolor{profapplegreen}{HTML}{2ECC71} 
 \definecolor{profgray}{HTML}{7F8C8D}   % New: Asbestos gray
 \definecolor{bglight}{HTML}{F8F9FA}    
 
@@ -125,8 +128,8 @@
     breakable
 }
 
-% 4. Semantic Formula Box
-\newtcolorbox{orange-formula}[1][Highlighted Board Formula]{
+% 4. Visual Blackboard Replication Boxes
+\newtcolorbox{orange-box}[1][Highlighted Board Formula]{
     enhanced,
     colback=profwhite,
     colframe=proforange,
@@ -137,6 +140,161 @@
     arc=4pt,
     center title,
     drop fuzzy shadow=proforange!30
+}
+
+\newtcolorbox{blue-box}[1][Highlighted Board Formula]{
+    enhanced,
+    colback=profwhite,
+    colframe=profblue,
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=profblue!30
+}
+
+\newtcolorbox{dark-green-box}[1][Highlighted Board Formula]{
+    enhanced,
+    colback=profwhite,
+    colframe=profdarkgreen,
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=profdarkgreen!30
+}
+
+\newtcolorbox{apple-green-box}[1][Highlighted Board Formula]{
+    enhanced,
+    colback=profwhite,
+    colframe=profapplegreen,
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=profapplegreen!30
+}
+
+\newtcolorbox{yellow-box}[1][Highlighted Board Formula]{
+    enhanced,
+    colback=profwhite,
+    colframe=profyellow!90!black, % Slightly darkened so white text is readable
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=profyellow!30
+}
+
+\newtcolorbox{violet-box}[1][Highlighted Board Formula]{
+    enhanced,
+    colback=profwhite,
+    colframe=profviolet,
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=profviolet!30
+}
+
+\newtcolorbox{red-box}[1][Highlighted Board Formula]{
+    enhanced,
+    colback=profwhite,
+    colframe=profred,
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=profred!30
+}
+
+\newtcolorbox{green-box}[1][Highlighted Board Formula]{
+    enhanced,
+    colback=profwhite,
+    colframe=profgreen,
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=profgreen!30
+}
+
+\newtcolorbox{purple-box}[1][Highlighted Board Formula]{
+    enhanced,
+    colback=profwhite,
+    colframe=profpurple,
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=profpurple!30
+}
+
+\newtcolorbox{gray-box}[1][Highlighted Board Formula]{
+    enhanced,
+    colback=profwhite,
+    colframe=profgray,
+    fonttitle=\bfseries\sffamily,
+    coltitle=profwhite,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=profgray!30
+}
+
+% ==========================================
+% LEGACY FORMULA BOXES (Backward Compatibility)
+% ==========================================
+\newtcolorbox{orange-formula}[1][Highlighted Board Formula]{
+    enhanced, colback=profwhite, colframe=proforange, fonttitle=\bfseries\sffamily, 
+    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=proforange!30
+}
+
+\newtcolorbox{blue-formula}[1][Highlighted Board Formula]{
+    enhanced, colback=profwhite, colframe=profblue, fonttitle=\bfseries\sffamily, 
+    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profblue!30
+}
+
+\newtcolorbox{dark-green-formula}[1][Highlighted Board Formula]{
+    enhanced, colback=profwhite, colframe=profdarkgreen, fonttitle=\bfseries\sffamily, 
+    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profdarkgreen!30
+}
+
+\newtcolorbox{apple-green-formula}[1][Highlighted Board Formula]{
+    enhanced, colback=profwhite, colframe=profapplegreen, fonttitle=\bfseries\sffamily, 
+    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profapplegreen!30
+}
+
+\newtcolorbox{yellow-formula}[1][Highlighted Board Formula]{
+    enhanced, colback=profwhite, colframe=profyellow!90!black, fonttitle=\bfseries\sffamily, 
+    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profyellow!30
+}
+
+\newtcolorbox{violet-formula}[1][Highlighted Board Formula]{
+    enhanced, colback=profwhite, colframe=profviolet, fonttitle=\bfseries\sffamily, 
+    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profviolet!30
+}
+
+\newtcolorbox{red-formula}[1][Highlighted Board Formula]{
+    enhanced, colback=profwhite, colframe=profred, fonttitle=\bfseries\sffamily, 
+    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profred!30
 }
 
 % 5. Mathematical Setup (Stroke-by-Stroke)
@@ -251,7 +409,7 @@
   {\thesection}{1em}{}
 
 \titleformat{\subsection}
-  {\normalfont\sffamily\large\bfseries\color{proforange}}
+  {\normalfont\sffamily\large\bfseries\color{profblue}}
   {\thesubsection}{1em}{}
 
 \begin{document}

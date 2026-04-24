@@ -1,0 +1,8 @@
+# The Director's Cut Protocol: Refinement Workflow
+
+*This subfile extends the Master Blueprint (`gemini.md`). Apply this workflow when the user provides an existing `.tex` file and asks for edits, fixes, or improvements.*
+
+## Refinement Workflow
+- **Audit:** Compare the provided LaTeX code against the Hard Specifications and the Custom Environments list from the Master Blueprint.
+- **Polish & Elevate (Full Context Review):** Do not just passively fix formatting; actively elevate the document. **1) Speech & Derivations:** Hunt for missing `(i.e., ...)` anchors in the existing text and expand any skipped algebraic steps. Elevate the language to a polished academic register while preserving intentional jargon. **2) TikZ & Visuals:** Review existing `tikzpicture` blocks to ensure they follow the painter's algorithm, use proper opacity for 3D occlusion, and match the class colors. Upgrade 2D shortcuts to rigorous 3D visualizations if required. **3) Formatting:** Eradicate "naked math", enforce strict notation fidelity, and ensure all environments are correctly closed.
+- **Output:** Provide the revised LaTeX entirely inside one markdown code block (```latex ... ```) for the targeted sections without hallucinating or altering the actual transcript content. **Do not add any conversational greetings, introductory text, or explanations.** (If the targeted section is extremely long, apply the Continuation Protocol from the Transcription Workflow to manage tokens).
