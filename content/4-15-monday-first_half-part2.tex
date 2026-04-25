@@ -245,11 +245,16 @@ Visual representation of the corrected coordinate system, explicitly showing $y_
 
 \begin{math-stroke}[Spherical Coordinates Visualized]
 \begin{center}
-\begin{tikzpicture}[scale=2]
+\begin{tikzpicture}[scale=2, node distance=0.15cm] % Global spacing ensures consistent text-to-anchor gaps
     % 3D Axes
-    \draw[->, thick] (0,0) -- (-1.2,-1.2) node[below left] {$x_1$};
-    \draw[->, thick] (0,0) -- (2.5,0) node[right] {$x_2$};
-    \draw[->, thick] (0,0) -- (0,2.5) node[above] {$x_3$};
+    \draw[->, thick] (0,0) -- (-1.2,-1.2) coordinate (X1);
+    \node[below left=of X1] {$x_1$}; % Auto-placement using positioning library avoids manual coordinate math
+    
+    \draw[->, thick] (0,0) -- (2.5,0) coordinate (X2);
+    \node[right=of X2] {$x_2$};
+    
+    \draw[->, thick] (0,0) -- (0,2.5) coordinate (X3);
+    \node[above=of X3] {$x_3$};
 
     % Sphere outline & Equator
     \draw[thick, gray!70] (0,0) circle (2);
@@ -265,15 +270,21 @@ Visual representation of the corrected coordinate system, explicitly showing $y_
     \draw[dashed, thick] (O) -- (Pproj);
     \draw[dashed, thick] (P) -- (Pproj);
     
-    % Radius Vector
-    \draw[thick, profblue, ->] (O) -- (P) node[midway, above left] {$y_1$ (Radius)};
+    % Radius Vector (Anchors shifted off midway to find empty space and avoid geometric collisions)
+    \draw[thick, profblue, ->] (O) -- (P) coordinate[pos=0.6] (MidR); 
+    % fill=white creates an occlusion mask so text remains readable over background lines
+    \node[above left=of MidR, profblue, fill=white, inner sep=1pt] {$y_1$ (Radius)}; 
 
     % Angles
-    \draw[->, profred, thick] (-0.5,-0.5) to[bend right=20] node[below right, text=black] {$y_2$ (Longitude)} (0.5, -0.1);
-    \draw[->, profgreen, thick] (0.6, -0.12) to[bend left=20] node[right, text=black] {$y_3$ (Elevation)} (0.6, 0.65);
+    \draw[->, profred, thick] (-0.5,-0.5) to[bend right=20] coordinate[pos=0.8] (MidLon) (0.5, -0.1);
+    \node[below right=of MidLon, profred, fill=white, inner sep=1pt] {$y_2$ (Longitude)};
+    
+    \draw[->, profgreen, thick] (0.6, -0.12) to[bend left=20] coordinate[pos=0.4] (MidEl) (0.6, 0.65);
+    \node[right=of MidEl, profgreen, fill=white, inner sep=1pt] {$y_3$ (Elevation)};
 
     % Point Dot
-    \fill[black] (P) circle (1.5pt) node[above right] {$(x_1, x_2, x_3)$};
+    \fill[black] (P) circle (1.5pt);
+    \node[right=of P, fill=white, inner sep=1pt] {$(x_1, x_2, x_3)$};
 \end{tikzpicture}
 \end{center}
 \end{math-stroke}
