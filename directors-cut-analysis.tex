@@ -129,179 +129,50 @@
 }
 
 % 4. Visual Blackboard Replication Boxes
-\newtcolorbox{orange-box}[1][Highlighted Board Formula]{
-    enhanced,
-    colback=profwhite,
-    colframe=proforange,
-    fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
-    title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=proforange!30
+\newcommand{\NewChalkBox}[3]{%
+    \newtcolorbox{#1}[1][Highlighted Board Formula]{%
+        enhanced,
+        colback=white,
+        opacityback=0, % Fully transparent background
+        colframe=#2,
+        fonttitle=\bfseries\sffamily,
+        coltitle=profwhite,
+        title=##1,
+        boxrule=1.5pt,
+        arc=4pt,
+        center title,
+        drop fuzzy shadow=#3
+    }%
 }
 
-\newtcolorbox{blue-box}[1][Highlighted Board Formula]{
-    enhanced,
-    colback=profwhite,
-    colframe=profblue,
-    fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
-    title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=profblue!30
-}
-
-\newtcolorbox{dark-green-box}[1][Highlighted Board Formula]{
-    enhanced,
-    colback=profwhite,
-    colframe=profdarkgreen,
-    fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
-    title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=profdarkgreen!30
-}
-
-\newtcolorbox{apple-green-box}[1][Highlighted Board Formula]{
-    enhanced,
-    colback=profwhite,
-    colframe=profapplegreen,
-    fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
-    title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=profapplegreen!30
-}
-
-\newtcolorbox{yellow-box}[1][Highlighted Board Formula]{
-    enhanced,
-    colback=profwhite,
-    colframe=profyellow!90!black, % Slightly darkened so white text is readable
-    fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
-    title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=profyellow!30
-}
-
-\newtcolorbox{violet-box}[1][Highlighted Board Formula]{
-    enhanced,
-    colback=profwhite,
-    colframe=profviolet,
-    fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
-    title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=profviolet!30
-}
-
-\newtcolorbox{red-box}[1][Highlighted Board Formula]{
-    enhanced,
-    colback=profwhite,
-    colframe=profred,
-    fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
-    title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=profred!30
-}
-
-\newtcolorbox{green-box}[1][Highlighted Board Formula]{
-    enhanced,
-    colback=profwhite,
-    colframe=profgreen,
-    fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
-    title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=profgreen!30
-}
-
-\newtcolorbox{purple-box}[1][Highlighted Board Formula]{
-    enhanced,
-    colback=profwhite,
-    colframe=profpurple,
-    fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
-    title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=profpurple!30
-}
-
-\newtcolorbox{gray-box}[1][Highlighted Board Formula]{
-    enhanced,
-    colback=profwhite,
-    colframe=profgray,
-    fonttitle=\bfseries\sffamily,
-    coltitle=profwhite,
-    title=#1,
-    boxrule=1.5pt,
-    arc=4pt,
-    center title,
-    drop fuzzy shadow=profgray!30
-}
+\NewChalkBox{orange-box}{proforange}{proforange!30}
+\NewChalkBox{blue-box}{profblue}{profblue!30}
+\NewChalkBox{dark-green-box}{profdarkgreen}{profdarkgreen!30}
+\NewChalkBox{apple-green-box}{profapplegreen}{profapplegreen!30}
+\NewChalkBox{yellow-box}{profyellow!90!black}{profyellow!30}
+\NewChalkBox{violet-box}{profviolet}{profviolet!30}
+\NewChalkBox{red-box}{profred}{profred!30}
+\NewChalkBox{green-box}{profgreen}{profgreen!30}
+\NewChalkBox{purple-box}{profpurple}{profpurple!30}
+\NewChalkBox{gray-box}{profgray}{profgray!30}
 
 % ==========================================
 % LEGACY FORMULA BOXES (Backward Compatibility)
 % ==========================================
-\newtcolorbox{orange-formula}[1][Highlighted Board Formula]{
-    enhanced, colback=profwhite, colframe=proforange, fonttitle=\bfseries\sffamily, 
-    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=proforange!30
-}
-
-\newtcolorbox{blue-formula}[1][Highlighted Board Formula]{
-    enhanced, colback=profwhite, colframe=profblue, fonttitle=\bfseries\sffamily, 
-    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profblue!30
-}
-
-\newtcolorbox{dark-green-formula}[1][Highlighted Board Formula]{
-    enhanced, colback=profwhite, colframe=profdarkgreen, fonttitle=\bfseries\sffamily, 
-    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profdarkgreen!30
-}
-
-\newtcolorbox{apple-green-formula}[1][Highlighted Board Formula]{
-    enhanced, colback=profwhite, colframe=profapplegreen, fonttitle=\bfseries\sffamily, 
-    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profapplegreen!30
-}
-
-\newtcolorbox{yellow-formula}[1][Highlighted Board Formula]{
-    enhanced, colback=profwhite, colframe=profyellow!90!black, fonttitle=\bfseries\sffamily, 
-    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profyellow!30
-}
-
-\newtcolorbox{violet-formula}[1][Highlighted Board Formula]{
-    enhanced, colback=profwhite, colframe=profviolet, fonttitle=\bfseries\sffamily, 
-    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profviolet!30
-}
-
-\newtcolorbox{red-formula}[1][Highlighted Board Formula]{
-    enhanced, colback=profwhite, colframe=profred, fonttitle=\bfseries\sffamily, 
-    coltitle=profwhite, title=#1, boxrule=1.5pt, arc=4pt, center title, drop fuzzy shadow=profred!30
-}
+\NewChalkBox{orange-formula}{proforange}{proforange!30}
+\NewChalkBox{blue-formula}{profblue}{profblue!30}
+\NewChalkBox{dark-green-formula}{profdarkgreen}{profdarkgreen!30}
+\NewChalkBox{apple-green-formula}{profapplegreen}{profapplegreen!30}
+\NewChalkBox{yellow-formula}{profyellow!90!black}{profyellow!30}
+\NewChalkBox{violet-formula}{profviolet}{profviolet!30}
+\NewChalkBox{red-formula}{profred}{profred!30}
 
 % 5. Mathematical Setup (Stroke-by-Stroke)
 \newtcolorbox{math-stroke}[1][Mathematical Setup (Stroke-by-Stroke)]{
     enhanced,
     frame hidden,
     colback=white,
+        opacityback=0,
     borderline west={2pt}{0pt}{profblue!30},
     title={\sffamily\bfseries\textcolor{profblue!80!black}{#1}},
     attach title to upper=\par\vspace{1ex},
@@ -370,6 +241,7 @@
     breakable,
     frame hidden,
     colback=white,
+        opacityback=0,
     borderline west={3pt}{0pt}{profgray!80!black},
     % Creative Title Badge to indicate the start of the proof
     title={\tikz[baseline=(A.base)]\node[fill=profgray!80!black, text=white, rounded corners=2pt, inner xsep=6pt, inner ysep=3pt, font=\sffamily\bfseries\large] (A) {#1};},
