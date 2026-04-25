@@ -74,6 +74,7 @@ These functions, $\overline{\varphi}(x)$ and $\underline{\varphi}(x)$, map from 
 
 \begin{orange-formula}
 \begin{theorem}[Cavalieri's Principle for Jordan Measurable Sets]
+\label{thm:cavalieri-jordan-sets}
 Let $A \subset \mathbb{R}^n$ be a Jordan measurable set. We consider the decomposition $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$, with coordinates $(x,y)$. For each $x \in [-c,c]^k$, we define the slices $A_x = \{y \in \mathbb{R}^{n-k} \mid (x,y) \in A \}$. We then define the upper and lower marginal functions:
 \[
 \overline{\varphi}(x) = \mu_{n-k}^{\text{out}}(A_x) \quad \text{and} \quad \underline{\varphi}(x) = \mu_{n-k}^{\text{in}}(A_x)
@@ -210,11 +211,11 @@ Integrating over the entire domain $[-c,c]^k$:
 \]
 For dyadic step functions, the integral is simply the sum of the volumes of the dyadic cubes:
 \[
-\int_{[-c,c]^k} f(x) \, dx = 2^{-n \cdot p} \cdot (\text{number of dyadic cubes in } F) = \mu_n(F)
+\int_{[-c,c]^k} f(x) \, dx = (2^{-p})^n \cdot (\text{number of dyadic cubes in } F) = \mu_n(F)
 \]
 And similarly for $g(x)$:
 \[
-\int_{[-c,c]^k} g(x) \, dx = 2^{-n \cdot p} \cdot (\text{number of dyadic cubes in } G) = \mu_n(G)
+\int_{[-c,c]^k} g(x) \, dx = (2^{-p})^n \cdot (\text{number of dyadic cubes in } G) = \mu_n(G)
 \]
 Substituting these into the inequality:
 \[
@@ -281,6 +282,7 @@ So, Fubini's Theorem is the following. So, now we have a function...
 
 \begin{orange-formula}
 \begin{theorem}[Fubini's Theorem]
+\label{thm:fubini-formal}
 Let $A \subset \mathbb{R}^n$ be a bounded Jordan measurable set, and $f: A \to \mathbb{R}$ be a Riemann integrable function over $A$.
 We decompose $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$, with coordinates $(x,y)$.
 We extend $f$ to a function $\tilde{f}: \mathbb{R}^n \to \mathbb{R}$ by setting $\tilde{f}(x,y) = f(x,y)$ if $(x,y) \in A$ and $\tilde{f}(x,y) = 0$ if $(x,y) \notin A$.
