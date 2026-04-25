@@ -312,7 +312,9 @@ U \xrightarrow[\text{\textcolor{proforange}{diffeo}}]{\Phi} V
 ```
 
 ## Bigger Code Examples
-- code block
+The following complete examples demonstrate the application of the protocol across different technical domains. They serve as a "unit test" for generalization, training the model to recognize that the protocol's structure is universal, even when the subject matter changes. 
+
+- real analysis, calculus II example
 ```latex
 % ==========================================
 % SECTION 5: VOLUME OF THE 3D UNIT BALL
@@ -427,8 +429,176 @@ Visual representation of the corrected coordinate system, explicitly showing $y_
 \end{center}
 \end{math-stroke}
 ```
+- linear algebra example
+```latex
+\begin{math-stroke}[Deriving Span Conditions from Echelon Form]
+To describe the span $\Sp(w_{1}, \dots, w_{n})$ precisely, we replace a specific target vector with a general, variable vector $b = (b_{1}, \dots, b_{m})^{T}$ and reduce the augmented matrix $(A \mid b)$ to a row-reduced echelon form $(A' \mid b')$. 
 
-- code block
+This row operation procedure transforms our original problem into a much simpler, equivalent linear system $A'x = b'$. The resulting matrix generally has the following characteristic block structure:
+\begin{equation}
+\label{eq:block_consistency}
+(A' \mid b') = \left( 
+\begin{array}{ccc|c}
+* & \dots & * & b'_{1} \\
+\vdots & \text{\footnotesize Rows with pivots} & \vdots & \vdots \\
+* & \dots & * & b'_{r} \\ \hline
+0 & \dots & 0 & b'_{r+1} \\
+\vdots & \text{\footnotesize Zero rows} & \vdots & \vdots \\
+0 & \dots & 0 & b'_{m}
+\end{array} 
+\right)
+\end{equation}
+In this reduced block structure, any row of $A'$ consisting entirely of zeros translates to an algebraic equation of the form $0 = b'_{i}$. For the overall system to be consistent (i.e., for a solution to exist), it is an absolute requirement that the right-hand side of these specific equations also evaluates to zero.
+
+\begin{explanation-of-steps}
+The system is consistent if and only if the entries in $b'$ corresponding to the zero-rows of $A'$ strictly vanish. Therefore, we can concisely describe the span as the set of all vectors satisfying these constraints:
+\[
+\Sp(w_{1}, \dots, w_{n}) = \left\{ b \in K^{m} \;\middle|\; b'_{r+1} = \dots = b'_{m} = 0 \right\}.
+\]
+\end{explanation-of-steps}
+\end{math-stroke}
+```
+
+- datastructure and algorithms example
+```latex
+\section{Graph Algorithms: Finding the Shortest Path}
+\subsection{Dijkstra's Algorithm in Action}
+
+\begin{spoken-clean}[00:00:00 - 00:00:45]
+Let's now move from the continuous world of analysis to the discrete world of graph theory. A fundamental problem in computer science is finding the shortest path between two nodes in a weighted graph. We will explore one of the most famous algorithms for solving this: Dijkstra's algorithm.
+
+Imagine a simple network, and we want to find the shortest path from a starting node, let's call it 'A', to all other nodes. The algorithm works by iteratively visiting nodes and updating the "tentative distance" to their neighbors. Let's draw our initial graph on the board.
+\end{spoken-clean}
+
+\begin{math-stroke}[Initial Graph State for Dijkstra's Algorithm]
+We begin with a directed, weighted graph. We initialize the distance to our start node `A` as 0, and the distance to all other nodes as infinity. We also need a set of unvisited nodes, which initially contains all nodes.
+
+\begin{center}
+\begin{tikzpicture}[->, >=stealth', auto, node distance=2.8cm, thick, main node/.style={circle,fill=profblue!20,draw,font=\sffamily\Large\bfseries}]
+
+  \node[main node] (A) {A};
+  \node[main node] (B) [above right of=A] {B};
+  \node[main node] (C) [below right of=A] {C};
+  \node[main node] (D) [below right of=B] {D};
+
+  % Node distance labels
+  \node[above left=0.1cm of A] (distA) {$d=0$};
+  \node[above left=0.1cm of B] (distB) {$d=\infty$};
+  \node[above left=0.1cm of C] (distC) {$d=\infty$};
+  \node[above left=0.1cm of D] (distD) {$d=\infty$};
+
+  \path[every node/.style={font=\sffamily\small}]
+    (A) edge node {10} (B)
+        edge node {3} (C)
+    (B) edge node {1} (D)
+    (C) edge node {4} (B)
+        edge node {8} (D);
+\end{tikzpicture}
+\end{center}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:00:45 - 00:01:50]
+Okay, so we start at node `A`. The current distance to `A` is 0. We now look at its unvisited neighbors: `B` and `C`.
+
+To get to `B` from `A`, the path has a weight of 10. Since our current distance at `A` is 0, the new tentative distance to `B` is $0 + 10 = 10$. This is less than infinity, so we update `B`'s distance.
+
+To get to `C` from `A`, the path has a weight of 3. The new tentative distance to `C` is $0 + 3 = 3$. This is also less than infinity, so we update `C`'s distance.
+
+After considering all of `A`'s neighbors, we mark `A` as visited. It's done. Now, we look at all the unvisited nodes and pick the one with the smallest tentative distance. In this case, that's node `C`, with a distance of 3. So, `C` is our next current node.
+\end{spoken-clean}
+
+\begin{math-stroke}[Iteration 1: Visiting Node A]
+After visiting node `A`, we update the distances to its neighbors `B` and `C`. Node `A` is now marked as visited (colored `profgreen`).
+
+\begin{center}
+\begin{tikzpicture}[->, >=stealth', auto, node distance=2.8cm, thick, main node/.style={circle,fill=profblue!20,draw,font=\sffamily\Large\bfseries}]
+
+  \node[main node, fill=profgreen!30] (A) {A}; % Visited
+  \node[main node] (B) [above right of=A] {B};
+  \node[main node] (C) [below right of=A] {C};
+  \node[main node] (D) [below right of=B] {D};
+
+  % Node distance labels (updated)
+  \node[above left=0.1cm of A] (distA) {$d=0$};
+  \node[above left=0.1cm of B] (distB) {\textcolor{profred}{$d=10$}};
+  \node[above left=0.1cm of C] (distC) {\textcolor{profred}{$d=3$}};
+  \node[above left=0.1cm of D] (distD) {$d=\infty$};
+
+  \path[every node/.style={font=\sffamily\small}]
+    (A) edge node {10} (B)
+        edge node {3} (C)
+    (B) edge node {1} (D)
+    (C) edge node {4} (B)
+        edge node {8} (D);
+\end{tikzpicture}
+\end{center}
+
+\begin{explanation-of-steps}
+The algorithm selects the unvisited node with the lowest current distance to be the next `current` node. Here, $\min(d(B)=10, d(C)=3, d(D)=\infty) = 3$. Therefore, node `C` is selected for the next iteration.
+\end{explanation-of-steps}
+\end{math-stroke}
+```
+
+- linear algebra example
+```latex
+\begin{nice-box}[Basis for the Column Space]
+\begin{theorem}[Basis for the Column Space]
+\label{thm:basis_col_space}
+The columns of $A$ that correspond to the \qt{pivot columns} of its row-reduced echelon form $B$ constitute a basis for $\operatorname{ColS}(A)$.
+\end{theorem}
+\end{nice-box}
+
+\begin{math-stroke}[Proof and Derivation]
+\begin{proof}
+By the principle that row operations preserve the linear dependence relations between columns, we have:
+\[
+\sum_{i=1}^n \alpha_i w_i = 0 \iff \sum_{i=1}^n \alpha_i w'_i = 0.
+\]
+Thus, a set of columns in $A$ is linearly independent if and only if the corresponding set of columns in its row-reduced echelon form $B$ possesses the same property in $\operatorname{ColS}(B)$.
+
+Consider the row-reduced echelon matrix $B \in M_{m \times n}(K)$ with $r$ pivots. We visualize its block structure and the specific indices of its pivot columns $j_1, j_2, \dots, j_r$:
+
+\begin{equation}
+\label{eq:matrix_B_rigorous}
+B = \left( 
+\begin{array}{ccccccccc}
+ & \text{\tiny col } j_1 & & \text{\tiny col } j_2 & & \text{\tiny col } j_r & & & \\
+ & \downarrow & & \downarrow & & \downarrow & & & \\
+\dots & \mathbf{1} & * & \mathbf{0} & * & \mathbf{0} & * & \dots & \leftarrow 1 \\
+\dots & \mathbf{0} & \dots & \mathbf{1} & \dots & \mathbf{0} & * & \dots & \leftarrow 2 \\
+ & \vdots & & \vdots & \ddots & \vdots & \vdots & & \vdots \\
+\dots & \mathbf{0} & \dots & \mathbf{0} & \dots & \mathbf{1} & * & \dots & \leftarrow r \\ \hline
+ & 0 & & 0 & & 0 & 0 & \dots & \\
+ & \vdots & & \vdots & & \vdots & \vdots & \ddots & \\
+ & 0 & & 0 & & 0 & 0 & \dots & 
+\end{array} 
+\right)
+\end{equation}
+
+In this echelon form, the pivot columns are precisely the first $r$ standard basis vectors of $K^m$:
+\[
+e_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad 
+e_2 = \begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad \dots, \quad 
+e_r = \begin{pmatrix} 0 \\ \vdots \\ 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}
+\]
+where for each $e_i$, the entry $1$ is located at the $i$-th row. Because $B$ is in row-reduced echelon form, every entry in every column $w'_j$ that lies below the $r$-th row must be zero. This implies that:
+\[
+w'_j \in K^r \times \{0\}^{m-r} = \left\{ (x_1, \dots, x_r, 0, \dots, 0)^{T} \in K^m \right\}.
+\]
+Since the standard basis vectors $e_1, \dots, e_r$ are clearly linearly independent and they span the subspace $K^r \times \{0\}^{m-r}$, we establish the following chain of inclusions:
+\[
+K^r \times \{0\}^{m-r} = \operatorname{Sp}(e_1, \dots, e_r) \subseteq \operatorname{ColS}(B) \subseteq K^r \times \{0\}^{m-r}.
+\]
+This double inclusion forces the equality $\operatorname{ColS}(B) = \operatorname{Sp}(e_1, \dots, e_r)$. Consequently, the pivot columns of $B$ form a basis for its column space.
+
+\begin{explanation-of-steps}
+The core insight of the proof is that row operations, which are invertible linear transformations, do not alter the fundamental dependence relationships between the columns of a matrix. By identifying a simple, obvious basis for the column space of the reduced matrix $B$ (which are just the standard basis vectors $e_1, \dots, e_r$), we can use this powerful preservation principle to identify the corresponding, non-obvious basis vectors in the original, more complex matrix $A$.
+\end{explanation-of-steps}
+\end{proof}
+\end{math-stroke}
+```
+
+- analysis example
 
 ```latex
 \chapter{Real Analysis: Change of Variables \& Rigorous Foundations}
