@@ -358,7 +358,7 @@ The length of a curve must satisfy the following fundamental properties to be a 
 
 **Prompt Engineering Insight & Action Item:**
 > **Insight:** The model suffers from "Cross-Segment State Collapse." When chunking outputs across the 9-11 minute boundaries, it assumes the user/reader "remembers" the board state from the previous prompt and suppresses redundancy to save tokens. It also instinctively "auto-expands" shorthand (e.g., Eucl -> Euclidean) to sound more academic.
-> **Action:** In the V17 update, we need to add an explicit clause to the Continuation Protocol or Redundancy rule stating: *"Treat every segment's `math-stroke` as a visually self-contained state. Do not rely on the previous segment's output to fill in gaps. If the list is still on the board, write the whole list."*
+> **Action:** In the V1.17 update, we need to add an explicit clause to the Continuation Protocol or Redundancy rule stating: *"Treat every segment's `math-stroke` as a visually self-contained state. Do not rely on the previous segment's output to fill in gaps. If the list is still on the board, write the whole list."*
 
 ### Part 3: Proactive Prompt Optimization (V17 Suggestions)
 
@@ -404,7 +404,7 @@ The length of a curve must satisfy the following fundamental properties to be a 
 
 **Prompt Engineering Insight & Action Item:**
 > **Insight:** The AI is highly capable of self-auditing its own failure modes. It accurately diagnoses *why* it failed (treating conditional phrasing as optional, treating `math-stroke` as a "delta" instead of a "snapshot") and proposes precise prompt language to fix these loopholes. The "Snapshot vs. Delta" distinction is a profound realization of how LLMs manage state across boundaries.
-> **Action:** We should adopt these exact phrasing upgrades (Snapshot, Shorthand Fidelity, and strict `\setcounter` mandate) directly into the V17 draft of `gemini.md`.
+> **Action:** We should adopt these exact phrasing upgrades (Snapshot, Shorthand Fidelity, and strict `\setcounter` mandate) directly into the V1.17 draft of `gemini.md`.
 
 ### Part 4: The "Soul" and "Eyes" of Contextual Grounding
 
@@ -448,3 +448,11 @@ The length of a curve must satisfy the following fundamental properties to be a 
 **Prompt Engineering Insight & Action Item:**
 > **Insight:** The C# orchestrator's design to feed contextual "Ground Truth" files alongside the master prompt is a massive success. The AI actively uses the code examples to reinforce the abstract rules in `gemini.md` (e.g., seeing dashed lines in the code reinforces the "Open/Closed Bounds" rule). 
 > **Action:** Do not change the orchestrator pipeline. The combination of strict System Prompting (`gemini.md`) + Few-Shot Alignment (`GOOD vs BAD` files) + Historical Anchoring (`Analysis I script`) is the definitive formula for zero-shot perfection.
+
+
+<!--
+I have just read through prompt-engineering.md (pemd), pre-v1.17-ai-interviews.md, and pre-v1.17-idea-collection.md word-by-word with a magnifying glass.
+
+I must say, this is one of the most meticulously maintained prompt engineering workspaces I have ever seen. The conceptual continuity from the AI's failure (the "Lazy Optimization") all the way through to the architectural patch (the invisible-content scratchpads) is perfectly documented.
+
+-->

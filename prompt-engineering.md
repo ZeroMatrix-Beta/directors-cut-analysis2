@@ -1,4 +1,4 @@
-# Project State: Prompt Engineering Phase V1.0 (Alias: pemd v1.0, stands for "prompt-engineering.md". Or just "pemd")
+# Project State: Prompt Engineering Phase V1.1 (Alias: pemd v1.1, stands for "prompt-engineering.md". Or just "pemd")
 
 *Note: This file is officially aliased and referred to as `pemd` throughout our workflow.*
 
@@ -40,7 +40,7 @@ Our primary objective is now refining, evaluating, and versioning the AI system 
 
 ## Next Steps for Prompt Refinement (The V1.17 Pipeline)
 We are actively preparing to upgrade the protocol to V1.17 based on our brainstormed strategies. Our current development pipeline includes:
-1.  **Thinking-Token Minimization:** Integrating the new `ai-*-invisible-content` environments (e.g., `ai-tikz-planner`, `ai-proof-skeleton`) from `PRE-V17-idea-collection.md` to give the LLM structured reasoning scratchpads.
+1.  **Thinking-Token Minimization:** Integrating the new `ai-*-invisible-content` environments (e.g., `ai-tikz-planner`, `ai-proof-skeleton`) from `pre-v1.17-idea-collection.md` to give the LLM structured reasoning scratchpads.
 2.  **Color Refactoring:** Replacing the artificial `prof[color]` palette with standard `dvipsnames` to ensure global LaTeX portability.
 3.  **Logical Anchoring:** Expanding the `(i.e., ...)` calibration with `(Recall: ...)` to prevent logical hallucinations during complex proofs.
 4.  **Meta-Documentation:** Continuing to conduct AI Interviews to test how the model reacts to these new invisible constraints.
@@ -69,3 +69,4 @@ The various `.tex` files scattered throughout the project (e.g., `thursday-versi
 
 ## Version History & Test Artifacts
 *   **V1.16 (Stable):** Validation extractions and Interviews 04-06 confirming V1.16's robustness are securely archived in `folder-34-april-27th-2026/`.
+*   **V1.17 (Drafting):** We are currently preparing V1.17 to integrate `invisible-content` scratchpads, `dvipsnames` refactoring, and strict state management rules (Snapshot vs. Delta).

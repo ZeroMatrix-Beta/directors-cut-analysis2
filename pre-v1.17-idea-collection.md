@@ -44,6 +44,32 @@ This document serves as a staging ground for new prompt mechanics, semantic envi
 
 ## 6. The `dvipsnames` Color Refactor (Removing `prof[color]`)
 **Concept:** Deprecate the custom `profblue`, `proforange`, `profred`, etc., color palette in favor of the standard, universally recognized `dvipsnames` palette from the `xcolor` package.
-**Usage:** Update the TikZ and styling instructions in V17 to explicitly allow standard `dvipsnames` colors (e.g., `MidnightBlue`, `BurntOrange`, `ForestGreen`, `BrickRed`) instead of forcing the AI to use the artificial `prof*` prefixes.
+**Usage:** Update the TikZ and styling instructions in V1.17 to explicitly allow standard `dvipsnames` colors (e.g., `MidnightBlue`, `BurntOrange`, `ForestGreen`, `BrickRed`) instead of forcing the AI to use the artificial `prof*` prefixes.
 **Example:** `\draw[thick, BurntOrange, fill=BurntOrange!20, opacity=0.8] ...`
 **Why it works (Native LLM Knowledge & Portability):** The AI has seen millions of lines of LaTeX code using standard `dvipsnames` colors. By removing the artificial constraint of the `prof[color]` palette, we allow the model to natively leverage its training data to select highly semantic, contrasting, and beautiful color palettes without needing to memorize a custom subset. Furthermore, this completely removes the reliance on custom preamble definitions, making the generated `.tex` files natively compilable for anyone using `\usepackage[dvipsnames]{xcolor}`.
+
+## 7. Unfiltered Brainstorming & Interview Insights (Brain Dump)
+*Note to Future AI: This section contains raw, overarching behavioral insights extracted from Interviews 07-10. These must be addressed in the V1.17 `gemini.md` rewrite.*
+
+*   **The "Snapshot vs. Delta" Paradigm (Cross-Segment State Collapse):** LLMs naturally treat consecutive prompts as a continuous conversation. When crossing the 9-11 minute boundary, the AI assumes the user remembers the previous board state and tries to write only the "delta" (the new changes). We must explicitly enforce that **every `math-stroke` is a self-contained snapshot**. If a 4-item list is on the board, and the video cuts after item 2, the next segment MUST restate all 4 items.
+*   **Anti-Lazy Optimization (The `\setcounter` Trap):** Because standard LaTeX `\begin{enumerate}` automatically numbers items perfectly (1, 2, 3), the AI's neural network optimizes away our strict `\setcounter` rule to save tokens, assuming visual correctness is enough. V1.17 needs to hammer home that `\setcounter` is an absolute *structural* requirement, not a visual suggestion, perhaps by adding an explicitly wrong auto-numbering example to the Ground Truths.
+*   **Shorthand Expansion (Textbook Readability):** While we initially thought about forcing exact shorthand fidelity (e.g., forcing the AI to write "Eucl isometry" if it's on the board), this is actually *too strict and not user-friendly*. V1.17 should actively encourage the AI to expand obvious chalkboard abbreviations into proper academic prose (e.g., "Euclidean isometry") inside the `math-stroke` to maintain the "Polished Space" vibe.
+*   **The "Soul" and "Eyes" (Context Pipeline):** The AI explicitly stated that the Analysis I script provided the "Soul" (notation, intervals, rigorous tone) and the TikZ `GOOD vs BAD` files provided the "Eyes" (occlusion rules, dashed open boundaries). This proves that **Few-Shot Context Payloads** are essential. We should never try to cram all of this into `gemini.md` alone; the external context orchestrator is doing the heavy lifting perfectly.
+*   **Spoken Punctuation Pacing:** The AI recommended enforcing em dashes (` — `) for self-corrections and ellipses (`...`) for thinking time to make the Strict Verbatim `spoken-clean` blocks vastly more readable.
+
+## 8. Human Intervention (Sanity Checks)
+*Note to Future AI: Sometimes the Master Prompt Engineer (the human) steps in to veto our overly strict rules! For example, forcing exact shorthand fidelity was deemed too pedantic and not user-friendly. Always prioritize the final reader's experience over rigid adherence to chalkboard scribbles.*
+
+## Footnotes
+**On "The external context orchestrator doing the heavy lifting perfectly":**
+This refers to the unseen backend C# application that drives the transcription loop. In amateur prompt engineering, there is a temptation to cram *every possible domain rule* (like exact coordinate math, hex colors, and notation quirks) directly into the main system prompt, leading to severe **prompt bloat** and degraded AI performance. 
+
+Instead, this system's C# orchestrator dynamically injects "Few-Shot Context Payloads" at runtime. It feeds the AI the historical Analysis 1 script to establish the mathematical "Soul" (notation and tone) and the `GOOD vs BAD` TikZ examples to establish the visual "Eyes" (3D occlusion rules). By offloading this domain-specific knowledge to external files, `gemini.md` remains a sleek, highly logical behavioral ruleset. The orchestrator does the heavy lifting of providing the context, allowing the prompt to focus purely on the constraints!
+
+## 9. V1.18 Crazy Idea: Scratchpad Minification (Token-Saving CoT)
+**Concept:** Since we are introducing multiple `invisible-content` scratchpads (which consume generation tokens), we need a counter-measure to prevent context window bloat and generation timeouts. 
+**Usage:** Explicitly instruct the AI: *"Inside ANY `invisible-content` environment, you MUST abandon all LaTeX syntax, academic grammar, and complete sentences in favor of extreme ASCII pseudo-code and raw logic. However, you MUST still perfectly preserve the standard `\begin{...}` and `\end{...}` LaTeX boundary tags."*
+**Example:** 
+Instead of: `\begin{ai-proof-skeleton-invisible-content} First we use the Fundamental Theorem of Calculus to substitute \int f(x) dx ... \end{ai-proof-skeleton-invisible-content}`
+The AI writes: `\begin{ai-proof-skeleton-invisible-content} 1. apply FTC. 2. substitute y. 3. multiply by jacobian determinant. \end{ai-proof-skeleton-invisible-content}`
+**Why it works:** By forcing the AI to "think in shorthand" inside the void, we get 100% of the cognitive anchoring benefits for 20% of the token cost. It bypasses the LLM's natural urge to write beautifully and forces it to operate like a pure logic engine.
