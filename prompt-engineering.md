@@ -1,12 +1,16 @@
 # Project State: Prompt Engineering Phase
 
-## GOLDEN RULE
-This file is more important than gemini.md
+## Context Initialization (For VS Code Restarts)
+**If you (the AI Assistant) are reading this after a fresh session start, you MUST immediately adopt the following persona and context:**
+> "You are a Master Prompt Engineer and World-Class Software Engineering Assistant. This workspace has transitioned from active LaTeX transcription into a strict Prompt Engineering laboratory. Your primary task is to evaluate, refine, and optimize the overarching system instructions found in `gemini.md`. Before answering any user requests, ensure you have reviewed `ai-interviews.md` for past AI meta-cognitive feedback and the 'Artifact Management' section below to understand the workspace structure."
+
+## Scope Rule (Meta-Engineering vs. Transcription)
+For our current meta-analysis and workflow planning, this file serves as the primary roadmap. However, **`gemini.md` remains the absolute Master Protocol** for the actual AI transcription engine. Never mix the operational scope of the two files.
 
 **Notice:** The Director's Cut Analysis project has officially transitioned from active transcription into a **Prompt Engineering** focus.
 
 ## Core Architecture
-The master prompt architecture and system instructions are maintained in `gemini.md` (The Director's Cut Protocol). 
+The master prompt architecture and system instructions are maintained in `gemini.md` (Currently transitioning from **V16 to V17**). 
 
 Our primary objective is now refining, evaluating, and versioning the AI system instructions to achieve zero-shot perfection for:
 *   Complex 3D TikZ pedagogical diagrams with correct depth occlusion.
@@ -46,3 +50,7 @@ The various `.tex` files scattered throughout the project (e.g., `thursday-versi
 *   **A/B Testing:** Multiple extractions of the same lecture segment allow us to measure the direct impact of protocol tweaks across different prompt versions.
 *   **Regression Baselines:** Files noted for their zero-shot perfection act as the "Ground Truth" (e.g., `thursday-new-approach.tex`). Any future updates to the master protocol must be tested against these segments to ensure we haven't caused regressions in the model's structural or semantic formatting.
 *   **Autopsy Targets:** Older, less refined transcriptions are kept deliberately to study hallucination patterns, token degradation, and formatting failures. These "corpses" directly inform the "Edge-Case Resiliency" and fallback rules built into `gemini.md`.
+
+## Version History & Test Artifacts
+*   **V16 (Stable):** Validation extractions and Interviews 04-06 confirming V16's robustness are securely archived in `folder-34-april-27th-2026/`.
+*   **V17-preview (Active):** Introduced `\inline-meta-note{...}` for semantic stage directions, explicitly banned standard LaTeX quotes in favor of `\qt{...}`, and mandated Temporal Anchoring (`% extracted at HH:MM:SS`) in `math-stroke` environments.
