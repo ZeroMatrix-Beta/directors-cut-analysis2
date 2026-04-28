@@ -55,7 +55,7 @@ The professor draws the mapping, actively highlighting the \qt{missing} seam on 
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Domain D
-    \draw[dashed, thick, fill=profblue!10] (0,0) rectangle (1, 2);
+    \draw[dashed, thick, fill=MidnightBlue!10] (0,0) rectangle (1, 2);
     \node at (0.5, 1) {$D$};
     \node[below] at (0,0) {$0$};
     \node[below] at (1,0) {$1$};
@@ -66,12 +66,12 @@ The professor draws the mapping, actively highlighting the \qt{missing} seam on 
     \draw[->, very thick] (1.5, 1) -- (2.5, 1) node[midway, above] {$\Psi$};
 
     % Disk B1
-    \draw[thick, fill=profblue!10] (4,1) circle (1cm);
-    \draw[dashed, profred, very thick] (4,1) -- (5,1); % The missing seam
+    \draw[thick, fill=MidnightBlue!10] (4,1) circle (1cm);
+    \draw[dashed, BrickRed, very thick] (4,1) -- (5,1); % The missing seam
     
     % Annotations
-    \node[profred, right] at (5,1) {\emph{Missing Seam}};
-    \node[profred, right] at (5,0.7) {$\mu_2 = 0$};
+    \node[BrickRed, right] at (5,1) {\emph{Missing Seam}};
+    \node[BrickRed, right] at (5,0.7) {$\mu_2 = 0$};
     \node at (4, 1.5) {$B_1$};
     \node[below] at (4, -0.5) {Target Space $(x_1, x_2)$};
 \end{tikzpicture}
@@ -150,9 +150,9 @@ The professor draws a 3D bounding box and shows how the function $f(y_1, y_2) = 
 
     % The Hypograph Wedge (x3 <= y1)
     % The plane is x3 = y1. At y1=0 (front), height is 0. At y1=1 (back), height is 1.
-    \filldraw[fill=profred!30, draw=profred, thick, opacity=0.8] (X) -- (XZ) -- (XYZ) -- cycle; % Right side triangle
-    \filldraw[fill=profred!20, draw=profred, thick, opacity=0.8] (O) -- (X) -- (XYZ) -- (YZ) -- cycle; % Slanted roof x3=y1
-    \filldraw[fill=profred!40, draw=profred, thick, opacity=0.8] (O) -- (Z) -- (YZ) -- cycle; % Left side triangle
+    \filldraw[fill=BrickRed!30, draw=BrickRed, thick, opacity=0.8] (X) -- (XZ) -- (XYZ) -- cycle; % Right side triangle
+    \filldraw[fill=BrickRed!20, draw=BrickRed, thick, opacity=0.8] (O) -- (X) -- (XYZ) -- (YZ) -- cycle; % Slanted roof x3=y1
+    \filldraw[fill=BrickRed!40, draw=BrickRed, thick, opacity=0.8] (O) -- (Z) -- (YZ) -- cycle; % Left side triangle
     
     % Remaining box outline
     \draw[thick, gray] (Z) -- (XZ) -- (XYZ) -- (YZ) -- cycle; 
@@ -164,7 +164,7 @@ The professor draws a 3D bounding box and shows how the function $f(y_1, y_2) = 
     \node[below] at (2,0,0) {Longitude $y_2 \in [0, 2\pi]$};
     \node[left] at (0,0,1) {Radius $y_1 \in [0, 1]$};
     \node[left] at (0,1,0) {Height $x_3$};
-    \node[profred, right] at (4.2, 1, 1) {Hypograph Volume ($x_3 \le y_1$)};
+    \node[BrickRed, right] at (4.2, 1, 1) {Hypograph Volume ($x_3 \le y_1$)};
 \end{tikzpicture}
 \end{center}
 
@@ -271,16 +271,16 @@ Visual representation of the corrected coordinate system, explicitly showing $y_
     \draw[dashed, thick] (P) -- (Pproj);
     
     % Radius Vector (Anchors shifted off midway to find empty space and avoid geometric collisions)
-    \draw[thick, profblue, ->] (O) -- (P) coordinate[pos=0.6] (MidR); 
+    \draw[thick, MidnightBlue, ->] (O) -- (P) coordinate[pos=0.6] (MidR); 
     % fill=white creates an occlusion mask so text remains readable over background lines
-    \node[above left=of MidR, profblue, fill=white, inner sep=1pt] {$y_1$ (Radius)}; 
+    \node[above left=of MidR, MidnightBlue, fill=white, inner sep=1pt] {$y_1$ (Radius)}; 
 
     % Angles
-    \draw[->, profred, thick] (-0.5,-0.5) to[bend right=20] coordinate[pos=0.8] (MidLon) (0.5, -0.1);
-    \node[below right=of MidLon, profred, fill=white, inner sep=1pt] {$y_2$ (Longitude)};
+    \draw[->, BrickRed, thick] (-0.5,-0.5) to[bend right=20] coordinate[pos=0.8] (MidLon) (0.5, -0.1);
+    \node[below right=of MidLon, BrickRed, fill=white, inner sep=1pt] {$y_2$ (Longitude)};
     
-    \draw[->, profgreen, thick] (0.6, -0.12) to[bend left=20] coordinate[pos=0.4] (MidEl) (0.6, 0.65);
-    \node[right=of MidEl, profgreen, fill=white, inner sep=1pt] {$y_3$ (Elevation)};
+    \draw[->, ForestGreen, thick] (0.6, -0.12) to[bend left=20] coordinate[pos=0.4] (MidEl) (0.6, 0.65);
+    \node[right=of MidEl, ForestGreen, fill=white, inner sep=1pt] {$y_3$ (Elevation)};
 
     % Point Dot
     \fill[black] (P) circle (1.5pt);

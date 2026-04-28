@@ -112,20 +112,20 @@ The professor moves to the right board to draw a 3D perspective of a curved surf
     \draw[->, thick, gray!80!black] (0,0,0) -- (0,0,4) node[below left] {$x$ axis};
 
     % Domain in xy-plane
-    \draw[dashed, profblue, thick] (1,0,1) -- (3,0,1) -- (3,0,3) -- (1,0,3) -- cycle;
-    \node[profblue] at (2,-0.3,3.5) {Base Domain $A = X \times Y$};
+    \draw[dashed, MidnightBlue, thick] (1,0,1) -- (3,0,1) -- (3,0,3) -- (1,0,3) -- cycle;
+    \node[MidnightBlue] at (2,-0.3,3.5) {Base Domain $A = X \times Y$};
 
     % Surface
-    \draw[thick, fill=proforange!20, opacity=0.8] (1,2,1) to[out=20,in=160] (3,2.5,1) to[out=-20,in=70] (3,1.5,3) to[out=160,in=-20] (1,1,3) to[out=70,in=-20] cycle;
-    \node[proforange!80!black] at (2,2.8,1) {Surface $z = f(x,y)$};
+    \draw[thick, BurntOrange, fill=BurntOrange!20, opacity=0.8] (1,2,1) to[out=20,in=160] (3,2.5,1) to[out=-20,in=70] (3,1.5,3) to[out=160,in=-20] (1,1,3) to[out=70,in=-20] cycle;
+    \node[BurntOrange!80!black] at (2,2.8,1) {Surface $z = f(x,y)$};
 
     % The Slice at constant x_0
-    \draw[thick, profred, fill=profred!20, opacity=0.7] (1,0,2) -- (3,0,2) -- (3,2.0,2) to[out=150,in=-10] (1,1.5,2) -- cycle;
+    \draw[thick, BrickRed, fill=BrickRed!20, opacity=0.7] (1,0,2) -- (3,0,2) -- (3,2.0,2) to[out=150,in=-10] (1,1.5,2) -- cycle;
     
     % Slice Annotations
-    \draw[dashed, profred, thick] (0,0,2) -- (1,0,2);
-    \node[left, profred] at (0,0,2) {$x_0$};
-    \node[profred, fill=white, inner sep=1pt] at (2, 0.8, 2) {Area $= \int f(x_0, y) \, dy$};
+    \draw[dashed, BrickRed, thick] (0,0,2) -- (1,0,2);
+    \node[left, BrickRed] at (0,0,2) {$x_0$};
+    \node[BrickRed, fill=white, inner sep=1pt] at (2, 0.8, 2) {Area $= \int f(x_0, y) \, dy$};
 
 \end{tikzpicture}
 \end{center}

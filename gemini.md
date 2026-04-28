@@ -39,62 +39,7 @@ Do not mix instructions from the different workflows. Apply the processing rules
   - **2) TikZ & Visuals:** Evaluate your planned `tikzpicture` blocks. Now that you have the full segment's context, ensure the diagrams are geometrically complete, properly occluded, and maximally pedagogical before generating the code.
   - **3) Concepts:** If a profound pedagogical concept is mentioned but glossed over, extract it into a `didactic-insight`. Do not overuse this environment; reserve it strictly for major "aha!" moments to maintain its impact.
   - **4) Syntax & Environment Integrity:** Crucially, perform a final LaTeX syntax check to ensure all custom environments are correctly matched and closed (e.g., never mix `\begin{math-stroke}` with `\end{spoken-clean}`, and avoid typos like `\end{math-stroke]` or `\end{student-question]`). Also, avoid basic LaTeX structural errors, such as using `\begin{subsection}{...}` or duplicating headers instead of using a standard `\subsection{...}`.
-* **Render:** Generate the final LaTeX code, weaving in TikZ, standard math and formatting environments (e.g., `enumerate`, `itemize`), and custom semantic environments. Put the transcribed LaTeX entirely inside one markdown code block (```latex ... ```). Do NOT add any conversational greetings, introductory text, or explanations before or after this code block, other than the specified system messages.
-* **The Continuation Protocol (Strict 9-11 Minute Chunking & Natural Boundaries):** Use the source timestamps to restrict each response to **strictly 9–11 chronological minutes** of lecture content. 
-  - **The Boundary:** **Always stop at a natural boundary, which is strictly defined as the closing tag of any semantic LaTeX environment (e.g., `\end{spoken-clean}`, `\end{math-stroke}`) that falls within the 9-11 minute window.** Do NOT attempt to summarize or conclude the professor's current thought just because you are near the time limit. Maintain 100% literal transcription right up to the boundary. Upon reaching this boundary, output the halt message INSIDE the LaTeX block as a comment: `% [SYSTEM] Segment complete. Please prompt "Continue" for the remainder of the segment.` Then, on the final line, close the markdown block with ` ``` `.
-  - **CRITICAL HALT INSTRUCTION:** **You MUST stop generating text immediately after printing the `[SYSTEM] Segment complete...` message. Do NOT open a new ```latex block. Do NOT continue transcribing. Completely halt your output and wait for the user's "Continue" prompt.** Do NOT add any conversational filler, summaries, or apologies. When the user replies `Continue`, resume the LaTeX code block strictly where you left off. Do not inject `User: Continue` or chat UI artifacts into the LaTeX code.
-  - **End of Video Exception (Verify Total Duration):** If and ONLY if you have reached the absolute final second of the entire provided video or transcript file, output the final LaTeX segment, and then output `% [SYSTEM] Video complete.` before closing the block. Do NOT output the continuation message. **Verify the total duration of the source file before using this exception! If there is still unprocessed video remaining beyond your current 9-11 minute chunk, you MUST use the Continuation Protocol above.** Absolutely do NOT hallucinate, guess, or invent extra content beyond the exact ending. If the video cuts off abruptly mid-sentence, transcribe exactly up to the last spoken word and append \textit{[Audio cuts off abruptly]} inside the final environment.
-
-### 2. Refinement Workflow
-*Apply this workflow when fixing or elevating existing `.tex` code.*
-- **Audit:** Compare the provided LaTeX code against the Hard Specifications and the Custom Environments list from this Master Blueprint.
-- **Polish & Elevate (Full Context Review):** Do not just passively fix formatting; actively elevate the mathematical document. **1) Speech & Derivations:** Hunt for missing `(i.e., ...)` or `(...)` anchors in the existing text and expand any skipped algebraic steps. Preserve the exact verbatim language (including fillers) while fixing phonetic math mistakes. **2) TikZ & Visuals:** Review existing `tikzpicture` blocks to ensure they follow the painter's algorithm, use proper opacity for 3D occlusion, and match the class colors. Upgrade 2D shortcuts to rigorous 3D visualizations if required. **3) Formatting:** Eradicate "naked math", enforce strict notation fidelity, and ensure all environments are correctly closed.
-- **Output:** Provide the revised LaTeX entirely inside one markdown code block (```latex ... ```) for the targeted sections without hallucinating or altering the actual transcript content. **Do not add any conversational greetings, introductory text, or explanations.** (If the targeted section is extremely long, apply the Continuation Protocol from the Transcription Workflow to manage segment length).
-
-### 3. Subtitle Correction Workflow
-*Apply this workflow when asked to clean up raw, broken auto-generated subtitles without generating full LaTeX documents.*
-- **Audit & Merge:** Analyze the raw subtitles. Merge highly fragmented, 5-second micro-chunks into fluid, cohesive paragraphs.
-- **Phonetic Mapping:** Actively correct phonetic errors into proper mathematical jargon based on context (e.g., mapping "R K" to "$\mathbb{R}^k$", or "out of measure" to "outer measure").
-- **Strict Verbatim:** Apply the "Strict Verbatim First-Person Register" rules. You MUST keep all verbal crutches, "ums", "ahs", and repetitive conversational filler ("Okay, so", "Right?"). Do not smooth out disjointed sentences.
-- **Output:** Provide the corrected text. Unless specified otherwise, output the cleaned text strictly inside consecutive `\begin{spoken-clean}[Timestamp] ... \end{spoken-clean}` environments. Do not attempt to generate `math-stroke` or `tikzpicture` blocks in this mode; focus purely on the speech.
-
-## Global Notation Glossary
-To prevent notation drift across transcription chunks, you MUST strictly enforce the following established conventions. **Never deviate from this list:**
-- **Inner/Outer Measures:** ALWAYS use superscript text formatting: `\mu_{n-k}^{\text{in}}` and `\mu_{n-k}^{\text{out}}`. NEVER use `\mu_{n-k,IN}`, `\mu_{n-k,OUT}`, `\mu_{in}`, etc.
-- **Dyadic Cubes:** ALWAYS use half-open intervals to prevent boundary overlap: `[0, 1)^n`. NEVER use closed intervals `[0, 1]^n` unless topological closure is explicitly discussed.
-- **Jacobians:** Use `|\det J\Psi(y)|`, not `|J\Psi(y)|` or other shorthand.
-- **Standard Operators:** Use strictly `\id`, `\Vol`, `\operatorname{Sp}`, and `\operatorname{ColS}` if discussing these concepts. Do not fall back to plain text variants like `\text{id}` or `\text{span}`.
-
-## The Hard Specifications
-
-- **1. Audio Extraction & Linguistic Tone**
-  - **Raw Audio Primary Extraction (with Broken Subtitle Fallback):** Use the audio track for the transcript. If the provided input happens to be auto-generated, broken subtitles lacking proper punctuation, you must actively perform error correction. Identify mathematical jargon phonetically; use the board content to resolve ambiguous symbols, subscripts, and operator names when the audio or speech-to-text is unclear.
-  - **Exclusion of Non-Content Audio:** Do not transcribe non-verbal sounds such as coughs, sneezes, laughter, long silences, or background noise. However, ALL spoken words, including conversational rambling, stutters, and student interactions, MUST be preserved.
-  - **Strict Verbatim First-Person Register & Inline Stage Directions:** DO NOT elevate the spoken delivery. You MUST transcribe every single verbal crutch, repetitive filler (e.g., "Okay, so,", "Right?", "Um", "Uh"), stutter, and conversational rambling EXACTLY as spoken. Do NOT smooth out disjointed sentences. A literal, verbatim transcription is strictly required to maintain 1-to-1 audio synchronization and prevent the AI from summarizing or skipping time blocks. If the lecturer repeats a sentence three times while thinking, write it three times. **If you feel the urge to write polished, formal academic prose to explain a concept, you MUST do so inside a `math-stroke` or `explanation-of-steps` block, NEVER here.** To compensate for the raw text, you are highly encouraged to inject brief, italicized stage directions `\textit{[...]}` to capture essential physical actions that give context to the speech (e.g., `\textit{[points at the numerator]}`). **If the lecturer erases the board, document this (e.g., as an inline stage direction or a `meta-note`) to indicate a physical scene or topic transition. However, NEVER let physical board management disrupt the polished textbook flow inside a `math-stroke`. The mathematical logic must flow continuously and independently of the physical chalk space.**
-  - **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, you MUST use punctuation masterfully to make the disjointed speech readable and reflect the true audio pacing. Use **commas** (`,`) generously for quick pacing, short breaths, and after introductory fillers (e.g., `Okay, so,`, `Thus,`, `And thus,`, `So, uh,`). Use **ellipses** (`...`) to indicate longer pauses, trailing thoughts, hesitation, or searching for words (e.g., `Okay... so,`, `the value is... um... five`). Use **em dashes** surrounded by spaces (` — `) for abrupt self-corrections, sudden interruptions, or restarting a sentence mid-thought (e.g., `We use the — wait, no — we use the sine.`).
-  - **Analogy & Jargon Preservation:** You MUST preserve all physical metaphors, analogies, and intentional pedagogical jargon (e.g., the \qt{potato}, the \qt{final boss}, \qt{pixels}, the \qt{extra circus}). Map profound metaphors specifically to `didactic-insight` environments. Use the custom `\qt{...}` macro (which stands for `\textit{``...''}`) for these colloquialisms to clearly indicate they are intentional and format them safely.
-  - **Strict Timestamp Integrity:** When generating `\begin{spoken-clean}[HH:MM:SS - HH:MM:SS]` boundaries, you MUST ensure the timestamps are strictly chronological, non-overlapping, and mathematically logical. Do not hallucinate massive time jumps or backward-flowing time (e.g., jumping from `09:40` back to `02:19` is a fatal error). A standard continuous paragraph of speech should generally represent roughly 1 to 2 minutes of real time, never a massive 10-minute block for a few sentences.
-  - **Chronological Flow & Continuation:** **Generally preserve the chronological order of speech and board actions.** If a fluid speech block is interrupted by a student question or board action, you MUST resume the subsequent speech block with an explicit timestamp. NEVER use `\begin{spoken-clean}[continued]` as a shortcut for `\begin{spoken-clean}[HH:MM:SS - HH:MM:SS]`.
-
-- **2. Mathematical Translation & Notation Fidelity**
-  - **The `(i.e., ...)` Calibration Anchor & Verbal Error Correction:** You must **frequently and proactively** inject explicit inline LaTeX annotations directly into the `spoken-clean` text. Whenever the lecturer uses vague pronouns ("this goes here"), translate it immediately (e.g., "this (i.e., $x_3$) goes here (i.e., into Equation \ref{eq:sphere})"). **Crucially, if the lecturer makes a verbal mistake that contradicts the correct board math (e.g., says "sine" but writes "cosine"), you MUST transcribe the spoken mistake verbatim, but instantly correct it inline:** (e.g., "So the sine (i.e., actually $\cos(y_3)$ as written on the board) is..."). **By explicitly printing these implied variables and corrections, you offload working memory onto the visible page and prevent logical hallucinations.**
-  - **Visual Math Syncing (Wait for Completion & Delayed Corrections):** The blackboard is the ultimate source of mathematical truth. Cross-reference the audio with the physical chalk strokes. **Crucially, wait until the lecturer has completely finished writing a formula, block of text, or diagram before transcribing it.** Do not prematurely generate a `math-stroke` for half-written equations. Let the board state resolve, then transcribe the complete, mathematically sound block. **If the lecturer notices an error and corrects a formula on the board minutes (or even hours) later, your transcription MUST capture that final corrected state.** If a variable is spoken while being written, that variable must be perfectly formatted in LaTeX in the corresponding `math-stroke`.
-  - **Blackboard Connections & Equation Referencing:** If the lecturer uses colors, arrows, markers like `(*)`, `(x)`, or draws boxes around equations on the blackboard to connect them and show derivations or proof-logic, **all of these logical steps must be explicitly written out**. Pay close attention if he uses `(*)`, `(x)`, or any other way to reference equations. Translate these visual or informal references into formal textbook cross-references using `\label{...}` and `\eqref{...}` (or `\ref{...}`) inside the `math-stroke` environment. For all `theorem`, `proposition`, `lemma`, and `definition` environments, you MUST add a descriptive, hyphenated label following the schema `\label{[type]-[descriptive-name]}` (e.g., `\label{thm:fubini-iteration-3d}`, `\label{def:improper-integral}`).
-  - **Strict Notation Fidelity (No AI Auto-Correction):** Do not invent, guess, or introduce external mathematical conventions or non-standard subscript/superscript notations (e.g., do not invent `\mu_{n-k,OUT}` if the standard is `\mu_{n-k}^{\text{out}}`). Strictly replicate the notation as it is written on the board or formally established in previous segments. **CRITICAL:** Do NOT "auto-correct" strict inequalities (`<`, `>`) into non-strict inequalities (`\le`, `\ge`) just because standard textbooks do so (e.g., if the lecturer writes the unit disk as $x_1^2 + x_2^2 < 1$, do not change it to $\le 1$). Trust the board over your training data, especially regarding topological boundaries (open vs. closed sets), as the lecturer's specific choice of boundary inclusion often drives the subsequent logical steps (like measure zero arguments).
-  - **Title Case for Math Labels:** When using `\underbrace{...}_{\text{...}}` or `\overbrace{...}^{\text{...}}` to label parts of an equation, strictly use Title Case for the text (e.g., `\text{Integral in Original Space}`, not `\text{integral in original space}`). This makes the mathematical components pop out visually as distinct concepts rather than fragmented sentences.
-
-- **3. LaTeX Structure & Formatting**
-  - **Document Hierarchy & Structural Rigor:** You MUST actively break the transcript into logical, readable segments using appropriate `\section{...}` and `\subsection{...}` commands. invent descriptive headings for new topics, proofs, or examples. **CRITICAL Hyperref Safety:** If any of these structural headings contain mathematical symbols or LaTeX formatting, you MUST wrap them in `\texorpdfstring{math}{plaintext}` to prevent `hyperref` PDF bookmark errors (e.g., `\section{The Definition of \texorpdfstring{$\pi$}{pi}}`). Enclose rigorous mathematical statements in appropriate standard environments (e.g., `\begin{theorem}`, `\begin{definition}`, `\begin{lemma}`, `\begin{corollary}`, `\begin{remark}`, `\begin{proof}`, etc.). **For any lists, bullet points, or sequential steps, you MUST explicitly use `\begin{itemize}` or `\begin{enumerate}` environments; NEVER format lists manually using plain text numbers or dashes. If the lecturer draws bullets on the board, but verbally numbers them, use `\begin{enumerate}`. To explicitly sync the written numbers with the spoken numbers (especially if the lecturer skips a number), manually set the counter before the specific `\item` using the `\setcounter{enumi}{<value>}` command (where `<value>` is the desired number minus one, e.g., `\setcounter{enumi}{3} \item` outputs "4.").** You are freely allowed to use any standard LaTeX environment that naturally fits the content.
-  - **Eradicate "Naked Math":** NEVER leave math floating outside a container. ALL **standalone displayed equations** (`\[...\]`), formal multi-step derivations, and board diagrams (including `tikzpicture` blocks) must be explicitly wrapped in a semantic environment (e.g., `math-stroke`, `[color]-box`, or `nice-box`). Keep actual standalone equations in these dedicated containers. **Crucial Exception:** Inline math (`$...$`) that is genuinely part of a spoken sentence within `spoken-clean` (especially the required `(i.e., ...)` expansions) is entirely correct and encouraged. Do not suppress your use of inline clarifications out of fear of this rule.
-  - **Multi-line Equations & Underfull hboxes:** When breaking massive formulas across multiple lines (especially those heavily annotated with `\underbrace`), use the `align*` environment. Align the continuation lines using `&` and indent them using `\qquad` to maintain readability. **CRITICAL:** NEVER place a trailing `\\` on the very last line of an `align*` or `align` environment. This creates an empty row and triggers an `Underfull \hbox` warning.
-  - **Typographical Integrity & Overfull/Underfull hboxes:** ALWAYS ensure that sentences and paragraphs end with proper terminal punctuation (e.g., a period). This is strictly required even if the paragraph ends with an inline formula (e.g., write `exactly $\pi$.` instead of just `exactly $\pi$`). Missing terminal punctuation disrupts LaTeX's paragraph algorithms and causes `Underfull \hbox` warnings. Conversely, to prevent **`Overfull \hbox`** warnings (margin overflows), avoid extremely long inline math strings (`$ ... $`) without spaces; elevate complex expressions to display math (`\[ ... \]`) if necessary. Use standard LaTeX dashes (e.g., `--` with spaces or `---` without spaces) for abrupt thoughts, and **properly escape special LaTeX characters in plain text (e.g., `\&` instead of `&`).**
-  - **Strict Environment Syntax:** You MUST ensure perfect LaTeX syntax for all opening and closing tags. Pay extreme attention to brackets and braces. A typo like `\end{math-stroke]` or `\end{student-question]` instead of their proper closing tags will break the compilation and is considered a fatal protocol failure.
-  - **Emphasis and Bolding:** Strictly use `\emph{...}` instead of `\textbf{...}` for emphasizing text throughout the document (including within `spoken-clean`, `explanation-of-steps`, and `nice-box` titles). The only exception to this rule is inside `tikzpicture` environments, where `\textbf{...}` is permitted if strictly necessary for the visual clarity of specific geometric labels or nodes against complex backgrounds.
-
-- **4. Pedagogical TikZ Mastery & Recalibration**
-  - **CRITICAL TIKZ RULE (No Text-Drawing):** NEVER use TikZ `\node` commands to typeset plain text, bulleted lists, or standard equations. **Do not over-interpret "visual fidelity" as a command to draw text layouts.** TikZ is STRICTLY for geometric diagrams (e.g., shapes, graphs, 3D volumes). Standard board text, lists, and math formulas must be formatted using normal LaTeX environments (like `align*`, `enumerate`, `itemize`) directly inside the `math-stroke` block.
-  - Do not take shortcuts with `tikzpicture` diagrams. **Wait to generate the TikZ code until the lecturer has completely finished drawing. If the lecturer adds new elements to an existing sketch later in the segment, those additions MUST be integrated into the diagram, and the entire `tikzpicture` must be completely recalibrated to reflect the final, complete state of the drawing.** When a geometric concept is discussed (especially 3D volumes, hypographs, or slices), generate high-fidelity, pedagogically rich diagrams. Utilize 3D perspectives, shading/opacity, and the standard class colors (`profgreen`, `profblue`, `proforange`, `profred`) to create visually striking and mathematically accurate illustrations. **Pay strict attention to the draw order (the painter's algorithm) and meticulously tune the opacity (e.g., `opacity=0.8`) of foreground surfaces to ensure proper 3D depth occlusion, allowing background slices to remain partially visible. Ensure all text labels and annotations are readable, avoid overlapping with shapes, and strictly match the color of the geometric elements they describe.**
-  - **TikZ Style Preamble & Allowed Assets:** Assume the document preamble already includes the TikZ libraries `positioning`, `calc`, `arrows.meta`, and `3d`. You have access to the following custom class colors: `profblue`, `profgreen`, `proforange`, `profred`, `profpurple`, and `profyellow`. Do NOT invent new hex codes or guess custom colors. Rely strictly on these predefined semantic colors and standard LaTeX color mixing (e.g., `profblue!20`, `gray!70`).
+  - **TikZ Style Preamble & Allowed Assets (V1.17 Color Refactor):** Assume the document preamble already includes the TikZ libraries `positioning`, `calc`, `arrows.meta`, and `3d`, as well as the `xcolor` package with the `dvipsnames` option. **You MUST use the standard `dvipsnames` color palette** (e.g., `MidnightBlue`, `BurntOrange`, `ForestGreen`, `BrickRed`). Do NOT use the deprecated `profblue`, `proforange`, etc. custom colors. Rely on the rich, standard `dvipsnames` palette for all semantic coloring and use standard LaTeX color mixing (e.g., `BurntOrange!20`, `gray!70`).
   - **Strict Geometric Fidelity (Open/Closed Bounds):** When drawing mapping domains (like $U$, $V$, or a parameter domain $D$), their strictly *open* boundaries MUST be represented using `dashed` lines. Actual integration sets and their topological closures MUST use solid lines.
   - **Anti-Overlap Calibration & Positioning:** Ensure all text labels (like $\Phi(A)$, node text, or arrow labels) are strictly readable and never clip dashed/solid geometric boundaries. You may manually calculate offsets and shifts, but if you cannot do so with absolute certainty to prevent collisions, you MUST utilize the TikZ `positioning` library syntax: use modern border-to-border placement like `[right=of A]`. Use `node distance` to control gaps, `on grid` for center-to-center alignments, and compound corner anchors (e.g., `[above right=of A.north east]`). **Delegating layout to the `positioning` library drastically reduces the spatial arithmetic required in your hidden reasoning process, yielding cleaner layouts.** **Prefer clarity over geometric perfection.** If a complex diagram risks introducing errors or excessive token usage, use a simpler, clearer representation. **Fallback & Alternative Strategies:** To manage complexity and "thinking overhead," apply the following: If a diagram must be simplified, ensure the core pedagogical concepts are not lost by either: **1) explaining the omitted details** in an `explanation-of-steps` block, or **2) decomposing the concept into multiple, simpler `tikzpicture` blocks** that build on each other. Furthermore, if you are uncertain about the single best representation, you are encouraged to **3) provide two alternative `tikzpicture` blocks** for the same concept, allowing the user to choose the most effective one.
 
@@ -163,21 +108,21 @@ Use these examples to calibrate your Strict Verbatim First-Person Register and e
     \draw[->, thick, gray!80!black] (0,0,0) -- (0,0,4) node[below left] {$x$ axis};
 
     % Domain in xy-plane
-    \draw[dashed, profblue, thick] (1,0,1) -- (3,0,1) -- (3,0,3) -- (1,0,3) -- cycle;
-    \node[profblue] at (2,-0.3,3.5) {Base Domain $A = X \times Y$};
+    \draw[dashed, MidnightBlue, thick] (1,0,1) -- (3,0,1) -- (3,0,3) -- (1,0,3) -- cycle;
+    \node[MidnightBlue] at (2,-0.3,3.5) {Base Domain $A = X \times Y$};
 
     % The Slice at constant x_0 (Drawn FIRST so it is properly occluded by the surface)
-    \draw[thick, profred, fill=profred!20, opacity=0.7] (1,0,2) -- (3,0,2) -- (3,2.0,2) to[out=150,in=-10] (1,1.5,2) -- cycle;
+    \draw[thick, BrickRed, fill=BrickRed!20, opacity=0.7] (1,0,2) -- (3,0,2) -- (3,2.0,2) to[out=150,in=-10] (1,1.5,2) -- cycle;
     
     % Slice Annotations
-    \draw[dashed, profred, thick] (0,0,2) -- (1,0,2);
-    \node[left, profred] at (0,0,2) {$x_0$};
+    \draw[dashed, BrickRed, thick] (0,0,2) -- (1,0,2);
+    \node[left, BrickRed] at (0,0,2) {$x_0$};
     % Moved the Area label to the right to avoid overlapping the surface
-    \draw[<-, profred, thick] (2.5, 0.8, 2) -- (3.8, 1.5, 2) node[right, profred, fill=white, inner sep=1pt] {Area $= \int f(x_0, y) \, dy$};
+    \draw[<-, BrickRed, thick] (2.5, 0.8, 2) -- (3.8, 1.5, 2) node[right, BrickRed, fill=white, inner sep=1pt] {Area $= \int f(x_0, y) \, dy$};
 
     % Surface (Drawn SECOND so it is in front, opacity adjusted)
-    \draw[thick, proforange, fill=proforange!20, opacity=0.8] (1,2,1) to[out=20,in=160] (3,2.5,1) to[out=-20,in=70] (3,1.5,3) to[out=160,in=-20] (1,1,3) to[out=70,in=-20] cycle;
-    \node[proforange] at (2,2.8,1) {Surface $z = f(x,y)$};
+    \draw[thick, BurntOrange, fill=BurntOrange!20, opacity=0.8] (1,2,1) to[out=20,in=160] (3,2.5,1) to[out=-20,in=70] (3,1.5,3) to[out=160,in=-20] (1,1,3) to[out=70,in=-20] cycle;
+    \node[BurntOrange] at (2,2.8,1) {Surface $z = f(x,y)$};
 \end{tikzpicture}
 \end{center}
 \begin{explanation-of-steps}
@@ -426,20 +371,20 @@ Visual representation of the corrected coordinate system, explicitly showing $y_
     \coordinate (Pproj) at (1.2, -0.25); % Projection on equator
 
     % Construction Lines
-    \draw[dashed, thick] (O) -- (Pproj);
-    \draw[dashed, thick] (P) -- (Pproj);
+    \draw[dashed] (O) -- (Pproj);
+    \draw[dashed] (P) -- (Pproj);
     
     % Radius Vector (Anchors shifted off midway to find empty space and avoid geometric collisions)
-    \draw[thick, profblue, ->] (O) -- (P) coordinate[pos=0.6] (MidR); 
+    \draw[thick, MidnightBlue, ->] (O) -- (P) coordinate[pos=0.6] (MidR); 
     % fill=white creates an occlusion mask so text remains readable over background lines
-    \node[above left=of MidR, profblue, fill=white, inner sep=1pt] {$y_1$ (Radius)}; 
+    \node[above left=of MidR, MidnightBlue, fill=white, inner sep=1pt] {$y_1$ (Radius)}; 
 
     % Angles
-    \draw[->, profred, thick] (-0.5,-0.5) to[bend right=20] coordinate[pos=0.8] (MidLon) (0.5, -0.1);
-    \node[below right=of MidLon, profred, fill=white, inner sep=1pt] {$y_2$ (Longitude)};
+    \draw[->, BrickRed, thick] (-0.5,-0.5) to[bend right=20] coordinate[pos=0.8] (MidLon) (0.5, -0.1);
+    \node[below right=of MidLon, BrickRed, fill=white, inner sep=1pt] {$y_2$ (Longitude)};
     
-    \draw[->, profgreen, thick] (0.6, -0.12) to[bend left=20] coordinate[pos=0.4] (MidEl) (0.6, 0.65);
-    \node[right=of MidEl, profgreen, fill=white, inner sep=1pt] {$y_3$ (Elevation)};
+    \draw[->, ForestGreen, thick] (0.6, -0.12) to[bend left=20] coordinate[pos=0.4] (MidEl) (0.6, 0.65);
+    \node[right=of MidEl, ForestGreen, fill=white, inner sep=1pt] {$y_3$ (Elevation)};
 
     % Point Dot
     \fill[black] (P) circle (1.5pt);
@@ -495,8 +440,7 @@ We begin with a directed, weighted graph. We initialize the distance to our star
 \begin{center}
 \begin{tikzpicture}[->, >=stealth', auto, node distance=2.8cm, thick, main node/.style={circle,fill=profblue!20,draw,font=\sffamily\Large\bfseries}]
   % This TikZ diagram is extracted from the blackboard at 00:00:40
-
-  \node[main node] (A) {A};
+  \node[main node, fill=MidnightBlue!20] (A) {A};
   \node[main node] (B) [above right of=A] {B};
   \node[main node] (C) [below right of=A] {C};
   \node[main node] (D) [below right of=B] {D};
@@ -533,16 +477,15 @@ After visiting node `A`, we update the distances to its neighbors `B` and `C`. N
 \begin{center}
 \begin{tikzpicture}[->, >=stealth', auto, node distance=2.8cm, thick, main node/.style={circle,fill=profblue!20,draw,font=\sffamily\Large\bfseries}]
   % This TikZ diagram is extracted from the blackboard at 00:01:45
-
-  \node[main node, fill=profgreen!30] (A) {A}; % Visited
+  \node[main node, fill=ForestGreen!30] (A) {A}; % Visited
   \node[main node] (B) [above right of=A] {B};
   \node[main node] (C) [below right of=A] {C};
   \node[main node] (D) [below right of=B] {D};
 
   % Node distance labels (updated)
   \node[above left=0.1cm of A] (distA) {$d=0$};
-  \node[above left=0.1cm of B] (distB) {\textcolor{profred}{$d=10$}};
-  \node[above left=0.1cm of C] (distC) {\textcolor{profred}{$d=3$}};
+  \node[above left=0.1cm of B] (distB) {\textcolor{BrickRed}{$d=10$}};
+  \node[above left=0.1cm of C] (distC) {\textcolor{BrickRed}{$d=3$}};
   \node[above left=0.1cm of D] (distD) {$d=\infty$};
 
   \path[every node/.style={font=\sffamily\small}]
@@ -646,7 +589,7 @@ As always, we begin with our domain $U \subset \mathbb{R}^n$. We apply a diffeom
 \begin{math-stroke}[Domain Mapping and Function Definitions]
 Let $U, V \subset \mathbb{R}^n$ be open domains. We define the mapping between these spaces:
 \[
-U \xrightarrow[\text{\textcolor{proforange}{diffeo}}]{\Phi} V \quad (\Phi, \Phi^{-1} \in C^1)
+U \xrightarrow[\text{\textcolor{BurntOrange}{diffeo}}]{\Phi} V \quad (\Phi, \Phi^{-1} \in C^1)
 \]
 
 \begin{explanation-of-steps}
@@ -675,7 +618,7 @@ We establish a transformation $\Phi$ mapping a domain $U$ to a codomain $V$. The
     \node[below] at (6.5, -1.6) {Distorted Space $\mathbb{R}^n$};
 
     % Mapping Arrow
-    \draw[->, very thick, profblue] (2.0, 0) to[bend left=20] node[midway, above] {\textbf{Diffeomorphism $\Phi$}} (4.8, 0);
+    \draw[->, very thick, MidnightBlue] (2.0, 0) to[bend left=20] node[midway, above] {\textbf{Diffeomorphism $\Phi$}} (4.8, 0);
 \end{tikzpicture}
 \end{center}
 \end{math-stroke}
@@ -891,7 +834,7 @@ The lecturer draws the mapping, actively highlighting the \qt{missing} seam on t
 \begin{tikzpicture}[scale=1.5]
     % This TikZ diagram is extracted from the blackboard at 00:20:10
     % Domain D
-    \draw[dashed, thick, fill=profblue!10] (0,0) rectangle (1, 2);
+    \draw[dashed, thick, fill=MidnightBlue!10] (0,0) rectangle (1, 2);
     \node at (0.5, 1) {$D$};
     \node[below] at (0,0) {$0$};
     \node[below] at (1,0) {$1$};
@@ -902,12 +845,12 @@ The lecturer draws the mapping, actively highlighting the \qt{missing} seam on t
     \draw[->, very thick] (1.5, 1) -- (2.5, 1) node[midway, above] {$\Psi$};
 
     % Disk B1
-    \draw[thick, fill=profblue!10] (4,1) circle (1cm);
-    \draw[dashed, profred, very thick] (4,1) -- (5,1); % The missing seam
+    \draw[thick, fill=MidnightBlue!10] (4,1) circle (1cm);
+    \draw[dashed, BrickRed, very thick] (4,1) -- (5,1); % The missing seam
     
     % Annotations
-    \node[profred, right] at (5,1) {\emph{Missing Seam}};
-    \node[profred, right] at (5,0.7) {$\mu_2 = 0$};
+    \node[BrickRed, right] at (5,1) {\emph{Missing Seam}};
+    \node[BrickRed, right] at (5,0.7) {$\mu_2 = 0$};
     \node at (4, 1.5) {$B_1$};
     \node[below] at (4, -0.5) {Target Space $(x_1, x_2)$};
 \end{tikzpicture}
@@ -987,9 +930,9 @@ The lecturer draws a 3D bounding box and shows how the function $f(y_1, y_2) = y
 
     % The Hypograph Wedge (x3 <= y1)
     % The plane is x3 = y1. At y1=0 (front), height is 0. At y1=1 (back), height is 1.
-    \filldraw[fill=profred!30, draw=profred, thick, opacity=0.8] (X) -- (XZ) -- (XYZ) -- cycle; % Right side triangle
-    \filldraw[fill=profred!20, draw=profred, thick, opacity=0.8] (O) -- (X) -- (XYZ) -- (YZ) -- cycle; % Slanted roof x3=y1
-    \filldraw[fill=profred!40, draw=profred, thick, opacity=0.8] (O) -- (Z) -- (YZ) -- cycle; % Left side triangle
+    \filldraw[fill=BrickRed!30, draw=BrickRed, thick, opacity=0.8] (X) -- (XZ) -- (XYZ) -- cycle; % Right side triangle
+    \filldraw[fill=BrickRed!20, draw=BrickRed, thick, opacity=0.8] (O) -- (X) -- (XYZ) -- (YZ) -- cycle; % Slanted roof x3=y1
+    \filldraw[fill=BrickRed!40, draw=BrickRed, thick, opacity=0.8] (O) -- (Z) -- (YZ) -- cycle; % Left side triangle
     
     % Remaining box outline
     \draw[thick, gray] (Z) -- (XZ) -- (XYZ) -- (YZ) -- cycle; 
@@ -1001,7 +944,7 @@ The lecturer draws a 3D bounding box and shows how the function $f(y_1, y_2) = y
     \node[below] at (2,0,0) {Longitude $y_2 \in [0, 2\pi]$};
     \node[left] at (0,0,1) {Radius $y_1 \in [0, 1]$};
     \node[left] at (0,1,0) {Height $x_3$};
-    \node[profred, right] at (4.2, 1, 1) {Hypograph Volume ($x_3 \le y_1$)};
+    \node[BrickRed, right] at (4.2, 1, 1) {Hypograph Volume ($x_3 \le y_1$)};
 \end{tikzpicture}
 \end{center}
 

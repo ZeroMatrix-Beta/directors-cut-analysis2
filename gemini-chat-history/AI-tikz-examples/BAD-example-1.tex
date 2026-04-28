@@ -1,0 +1,23 @@
+% Here, only the tikz-code for the good example, corresponding to 'blackboard-example-1.jpg' is provided
+% The output the latex-code below generates can be viewed in 'BAD-example-1-output.jpg'
+\begin{mathstroke}[Geometric Visualization Setup]
+\begin{center}
+\begin{tikzpicture}[scale=1.0]
+    \draw[->, thick, profgreen] (-0.5,0) -- (4,0) node[right] {$x \in \mathbb{R}^k$};
+    \draw[->, thick, profblue] (0,-0.5) -- (0,3) node[above] {$y \in \mathbb{R}^{n-k}$};
+    \node[above right] at (3.5, 2.5) {$\mathbb{R}^n$};
+
+    % Bounding Box (dashed)
+    \draw[dashed] (0.5,0.5) rectangle (3.5,2.5);
+
+    % Set A
+    \draw[thick] (1.5,1) to[out=45,in=135] (2.5,1.5) to[out=-45,in=45] (2,2) to[out=-135,in=-45] (1,1.5) to[out=135,in=-135] cycle;
+    \node at (2, 1.5) {$A$};
+
+    % Slice at x
+    \draw[red, very thick] (1.75, 0.5) -- (1.75, 2.5);
+    \node[below, xshift=-0.1cm, red] at (1.75, 0) {$x$};
+    \node[right, red] at (1.75, 1.5) {$A_x$};
+\end{tikzpicture}
+\end{center}
+\end{mathstroke}

@@ -85,24 +85,24 @@ The higher-dimensional counterparts to the FTC are known by various names:
     \draw[->, thick, gray!80] (0,0,0) -- (0,0,4) node[below left] {$x$ (or $x_1$)};
 
     % The "Potato" Domain Omega
-    \draw[thick, profblue, fill=profblue!10, opacity=0.6] 
+    \draw[thick, MidnightBlue, fill=MidnightBlue!10, opacity=0.6] 
         (1,1,1) to[out=20,in=160] (3,1.5,1) 
         to[out=-20,in=70] (3.5,0.5,3) 
         to[out=160,in=-20] (1.5,0,3) 
         to[out=70,in=-20] cycle;
-    \node[profblue] at (2,0.8,2) {\Large $\Omega$};
+    \node[MidnightBlue] at (2,0.8,2) {\Large $\Omega$};
     
     % The Surface S (The "Skin")
-    \node[proforange] at (3.8,1.2,2) {Surface $S = \partial \Omega$};
+    \node[BurntOrange] at (3.8,1.2,2) {Surface $S = \partial \Omega$};
     
     % Vector Field F (The "Cereal Field")
     \foreach \x in {0.5, 1.5, 2.5}
         \foreach \y in {0.5, 1.5, 2.5}
-            \draw[->, profred, opacity=0.4] (\x,\y,2) -- (\x+0.3, \y+0.4, 2.2);
-    \node[profred] at (0.5, 2.8, 2) {Vector Field $F = (f_1, f_2, f_3)$};
+            \draw[->, BrickRed, opacity=0.4] (\x,\y,2) -- (\x+0.3, \y+0.4, 2.2);
+    \node[BrickRed] at (0.5, 2.8, 2) {Vector Field $F = (f_1, f_2, f_3)$};
 
     % Normal Vector nu
-    \draw[->, very thick, profpurple] (3.2, 1.1, 1.8) -- (3.8, 1.4, 1.8) node[right] {$\nu$};
+    \draw[->, very thick, RoyalPurple] (3.2, 1.1, 1.8) -- (3.8, 1.4, 1.8) node[right] {$\nu$};
 \end{tikzpicture}
 \end{center}
 

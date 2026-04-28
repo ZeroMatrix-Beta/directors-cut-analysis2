@@ -24,8 +24,8 @@ This theorem, you will see, is a bit the opposite of the Change of Variables for
 \begin{center}
 \begin{tikzpicture}[scale=1.0]
     % Axes
-    \draw[->, thick, profgreen] (-0.5,0) -- (4,0) node[right] {$x \in \mathbb{R}^k$};
-    \draw[->, thick, profblue] (0,-0.5) -- (0,3) node[above] {$y \in \mathbb{R}^{n-k}$};
+    \draw[->, thick, ForestGreen] (-0.5,0) -- (4,0) node[right] {$x \in \mathbb{R}^k$};
+    \draw[->, thick, MidnightBlue] (0,-0.5) -- (0,3) node[above] {$y \in \mathbb{R}^{n-k}$};
     \node[above right] at (3.5, 2.5) {$\mathbb{R}^n$};
 
     % Bounding Box (dashed)
@@ -83,35 +83,35 @@ Let us prove that. Remember that whenever we want to prove something about Jorda
     \draw[step=0.25, gray!15, very thin] (0.4, 0.4) grid (3.6, 2.1);
 
     % Axes
-    \draw[->, thick, profgreen] (-0.2,0) -- (4,0) node[right] {$x \in \mathbb{R}^k$};
-    \draw[->, thick, profgreen] (0,-0.2) -- (0,2.5) node[above] {$y \in \mathbb{R}^{n-k}$};
+    \draw[->, thick, ForestGreen] (-0.2,0) -- (4,0) node[right] {$x \in \mathbb{R}^k$};
+    \draw[->, thick, ForestGreen] (0,-0.2) -- (0,2.5) node[above] {$y \in \mathbb{R}^{n-k}$};
 
     % 1. The True Smooth Set A (Drawn behind the cubes)
     \draw[thick, gray, dashed, fill=gray!10] (1.1,0.6) to[out=45,in=180] (1.8,1.6) to[out=0,in=135] (3.1,1.1) to[out=-45,in=0] (2.5,0.6) to[out=180,in=-135] cycle;
     \node[gray, font=\bfseries] at (2.9, 1.2) {$A$};
 
     % 2. Inner Approximation F (Yellow, perfectly blocky)
-    \draw[thick, profyellow!80!black, fill=profyellow!30] 
+    \draw[thick, Goldenrod!80!black, fill=Goldenrod!30] 
         (1.25, 0.75) -- (1.25, 1.25) -- (1.5, 1.25) -- (1.5, 1.5) -- (2.25, 1.5) -- (2.25, 1.25) -- (2.5, 1.25) -- (2.5, 1.0) -- (2.75, 1.0) -- (2.75, 0.75) -- cycle;
-    \node[profyellow!80!black] at (2.0, 1.1) {$F$};
+    \node[Goldenrod!80!black] at (2.0, 1.1) {$F$};
 
     % 3. Outer Approximation G (Red Outline, perfectly blocky)
-    \draw[very thick, profred] 
+    \draw[very thick, BrickRed] 
         (1.0, 0.5) -- (1.0, 1.5) -- (1.25, 1.5) -- (1.25, 1.75) -- (2.5, 1.75) -- (2.5, 1.5) -- (3.0, 1.5) -- (3.0, 1.25) -- (3.25, 1.25) -- (3.25, 0.5) -- cycle;
-    \node[profred] at (3.1, 1.6) {$G$};
+    \node[BrickRed] at (3.1, 1.6) {$G$};
 
     % 4. The vertical slice at x
-    \draw[thick, profblue] (1.625, 0) -- (1.625, 2.2);
-    \node[below, profblue] at (1.625, 0) {$x$};
+    \draw[thick, MidnightBlue] (1.625, 0) -- (1.625, 2.2);
+    \node[below, MidnightBlue] at (1.625, 0) {$x$};
     
     % Highlighting the trapped 1D slice bounds on the slice line
-    \draw[line width=2.5pt, profred] (1.625, 0.5) -- (1.625, 1.75); % Outer slice G_x
+    \draw[line width=2.5pt, BrickRed] (1.625, 0.5) -- (1.625, 1.75); % Outer slice G_x
     \draw[line width=2.5pt, gray] (1.625, 0.68) -- (1.625, 1.55); % True slice A_x (approx bound)
-    \draw[line width=2.5pt, profyellow] (1.625, 0.75) -- (1.625, 1.5); % Inner slice F_x
+    \draw[line width=2.5pt, Goldenrod] (1.625, 0.75) -- (1.625, 1.5); % Inner slice F_x
     
     % Slice Labels
-    \node[profred, right] at (1.625, 1.85) {$G_x$};
-    \node[profyellow!80!black, right] at (1.625, 0.85) {$F_x$};
+    \node[BrickRed, right] at (1.625, 1.85) {$G_x$};
+    \node[Goldenrod!80!black, right] at (1.625, 0.85) {$F_x$};
 \end{tikzpicture}
 \end{center}
 \begin{explanation-of-steps}
@@ -123,24 +123,24 @@ To rigorously prove Cavalieri's Principle, we exploit the definition of Jordan m
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Axes
-    \draw[->, thick, profgreen] (-0.5,0) -- (4,0) node[right] {$x$};
-    \draw[->, thick, profblue] (0,-0.5) -- (0,3) node[above] {$y$};
+    \draw[->, thick, ForestGreen] (-0.5,0) -- (4,0) node[right] {$x$};
+    \draw[->, thick, MidnightBlue] (0,-0.5) -- (0,3) node[above] {$y$};
     \node[above right] at (3.5, 2.5) {$A$};
 
     % Outer approximation (red outline)
     \draw[red, thick] (0.5,0.5) rectangle (3.5,2.5); % Bounding box
 
     % Inner approximation (green inside) - simplified for visual clarity
-    \draw[profgreen, thick] (1.0, 0.7) -- (1.0, 1.3) -- (1.5, 1.3) -- (1.5, 0.7) -- cycle;
-    \draw[profgreen, thick] (1.0, 1.7) -- (1.0, 2.3) -- (1.5, 2.3) -- (1.5, 1.7) -- cycle;
-    \draw[profgreen, thick] (2.0, 0.7) -- (2.0, 1.3) -- (2.5, 1.3) -- (2.5, 0.7) -- cycle;
-    \draw[profgreen, thick] (2.0, 1.7) -- (2.0, 2.3) -- (2.5, 2.3) -- (2.5, 1.7) -- cycle;
+    \draw[ForestGreen, thick] (1.0, 0.7) -- (1.0, 1.3) -- (1.5, 1.3) -- (1.5, 0.7) -- cycle;
+    \draw[ForestGreen, thick] (1.0, 1.7) -- (1.0, 2.3) -- (1.5, 2.3) -- (1.5, 1.7) -- cycle;
+    \draw[ForestGreen, thick] (2.0, 0.7) -- (2.0, 1.3) -- (2.5, 1.3) -- (2.5, 0.7) -- cycle;
+    \draw[ForestGreen, thick] (2.0, 1.7) -- (2.0, 2.3) -- (2.5, 2.3) -- (2.5, 1.7) -- cycle;
 
     % Outer approximation of A by union of dyadic cubes (red outline)
     \draw[red, thick, smooth] plot coordinates { (0.7,0.7) (0.7,1.5) (1.2,1.5) (1.2,2.3) (1.8,2.3) (1.8,2.7) (2.7,2.7) (2.7,1.8) (3.3,1.8) (3.3,0.7) (2.5,0.7) (2.5,0.2) (1.0,0.2) (1.0,0.7) (0.7,0.7) };
 
     % Inner approximation of A by union of dyadic cubes (green outline)
-    \draw[profgreen, thick, smooth] plot coordinates { (0.9,0.9) (0.9,1.3) (1.3,1.3) (1.3,2.1) (1.7,2.1) (1.7,2.5) (2.3,2.5) (2.3,1.7) (2.9,1.7) (2.9,0.9) (2.0,0.9) (2.0,0.5) (1.0,0.5) (1.0,0.9) (0.9,0.9) };
+    \draw[ForestGreen, thick, smooth] plot coordinates { (0.9,0.9) (0.9,1.3) (1.3,1.3) (1.3,2.1) (1.7,2.1) (1.7,2.5) (2.3,2.5) (2.3,1.7) (2.9,1.7) (2.9,0.9) (2.0,0.9) (2.0,0.5) (1.0,0.5) (1.0,0.9) (0.9,0.9) };
 
     % A specific slice for x
     \draw[blue, very thick] (1.7, 0.5) -- (1.7, 2.5);
@@ -148,7 +148,7 @@ To rigorously prove Cavalieri's Principle, we exploit the definition of Jordan m
 
     % Slices of the approximations
     \draw[densely dashed, red, thin] (1.7, 0.7) -- (1.7, 2.5);
-    \draw[densely dashed, profgreen, thin] (1.7, 0.9) -- (1.7, 2.3);
+    \draw[densely dashed, ForestGreen, thin] (1.7, 0.9) -- (1.7, 2.3);
 \end{tikzpicture}
 \end{center}
 \begin{explanation-of-steps}

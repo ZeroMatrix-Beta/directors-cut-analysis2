@@ -34,9 +34,9 @@ The professor draws the bounding box and the sets $A$ and $A_x$ to geometrically
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
   % Axes with defined dimensions
-  \draw[->, thick, profgreen] (0,0) -- (4,0) node[right] {$x \in \mathbb{R}^k$};
-  \draw[->, thick, profgreen] (0,0) -- (0,3) node[above] {$y \in \mathbb{R}^{n-k}$};
-  \node[above right, profgreen] at (3.5, 2.8) {$\mathbb{R}^n$};
+  \draw[->, thick, ForestGreen] (0,0) -- (4,0) node[right] {$x \in \mathbb{R}^k$};
+  \draw[->, thick, ForestGreen] (0,0) -- (0,3) node[above] {$y \in \mathbb{R}^{n-k}$};
+  \node[above right, ForestGreen] at (3.5, 2.8) {$\mathbb{R}^n$};
   
   % Bounding Box [-c, c]^n
   \draw[dashed, gray] (0.5, 0.5) rectangle (3.5, 2.5);
@@ -44,19 +44,19 @@ The professor draws the bounding box and the sets $A$ and $A_x$ to geometrically
   \node[below, gray] at (3.5, 0) {$c$};
 
   % The Set A
-  \draw[thick, profblue, fill=profblue!5] (1.5,1.5) to[out=45,in=135] (2.5,2.0) to[out=-45,in=45] (3.0,1.2) to[out=-135,in=-45] (2.0,0.8) to[out=135,in=-135] cycle;
-  \node[profblue] at (2.4, 1.5) {$A$};
+  \draw[thick, MidnightBlue, fill=MidnightBlue!5] (1.5,1.5) to[out=45,in=135] (2.5,2.0) to[out=-45,in=45] (3.0,1.2) to[out=-135,in=-45] (2.0,0.8) to[out=135,in=-135] cycle;
+  \node[MidnightBlue] at (2.4, 1.5) {$A$};
 
   % The Slice
-  \draw[thick, profred] (1.8, 0.95) -- (1.8, 2.05);
-  \node[below, profgreen] at (1.8, 0) {$x$};
-  \draw[dashed, profgreen] (1.8, 0) -- (1.8, 0.95);
+  \draw[thick, BrickRed] (1.8, 0.95) -- (1.8, 2.05);
+  \node[below, ForestGreen] at (1.8, 0) {$x$};
+  \draw[dashed, ForestGreen] (1.8, 0) -- (1.8, 0.95);
   
   % Projection Ax
-  \draw[thick, proforange] (0, 0.95) -- (0, 2.05);
-  \node[left, proforange] at (0, 1.5) {$A_x$};
-  \draw[dashed, proforange, ->] (1.8, 2.05) -- (0, 2.05);
-  \draw[dashed, proforange, ->] (1.8, 0.95) -- (0, 0.95);
+  \draw[thick, BurntOrange] (0, 0.95) -- (0, 2.05);
+  \node[left, BurntOrange] at (0, 1.5) {$A_x$};
+  \draw[dashed, BurntOrange, ->] (1.8, 2.05) -- (0, 2.05);
+  \draw[dashed, BurntOrange, ->] (1.8, 0.95) -- (0, 0.95);
 \end{tikzpicture}
 \end{center}
 \end{math-stroke}
@@ -140,20 +140,20 @@ Now we will see what happens when we take a slice of this pixelated set. Let's s
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Axes
-    \draw[->, thick, profgreen] (0,0) -- (4,0) node[right] {$x$};
-    \draw[->, thick, profgreen] (0,0) -- (0,3) node[above] {$y$};
+    \draw[->, thick, ForestGreen] (0,0) -- (4,0) node[right] {$x$};
+    \draw[->, thick, ForestGreen] (0,0) -- (0,3) node[above] {$y$};
     
     % The Smooth Set A (White Outline)
     \draw[thick, gray, dashed] (1.5,1.5) to[out=45,in=135] (2.5,2.0) to[out=-45,in=45] (3.0,1.2) to[out=-135,in=-45] (2.0,0.8) to[out=135,in=-135] cycle;
     \node[gray] at (2.8, 1.5) {$A$};
 
     % Inner Approximation F (Yellow / Jagged)
-    \draw[thick, profyellow] (1.7, 1.3) -- (1.7, 1.8) -- (2.3, 1.8) -- (2.3, 1.6) -- (2.6, 1.6) -- (2.6, 1.2) -- (2.0, 1.2) -- (2.0, 1.0) -- (1.8, 1.0) -- (1.8, 1.3) -- cycle;
-    \node[profyellow, right] at (2.6, 1.4) {$F$ (Inner)};
+    \draw[thick, Goldenrod] (1.7, 1.3) -- (1.7, 1.8) -- (2.3, 1.8) -- (2.3, 1.6) -- (2.6, 1.6) -- (2.6, 1.2) -- (2.0, 1.2) -- (2.0, 1.0) -- (1.8, 1.0) -- (1.8, 1.3) -- cycle;
+    \node[Goldenrod, right] at (2.6, 1.4) {$F$ (Inner)};
 
     % Outer Approximation G (Red / Jagged)
-    \draw[thick, profred] (1.2, 1.0) -- (1.2, 2.2) -- (1.6, 2.2) -- (1.6, 2.4) -- (2.8, 2.4) -- (2.8, 2.0) -- (3.3, 2.0) -- (3.3, 1.0) -- (2.3, 1.0) -- (2.3, 0.6) -- (1.5, 0.6) -- (1.5, 1.0) -- cycle;
-    \node[profred, right] at (3.3, 2.1) {$G$ (Outer)};
+    \draw[thick, BrickRed] (1.2, 1.0) -- (1.2, 2.2) -- (1.6, 2.2) -- (1.6, 2.4) -- (2.8, 2.4) -- (2.8, 2.0) -- (3.3, 2.0) -- (3.3, 1.0) -- (2.3, 1.0) -- (2.3, 0.6) -- (1.5, 0.6) -- (1.5, 1.0) -- cycle;
+    \node[BrickRed, right] at (3.3, 2.1) {$G$ (Outer)};
     
     % The Vertical Slice showing step-nature
     \draw[thick, cyan] (2.1, 0) -- (2.1, 2.6);

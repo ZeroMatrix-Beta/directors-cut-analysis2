@@ -360,6 +360,8 @@ The length of a curve must satisfy the following fundamental properties to be a 
 > **Insight:** The model suffers from "Cross-Segment State Collapse." When chunking outputs across the 9-11 minute boundaries, it assumes the user/reader "remembers" the board state from the previous prompt and suppresses redundancy to save tokens. It also instinctively "auto-expands" shorthand (e.g., Eucl -> Euclidean) to sound more academic.
 > **Action:** In the V1.17 update, we need to add an explicit clause to the Continuation Protocol or Redundancy rule stating: *"Treat every segment's `math-stroke` as a visually self-contained state. Do not rely on the previous segment's output to fill in gaps. If the list is still on the board, write the whole list."*
 
+*--- HUMAN INTERVENTION (SANITY CHECK) ---*
+
 ### Part 3: Proactive Prompt Optimization (V17 Suggestions)
 
 *Context: Asking the AI for proactive suggestions to improve the protocol's clarity based on its recent performance and rule violations (specifically regarding lists, redundancy, shorthand, and TikZ).*
@@ -448,6 +450,54 @@ The length of a curve must satisfy the following fundamental properties to be a 
 **Prompt Engineering Insight & Action Item:**
 > **Insight:** The C# orchestrator's design to feed contextual "Ground Truth" files alongside the master prompt is a massive success. The AI actively uses the code examples to reinforce the abstract rules in `gemini.md` (e.g., seeing dashed lines in the code reinforces the "Open/Closed Bounds" rule). 
 > **Action:** Do not change the orchestrator pipeline. The combination of strict System Prompting (`gemini.md`) + Few-Shot Alignment (`GOOD vs BAD` files) + Historical Anchoring (`Analysis I script`) is the definitive formula for zero-shot perfection.
+
+## Interview 08: Zero-Shot Pedagogical Mastery (Cavalieri's Principle)
+
+*Context: Reviewing the transcription quality of an Analysis II segment (`another-try.tex`) covering the rigorous proof of Cavalieri's Principle using dyadic cubes. We are assessing the AI's spatial reasoning and formatting tone before deploying V1.17.*
+
+**Protocol Version:** V16
+
+**Relevant Protocol Snippets (`gemini.md`):**
+> * **Pedagogical TikZ Mastery & Recalibration:** ...Pay strict attention to the draw order (the painter's algorithm)... allowing background slices to remain partially visible...
+> * **Analogy & Jargon Preservation:** You MUST preserve all physical metaphors, analogies, and intentional pedagogical jargon (e.g., the \qt{potato}...)
+> * **Textbook Flow Rule:** ...use standard mathematical prose to link the equations logically...
+
+**User's Question:**
+> How do you rate the quality of the recent Analysis 2 Cavalieri's Principle transcription (`another-try.tex`), specifically regarding the dyadic cube visualizations and pedagogical flow?
+
+**AI's Response:**
+> The output in `another-try.tex` represents the absolute ideal standard for this protocol. It is a perfect demonstration of "Zero-Shot Pedagogical Mastery."
+> 
+> Here is why this specific generation was so successful:
+> 
+> ### 1. Advanced TikZ Occlusion & Painter's Algorithm
+> The `[Approximation by Dyadic Cubes (Upgraded Visual)]` diagram is highly complex, but the execution of depth and layering was flawless. 
+> *   I successfully ordered the layers: Background Grid $\to$ True Smooth Set $A$ $\to$ Yellow Inner Approximation $F$ $\to$ Red Outer Approximation $G$ $\to$ Highlighted Vertical Slice $x$. 
+> *   By appropriately applying opacities and line weights, the visual perfectly trapped the 1D slice ($F_x \subset A_x \subset G_x$), making a highly abstract topological proof instantly intuitive.
+> 
+> ### 2. The `(i.e., ...)` Calibration Anchor
+> The spoken text was quite loose, but I used the anchors effectively to load the rigorous math into the active context. For example, mapping "the product of the two" directly to `(i.e., $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$)` ensured that the dimensional logic of the subsequent `math-stroke` was statically typed and error-free.
+> 
+> ### 3. Preserving the "Soul" of the Lecture
+> I strictly preserved the `\qt{cutting the potato}` analogy inside `spoken-clean`. Instead of letting that informal tone bleed into the math, I used the `explanation-of-steps` block to write a highly rigorous textbook summary, explaining how orthogonal blocks yield piecewise-constant line segments.
+> 
+> **Conclusion:** This file should be preserved as a "Ground Truth" baseline. It proves that the V16 ruleset successfully forces the AI to act as both a verbatim stenographer and a high-level textbook author simultaneously.
+
+**Prompt Engineering Insight & Action Item:**
+> **Insight:** The current prompt handles highly complex spatial concepts brilliantly when the lecturer's analogies ("pixels", "potato") are preserved verbatim and the painter's algorithm is explicitly invoked. 
+> **Action:** As we implement the `ai-tikz-planner-invisible-content` scratchpads in V1.17, we must test them against this baseline. The scratchpads should theoretically make diagrams of this complexity even *cheaper* to generate and closer to a 100% success rate on the first try, but we must ensure they do not accidentally degrade the pedagogical creativity seen here.
+
+## Summary of Pre-V1.17 AI Interviews
+
+The comprehensive analysis of the AI's behavior under the V1.16 Director's Cut Protocol reveals a highly stable and capable foundation, but highlights critical areas where autoregressive token mechanics interfere with absolute data integrity. 
+
+**Key Takeaways for V1.17 Architecture:**
+
+1. **Context is King (The "Soul" and "Eyes"):** The orchestrator's pipeline—injecting historical scripts (Analysis I) and visual TikZ examples (GOOD vs. BAD) alongside the master prompt—is the definitive formula for zero-shot accuracy. The AI performs "Deep Contextual Indexing" rather than passive reading, allowing it to perfectly mirror the professor's specific academic dialect.
+2. **The "Snapshot vs. Delta" Collapse:** The most significant failure mode occurred during chunk boundary continuation. To save output tokens, the AI instinctively treated subsequent segments as "Deltas," omitting previously stated board math. To maintain data robustness, V1.17 must explicitly mandate chronological "Snapshots."
+3. **Lazy Optimization vs. Structural Rigor:** The AI naturally optimizes for visual output. It bypassed the strict `\setcounter` rule because standard LaTeX auto-numbering looked correct on the page. We must strictly redefine these rules as mandatory structural anchors, not just aesthetic suggestions.
+4. **Cognitive Anchoring is Highly Effective:** Forcing the AI to translate vague verbal pronouns using `(i.e., ...)` and explicitly duplicate math across `spoken-clean` and `math-stroke` successfully offloads the AI's working memory onto the page, virtually eliminating logical hallucinations.
+5. **Pipeline Paradigm Realization:** The interviews ultimately proved that the extraction LLM should not be overly burdened with producing perfectly elegant, un-duplicated LaTeX across boundaries. Its primary job is robust, loss-less data extraction; aesthetic deduplication and cleanup belong to downstream formatting LLMs.
 
 
 <!--

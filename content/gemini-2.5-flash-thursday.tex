@@ -26,9 +26,9 @@ where $\nu$ is the unit vector normal to $\partial\Omega$.
 \begin{center}
 \begin{tikzpicture}
     \node[anchor=west] at (0,0) {$\int_{\Omega} \sum_{i=1}^n \partial_i F_i \, dx = \int_{\partial\Omega} F \cdot \nu \, dS$};
-    \draw[->, red, thick] (6.5, 0.1) -- (6.5, 0.5) node[above, red] {unit vector normal to $\partial\Omega$};
-    \draw[yellow, thick, rounded corners] (5.8, -0.2) rectangle (7.5, 0.2);
-    \draw[yellow, thick, rounded corners] (7.1, -0.05) circle (0.15);
+    \draw[->, BrickRed, thick] (6.5, 0.1) -- (6.5, 0.5) node[above, BrickRed] {unit vector normal to $\partial\Omega$};
+    \draw[Goldenrod, thick, rounded corners] (5.8, -0.2) rectangle (7.5, 0.2);
+    \draw[Goldenrod, thick, rounded corners] (7.1, -0.05) circle (0.15);
 \end{tikzpicture}
 \end{center}
 \end{math-stroke}
@@ -83,10 +83,10 @@ $\phi: V \to \mathbb{R}^n$, $V \subset \mathbb{R}$ open
 \end{itemize}
 \begin{center}
 \begin{tikzpicture}
-    \draw[thick, yellow] (4.5,-2.5) circle (0.5);
-    \draw[thick, yellow] (4.5,-2.5) to[out=135,in=225] (4.5,-1.5);
-    \draw[red, very thick] (4.2,-2.2) -- (4.8,-1.8);
-    \draw[red, very thick] (4.2,-1.8) -- (4.8,-2.2);
+    \draw[thick, Goldenrod] (4.5,-2.5) circle (0.5);
+    \draw[thick, Goldenrod] (4.5,-2.5) to[out=135,in=225] (4.5,-1.5);
+    \draw[BrickRed, very thick] (4.2,-2.2) -- (4.8,-1.8);
+    \draw[BrickRed, very thick] (4.2,-1.8) -- (4.8,-2.2);
 \end{tikzpicture}
 \end{center}
 \end{math-stroke}
@@ -106,15 +106,15 @@ L(\phi([a,b])) = \int_a^b |\phi'(t)| \, dt
     % Diagram for parametrization
     \draw[->, thick] (0,-2.5) -- (4,-2.5) node[right] {$\mathbb{R}$};
     \node[below] at (1,-2.5) {$V$};
-    \draw[thick, red] (1.5,-2.5) -- (2.5,-2.5);
+    \draw[thick, BrickRed] (1.5,-2.5) -- (2.5,-2.5);
     \node[below] at (1.5,-2.5) {$a$};
     \node[below] at (2.5,-2.5) {$b$};
 
     \draw[->, thick] (1.5,-2) .. controls (2,-1.5) and (3,-1.5) .. (3.5,-2) node[above] {$\phi$};
 
-    \draw[thick, orange] (3.5,-2) .. controls (4,-2.5) and (5,-2.5) .. (5.5,-2);
+    \draw[thick, BurntOrange] (3.5,-2) .. controls (4,-2.5) and (5,-2.5) .. (5.5,-2);
     \node[above] at (5,-2) {$\phi(V)$};
-    \draw[thick, blue] (3.5,-2) .. controls (4,-1.5) and (5,-1.5) .. (5.5,-2);
+    \draw[thick, MidnightBlue] (3.5,-2) .. controls (4,-1.5) and (5,-1.5) .. (5.5,-2);
     \node[above] at (4.5,-1.5) {$\phi([a,b])$};
 \end{tikzpicture}
 \end{center}
@@ -155,7 +155,7 @@ So, additivity. Like the measure, right? Yes, additivity. Anything that is measu
 \begin{math-stroke}[Properties Length Must Satisfy]
 What properties length \underline{must} satisfy?
 \begin{enumerate}
-    \item Independent of chosen param
+    \item Independent of chosen parametrization
     \item Additive
     \item Invariance under Euclid isometry
     \item Normalization: $[0,1]\times\{0\}^{n-1} \to \text{length } 1$

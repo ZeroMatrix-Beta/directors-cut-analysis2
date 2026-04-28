@@ -18,7 +18,7 @@
 % \usepackage{stix2} % STIX2: Times-based, incredibly comprehensive math symbol support.
 
 \usepackage[margin=1in]{geometry}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref}
 \usepackage{tcolorbox}
 \tcbuselibrary{skins, breakable, theorems}
@@ -34,18 +34,6 @@
 % ==========================================
 \usepackage{titlesec}
 
-% Refined "Modern Academic" Color Palette
-\definecolor{profwhite}{RGB}{255, 255, 255}
-\definecolor{proforange}{HTML}{D35400} 
-\definecolor{profyellow}{HTML}{F1C40F} 
-\definecolor{profgreen}{HTML}{27AE60}  
-\definecolor{profred}{HTML}{C0392B}    
-\definecolor{profblue}{HTML}{2980B9}   
-\definecolor{profpurple}{HTML}{8E44AD} % New: Wisteria purple
-\definecolor{profviolet}{HTML}{9B59B6} 
-\definecolor{profdarkgreen}{HTML}{1E8449} 
-\definecolor{profapplegreen}{HTML}{2ECC71} 
-\definecolor{profgray}{HTML}{7F8C8D}   % New: Asbestos gray
 \definecolor{bglight}{HTML}{F8F9FA}    
 
 % Math operators
@@ -95,9 +83,9 @@
 \newtcolorbox{spoken-clean}[1][]{
     enhanced,
     frame hidden,
-    colback=profblue!5!white,
-    borderline west={3pt}{0pt}{profblue},
-    title={\sffamily\bfseries\textcolor{profblue}{Spoken Protocol [#1]}},
+    colback=MidnightBlue!5!white,
+    borderline west={3pt}{0pt}{MidnightBlue},
+    title={\sffamily\bfseries\textcolor{MidnightBlue}{Spoken Protocol [#1]}},
     attach title to upper=\par\vspace{1ex},
     breakable,
     %fontupper=\itshape
@@ -122,8 +110,8 @@
 \newtcolorbox{didactic-insight}[1][Pedagogical Concept]{
     enhanced,
     arc=3mm,
-    colback=profgreen!5!white,
-    colframe=profgreen!80!black,
+    colback=ForestGreen!5!white,
+    colframe=ForestGreen!80!black,
     title={\sffamily\bfseries Insight: #1},
     breakable
 }
@@ -136,7 +124,7 @@
         opacityback=0, % Fully transparent background
         colframe=#2,
         fonttitle=\bfseries\sffamily,
-        coltitle=profwhite,
+        coltitle=white,
         title=##1,
         boxrule=1.5pt,
         arc=4pt,
@@ -145,27 +133,34 @@
     }%
 }
 
-\NewChalkBox{orange-box}{proforange}{proforange!30}
-\NewChalkBox{blue-box}{profblue}{profblue!30}
-\NewChalkBox{dark-green-box}{profdarkgreen}{profdarkgreen!30}
-\NewChalkBox{apple-green-box}{profapplegreen}{profapplegreen!30}
-\NewChalkBox{yellow-box}{profyellow!90!black}{profyellow!30}
-\NewChalkBox{violet-box}{profviolet}{profviolet!30}
-\NewChalkBox{red-box}{profred}{profred!30}
-\NewChalkBox{green-box}{profgreen}{profgreen!30}
-\NewChalkBox{purple-box}{profpurple}{profpurple!30}
-\NewChalkBox{gray-box}{profgray}{profgray!30}
+\NewChalkBox{orange-box}{BurntOrange}{BurntOrange!30}
+\NewChalkBox{blue-box}{MidnightBlue}{MidnightBlue!30}
+\NewChalkBox{dark-green-box}{ForestGreen}{ForestGreen!30}
+\NewChalkBox{apple-green-box}{LimeGreen}{LimeGreen!30}
+\NewChalkBox{yellow-box}{Goldenrod!90!black}{Goldenrod!30}
+\NewChalkBox{violet-box}{Violet}{Violet!30}
+\NewChalkBox{red-box}{BrickRed}{BrickRed!30}
+\NewChalkBox{green-box}{Green}{Green!30}
+\NewChalkBox{purple-box}{Purple}{Purple!30}
+\NewChalkBox{gray-box}{Gray}{Gray!30}
+\NewChalkBox{apricot-box}{Apricot}{Apricot!30}
+\NewChalkBox{bittersweet-box}{Bittersweet}{Bittersweet!30}
+\NewChalkBox{teal-blue-box}{TealBlue}{TealBlue!30}
+\NewChalkBox{cyan-box}{Cyan}{Cyan!30}
+\NewChalkBox{magenta-box}{Magenta}{Magenta!30}
+\NewChalkBox{brown-box}{Brown}{Brown!30}
+\NewChalkBox{pink-box}{Pink}{Pink!30}
 
 % ==========================================
 % LEGACY FORMULA BOXES (Backward Compatibility)
 % ==========================================
-\NewChalkBox{orange-formula}{proforange}{proforange!30}
-\NewChalkBox{blue-formula}{profblue}{profblue!30}
-\NewChalkBox{dark-green-formula}{profdarkgreen}{profdarkgreen!30}
-\NewChalkBox{apple-green-formula}{profapplegreen}{profapplegreen!30}
-\NewChalkBox{yellow-formula}{profyellow!90!black}{profyellow!30}
-\NewChalkBox{violet-formula}{profviolet}{profviolet!30}
-\NewChalkBox{red-formula}{profred}{profred!30}
+\NewChalkBox{orange-formula}{BurntOrange}{BurntOrange!30}
+\NewChalkBox{blue-formula}{MidnightBlue}{MidnightBlue!30}
+\NewChalkBox{dark-green-formula}{ForestGreen}{ForestGreen!30}
+\NewChalkBox{apple-green-formula}{LimeGreen}{LimeGreen!30}
+\NewChalkBox{yellow-formula}{Goldenrod!90!black}{Goldenrod!30}
+\NewChalkBox{violet-formula}{Violet}{Violet!30}
+\NewChalkBox{red-formula}{BrickRed}{BrickRed!30}
 
 % 5. Mathematical Setup (Stroke-by-Stroke)
 \newtcolorbox{math-stroke}[1][Mathematical Setup (Stroke-by-Stroke)]{
@@ -173,8 +168,8 @@
     frame hidden,
     colback=white,
         opacityback=0,
-    borderline west={2pt}{0pt}{profblue!30},
-    title={\sffamily\bfseries\textcolor{profblue!80!black}{#1}},
+    borderline west={2pt}{0pt}{MidnightBlue!30},
+    title={\sffamily\bfseries\textcolor{MidnightBlue!80!black}{#1}},
     attach title to upper=\par\vspace{1ex},
     breakable
 }
@@ -183,8 +178,8 @@
 \newtcolorbox{redundant-explanation}[1][Redundant Explanation of Step]{
     enhanced,
     arc=2mm,
-    colback=profpurple!5!white,
-    colframe=profpurple!60!black,
+    colback=Purple!5!white,
+    colframe=Purple!60!black,
     title={\sffamily\bfseries #1},
     breakable
 }
@@ -193,9 +188,9 @@
 \newtcolorbox{meta-note}[1][Administrative Meta-Note]{
     enhanced,
     frame hidden,
-    colback=profgray!10,
-    borderline={0.5pt}{0pt}{profgray, dashed},
-    title={\sffamily\bfseries\textcolor{profgray!90!black}{#1}},
+    colback=Gray!10,
+    borderline={0.5pt}{0pt}{Gray, dashed},
+    title={\sffamily\bfseries\textcolor{Gray!90!black}{#1}},
     attach title to upper=\par\vspace{1ex},
     breakable
 }
@@ -204,8 +199,8 @@
 % 8. AI Observational Note
 \newtcolorbox{ai-note}[1][AI Note]{
     enhanced,
-    colback=profyellow!5!white,
-    colframe=profyellow!90!black,
+    colback=Goldenrod!5!white,
+    colframe=Goldenrod!90!black,
     fonttitle=\bfseries\sffamily,
     coltitle=black,
     title=#1,
@@ -218,9 +213,9 @@
 \newtcolorbox{student-question}[1][Student Question]{
     enhanced,
     frame hidden,
-    colback=profgray!10,
-    borderline={0.5pt}{0pt}{profgray, dashed},
-    title={\sffamily\bfseries\textcolor{profgray!90!black}{#1}},
+    colback=Gray!10,
+    borderline={0.5pt}{0pt}{Gray, dashed},
+    title={\sffamily\bfseries\textcolor{Gray!90!black}{#1}},
     attach title to upper=\par\vspace{1ex},
     breakable
 }
@@ -242,24 +237,24 @@
     frame hidden,
     colback=white,
         opacityback=0,
-    borderline west={3pt}{0pt}{profgray!80!black},
+    borderline west={3pt}{0pt}{Gray!80!black},
     % Creative Title Badge to indicate the start of the proof
-    title={\tikz[baseline=(A.base)]\node[fill=profgray!80!black, text=white, rounded corners=2pt, inner xsep=6pt, inner ysep=3pt, font=\sffamily\bfseries\large] (A) {#1};},
+    title={\tikz[baseline=(A.base)]\node[fill=Gray!80!black, text=white, rounded corners=2pt, inner xsep=6pt, inner ysep=3pt, font=\sffamily\bfseries\large] (A) {#1};},
     attach title to upper=\par\vspace{1.5ex},
     % Diagonal "PROOF" watermark overlaid across the nested contents
     finish unbroken={%
-        \node[rotate=35, scale=5, text=profgray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
-        \node[anchor=south east, xshift=-4pt, yshift=4pt] at (frame.south east) {\tikz\node[draw=profgray!80!black, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=profgray!80!black] {Q.E.D.};};
+        \node[rotate=35, scale=5, text=Gray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
+        \node[anchor=south east, xshift=-4pt, yshift=4pt] at (frame.south east) {\tikz\node[draw=Gray!80!black, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=Gray!80!black] {Q.E.D.};};
     },
     finish first={%
-        \node[rotate=35, scale=5, text=profgray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
+        \node[rotate=35, scale=5, text=Gray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
     },
     finish middle={%
-        \node[rotate=35, scale=5, text=profgray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
+        \node[rotate=35, scale=5, text=Gray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
     },
     finish last={%
-        \node[rotate=35, scale=5, text=profgray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
-        \node[anchor=south east, xshift=-4pt, yshift=4pt] at (frame.south east) {\tikz\node[draw=profgray!80!black, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=profgray!80!black] {Q.E.D.};};
+        \node[rotate=35, scale=5, text=Gray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
+        \node[anchor=south east, xshift=-4pt, yshift=4pt] at (frame.south east) {\tikz\node[draw=Gray!80!black, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=Gray!80!black] {Q.E.D.};};
     }
 }
 
@@ -269,19 +264,19 @@
 
 % Redesigns the chapter header (Elegant, right-aligned, with stable rules)
 \titleformat{\chapter}[display]
-  {\normalfont\sffamily\Large\bfseries\color{profblue!90!black}}
-  {\raggedleft\large\color{profgray}\MakeUppercase{\chaptertitlename}\ \thechapter}
+  {\normalfont\sffamily\Large\bfseries\color{MidnightBlue!90!black}}
+  {\raggedleft\large\color{Gray}\MakeUppercase{\chaptertitlename}\ \thechapter}
   {1ex}
   {\rule{\textwidth}{1.5pt}\vspace{2ex}\raggedleft \break}
   [\vspace{1ex}\rule{\textwidth}{1.5pt}]
 
 % --- Section Formatting ---
 \titleformat{\section}
-  {\normalfont\sffamily\Large\bfseries\color{profblue}}
+  {\normalfont\sffamily\Large\bfseries\color{MidnightBlue}}
   {\thesection}{1em}{}
 
 \titleformat{\subsection}
-  {\normalfont\sffamily\large\bfseries\color{profblue}}
+  {\normalfont\sffamily\large\bfseries\color{MidnightBlue}}
   {\thesubsection}{1em}{}
 
 \begin{document}
