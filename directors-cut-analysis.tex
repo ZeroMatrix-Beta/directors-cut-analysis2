@@ -25,7 +25,7 @@
 
 % Fail-Safe TikZ Configuration
 \usepackage{tikz}
-\usetikzlibrary{calc, arrows.meta, positioning, shapes.geometric, decorations.pathreplacing, patterns}
+\usetikzlibrary{calc, arrows.meta, positioning, 3d, shapes.geometric, decorations.pathreplacing, patterns}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 
@@ -42,6 +42,9 @@
 
 % Custom Quotes Macro
 \newcommand{\qt}[1]{\textit{``#1''}}
+
+% Custom Inline Meta-Note for stage directions (V1.16.2+)
+\newcommand{\inlinemetanote}[1]{\textit{[\textcolor{Gray}{#1}]}}
 
 % Standard Math Environments
 \newtheorem{theorem}{Theorem}

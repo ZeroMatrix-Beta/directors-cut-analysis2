@@ -50,8 +50,96 @@ This document serves as a staging ground for new prompt mechanics, semantic envi
 
 ## 6.1. Modular `Color-box` Macro
 **Concept:** Refactor the `\NewChalkBox` macro to be more modular, perhaps taking the color name as a direct argument.
-**Usage:** Instead of pre-defining dozens of color-specific boxes (e.g., `orange-box`, `blue-box`), create a single, more flexible environment like `\begin{ColorBox}{BurntOrange}[Title]...`.
-**Why it works (Code Simplification & Flexibility):** This would drastically reduce preamble clutter. Instead of defining a new command for every desired color, a single command could handle any `dvipsnames` color, giving the AI transcriber maximum aesthetic flexibility without requiring preamble modifications. This aligns with the `dvipsnames` refactoring by fully leveraging the `xcolor` package's native capabilities.
+**Usage:** Instead of pre-defining dozens of color-specific boxes (e.g., `orange-box`, `blue-box`), create a single, more flexible environment like `\begin{color-box}{BurntOrange}`. An optional title can be provided, e.g., `\begin{color-box}{BurntOrange}[Key Formula]...`, but the unlabeled version is the default.
+**Why it works (Code Simplification, Flexibility & Pedagogical Fidelity):** This approach offers several architectural advantages:
+1.  **Reduced Preamble Clutter:** A single command can handle any `dvipsnames` color, eliminating the need for numerous color-specific box definitions.
+2.  **Direct Blackboard Replication:** The AI can precisely match the color used on the blackboard, enhancing the 1-to-1 fidelity of the transcription.
+3.  **Optional Semantic Labeling:** The optional `label` argument allows the AI to capture the professor's explicit or implicit categorization of the boxed content (e.g., "Definition," "Key Formula"). However, in most cases, the box will be used without a label to simply replicate the visual grouping on the blackboard.
+4.  **Enhanced Visual Accessibility:** By providing a sorted list of `dvipsnames` colors by grayscale luminance, the AI can make more informed decisions about color combinations, ensuring better contrast for accessibility (e.g., for printing, e-readers, or users with color vision deficiencies). This allows the AI to fine-tune color selection for optimal black-and-white contrast.
+
+**Reference: `dvipsnames` Sorted by Grayscale Luminance (for contrast and accessibility)**
+This list provides a heuristic for intelligent color selection, especially when considering contrast for printing and e-books.
+
+```latex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% XCOLOR DVIPSNAMES SORTED BY GRAYSCALE LUMINANCE
+% Format: % - [Luminance]% - [Color Name] (#[Rank])
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- GROUP 1: VERY LIGHT (80% - 100%) ---
+% - 100% - White (#1)
+% - 089% - Yellow (#2)
+% - 088% - GreenYellow (#3)
+% - 085% - Goldenrod (#4)
+% - 084% - SpringGreen (#5)
+% - 080% - SkyBlue (#6)
+% --- GROUP 2: LIGHT GRAYS (60% - 79%) ---
+% - 079% - YellowGreen (#7)
+% - 075% - Apricot (#8)
+% - 074% - LimeGreen (#9)
+% - 074% - SeaGreen (#10)
+% - 074% - Dandelion (#11)
+% - 073% - CornflowerBlue (#12)
+% - 072% - Turquoise (#13)
+% - 072% - Aquamarine (#14)
+% - 072% - Lavender (#15)
+% - 071% - ProcessBlue (#16)
+% - 071% - BlueGreen (#17)
+% - 070% - Cyan (#18)
+% - 069% - TealBlue (#19)
+% - 067% - Melon (#20)
+% - 065% - Cerulean (#21)
+% - 065% - Tan (#22)
+% - 065% - JungleGreen (#23)
+% - 065% - Salmon (#24)
+% - 064% - Emerald (#25)
+% - 064% - YellowOrange (#26)
+% - 063% - CarnationPink (#27)
+% - 063% - Peach (#28)
+% - 062% - Thistle (#29)
+% --- GROUP 3: MEDIUM GRAYS (40% - 59%) ---
+% - 059% - Green (#30)
+% - 059% - BurntOrange (#31)
+% - 054% - Orange (#32)
+% - 053% - Orchid (#33)
+% - 052% - VioletRed (#34)
+% - 052% - Rhodamine (#35)
+% - 051% - ForestGreen (#36)
+% - 050% - Periwinkle (#37)
+% - 050% - Gray (#38)
+% - 045% - CadetBlue (#39)
+% - 045% - RedOrange (#40)
+% - 041% - Magenta (#41)
+% - 041% - PineGreen (#42)
+% - 040% - RoyalBlue (#43)
+% - 040% - NavyBlue (#44)
+% - 040% - RubineRed (#45)
+% - 039% - WildStrawberry (#46)
+% - 039% - DarkOrchid (#47)
+% - 036% - Purple (#48)
+% - 036% - OrangeRed (#49)
+% - 035% - Mulberry (#50)
+% - 030% - OliveGreen (#51)
+% - 030% - Red (#52)
+% --- GROUP 4: DARK GRAYS (20% - 39%) ---
+% - 026% - Plum (#53)
+% - 024% - RoyalPurple (#54)
+% - 024% - Violet (#55)
+% - 024% - Fuchsia (#56)
+% - 021% - Bittersweet (#57)
+% - 020% - MidnightBlue (#58)
+% --- GROUP 5: NEAR BLACK (0% - 19%) ---
+% - 017% - BlueViolet (#59)
+% - 011% - Blue (#60)
+% - 011% - RedViolet (#61)
+% - 009% - Maroon (#62)
+% - 009% - BrickRed (#63)
+% - 005% - Mahogany (#64)
+% - 002% - RawSienna (#65)
+% - 000% - Black (#66)
+% - 000% - Brown (#67)
+% - 000% - Sepia (#68)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+```
 
 ## 7. Unfiltered Brainstorming & Interview Insights (Brain Dump)
 *Note to Future AI: This section contains raw, overarching behavioral insights extracted from Interviews 07-10. These must be addressed in the V1.17 `gemini.md` rewrite.*
@@ -149,91 +237,6 @@ The AI writes: `\begin{ai-proof-skeleton-invisible-content} 1. apply FTC. 2. sub
 **Why it works (Architectural Boundary):** This establishes a rigid firewall between the "Target" (what needs to be extracted) and the "Soul/Eyes" (the background knowledge). It prevents the LLM's attention mechanism from hijacking the session and treating the primed reference material as the primary assignment when the transport layer fails to deliver the actual video.
 
 ## 21. Grayscale Luminance Sorting for dvipsnames
-**Concept:** Provide the AI with a pre-sorted list of `dvipsnames` colors based on their perceived grayscale luminance. This allows for more intelligent, context-aware color selection, especially for creating accessible and visually hierarchical diagrams.
-**Usage:** This list can be used as a reference when instructing the AI on TikZ styling. For example: "Use a color from Group 1 for the background fill and a contrasting color from Group 5 for the primary line."
-**Why it works (Aesthetic & Accessibility Heuristics):** By providing a ranked list, we give the AI a simple heuristic for making complex design choices. It no longer has to guess which colors are "light" or "dark." It can programmatically select colors with high contrast, improving the readability and professional appearance of all generated TikZ diagrams. This is especially useful for ensuring that text labels are legible against colored backgrounds.
-
-```
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% XCOLOR DVIPSNAMES SORTED BY GRAYSCALE LUMINANCE
-% Format: % - [Luminance]% - [Color Name] (#[Rank])
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% --- GROUP 1: VERY LIGHT (80% - 100%) ---
-% - 100% - White (#1)
-% - 089% - Yellow (#2)
-% - 088% - GreenYellow (#3)
-% - 085% - Goldenrod (#4)
-% - 084% - SpringGreen (#5)
-% - 080% - SkyBlue (#6)
-% --- GROUP 2: LIGHT GRAYS (60% - 79%) ---
-% - 079% - YellowGreen (#7)
-% - 075% - Apricot (#8)
-% - 074% - LimeGreen (#9)
-% - 074% - SeaGreen (#10)
-% - 074% - Dandelion (#11)
-% - 073% - CornflowerBlue (#12)
-% - 072% - Turquoise (#13)
-% - 072% - Aquamarine (#14)
-% - 072% - Lavender (#15)
-% - 071% - ProcessBlue (#16)
-% - 071% - BlueGreen (#17)
-% - 070% - Cyan (#18)
-% - 069% - TealBlue (#19)
-% - 067% - Melon (#20)
-% - 065% - Cerulean (#21)
-% - 065% - Tan (#22)
-% - 065% - JungleGreen (#23)
-% - 065% - Salmon (#24)
-% - 064% - Emerald (#25)
-% - 064% - YellowOrange (#26)
-% - 063% - CarnationPink (#27)
-% - 063% - Peach (#28)
-% - 062% - Thistle (#29)
-% --- GROUP 3: MEDIUM GRAYS (40% - 59%) ---
-% - 059% - Green (#30)
-% - 059% - BurntOrange (#31)
-% - 054% - Orange (#32)
-% - 053% - Orchid (#33)
-% - 052% - VioletRed (#34)
-% - 052% - Rhodamine (#35)
-% - 051% - ForestGreen (#36)
-% - 050% - Periwinkle (#37)
-% - 050% - Gray (#38)
-% - 045% - CadetBlue (#39)
-% - 045% - RedOrange (#40)
-% - 041% - Magenta (#41)
-% - 041% - PineGreen (#42)
-% - 040% - RoyalBlue (#43)
-% - 040% - NavyBlue (#44)
-% - 040% - RubineRed (#45)
-% - 039% - WildStrawberry (#46)
-% - 039% - DarkOrchid (#47)
-% - 036% - Purple (#48)
-% - 036% - OrangeRed (#49)
-% - 035% - Mulberry (#50)
-% - 030% - OliveGreen (#51)
-% - 030% - Red (#52)
-% --- GROUP 4: DARK GRAYS (20% - 39%) ---
-% - 026% - Plum (#53)
-% - 024% - RoyalPurple (#54)
-% - 024% - Violet (#55)
-% - 024% - Fuchsia (#56)
-% - 021% - Bittersweet (#57)
-% - 020% - MidnightBlue (#58)
-% --- GROUP 5: NEAR BLACK (0% - 19%) ---
-% - 017% - BlueViolet (#59)
-% - 011% - Blue (#60)
-% - 011% - RedViolet (#61)
-% - 009% - Maroon (#62)
-% - 009% - BrickRed (#63)
-% - 005% - Mahogany (#64)
-% - 002% - RawSienna (#65)
-% - 000% - Black (#66)
-% - 000% - Brown (#67)
-% - 000% - Sepia (#68)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-```
-
 ## Summary of Pre-V1.17 Ideas (The Extraction Pipeline)
 
 Our brainstorming has fundamentally shifted the V1.17 architecture from a "single-pass formatter" to a robust "first-pass data extraction pipeline." Here is the synthesis of our core strategies:
