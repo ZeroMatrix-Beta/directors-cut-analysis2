@@ -5,7 +5,7 @@
 % ==========================================
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{amsmath, amssymb, amsthm, mathtools, environ}
 
 % --- FONT CONFIGURATION ---
 % Elegant Palatino font (Currently active)
@@ -119,7 +119,22 @@
     breakable
 }
 
-% 4. Visual Blackboard Replication Boxes
+% 4a. Modular Visual Blackboard Replication Box (V1.17)
+\newtcolorbox{color-box}[Highlighted Board Formula]{
+    enhanced,
+    colback=white,
+    opacityback=0, % Fully transparent background
+    colframe=#2,
+    fonttitle=\bfseries\sffamily,
+    coltitle=white,
+    title=#1,
+    boxrule=1.5pt,
+    arc=4pt,
+    center title,
+    drop fuzzy shadow=#2!30
+}
+
+% 4b. Legacy Visual Blackboard Replication Boxes (Backward Compatibility)
 \newcommand{\NewChalkBox}[3]{%
     \newtcolorbox{#1}[1][Highlighted Board Formula]{%
         enhanced,
@@ -259,6 +274,62 @@
         \node[rotate=35, scale=5, text=Gray, opacity=0.06, font=\sffamily\bfseries] at (frame.center) {PROOF};
         \node[anchor=south east, xshift=-4pt, yshift=4pt] at (frame.south east) {\tikz\node[draw=Gray!80!black, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=Gray!80!black] {Q.E.D.};};
     }
+}
+
+% ==========================================
+% INVISIBLE LAYER & FALLBACK ENVIRONMENTS (V1.17)
+% ==========================================
+% These environments act as AI scratchpads and are typically stripped by the C# backend.
+% The environ package completely hides them from the compiled PDF if they leak through.
+\NewEnviron{ai-tikz-planner-invisible-content}{}
+\NewEnviron{ai-type-check-invisible-content}{}
+\NewEnviron{ai-proof-skeleton-invisible-content}{}
+\NewEnviron{ai-example-invisible-content}[1][]{}
+\NewEnviron{ai-discard-invisible-content}[1][]{}
+\NewEnviron{ai-retroactive-patch}[1][]{}
+
+% Data Integrity Fallbacks (Rendered as visible warning boxes in case they appear in the source)
+\newtcolorbox{ai-raw-ocr-fallback}[1][Raw OCR Fallback]{
+    enhanced,
+    colback=BrickRed!5,
+    colframe=BrickRed,
+    title={\sffamily\bfseries\textcolor{white}{#1}},
+    breakable
+}
+\newtcolorbox{ai-phonetic-dump}[1][Phonetic Dump]{
+    enhanced,
+    colback=BrickRed!5,
+    colframe=BrickRed,
+    title={\sffamily\bfseries\textcolor{white}{#1}},
+    breakable
+}
+\newtcolorbox{ai-modality-conflict}[1][Modality Conflict]{
+    enhanced,
+    colback=BrickRed!5,
+    colframe=BrickRed,
+    title={\sffamily\bfseries\textcolor{white}{#1}},
+    breakable
+}
+\newtcolorbox{ai-off-camera-state}[1][Off-Camera State]{
+    enhanced,
+    colback=BrickRed!5,
+    colframe=BrickRed,
+    title={\sffamily\bfseries\textcolor{white}{#1}},
+    breakable
+}
+\newtcolorbox{ai-async-board-update}[1][Async Board Update]{
+    enhanced,
+    colback=BrickRed!5,
+    colframe=BrickRed,
+    title={\sffamily\bfseries\textcolor{white}{#1}},
+    breakable
+}
+\newtcolorbox{ai-kinetic-emphasis}[1][Kinetic Emphasis]{
+    enhanced,
+    colback=BrickRed!5,
+    colframe=BrickRed,
+    title={\sffamily\bfseries\textcolor{white}{#1}},
+    breakable
 }
 
 % --- Chapter Formatting ---
