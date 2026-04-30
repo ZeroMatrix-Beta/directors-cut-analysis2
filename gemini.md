@@ -121,10 +121,11 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
     - Use **commas** (`,`) generously for quick pacing, short breaths, and after introductory fillers (e.g., `Okay, so,`, `Thus,`, `And thus,`, `So, uh,`). 
     - Use **ellipses** (`...`) to indicate longer pauses, trailing thoughts, hesitation, or searching for words (e.g., `Okay... so,`, `the value is... um... five`). 
     - Use **em dashes** surrounded by spaces (` — `) for abrupt self-corrections, sudden interruptions, or restarting a sentence mid-thought (e.g., `We use the — wait, no — we use the sine.`).
-*   **Stage Directions:** To add physical context, you MUST inject brief, objective stage directions using the custom `\inlinemetanote{...}` macro (e.g., `\inlinemetanote{points at the board}`).
+*   **Stage Directions:** To add physical context, you MUST inject brief, objective stage directions using the custom `\inline-meta-note{...}` macro (e.g., `\inline-meta-note{points at the board}`).
 *   **Continuity:** If a speech block is interrupted by a `student-question` or board action, resume the subsequent speech with a valid timestamp. NEVER use `\begin{spoken-clean}[continued]` as a shortcut for `\begin{spoken-clean}[HH:MM:SS - HH:MM:SS]`.
 
 #### Ground Truth Examples: `spoken-clean`
+
 **Pacing & Punctuation:**
 *   *RAW:* So how do we prove this? So these are two potential limit points.
 *   *REFINED:* So, how do we prove this? So, these are two potential limit points.
@@ -143,30 +144,37 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
     *   *REFINED:* This is actually $\mathbb{R}^k$, and on the y-axis we have $\mathbb{R}^{n-k}$, right?
 *   *Physical Reference Anchor:*
     *   *RAW:* So, this one is a fairly, fairly compact theorem,
-    *   *REFINED:* So, this one \inlinemetanote{points at Equation \ref{eq:ftc_1d}} is a fairly, fairly compact theorem,
+    *   *REFINED:* So, this one \inline-meta-note{points at Equation \ref{eq:ftc_1d}} is a fairly, fairly compact theorem,
 *   *"Oops" Correction Anchor:*
     *   *RAW:* And this one... uh... this sine here is obviously positive.
-    *   *REFINED:* And this one... uh... this sine \inlinemetanote{points at the equation} here (i.e., actually the $\cos(y_3)$ term) is obviously positive.
+    *   *REFINED:* And this one... uh... this sine \inline-meta-note{points at the equation} here (i.e., actually the $\cos(y_3)$ term) is obviously positive.
 *   *Derivation Expansion Anchor:*
     *   *RAW:* The primitive of cosine is sine, and we evaluate it between minus pi over two and pi over two.
     *   *REFINED:* The primitive of cosine is sine, and we evaluate it between $-\pi/2$ and $\pi/2$ (i.e., $\sin(\pi/2) - \sin(-\pi/2) = 1 - (-1) = 2$).
 
-**Stage Directions (`\inlinemetanote`):**
-*   *Pointing at a screen:*
-    *   *RAW:* ...meta-for page that I can see...
-    *   *REFINED:* ...meta-for page \inlinemetanote{points at the projector screen} that I can see...
-*   *Describing a physical action:*
-    *   *RAW:* ...I will switch one moment to the blackboard... Okay.
-    *   *REFINED:* ...I will switch one moment to the blackboard... \inlinemetanote{The lecturer turns off the projector and prepares the blackboard} Okay.
-*   *Referencing a classroom object:*
-    *   *RAW:* ...when I get better with the throwing the we will use that.
-    *   *REFINED:* ...when I get better with the throwing the \inlinemetanote{referring to the catch-box microphone} we will use that.
-*   *Noting a board correction:*
-    *   *RAW:* Yeah, there is some mistake? Good, well spotted.
-    *   *REFINED:* Yeah, there is some mistake? \inlinemetanote{Corrects the board} Good, well spotted.
-*   *Referencing a specific equation:*
-    *   *RAW:* So this is a fairly compact theorem...
-    *   *REFINED:* So, this one \inlinemetanote{points at Equation \ref{eq:ftc_1d}} is a fairly, fairly compact theorem...
+### Stage Directions (`\inline-meta-note`):
+
+This environment gets uses for brief, objective stage directions that provide physical context to the spoken words.
+
+**Examples:** 
+*   *Describing a physical action:* \
+     ...I will switch one moment to the blackboard... \inline-meta-note{The lecturer turns off the projector and prepares the blackboard} Okay.
+*   *Referencing a classroom object:* \
+     ...when I get better with the throwing the \inline-meta-note{referring to the catch-box microphone} we will use that.
+*   *Noting a board correction:* \
+     Yeah, there is some mistake? \inline-meta-note{Corrects the board} Good, well spotted.
+*   *Referencing a specific equation:* \
+    So, this one \inline-meta-note{points at Equation \ref{eq:ftc_1d}} is a fairly, fairly compact theorem...
+*   *Underlining for emphasis:* \
+    We require $\gamma$ to be continuously differentiable \inline-meta-note{underlines $C^1$ on the board}.
+*   *Writing on the board:* \
+    So, additivity. \inline-meta-note{Writes on the board} Like the measure, right? 
+*   *Tapping the board for emphasis:* \
+     ...the $x$ \inline-meta-note{taps board} must be treated purely as a constant scalar...
+*   *Holding up an object:* \
+    So \inline-meta-note{holds up a toy gavel} I brought back the gavel because today I expect extra circus, okay?
+*   *Interacting with an object:* \
+    Who wants to catch this? \inline-meta-note{tosses microphone to student}
 
 ### Mathematical Transcription (`math-stroke`)
 
@@ -202,7 +210,7 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
     ```
 
 **Align Environments & Underbrace Speech:**
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{align*}
       &\text{Volume}(B_3) = \\
@@ -239,7 +247,7 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
 #### Ground Truth Examples: `tikzpicture`
 **3D Depth Occlusion & Geometric Fidelity:**
 *   *SCENARIO:* The lecturer draws a 3D visualization of Fubini's theorem.
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{math-stroke}[Visualizing Fubini's Theorem]
     \begin{center}
@@ -262,7 +270,7 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
 
 #### Ground Truth Examples: `[color]-box`
 **Scenario:** The lecturer draws a bright yellow box around the final derived Pythagorean identity.
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{yellow-box}[Pythagorean Identity]
     \[ \sin^2(\theta) + \cos^2(\theta) = 1 \]
@@ -276,7 +284,7 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
 
 #### Ground Truth Examples: `didactic-insight`
 **Scenario:** The lecturer brings out a physical prop (a gavel) to prepare the class for a hard theorem.
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{didactic-insight}[The Gavel and the ``Extra Circus'']
     The lecturer opens the lecture holding a toy gavel, explicitly preparing the students for an ``extra circus''. This playful, theatrical prop serves a distinct pedagogical purpose: acknowledging the escalating difficulty of the material...
@@ -288,8 +296,11 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
 *   **Rule:** Use `\begin{redundant-explanation}[Title]` for detailed "why" for foundational steps or isolated domain restrictions that require extra space outside the main `math-stroke` text.
 
 #### Ground Truth Examples: `redundant-explanation`
+
+redundant-explainaition is always inside the environment `math-stroke`
+
 **Scenario:** The lecturer explains why the chain rule necessitates a matrix multiplication of Jacobians.
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{redundant-explanation}[The Chain Rule Application]
     The chain rule in multivariable calculus dictates that the derivative of a composition of functions is the matrix product of their Jacobian matrices...
@@ -302,7 +313,7 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
 
 #### Ground Truth Examples: `meta-note`
 **Scenario:** The lecturer finishes a proof and clears the board to start a new section.
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{meta-note}[Segment Transition]
     The lecturer has just finished the dyadic-cube proof of Cavalieri's Principle for $n$-dimensional sets. He erases the center and right chalkboards to transition to the ultimate goal of the lecture...
@@ -315,7 +326,7 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
 
 #### Ground Truth Examples: `ai-note`
 **Scenario:** A student drops a heavy object, muffling the audio right as the professor states a variable subscript.
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{ai-note}[Acoustic Interference]
     The audio is briefly muffled by a loud noise in the classroom here; the variable $v_2$ is a best guess based on the subsequent geometric derivation.
@@ -329,7 +340,7 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
 
 #### Ground Truth Examples: `student-question`
 **Scenario:** A student asks about the negativity of distance functions.
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{student-question}
     It has to be positive? You can't have a negative length. And you just add them together if you have multiple pieces?
@@ -342,7 +353,7 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
 
 #### Ground Truth Examples: `explanation-of-steps`
 **Scenario:** The lecturer concludes a determinant calculation and summarizes what it physically means.
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{explanation-of-steps}
     The Jacobian determinant tells us exactly how much a tiny square of parameter space $dy_1 dy_2$ is stretched when it is mapped into the disk.
@@ -355,7 +366,7 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
 
 #### Ground Truth Examples: `nice-box`
 **Scenario:** Wrapping a formal theorem for visual emphasis.
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{nice-box}[The Practical Substitution Rule]
     \begin{theorem}[The Practical Substitution Rule]\label{thm:practical_substitution}
@@ -370,7 +381,7 @@ ff*   **Spoken Punctuation Rules (Pacing & Flow):** Since the text is verbatim, 
 
 #### Ground Truth Examples: `proof`
 **Scenario:** A standard proof block nested inside a `math-stroke`.
-*   *REFINED:*
+*   *Example:*
     ```latex
     \begin{proof}[Proof of the Substitution Rule]
     By the principle that row operations preserve linear dependence...
