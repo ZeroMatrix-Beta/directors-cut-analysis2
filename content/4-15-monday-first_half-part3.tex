@@ -91,14 +91,14 @@ Split the space: $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$. A point 
 Let $A \subset \mathbb{R}^n$ be Jordan measurable.
 \end{math-stroke}
 
-\begin{orange-formula}
+\begin{color-box}{BurntOrange}[Slices]
 \begin{definition}[Slices]
 For a fixed base coordinate $x \in \mathbb{R}^k$, the slice $A_x$ is defined as:
 \[
 A_x = \{ y \in \mathbb{R}^{n-k} \mid (x,y) \in A \}
 \]
 \end{definition}
-\end{orange-formula}
+\end{color-box}
 
 \begin{math-stroke}[Marginal Densities]
 To bypass slices that are not Jordan measurable, we define the \textbf{marginal densities}:
@@ -108,14 +108,14 @@ To bypass slices that are not Jordan measurable, we define the \textbf{marginal 
 \end{align*}
 \end{math-stroke}
 
-\begin{orange-formula}
+\begin{color-box}{BurntOrange}[Cavalieri's Principle]
 \begin{theorem}[Cavalieri's Principle]
 For a Jordan measurable set $A \subset \mathbb{R}^n \equiv \mathbb{R}^k \times \mathbb{R}^{n-k}$, both marginal functions are Riemann integrable over the base space $\mathbb{R}^k$. Their integrals perfectly yield the total $n$-dimensional volume of $A$:
 \[
 \int_{\mathbb{R}^k} \overline{\varphi}(x) \, dx = \int_{\mathbb{R}^k} \underline{\varphi}(x) \, dx = \mu_n(A)
 \]
 \end{theorem}
-\end{orange-formula}
+\end{color-box}
 
 \begin{didactic-insight}[The "I Don't Care" Philosophy]
 The colloquial "I don't care" regarding slices that are not Jordan measurable imparts profound mathematical wisdom. In integration, sets of measure zero or pathological boundary anomalies disappear when summed over. The upper and lower integrals act as a squeeze theorem—even if individual slices are "fuzzy," integrating over the entire domain squeezes that fuzziness down to zero.
@@ -190,14 +190,14 @@ If you have a function $f(x,y)$ that is Riemann integrable over $A$, you can com
 The proof is identical. In fact, remember that the integral of a function is just the volume of its hypograph! Fubini's Theorem is quite literally just Cavalieri's Principle applied to the $n+1$ dimensional hypograph wedge of the function.
 \end{spoken-clean}
 
-\begin{orange-formula}
+\begin{color-box}{BurntOrange}[Fubini's Theorem (Informal)]
 \begin{theorem}[Fubini's Theorem (Informal)]
 Let $A \subset \mathbb{R}^k \times \mathbb{R}^{n-k}$ be a Jordan measurable set, and let $f(x,y)$ be Riemann integrable over $A$. The multiple integral can be evaluated by integrating over the vertical slices $A_x$ first, and then over the base coordinates $x$:
 \[
 \int_A f(x,y) \, d(x,y) = \int_{\mathbb{R}^k} \left( \int_{A_x} f(x,y) \, dy \right) dx
 \]
 \end{theorem}
-\end{orange-formula}
+\end{color-box}
 
 \begin{didactic-insight}[The Grand Finale]
 The entire lecture culminates here. The 2D disk trick (where the function $x_3 = y_1$ created a wedge) was a manual, geometric application of Fubini's theorem! Using a visual trick to solve the integral before proving the theorem that justifies it beautifully completes the pedagogical loop.

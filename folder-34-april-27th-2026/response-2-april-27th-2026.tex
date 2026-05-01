@@ -7,8 +7,6 @@
 % [Dateien] 
 % ==========================================
 
-```latex
-\section{Course Introduction and Logistics}
 
 \begin{spoken-clean}[00:00:00 - 00:01:07]
 Good morning. Good morning, thank you. Please, please, please. Uh, good morning and welcome to Analysis 2. Uh, I have here a projection with my name, Joaquim Serra, the name of the coordinator, Enric Florit-Simon. Now, this is my introduction. Um, and then you know the times of the lectures obviously because you are here. Um, and I wanted to share before starting with the mathematical content some practical informations that are very important because we are a large group and the communication and everything needs to be done in a more or less structured way, otherwise --- otherwise we collapse.
@@ -56,7 +54,7 @@ The lecturer initially writes $f(a) - f(b)$ on the board, but a student quickly 
 \section{The Fundamental Theorem of Calculus in Higher Dimensions}
 
 \begin{spoken-clean}[00:05:30 - 00:06:23]
-I think we need to use this for the recording otherwise I will repeat. Later on when I get better with the throwing the \textit{[referring to the catch-box microphone]} we will use that. So, okay, so fundamental --- so we we said two theorems that are um that are indeed important. Perhaps the most representative I would agree and and I saw many people saying yes, so it's the Fundamental Theorem of Calculus, right? And it's this \textit{[points at Equation \ref{eq:ftc_1d}]}. Is it correct? Yeah, looks like, no?
+I think we need to use this for the recording otherwise I will repeat. Later on when I get better with the throwing the \textit{[referring to the catch-box microphone]} we will use that. So, okay, so fundamental --- so we we said two theorems that are um that are indeed important. Perhaps the most representative I would agree and and I saw many people saying yes, so it's the Fundamental Theorem of Calculus, right? And it's this \textit{[points at Equation \eqref{eq:ftc_1d}]}. Is it correct? Yeah, looks like, no?
 
 Now, to to unfold and to write and to understand every detail about this equation over here, you needed to introduce a lot of things. You needed to define what is that (i.e., the derivative $f'(x)$), right? What is this (i.e., the integral $\int_a^b \dots dx$)? And even --- and you spent a lot of time, right? What is that (i.e., the real number $\mathbb{R}$)? It was not --- it was not easy. Yeah, there is some mistake? \textit{[Corrects the board]} Good, well spotted. $f(b) - f(a)$. Now? 
 
@@ -77,6 +75,12 @@ The higher-dimensional counterparts to the FTC are known by various names:
 \end{itemize}
 
 \begin{center}
+% \begin{ai-tikz-planner-invisible-content}
+% 1. Background: 3D Axes (x, y, z).
+% 2. Midground: The 3D "potato" volume Omega, drawn with a semi-transparent fill.
+% 3. Foreground: The vector field F. This should be a non-uniform "swirling" field drawn *inside* the Omega volume to represent a dynamic field, not a lazy parallel one.
+% 4. Annotations: Labels for Omega, the surface S, the vector field F, and the normal vector nu.
+% \end{ai-tikz-planner-invisible-content}
 \begin{tikzpicture}[scale=1.2]
     % This TikZ diagram is extracted from the blackboard at 00:09:30
     % 3D Axes
@@ -95,10 +99,10 @@ The higher-dimensional counterparts to the FTC are known by various names:
     % The Surface S (The "Skin")
     \node[BurntOrange] at (3.8,1.2,2) {Surface $S = \partial \Omega$};
     
-    % Vector Field F (The "Cereal Field")
+    % Vector Field F (The "Cereal Field") - Non-lazy version
     \foreach \x in {0.5, 1.5, 2.5}
         \foreach \y in {0.5, 1.5, 2.5}
-            \draw[->, BrickRed, opacity=0.4] (\x,\y,2) -- (\x+0.3, \y+0.4, 2.2);
+            \draw[->, BrickRed, opacity=0.5] (\x,\y,2) -- ({\x+0.2*cos(120*\y)}, {\y+0.2*sin(120*\x)}, {2+0.1*cos(60*\x*\y)});
     \node[BrickRed] at (0.5, 2.8, 2) {Vector Field $F = (f_1, f_2, f_3)$};
 
     % Normal Vector nu
@@ -139,5 +143,3 @@ So here in --- in one equation you have a bit the goal and the syllabus of the c
 \begin{spoken-clean}[00:10:45 - 00:11:00]
 So what is $\mathbb{R}^n$? Is the set of $n$-tuples of real numbers. This is the definition, okay? And what is this? This is the same as the set of points we will denote a point $x$, but now $x$ will carry $n$ coordinates: $x_1, x_2, \dots, x_n$. Now this is the point. And these $x_i$ are real numbers. This you know probably because you are doing well or you have done linear algebra, right? So this should be quite familiar. But still it's good that we recall. Okay.
 \end{spoken-clean}
-
-[SYSTEM] Segment complete. Please prompt "Continue" for the remainder of the segment.```

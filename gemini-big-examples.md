@@ -36,9 +36,10 @@ There are two competing standards for spherical coordinates. Mathematics often u
 Wait, looking at this... did I make a mistake?
 \end{spoken-clean}
 
-\begin{meta-note}[Student Spotting the Error]
-\textit{"If we would like $y_3$ to represent the elevation from the equator, shouldn't we switch the sine and cosine in the formula for the polar coordinates?"}
-\end{meta-note}
+% Changes a question to a interaction, using [...]
+\begin{student-question}[Student Spotting the Error] 
+If we would like $y_3$ to represent the elevation from the equator, shouldn't we switch the sine and cosine in the formula for the polar coordinates?
+\end{student-question}
 
 \begin{spoken-clean}[continued]
 Ah! The $y_3$ is the elevation, right? Yes, you are completely right. If we use the cosine for the $x_3$ coordinate, we are measuring the deviation from the North Pole. If we want the elevation from the equator, the vertical $x_3$ coordinate must be governed by the sine function. Let me fix this on the board. The $x_3$ gets the sine, and the others get the cosine. Excellent catch.
@@ -98,16 +99,16 @@ Visual representation of the corrected coordinate system, explicitly showing $y_
     \draw[dashed, thick] (P) -- (Pproj);
     
     % Radius Vector (Anchors shifted off midway to find empty space and avoid geometric collisions)
-    \draw[thick, profblue, ->] (O) -- (P) coordinate[pos=0.6] (MidR); 
+    \draw[thick, MidnightBlue, ->] (O) -- (P) coordinate[pos=0.6] (MidR); 
     % fill=white creates an occlusion mask so text remains readable over background lines
-    \node[above left=of MidR, profblue, fill=white, inner sep=1pt] {$y_1$ (Radius)}; 
+    \node[above left=of MidR, MidnightBlue, fill=white, inner sep=1pt] {$y_1$ (Radius)}; 
 
     % Angles
-    \draw[->, profred, thick] (-0.5,-0.5) to[bend right=20] coordinate[pos=0.8] (MidLon) (0.5, -0.1);
-    \node[below right=of MidLon, profred, fill=white, inner sep=1pt] {$y_2$ (Longitude)};
+    \draw[->, BrickRed, thick] (-0.5,-0.5) to[bend right=20] coordinate[pos=0.8] (MidLon) (0.5, -0.1);
+    \node[below right=of MidLon, BrickRed, fill=white, inner sep=1pt] {$y_2$ (Longitude)};
     
-    \draw[->, profgreen, thick] (0.6, -0.12) to[bend left=20] coordinate[pos=0.4] (MidEl) (0.6, 0.65);
-    \node[right=of MidEl, profgreen, fill=white, inner sep=1pt] {$y_3$ (Elevation)};
+    \draw[->, ForestGreen, thick] (0.6, -0.12) to[bend left=20] coordinate[pos=0.4] (MidEl) (0.6, 0.65);
+    \node[right=of MidEl, ForestGreen, fill=white, inner sep=1pt] {$y_3$ (Elevation)};
 
     % Point Dot
     \fill[black] (P) circle (1.5pt);
@@ -161,7 +162,7 @@ Imagine a simple network, and we want to find the shortest path from a starting 
 We begin with a directed, weighted graph. We initialize the distance to our start node `A` as 0, and the distance to all other nodes as infinity. We also need a set of unvisited nodes, which initially contains all nodes.
 
 \begin{center}
-\begin{tikzpicture}[->, >=stealth', auto, node distance=2.8cm, thick, main node/.style={circle,fill=profblue!20,draw,font=\sffamily\Large\bfseries}]
+<begin-tikzpicture}[->, >=stealth', auto, node distance=2.8cm, thick, main node/.style={circle,fill=MidnightBlue!20,draw,font=\sffamily\Large\bfseries}]
 
   \node[main node] (A) {A};
   \node[main node] (B) [above right of=A] {B};
@@ -195,20 +196,20 @@ After considering all of `A`'s neighbors, we mark `A` as visited. It's done. Now
 \end{spoken-clean}
 
 \begin{math-stroke}[Iteration 1: Visiting Node A]
-After visiting node `A`, we update the distances to its neighbors `B` and `C`. Node `A` is now marked as visited (colored `profgreen`).
+After visiting node `A`, we update the distances to its neighbors `B` and `C`. Node `A` is now marked as visited (colored `ForestGreen`).
 
 \begin{center}
-\begin{tikzpicture}[->, >=stealth', auto, node distance=2.8cm, thick, main node/.style={circle,fill=profblue!20,draw,font=\sffamily\Large\bfseries}]
+<begin-tikzpicture}[->, >=stealth', auto, node distance=2.8cm, thick, main node/.style={circle,fill=MidnightBlue!20,draw,font=\sffamily\Large\bfseries}]
 
-  \node[main node, fill=profgreen!30] (A) {A}; % Visited
+  \node[main node, fill=ForestGreen!30] (A) {A}; % Visited
   \node[main node] (B) [above right of=A] {B};
   \node[main node] (C) [below right of=A] {C};
   \node[main node] (D) [below right of=B] {D};
 
   % Node distance labels (updated)
   \node[above left=0.1cm of A] (distA) {$d=0$};
-  \node[above left=0.1cm of B] (distB) {\textcolor{profred}{$d=10$}};
-  \node[above left=0.1cm of C] (distC) {\textcolor{profred}{$d=3$}};
+  \node[above left=0.1cm of B] (distB) {\textcolor{BrickRed}{$d=10$}};
+  \node[above left=0.1cm of C] (distC) {\textcolor{BrickRed}{$d=3$}};
   \node[above left=0.1cm of D] (distD) {$d=\infty$};
 
   \path[every node/.style={font=\sffamily\small}]
@@ -312,11 +313,11 @@ As always, we begin with our domain $U \subset \mathbb{R}^n$. We apply a diffeom
 \begin{math-stroke}[Domain Mapping and Function Definitions]
 Let $U, V \subset \mathbb{R}^n$ be open domains. We define the mapping between these spaces:
 \[
-U \xrightarrow[\text{\textcolor{proforange}{diffeo}}]{\Phi} V \quad (\Phi, \Phi^{-1} \in C^1)
+U \xrightarrow[\text{\textcolor{BurntOrange}{diffeo}}]{\Phi} V \quad (\Phi, \Phi^{-1} \in C^1)
 \]
 
 \begin{explanation-of-steps}
-We establish a transformation $\Phi$ mapping a domain $U$ to a codomain $V$. The orange annotation \qt{diffeo} indicates this mapping is a \textit{diffeomorphism}. A diffeomorphism is a heavily constrained, \qt{well-behaved} mapping: it must be a bijection (one-to-one and onto), it must be continuously differentiable everywhere ($\Phi \in C^1(U, V)$), and its inverse $\Phi^{-1}$ must also be continuously differentiable everywhere ($\Phi^{-1} \in C^1(V, U)$). This ensures the space is smoothly warped without tearing or folding.
+We establish a transformation $\Phi$ mapping a domain $U$ to a codomain $V$. The orange annotation \qt{diffeo} indicates this mapping is a \qt{diffeomorphism}. A diffeomorphism is a heavily constrained, \qt{well-behaved} mapping: it must be a bijection (one-to-one and onto), it must be continuously differentiable everywhere ($\Phi \in C^1(U, V)$), and its inverse $\Phi^{-1}$ must also be continuously differentiable everywhere ($\Phi^{-1} \in C^1(V, U)$). This ensures the space is smoothly warped without tearing or folding.
 \end{explanation-of-steps}
 
 \begin{center}
@@ -363,7 +364,7 @@ f: \overline{A} \to \mathbb{R} \quad (f \in C^0(\overline{A}, \mathbb{R})\text{,
 \end{math-stroke}
 
 \begin{didactic-insight}[Why the Closure?]
-Why the closure $\overline{A}$? By requiring the \textit{closure} of $A$ to be strictly contained within the open set $U$, we ensure that the boundary of $A$ behaves nicely under the mapping $\Phi$, and we avoid pathological singularities that could exist on the absolute edge of the domain $U$. We then ensure $f$ is continuous over this closed, bounded region, guaranteeing Riemann integrability.
+Why the closure $\overline{A}$? By requiring the closure of $A$ to be strictly contained within the open set $U$, we ensure that the boundary of $A$ behaves nicely under the mapping $\Phi$, and we avoid pathological singularities that could exist on the absolute edge of the domain $U$. We then ensure $f$ is continuous over this closed, bounded region, guaranteeing Riemann integrability.
 \end{didactic-insight}
 % ==========================================
 % SECTION 2: THE CLUNKY THEOREM
@@ -534,7 +535,7 @@ D = \underbrace{(0,1)}_{\text{Radius } y_1} \times \underbrace{(0, 2\pi)}_{\text
 \]
 
 \begin{explanation-of-steps}
-We are transitioning from Cartesian coordinates $(x_1, x_2)$ to polar coordinates $(y_1, y_2)$. The domain $D$ is strictly an \textit{open} rectangle. This strict open boundary guarantees that $\Psi$ remains a proper diffeomorphism (bijective and smooth), as including $y_1 = 0$ (the origin) or $y_2 = 0, 2\pi$ (the overlapping seam) would break the bijection.
+We are transitioning from Cartesian coordinates $(x_1, x_2)$ to polar coordinates $(y_1, y_2)$. The domain $D$ is strictly an \emph{open} rectangle. This strict open boundary guarantees that $\Psi$ remains a proper diffeomorphism (bijective and smooth), as including $y_1 = 0$ (the origin) or $y_2 = 0, 2\pi$ (the overlapping seam) would break the bijection.
 \end{explanation-of-steps}
 \end{math-stroke}
 
@@ -556,7 +557,7 @@ The lecturer draws the mapping, actively highlighting the \qt{missing} seam on t
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
     % Domain D
-    \draw[dashed, thick, fill=profblue!10] (0,0) rectangle (1, 2);
+    \draw[dashed, thick, fill=MidnightBlue!10] (0,0) rectangle (1, 2);
     \node at (0.5, 1) {$D$};
     \node[below] at (0,0) {$0$};
     \node[below] at (1,0) {$1$};
@@ -567,12 +568,12 @@ The lecturer draws the mapping, actively highlighting the \qt{missing} seam on t
     \draw[->, very thick] (1.5, 1) -- (2.5, 1) node[midway, above] {$\Psi$};
 
     % Disk B1
-    \draw[thick, fill=profblue!10] (4,1) circle (1cm);
-    \draw[dashed, profred, very thick] (4,1) -- (5,1); % The missing seam
+    \draw[thick, fill=MidnightBlue!10] (4,1) circle (1cm);
+    \draw[dashed, BrickRed, very thick] (4,1) -- (5,1); % The missing seam
     
     % Annotations
-    \node[profred, right] at (5,1) {\emph{Missing Seam}};
-    \node[profred, right] at (5,0.7) {$\mu_2 = 0$};
+    \node[BrickRed, right] at (5,1) {\emph{Missing Seam}};
+    \node[BrickRed, right] at (5,0.7) {$\mu_2 = 0$};
     \node at (4, 1.5) {$B_1$};
     \node[below] at (4, -0.5) {Target Space $(x_1, x_2)$};
 \end{tikzpicture}
@@ -617,7 +618,7 @@ The Jacobian determinant tells us exactly how much a tiny square of parameter sp
 \begin{spoken-clean}[00:22:55 - 00:26:33]
 Substituting this back in, we must compute the double integral of $y_1$ over our rectangular domain $D$ (i.e., $\int_D y_1 \, dy$). But we have a problem: we haven't learned how to systematically compute multivariable integrals yet! 
 
-We can solve this using a geometric trick. The integral of a positive function over a 2D domain represents the 3-dimensional volume of its \textit{hypograph} — the physical region trapped underneath the function's surface. 
+We can solve this using a geometric trick. The integral of a positive function over a 2D domain represents the 3-dimensional volume of its \qt{hypograph} — the physical region trapped underneath the function's surface. 
 
 Let's add a vertical coordinate, $x_3$. We want the volume where $x_3 \le y_1$, over our base rectangle $(0,1) \times (0, 2\pi)$. 
 Consider a full 3D bounding box with dimensions $1 \times 2\pi \times 1$. The total volume is $2\pi$. Our function, $x_3 = y_1$, forms a slanted plane that cuts this box perfectly in half along its diagonal. Therefore, the volume of our hypograph is exactly half the volume of the box, which gives us $\pi$ (i.e., $\frac{1}{2} (1 \cdot 2\pi \cdot 1) = \pi$).
@@ -651,9 +652,9 @@ The lecturer draws a 3D bounding box and shows how the function $f(y_1, y_2) = y
 
     % The Hypograph Wedge (x3 <= y1)
     % The plane is x3 = y1. At y1=0 (front), height is 0. At y1=1 (back), height is 1.
-    \filldraw[fill=profred!30, draw=profred, thick, opacity=0.8] (X) -- (XZ) -- (XYZ) -- cycle; % Right side triangle
-    \filldraw[fill=profred!20, draw=profred, thick, opacity=0.8] (O) -- (X) -- (XYZ) -- (YZ) -- cycle; % Slanted roof x3=y1
-    \filldraw[fill=profred!40, draw=profred, thick, opacity=0.8] (O) -- (Z) -- (YZ) -- cycle; % Left side triangle
+    \filldraw[fill=BrickRed!30, draw=BrickRed, thick, opacity=0.8] (X) -- (XZ) -- (XYZ) -- cycle; % Right side triangle
+    \filldraw[fill=BrickRed!20, draw=BrickRed, thick, opacity=0.8] (O) -- (X) -- (XYZ) -- (YZ) -- cycle; % Slanted roof x3=y1
+    \filldraw[fill=BrickRed!40, draw=BrickRed, thick, opacity=0.8] (O) -- (Z) -- (YZ) -- cycle; % Left side triangle
     
     % Remaining box outline
     \draw[thick, gray] (Z) -- (XZ) -- (XYZ) -- (YZ) -- cycle; 
@@ -665,7 +666,7 @@ The lecturer draws a 3D bounding box and shows how the function $f(y_1, y_2) = y
     \node[below] at (2,0,0) {Longitude $y_2 \in [0, 2\pi]$};
     \node[left] at (0,0,1) {Radius $y_1 \in$};
     \node[left] at (0,1,0) {Height $x_3$};
-    \node[profred, right] at (4.2, 1, 1) {Hypograph Volume ($x_3 \le y_1$)};
+    \node[BrickRed, right] at (4.2, 1, 1) {Hypograph Volume ($x_3 \le y_1$)};
 \end{tikzpicture}
 \end{center}
 

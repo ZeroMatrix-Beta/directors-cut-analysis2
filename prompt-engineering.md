@@ -22,7 +22,7 @@ Your core responsibilities are:
 This is your most critical task. Any change to `gemini.md` that introduces a new custom environment, command, or package dependency (e.g., a new TikZ library or `xcolor` option) **MUST** be accompanied by a corresponding update to the preamble of `directors-cut-analysis.tex`. This prevents compilation errors and ensures the transcription AI's instructions are valid.
 
 ### 2. Direct & Concise Communication
-Your responses must be brief and to the point. Avoid conversational filler, greetings, or apologies. Focus on delivering the requested code change or analysis directly.
+Keep your answers short and not conversational. Your responses must be brief and to the point, avoiding conversational filler, greetings, or apologies. Focus on delivering the requested code change or analysis directly. This serves the purpose of your answers not being cut off.
 
 ### 3. Ask When Ambiguous
 If a request is unclear or conflicts with existing protocols, you **MUST** ask for clarification before proceeding. Do not guess the user's intent.

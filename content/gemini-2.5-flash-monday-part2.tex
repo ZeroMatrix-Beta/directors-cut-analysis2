@@ -72,7 +72,7 @@ Given the slices $A_x$, even if $A_x$ itself is not Jordan measurable (meaning i
 These functions, $\overline{\varphi}(x)$ and $\underline{\varphi}(x)$, map from $\mathbb{R}^k$ to $\mathbb{R}$.
 \end{math-stroke}
 
-\begin{orange-formula}
+\begin{color-box}{BurntOrange}[Cavalieri's Principle for Jordan Measurable Sets]
 \begin{theorem}[Cavalieri's Principle for Jordan Measurable Sets]
 \label{thm:cavalieri-jordan-sets}
 Let $A \subset \mathbb{R}^n$ be a Jordan measurable set. We consider the decomposition $\mathbb{R}^n = \mathbb{R}^k \times \mathbb{R}^{n-k}$, with coordinates $(x,y)$. For each $x \in [-c,c]^k$, we define the slices $A_x = \{y \in \mathbb{R}^{n-k} \mid (x,y) \in A \}$. We then define the upper and lower marginal functions:
@@ -84,7 +84,7 @@ Then, both $\overline{\varphi}: [-c,c]^k \to \mathbb{R}$ and $\underline{\varphi
 \int_{[-c,c]^k} \overline{\varphi}(x) \, dx = \int_{[-c,c]^k} \underline{\varphi}(x) \, dx = \mu_n(A)
 \]
 \end{theorem}
-\end{orange-formula}
+\end{color-box}
 
 \begin{spoken-clean}[00:02:20 - 00:03:20]
 So, this is the setup, and the theorem says that under these assumptions, under these definitions, then both functions, the $\bar{\varphi}(x)$ and $\underline{\varphi}(x)$ are Riemann integrable. And the integral of them in the set $[-c,c]^k$ is equal to the integral of the other one, which is equal to the measure of $A$. So this integral is... You sum so the $\bar{\varphi}$ is the measure of each slice. You are taking the measure of these slices. Now you can tell me, maybe for some slices this measure is not well-defined, because the outer measure and the inner measure do not coincide. I tell you, don't worry, just put any, the outer or the inner. I don't care. Because when you integrate, the outer or the inner or anything in between, it will give you always the measure... It will recover the measure of your set $A$.
@@ -280,7 +280,7 @@ The professor erases the board to prepare for Fubini's Theorem. He emphasizes th
 So, Fubini's Theorem is the following. So, now we have a function...
 \end{spoken-clean}
 
-\begin{orange-formula}
+\begin{color-box}{BurntOrange}[Fubini's Theorem]
 \begin{theorem}[Fubini's Theorem]
 \label{thm:fubini-formal}
 Let $A \subset \mathbb{R}^n$ be a bounded Jordan measurable set, and $f: A \to \mathbb{R}$ be a Riemann integrable function over $A$.
@@ -300,7 +300,7 @@ Then, $\underline{\varphi}(x)$ and $\overline{\varphi}(x)$ are Riemann integrabl
 \int_A f(x,y) \, d(x,y) = \int_{\mathbb{R}^k} \underline{\varphi}(x) \, dx = \int_{\mathbb{R}^k} \overline{\varphi}(x) \, dx
 \]
 \end{theorem}
-\end{orange-formula}
+\end{color-box}
 
 \begin{spoken-clean}[00:17:02 - 00:17:22]
 So, we have some $A \subset \mathbb{R}^n$ (bounded). Jordan measurable. Right? Now, as before, I will take the $\mathbb{R}^n$ as $\mathbb{R}^k \times \mathbb{R}^{n-k}$, and we'll call the coordinates here $(x,y)$. Or do I need Jordan measurable? Maybe I don't even need Jordan measurable. I just need set bounded. And then I have a function $f$ from $A$ to $\mathbb{R}$ that is Riemann integrable over $A$.

@@ -120,18 +120,18 @@
 }
 
 % 4a. Modular Visual Blackboard Replication Box (V1.17)
-\newtcolorbox{color-box}[Highlighted Board Formula]{
+\newtcolorbox{color-box}[2][]{
     enhanced,
     colback=white,
     opacityback=0, % Fully transparent background
-    colframe=#2,
+    colframe=#1,
     fonttitle=\bfseries\sffamily,
-    coltitle=white,
-    title=#1,
+    coltitle=black,
+    title=#2,
     boxrule=1.5pt,
     arc=4pt,
     center title,
-    drop fuzzy shadow=#2!30
+    drop fuzzy shadow=#1!30
 }
 
 % 4b. Legacy Visual Blackboard Replication Boxes (Backward Compatibility)
@@ -355,31 +355,34 @@
 
 \begin{document}
 
-\include{content/4-15-monday-first_half-part1}
-\include{content/4-15-monday-first_half-part2}  
-\include{content/4-15-monday-first_half-part3}
+\include{folder-34-april-27th-2026/response-2-april-27th-2026}
+\include{folder-34-april-27th-2026/response-3-april-27th-2026}
 
-\include{content/4-15-monday-second_half-part1} 
-\include{content/4-15-monday-second_half-part2} 
-\include{content/4-15-monday-second_half-part3}
+%\include{content/4-15-monday-first_half-part1}
+%\include{content/4-15-monday-first_half-part2}  
+%\include{content/4-15-monday-first_half-part3}
 
-\include{content/4-15-wednesday-first_half-part1}
-\include{content/4-15-wednesday-first_half-part2}
-\include{content/4-15-wednesday-first_half-part3}
+%\include{content/4-15-monday-second_half-part1} 
+%\include{content/4-15-monday-second_half-part2} 
+%\include{content/4-15-monday-second_half-part3}
 
-\include{content/4-16-wednesday-second-half-part-1}
-\include{content/4-16-wednesday-second-half-part2}
+%\include{content/4-15-wednesday-first_half-part1}
+%\include{content/4-15-wednesday-first_half-part2}
+%\include{content/4-15-wednesday-first_half-part3}
+
+%\include{content/4-16-wednesday-second-half-part-1}
+%\include{content/4-16-wednesday-second-half-part2}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\include{content/thursday-new-approach}
-\include{content/thursday-version2}
+%\include{content/thursday-version2}
 
-\include{content/gemini-2.5-flash-monday-part2}
+%\include{content/gemini-2.5-flash-monday-part2}
 
-\include{content/another-try}
+%\include{content/another-try}
 
-\include{content/gemini-2.5-flash-thursday}
+%\include{content/gemini-2.5-flash-thursday}
 
 \end{document}
