@@ -289,6 +289,20 @@
 \NewEnviron{ai-retroactive-patch}[1][]{}
 
 % Data Integrity Fallbacks (Rendered as visible warning boxes in case they appear in the source)
+\newtcolorbox{ai-logical-gap}[1][Logical Gap]{
+    enhanced,
+    colback=BrickRed!5,
+    colframe=BrickRed,
+    title={\sffamily\bfseries\textcolor{white}{#1}},
+    breakable
+}
+\newtcolorbox{ai-generation-loop-fallback}[1][Generation Loop Fallback]{
+    enhanced,
+    colback=BrickRed!5,
+    colframe=BrickRed,
+    title={\sffamily\bfseries\textcolor{white}{#1}},
+    breakable
+}
 \newtcolorbox{ai-raw-ocr-fallback}[1][Raw OCR Fallback]{
     enhanced,
     colback=BrickRed!5,
