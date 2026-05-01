@@ -120,18 +120,20 @@
 }
 
 % 4a. Modular Visual Blackboard Replication Box (V1.17)
-\newtcolorbox{color-box}[2][]{
+\NewTColorBox{color-box}{ m O{} }{
     enhanced,
     colback=white,
     opacityback=0, % Fully transparent background
     colframe=#1,
     fonttitle=\bfseries\sffamily,
     coltitle=black,
-    title=#2,
+    title={#2},
     boxrule=1.5pt,
     arc=4pt,
     center title,
-    drop fuzzy shadow=#1!30
+    drop fuzzy shadow=#1!30,
+    % Hide title area completely if the optional argument is not provided
+    IfValueF={#2}{notitle}
 }
 
 % 4b. Legacy Visual Blackboard Replication Boxes (Backward Compatibility)
@@ -369,8 +371,10 @@
 
 \begin{document}
 
-\include{folder-34-april-27th-2026/response-2-april-27th-2026}
-\include{folder-34-april-27th-2026/response-3-april-27th-2026}
+\include{content/02-16-monday-flash-01-05-2026}
+
+%\include{folder-34-april-27th-2026/response-2-april-27th-2026}
+%\include{folder-34-april-27th-2026/response-3-april-27th-2026}
 
 %\include{content/4-15-monday-first_half-part1}
 %\include{content/4-15-monday-first_half-part2}  
