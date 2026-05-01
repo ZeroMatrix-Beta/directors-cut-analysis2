@@ -1,12 +1,15 @@
 % ==========================================
 % AutoExtraction Source: 02-16-monday.mp4
 % Model: gemini-3-flash-preview
-% Processed on: 2026-05-01 13:25:32
+%
+% MERGED AND CLEANED by Gemini Code Assist on 2026-05-01
+% This file combines TEIL 1 and TEIL 2 to create a coherent transcript,
+% removing redundant overlapping sections and TEIL 3.
 % ==========================================
 
+\chapter{Monday: February 16th 2026 \& Real Analysis }
 
 
-% --- TEIL 1 ---
 \begin{nice-box}[Context]
 This lecture marks the beginning of \emph{Analysis II: mehrere Variablen} (Multivariable Calculus) for the Spring 2026 semester at ETH Zürich. The lecturer, Joaquim Serra, introduces the course structure, logistics, and provides a high-level overview comparing the fundamental goals of Analysis I (single-variable calculus) with the upcoming objectives of Analysis II (vector calculus and higher-dimensional integration).
 \end{nice-box}
@@ -22,11 +25,11 @@ Good morning. Good morning. Thank you. Please, please, please. Uh, good morning 
 
 \begin{meta-note}[Projected Content]
 The lecturer displays the course website for \qt{Analysis II: mehrere Variablen Spring 2026}. Key details shown:
-\begin{itemize}
-    \item \textbf{Lecturer:} Joaquim Serra
-    \item \textbf{Coordinator:} Enric Florit-Simón
-    \item \textbf{Lectures:} Mon 08:15--10:00 (ETA F 5), Wed 08:15--10:00 (HG F 7 / HG F 5), Thu 16:15--18:00 (ETA F 5).
-\end{itemize}
+\begin{description}
+    \item[Lecturer:] Joaquim Serra
+    \item[Coordinator:] Enric Florit-Simón
+    \item[Lectures:] Mon 08:15--10:00 (ETA F 5), Wed 08:15--10:00 (HG F 7 / HG F 5), Thu 16:15--18:00 (ETA F 5).
+\end{description}
 \end{meta-note}
 
 \begin{spoken-clean}[00:01:20 - 00:03:30]
@@ -90,10 +93,10 @@ Now, to — to unfold and to write and to understand every detail about this equ
 
 \begin{math-stroke}[Analysis II: The Goal]
 Analysis II extends these concepts to higher dimensions:
-\begin{itemize}
-    \setcounter{enumi}{0} \item \textbf{Analysis 1:} Calculus of one variable.
-    \setcounter{enumi}{1} \item \textbf{Analysis 2:} Calculus in $\ge 2$ variables.
-\end{itemize}
+\begin{description}
+    \item[Analysis 1:] Calculus of one variable.
+    \item[Analysis 2:] Calculus in $\ge 2$ variables.
+\end{description}
 The representative results in Analysis II are a family of related theorems:
 \begin{itemize}
     \item Gauss Theorem
@@ -204,10 +207,8 @@ Okay, so this is the vector field $f$. And the theorem says that the integral in
 
 \begin{math-stroke}[The Divergence Theorem (Gauss's Theorem)]
 The \qt{final boss} of Analysis II relates the volume integral of the divergence to the surface integral of the flux:
-\begin{color-box}{Black}
-\textcolor{white}{
+\begin{color-box}{Black}[Divergence Theorem]
 \[ \int_{\Omega} \left( \sum_{i} \frac{\partial f_i}{\partial x_i} \right) \, dx = \int_{S} f \cdot \nu \, dS \]
-}
 \end{color-box}
 
 \begin{explanation-of-steps}
@@ -489,12 +490,12 @@ So, in $\mathbb{R}^n$ what can we do? We can measure --- we can, well, sum vecto
 
 \begin{math-stroke}[Vector Space Structure of \texorpdfstring{$\mathbb{R}^n$}{Rn}]
 The space $\mathbb{R}^n$ is equipped with the standard operations of a vector space:
-\begin{itemize}
-    \item \textbf{Vector Addition:} For $x, y \in \mathbb{R}^n$:
+\begin{description}
+    \item[Vector Addition:] For $x, y \in \mathbb{R}^n$:
     \[ x + y = (x_1 + y_1, \dots, x_n + y_n) \]
-    \item \textbf{Scalar Multiplication:} For $x \in \mathbb{R}^n$ and $\lambda \in \mathbb{R}$:
+    \item[Scalar Multiplication:] For $x \in \mathbb{R}^n$ and $\lambda \in \mathbb{R}$:
     \[ \lambda x = (\lambda x_1, \dots, \lambda x_n) \]
-\end{itemize}
+\end{description}
 \end{math-stroke}
 
 % [SYSTEM] Segment complete. Please prompt "Continue" for the remainder of the segment.
@@ -569,12 +570,14 @@ Now, the first lemma I will prove about Euclidean distance is the triangle inequ
 \end{spoken-clean}
 
 \begin{math-stroke}[Lemma: The Triangle Inequality]
+\begin{color-box}{black}[Triangle Inequality]
 \begin{lemma}[Triangle Inequality] \label{lem:triangle_inequality}
 For all $x, y, z \in \mathbb{R}^n$, the following inequality holds:
 \begin{equation} \label{eq:triangle_xyz}
 \|z - x\| \le \|y - x\| + \|z - y\|
 \end{equation}
 \end{lemma}
+\end{color-box}
 
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
@@ -603,12 +606,10 @@ So, let's prove that. So, to prove that equivalently I will prove --- equivalent
 
 \begin{math-stroke}[Equivalence of Triangle Inequality Forms]
 The statement in Equation \ref{eq:triangle_xyz} is equivalent to the following simpler form:
-\begin{color-box}{black}
-\textcolor{white}{
+\begin{color-box}{black}[Equivalent Form]
 \begin{equation} \label{eq:triangle_star}
 \|x + y\| \le \|x\| + \|y\| \tag{\textcolor{BrickRed}{$\ast$}}
 \end{equation}
-}
 \end{color-box}
 
 \begin{proof}[Proof of Equivalence]
@@ -783,22 +784,22 @@ Now, I'm --- I need to warn you, especially for the --- well, I don't know if es
 The lecturer uses a playful analogy to explain the pedagogical value of abstraction. By stripping away the specific properties of $\mathbb{R}^n$ and focusing on the minimal axioms of a metric space, the \qt{rules of the game} become simpler but require more rigorous adherence. This prevents students from relying on geometric intuition that might fail in more exotic spaces (like function spaces).
 \end{didactic-insight}
 
-\begin{math-stroke}[Definition: Metric Space]
+\begin{nice-box}[Definition: Metric Space]
 \begin{definition}[Metric Space] \label{def:metric_space}
 A \emph{metric space} is a pair $(X, d)$, where $X$ is a non-empty set and $d$ is a mapping (called the \emph{distance} or \emph{metric}):
 \[ d: X \times X \to [0, \infty) \]
 that satisfies the following three axioms for all $x, y, z \in X$:
 \begin{enumerate}
-    \setcounter{enumi}{0} \item \textbf{Definiteness:} $d(x, y) = 0 \iff x = y$.
-    \setcounter{enumi}{1} \item \textbf{Symmetry:} $d(x, y) = d(y, x)$.
-    \setcounter{enumi}{2} \item \textbf{Triangle Inequality:} $d(x, z) \le d(x, y) + d(y, z)$.
+    \setcounter{enumi}{0} \item \emph{Definiteness:} $d(x, y) = 0 \iff x = y$.
+    \setcounter{enumi}{1} \item \emph{Symmetry:} $d(x, y) = d(y, x)$.
+    \setcounter{enumi}{2} \item \emph{Triangle Inequality:} $d(x, z) \le d(x, y) + d(y, z)$.
 \end{enumerate}
 \end{definition}
 
 \begin{explanation-of-steps}
 The lecturer notes that while he formally defines $X$ as a set, he will not be overly pedantic about the case where $X$ might be empty, as it is trivial and lacks mathematical interest for the course.
 \end{explanation-of-steps}
-\end{math-stroke}
+\end{nice-box}
 
 \begin{spoken-clean}[00:12:50 - 00:15:15]
 So, we will define a metric space is a pair $(X, d)$ where $X$ is a non-empty set. Well, let's say --- this also the kind of things that I will not be that careful about. So, if the set $X$ is empty or non-empty --- I mean, this is the part that I'm sorry to say that, but who cares? Uh, if the set is --- so if someone wants to say \qt{no, because with the empty set}, okay, in the notes probably everything is okay and I say that the set of is non-empty. In the lecture I will not focus on the case that the set can be empty or not, unless it is important and --- and hides some important subtlety. So, $X$ is a set that is non-empty, but let's not put it. And $d$ --- this is the definition, sorry, this is the definition of metric space. And $d$ is a map from the product $X$ times $X$ to the non-negative real numbers that will be called the distance. This is called the distance. And this distance satisfies three axioms.
@@ -812,9 +813,9 @@ These are the axioms of a metric space. First example --- now I will give some e
 
 \begin{math-stroke}[Examples of Metrics on \texorpdfstring{$\mathbb{R}^n$}{Rn}]
 \begin{enumerate}
-    \setcounter{enumi}{0} \item \textbf{Euclidean Metric:} The standard distance in $\mathbb{R}^n$:
+    \setcounter{enumi}{0} \item \emph{Euclidean Metric:} The standard distance in $\mathbb{R}^n$:
     \[ d_2(x, y) = \|x - y\| = \sqrt{\sum_{i=1}^n (x_i - y_i)^2} \]
-    \setcounter{enumi}{1} \item \textbf{Manhattan Metric (Taxicab Metric):} Common in grid-based layouts:
+    \setcounter{enumi}{1} \item \emph{Manhattan Metric (Taxicab Metric):} Common in grid-based layouts:
     \[ d_1(x, y) = |x_1 - y_1| + |x_2 - y_2| \]
 \end{enumerate}
 
@@ -858,10 +859,10 @@ Any subset $Y \subset X$ of a metric space $(X, d)$ inherits a metric structure 
 \emph{Example: The Unit Sphere $S^2 \subset \mathbb{R}^3$:}
 \[ S^2 = \{ x \in \mathbb{R}^3 \mid \|x\| = 1 \} \]
 The sphere can be equipped with two distinct metrics:
-\begin{itemize}
-    \item \textbf{Inherited Euclidean Metric:} The straight-line distance through the interior of the sphere.
-    \item \textbf{Geodesic Metric:} The distance measured along the surface of the sphere (great-circle distance).
-\end{itemize}
+\begin{description}
+    \item[Inherited Euclidean Metric:] The straight-line distance through the interior of the sphere.
+    \item[Geodesic Metric:] The distance measured along the surface of the sphere (great-circle distance).
+\end{description}
 
 \begin{center}
 \begin{tikzpicture}[scale=1.5]
@@ -898,9 +899,9 @@ Another distance between functions... \inlinemetanote{Writes the integral formul
 \begin{math-stroke}[Metrics on Function Spaces]
 Let $X = C([a, b], \mathbb{R})$ be the set of all continuous functions $f: [a, b] \to \mathbb{R}$. We can define several metrics on this set:
 \begin{enumerate}
-    \setcounter{enumi}{0} \item \textbf{Supremum Metric (\texorpdfstring{$L^\infty$}{L-infinity} Metric):}
+    \setcounter{enumi}{0} \item \emph{Supremum Metric (\texorpdfstring{$L^\infty$}{L-infinity} Metric):}
     \[ d_\infty(f, g) = \max_{x \in [a, b]} |f(x) - g(x)| \]
-    \setcounter{enumi}{1} \item \textbf{\texorpdfstring{$L^2$}{L2} Metric:}
+    \setcounter{enumi}{1} \item \emph{\texorpdfstring{$L^2$}{L2} Metric:}
     \[ d_2(f, g) = \left( \int_a^b (f(x) - g(x))^2 \, dx \right)^{1/2} \]
 \end{enumerate}
 

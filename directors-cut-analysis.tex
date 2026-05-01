@@ -17,6 +17,9 @@
 % \usepackage{fourier} % Utopia: Robust, slightly heavier strokes, fantastic for complex math.
 % \usepackage{stix2} % STIX2: Times-based, incredibly comprehensive math symbol support.
 
+% --- EMPHASIS STYLE OVERRIDE ---
+\DeclareTextFontCommand{\emph}{\bfseries}
+
 \usepackage[margin=1in]{geometry}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref}
@@ -116,22 +119,28 @@
     colback=ForestGreen!5!white,
     colframe=ForestGreen!80!black,
     title={\sffamily\bfseries Insight: #1},
+    frame hidden,
+    colback=ForestGreen!3!white,
+    borderline west={2pt}{0pt}{ForestGreen!80!black},
+    title={\sffamily\bfseries\textcolor{ForestGreen!80!black}{\textit{Insight:} #1}},
+    attach title to upper=\par\vspace{0.5ex},
     breakable
 }
 
 % 4a. Modular Visual Blackboard Replication Box (V1.17)
 \NewTColorBox{color-box}{ m O{} }{
     enhanced,
-    colback=white,
-    opacityback=0, % Fully transparent background
     colframe=#1,
+    colback=white,
+    colupper=black,
     fonttitle=\bfseries\sffamily,
     coltitle=black,
     title={#2},
     boxrule=1.5pt,
     arc=4pt,
-    center title,
     drop fuzzy shadow=#1!30,
+    attach boxed title to top left={xshift=10pt, yshift=-10pt},
+    boxed title style={colback=white, colframe=#1, boxrule=0.5pt},
     % Hide title area completely if the optional argument is not provided
     IfValueF={#2}{notitle}
 }
@@ -141,15 +150,15 @@
     \newtcolorbox{#1}[1][Highlighted Board Formula]{%
         enhanced,
         colback=white,
-        opacityback=0, % Fully transparent background
         colframe=#2,
         fonttitle=\bfseries\sffamily,
-        coltitle=white,
+        coltitle=black,
         title=##1,
         boxrule=1.5pt,
         arc=4pt,
-        center title,
-        drop fuzzy shadow=#3
+        drop fuzzy shadow=#3,
+        attach boxed title to top left={xshift=10pt, yshift=-10pt},
+        boxed title style={colback=white, colframe=#2, boxrule=0.5pt}
     }%
 }
 
@@ -296,6 +305,9 @@
     colback=BrickRed!5,
     colframe=BrickRed,
     title={\sffamily\bfseries\textcolor{white}{#1}},
+    fonttitle=\sffamily\bfseries,
+    coltitle=BrickRed!75!black,
+    title={#1},
     breakable
 }
 \newtcolorbox{ai-generation-loop-fallback}[1][Generation Loop Fallback]{
@@ -303,6 +315,9 @@
     colback=BrickRed!5,
     colframe=BrickRed,
     title={\sffamily\bfseries\textcolor{white}{#1}},
+    fonttitle=\sffamily\bfseries,
+    coltitle=BrickRed!75!black,
+    title={#1},
     breakable
 }
 \newtcolorbox{ai-raw-ocr-fallback}[1][Raw OCR Fallback]{
@@ -310,6 +325,9 @@
     colback=BrickRed!5,
     colframe=BrickRed,
     title={\sffamily\bfseries\textcolor{white}{#1}},
+    fonttitle=\sffamily\bfseries,
+    coltitle=BrickRed!75!black,
+    title={#1},
     breakable
 }
 \newtcolorbox{ai-phonetic-dump}[1][Phonetic Dump]{
@@ -317,6 +335,9 @@
     colback=BrickRed!5,
     colframe=BrickRed,
     title={\sffamily\bfseries\textcolor{white}{#1}},
+    fonttitle=\sffamily\bfseries,
+    coltitle=BrickRed!75!black,
+    title={#1},
     breakable
 }
 \newtcolorbox{ai-modality-conflict}[1][Modality Conflict]{
@@ -324,6 +345,9 @@
     colback=BrickRed!5,
     colframe=BrickRed,
     title={\sffamily\bfseries\textcolor{white}{#1}},
+    fonttitle=\sffamily\bfseries,
+    coltitle=BrickRed!75!black,
+    title={#1},
     breakable
 }
 \newtcolorbox{ai-off-camera-state}[1][Off-Camera State]{
@@ -331,6 +355,9 @@
     colback=BrickRed!5,
     colframe=BrickRed,
     title={\sffamily\bfseries\textcolor{white}{#1}},
+    fonttitle=\sffamily\bfseries,
+    coltitle=BrickRed!75!black,
+    title={#1},
     breakable
 }
 \newtcolorbox{ai-async-board-update}[1][Async Board Update]{
@@ -338,6 +365,9 @@
     colback=BrickRed!5,
     colframe=BrickRed,
     title={\sffamily\bfseries\textcolor{white}{#1}},
+    fonttitle=\sffamily\bfseries,
+    coltitle=BrickRed!75!black,
+    title={#1},
     breakable
 }
 \newtcolorbox{ai-kinetic-emphasis}[1][Kinetic Emphasis]{
@@ -345,6 +375,9 @@
     colback=BrickRed!5,
     colframe=BrickRed,
     title={\sffamily\bfseries\textcolor{white}{#1}},
+    fonttitle=\sffamily\bfseries,
+    coltitle=BrickRed!75!black,
+    title={#1},
     breakable
 }
 
@@ -372,6 +405,7 @@
 \begin{document}
 
 \include{content/02-16-monday-flash-01-05-2026}
+\include{content/02-18-wednesday-copy-1}
 
 %\include{folder-34-april-27th-2026/response-2-april-27th-2026}
 %\include{folder-34-april-27th-2026/response-3-april-27th-2026}

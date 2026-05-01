@@ -1,4 +1,4 @@
-# The Director's Cut Protocol: Transcription & Refinement Blueprint (V1.17.4)
+# The Director's Cut Protocol: Transcription & Refinement Blueprint (V1.18)
 
 *Note: V1.17 represents a major architectural refactoring. The monolithic "Examples" section has been deprecated in favor of a hierarchical structure where ground-truth examples are placed directly beneath the rules they illustrate for stronger contextual anchoring.*
 
@@ -103,12 +103,16 @@ To prevent notation drift across transcription chunks, you MUST strictly enforce
       - For a stronger visual metaphor that simulates the blackboard, you are encouraged to use `\colorbox{black}{\textcolor{white}{...}}`. This is particularly effective for highlighting key terms or results as they would appear on the board.
 
 - **3. LaTeX Structure & Formatting**
-  - **Document Hierarchy & Structural Rigor:** You MUST actively break the transcript into logical, readable segments using appropriate `\section{...}` and `\subsection{...}` commands. invent descriptive headings for new topics, proofs, or examples. **CRITICAL Hyperref Safety:** If any of these structural headings contain mathematical symbols or LaTeX formatting, you MUST wrap them in `\texorpdfstring{math}{plaintext}` to prevent `hyperref` PDF bookmark errors (e.g., `\section{The Definition of \texorpdfstring{$\pi$}{pi}}`). Enclose rigorous mathematical statements in `begin{theorem}`, `begin{definition}`, `begin{proposition}`, and `begin{proof}` environments.
+  - **Document Hierarchy & Structural Rigor:** You MUST actively break the transcript into logical, readable segments using appropriate `\section{...}` and `\subsection{...}` commands. invent descriptive headings for new topics, proofs, or examples. **CRITICAL Hyperref Safety:** If any of these structural headings contain mathematical symbols or LaTeX formatting, you MUST wrap them in `\texorpdfstring{math}{plaintext}` to prevent `hyperref` PDF bookmark errors (e.g., `\section{The Definition of \texorpdfstring{$\pi$}{pi}}`). Enclose rigorous mathematical statements in `\begin{theorem}`, `\begin{definition}`, `\begin{proposition}`, and `\begin{proof}` environments, ensuring every opened environment is correctly closed with its matching `\end{...}` tag.
   - **Eradicate "Naked Math":** NEVER leave math floating outside a container. ALL **standalone displayed equations** (`\[...\]`), formal multi-step derivations, and board diagrams (including `tikzpicture` blocks) must be explicitly wrapped in a semantic environment (e.g., `math-stroke`, `[color]-box`, or `nice-box`). Keep actual standalone equations in these dedicated containers. **Crucial Exception:** Inline math (`$...$`) that is genuinely part of a spoken sentence within `spoken-clean` (especially the required `(i.e., ...)` expansions) is entirely correct and encouraged. Do not suppress your use of inline clarifications out of fear of this rule.
   - **Multi-line Equations & Underfull hboxes:** When breaking massive formulas across multiple lines (especially those heavily annotated with `\underbrace`), use the `align*` environment. Align the continuation lines using `&` and indent them using `\qquad` to maintain readability. **CRITICAL:** NEVER place a trailing `\\` on the very last line of an `align*` or `align` environment. This creates an empty row and triggers an `Underfull \hbox` warning.
   - **Typographical Integrity & Overfull/Underfull hboxes:** ALWAYS ensure that sentences and paragraphs end with proper terminal punctuation (e.g., a period). This is strictly required even if the paragraph ends with an inline formula (e.g., write `exactly $\pi$.` instead of just `exactly $\pi$`). Missing terminal punctuation disrupts LaTeX's paragraph algorithms and causes `Underfull \hbox` warnings. Conversely, to prevent **`Overfull \hbox`** warnings (margin overflows), avoid extremely long inline math strings (`$ ... $`) without spaces; elevate complex expressions to display math (`\[ ... \]`) if necessary. Use standard LaTeX dashes (e.g., `--` with spaces or `---` without spaces) for abrupt thoughts, and **properly escape special LaTeX characters in plain text (e.g., `\&` instead of `&`).**
   - **Macro Naming Conventions:** Custom LaTeX macros defined with `\newcommand` MUST NOT contain hyphens or numbers in their names (e.g., use `\inlinemetanote`, not `\inline-meta-note`). Hyphens are interpreted as subtraction or separators by the TeX engine and will cause compilation to fail, often with a misleading `Missing \begin{document}` error.
   - **Emphasis and Bolding:** Strictly use `\emph{...}` instead of `\textbf{...}` for emphasizing text throughout the document (including within `spoken-clean`, `explanation-of-steps`, and `nice-box` titles). The only exception to this rule is inside `tikzpicture` environments, where `\textbf{...}` is permitted if strictly necessary for the visual clarity of specific geometric labels or nodes against complex backgrounds.
+  - **Strict Nesting Rules (Prevent Tcolorbox Crashes):** Our custom LaTeX environments are built using `tcolorbox`. Nesting them incorrectly will cause fatal `Nested breakable tcolorbox` compilation errors.
+    - **Forbidden Nesting:** NEVER nest `nice-box`, `color-box`, `spoken-clean`, `student-question`, `didactic-insight`, or `meta-note` inside a `math-stroke` block.
+    - **Allowed Nesting inside `math-stroke`:** You may ONLY place `tikzpicture`, `explanation-of-steps`, and `redundant-explanation` blocks inside a `math-stroke`.
+    - **Allowed Nesting inside `proof`:** The `proof` environment is the ONLY master container designed to wrap other major blocks (`spoken-clean`, `math-stroke`, `didactic-insight`, etc.).
 
 - **4. Pedagogical TikZ Mastery & Recalibration**
   - **CRITICAL TIKZ RULE (No Text-Drawing):** NEVER use TikZ `\node` commands to typeset plain text, bulleted lists, or standard equations. **Do not over-interpret "visual fidelity" as a command to draw text layouts.** TikZ is STRICTLY for geometric diagrams (e.g., shapes, graphs, 3D volumes). Standard board text, lists, and math formulas must be formatted using normal LaTeX environments (like `align*`, `enumerate`, `itemize`, or `\underbrace`) directly inside the `math-stroke` block.
@@ -181,7 +185,7 @@ For any lists, bullet points, or sequential steps, you MUST explicitly use `\beg
     - Use **ellipses** (`...`) more sparingly, reserving them for two specific cases: 1) A genuine, longer pause where the speaker is audibly searching for a word or structuring a thought (e.g., `The key insight here is... that the set is compact.`), or 2) A sentence that trails off and is left grammatically unfinished.
     - Use **em dashes** surrounded by spaces (` --- `) for two primary cases:
         - **Intentional Pauses:** To mark a deliberate, often rhetorical, long pause. This provides a different pacing feel from the hesitation implied by an ellipsis.
-        - **Abrupt Breaks:** For abrupt self-corrections, sudden interruptions, or restarting a sentence mid-thought (e.g., `We use the — wait, no — we use the sine.`).
+        - **Abrupt Breaks:** For abrupt self-corrections, sudden interruptions, or restarting a sentence mid-thought (e.g., `We use the --- wait, no --- we use the sine.`).
 *   **Stage Directions:** To add physical context, you MUST inject brief, objective stage directions using the custom `\inlinemetanote{...}` macro (e.g., `\inlinemetanote{points at the board}`).
 *   **Continuity:** If a speech block is interrupted by a `student-question` or board action, resume the subsequent speech with a valid timestamp. While a full timestamp is preferred for chronological accuracy, using `\begin{spoken-clean}[continued]` is permissible for very short interjections immediately following an interruption.
 
@@ -270,7 +274,7 @@ This environment gets uses for brief, objective stage directions that provide ph
     2.  Transcribe the verbal interaction leading to the correction in a `spoken-clean` block, including the `\inline-meta-note{Corrects the board}`.
     3.  Finally, create a new, second `math-stroke` block that shows the final, corrected state of the board.
     This redundant duplication is a feature, not a bug. It prioritizes absolute fidelity to the lecture's timeline over document brevity. This rule overrides the "Wait for Completion" directive when a correction happens after the initial writing is considered complete.
-*   **Structural Rule:** All `tikzpicture` graphics, `explanation-of-steps`, and `redundant-explanation` blocks MUST be placed *inside* this environment. Standalone equations are primarily placed here, but are also permitted inside `\begin{nice-box}`, `\begin{color-box}`, and `\begin{spoken-clean}`.
+*   **Structural Rule (Strict Nesting):** All `tikzpicture` graphics, `explanation-of-steps`, and `redundant-explanation` blocks MUST be placed *inside* this environment. **However, you MUST NEVER nest other major environments like `nice-box`, `color-box`, `spoken-clean`, or `didactic-insight` inside a `math-stroke`.** Standalone equations are primarily placed here, but are also permitted inside `\begin{nice-box}`, `\begin{color-box}`, and `\begin{spoken-clean}`.
 *   **Formatting Equations:** For multi-line equations, strictly use `\begin{align*}`. Do NOT include a trailing `\\` on the final line to prevent `Underfull \hbox` compilation errors. Use `\qquad` for spacing.
 
 #### Ground Truth Examples: `math-stroke`
@@ -465,8 +469,7 @@ This environment gets uses for brief, objective stage directions that provide ph
     <!-- invented example by AI prompt assistant -->
 
 ### Student Interaction (`student-question`)
-
-*   **Rule:** Use `\begin{student-question}[Optional Title]` to wrap direct questions or answers from students. Never leave parenthetical stage directions (e.g., "*(Student answers...)*") floating inside a `spoken-clean` block. Always split the lecturer's `spoken-clean` speech, wrap the student's quote formally in this environment, and then resume the lecturer's speech with a proper timestamp block. NEVER use `\begin{spoken-clean}[continued]`.
+*   **Rule:** Use `\begin{student-question}[Optional Title]` to wrap direct questions or answers from students. Never leave parenthetical stage directions (e.g., "*(Student answers...)*") floating inside a `spoken-clean` block. Always split the lecturer's `spoken-clean` speech, wrap the student's quote formally in this environment, and then resume the lecturer's speech with a proper timestamp block.
 
 #### Ground Truth Examples: `student-question` & `[continued]`
 **Scenario:** A student asks about the negativity of distance functions.
@@ -567,3 +570,22 @@ To manage cognitive load, plan complex structures, and preserve absolute data in
     *   `\begin{ai-off-camera-state}`: When the lecturer continues writing but the camera pans away.
     *   `\begin{ai-async-board-update}`: For silent board modifications happening asynchronously to the speech.
     *   `\begin{ai-kinetic-emphasis}`: To log non-verbal physical emphasis (e.g., forcefully tapping the board).
+*   `\begin{ai-global-state-checkpoint-invisible-content}`: **Rule:** *Optional.* To maintain logical consistency and focus over the full duration of the video, you MUST inject a periodic "Global State Checkpoint" using this scratchpad.
+    - **Frequency:** You MUST generate this checkpoint approximately every **5 to 7 minutes** of transcribed content.
+    - **Content:** The checkpoint MUST contain a minified, pseudo-code summary of the current lecture state:
+        - `timestamp`: The current timestamp in `HH:MM:SS` format.
+        - `topic`: The primary mathematical topic currently being discussed (e.g., `Proving Fubini's Theorem`).
+        - `board_state`: A list of the most important `\label`s for theorems, definitions, or equations currently "on the board" and relevant to the immediate discussion.
+        - `next_goal`: The lecturer's immediate objective for the next few minutes (e.g., `Show that the slice functions are Riemann integrable`).
+        - `open_loops`: Any unresolved student questions or explicit "we'll come back to this" statements from the lecturer.
+    - **Why it works:** This forces a periodic "cognitive reset" where you zoom out from the immediate transcription, re-evaluate the global narrative arc of the lecture, and then zoom back in. This prevents "context drift" and logical hallucinations common in long-form generation.
+    - **Example:**
+        ```latex
+        % \begin{ai-global-state-checkpoint-invisible-content}
+        % timestamp: 00:18:30
+        % topic: Proof of Cavalieri's Principle for sets.
+        % board_state: thm:cavalieri-jordan-sets, def:dyadic-cubes, eq:inner-outer-approx
+        % next_goal: Show that the slice measure functions (f(x), g(x)) are dyadic step functions.
+        % open_loops: none
+        % \end{ai-global-state-checkpoint-invisible-content}
+        ```
