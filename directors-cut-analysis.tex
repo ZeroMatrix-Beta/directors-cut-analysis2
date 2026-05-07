@@ -41,6 +41,21 @@
 \usepackage{parskip} % Modern paragraph spacing (no indents, clean vertical space)
 \linespread{1.05}    % Palatino benefits immensely from slightly increased line spacing
 
+% --- LIST SPACING FIX ---
+\usepackage{enumitem}
+\setlist{
+    topsep=0.5ex,
+    itemsep=0.5ex,
+    parsep=\parskip,
+    partopsep=0pt
+}
+
+% Make description labels flow like normal inline text with stretchable spaces
+\setlist[description]{
+    style=unboxed,
+    labelsep=0.333em plus 0.167em minus 0.111em
+}
+
 \usepackage{fancyhdr}
 \usepackage{extramarks}
 \pagestyle{fancy}
@@ -298,6 +313,13 @@
     \par\vspace{1ex}
 }
 
+% 10.5 Short Inline Proof (Safe to nest inside math-stroke)
+\newenvironment{short-proof}[1][Proof]{
+    \par\vspace{1ex}\noindent\textbf{\sffamily #1:} \itshape
+}{
+    \hfill$\blacksquare$\par\vspace{1ex}
+}
+
 % 11. Proof Wrapper (Overrides default amsthm proof)
 \let\proof\relax
 \let\endproof\relax
@@ -466,8 +488,13 @@
 
 \include{content/02-16-monday-flash-01-05-2026}
 \include{content/02-18-wednesday-copy-1}
+
 \include{content/thursday-to-merge-part1}
 \include{content/thursday-to-merge-part2}
+
+\include{content/02-19-thursday-2026-05-07-part1}
+\include{content/02-19-thursday-2026-05-07-part2}
+\include{content/02-19-thursday-2026-05-07-part3}
 
 %\include{folder-34-april-27th-2026/response-2-april-27th-2026}
 %\include{folder-34-april-27th-2026/response-3-april-27th-2026}

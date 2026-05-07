@@ -142,10 +142,30 @@ To prevent notation drift across transcription chunks, you MUST strictly enforce
   - **Typographical Integrity & Overfull/Underfull hboxes:** ALWAYS ensure that sentences and paragraphs end with proper terminal punctuation (e.g., a period). This is strictly required even if the paragraph ends with an inline formula (e.g., write `exactly $\pi$.` instead of just `exactly $\pi$`). Missing terminal punctuation disrupts LaTeX's paragraph algorithms and causes `Underfull \hbox` warnings. Conversely, to prevent **`Overfull \hbox`** warnings (margin overflows), avoid extremely long inline math strings (`$ ... $`) without spaces; elevate complex expressions to display math (`\[ ... \]`) if necessary. Use standard LaTeX dashes (e.g., `--` with spaces or `---` without spaces) for abrupt thoughts, and **properly escape special LaTeX characters in plain text (e.g., `\&` instead of `&`).**
   - **Macro Naming Conventions:** Custom LaTeX macros defined with `\newcommand` MUST NOT contain hyphens or numbers in their names (e.g., use `\inlinemetanote`, not `\inline-meta-note`). Hyphens are interpreted as subtraction or separators by the TeX engine and will cause compilation to fail, often with a misleading `Missing \begin{document}` error.
   - **Emphasis and Bolding:** Strictly use `\emph{...}` instead of `\textbf{...}` for emphasizing text throughout the document (including within `spoken-clean`, `explanation-of-steps`, and `nice-box` titles). The only exception to this rule is inside `tikzpicture` environments, where `\textbf{...}` is permitted if strictly necessary for the visual clarity of specific geometric labels or nodes against complex backgrounds.
-  - **Strict Nesting Rules (Prevent Tcolorbox Crashes):** Our custom LaTeX environments are built using `tcolorbox`. Nesting them incorrectly will cause fatal `Nested breakable tcolorbox` compilation errors.
+  - **Strict Nesting Rules (Prevent Tcolorbox Crashes):** Our custom LaTeX environments are built using `tcolorbox`. Nesting them incorrectly will cause fatal `Emergency stop` / `Nested breakable tcolorbox` compilation errors.
     - **Forbidden Nesting:** NEVER nest `nice-box`, `color-box`, `spoken-clean`, `student-interaction`, `didactic-insight`, `meta-note`, or `lecture-break` inside a `math-stroke` block.
-    - **Allowed Nesting inside `math-stroke`:** You may ONLY place `tikzpicture`, `explanation-of-steps`, and `redundant-explanation` blocks inside a `math-stroke`.
+    - **Allowed Nesting inside `math-stroke`:** You may ONLY place `tikzpicture`, `explanation-of-steps`, `redundant-explanation`, and `short-proof` blocks inside a `math-stroke`.
     - **Allowed Nesting inside `proof`:** The `proof` environment is the ONLY master container designed to wrap other major blocks (`spoken-clean`, `math-stroke`, `didactic-insight`, etc.).
+    - **BAD Example (Causes `Emergency stop` crash):**
+      ```latex
+      \begin{math-stroke}[Proof of the Triangle Inequality]
+          % BAD: `proof` is breakable and cannot be nested inside `math-stroke`.
+          \begin{proof} 
+              The first observation is that if either $x = 0$ or $y = 0$, the inequality is trivially satisfied.
+          \end{proof}
+      \end{math-stroke}
+      ```
+    - **GOOD Example (Compiles safely):**
+      ```latex
+      \begin{proof}[Proof of the Triangle Inequality]
+          \begin{spoken-clean}
+              Okay, so to prove the triangle inequality, we will first handle the trivial cases.
+          \end{spoken-clean}
+          \begin{math-stroke}[Trivial Cases]
+              The first observation is that if either $x = 0$ or $y = 0$, the inequality is trivially satisfied.
+          \end{math-stroke}
+      \end{proof}
+      ```
 
 - **4. Pedagogical TikZ Mastery & Recalibration**
   - **CRITICAL TIKZ RULE (No Text-Drawing):** NEVER use TikZ `\node` commands to typeset plain text, bulleted lists, or standard equations. **Do not over-interpret "visual fidelity" as a command to draw text layouts.** TikZ is STRICTLY for geometric diagrams (e.g., shapes, graphs, 3D volumes). Standard board text, lists, and math formulas must be formatted using normal LaTeX environments (like `align*`, `enumerate`, `itemize`, or `\underbrace`) directly inside the `math-stroke` block.
@@ -306,7 +326,9 @@ This environment gets uses for brief, objective stage directions that provide ph
     2.  Transcribe the verbal interaction leading to the correction in a `spoken-clean` block, including the `\inlinemetanote{Corrects the board}`.
     3.  Finally, create a new, second `math-stroke` block that shows the final, corrected state of the board.
     This redundant duplication is a feature, not a bug. It prioritizes absolute fidelity to the lecture's timeline over document brevity. This rule overrides the "Wait for Completion" directive when a correction happens after the initial writing is considered complete.
-*   **Structural Rule (Strict Nesting):** All `tikzpicture` graphics, `explanation-of-steps`, and `redundant-explanation` blocks MUST be placed *inside* this environment. **However, you MUST NEVER nest other major environments like `nice-box`, `color-box`, `spoken-clean`, `didactic-insight`, or `lecture-break` inside a `math-stroke`.** Standalone equations are primarily placed here, but are also permitted inside `\begin{nice-box}`, `\begin{color-box}`, and `\begin{spoken-clean}`.
+*   **Structural Rule (Strict Nesting):** All `tikzpicture` graphics, `explanation-of-steps`, `redundant-explanation`, and `short-proof` blocks MUST be placed *inside* this environment. **However, you MUST NEVER nest other major environments like `nice-box`, `color-box`, `spoken-clean`, `didactic-insight`, or `lecture-break` inside a `math-stroke`.** Standalone equations are primarily placed here, but are also permitted inside `\begin{nice-box}`, `\begin{color-box}`, and `\begin{spoken-clean}`.
+*   **Not a Proof Wrapper:** NEVER use `math-stroke` as the outermost container for a proof (e.g., do NOT write `\begin{math-stroke}[Proof...]`). Proofs must be strictly wrapped in the `proof` environment.
+*   **Optional Titles (Fallback):** The `[Title]` argument is strictly optional. Because `math-stroke` is meant to flow seamlessly like a textbook, if you cannot formulate a clean, highly descriptive title, you are **strongly encouraged to omit the title entirely** (i.e., just use `\begin{math-stroke}`).
 *   **Formatting Equations:** For multi-line equations, strictly use `\begin{align*}`. Do NOT include a trailing `\\` on the final line to prevent `Underfull \hbox` compilation errors. Use `\qquad` for spacing.
 
 #### Ground Truth Examples: `math-stroke`
@@ -562,9 +584,13 @@ This environment gets uses for brief, objective stage directions that provide ph
     \end{nice-box}
     ```
 
-### Custom Proof Wrapper (`proof`)
+### Custom Proof Wrappers (`proof` vs `short-proof`)
 
-*   **Rule:** Use `\begin{proof}[Optional Name]` as a master container to encapsulate the entire transcription of a formal mathematical proof. It MUST wrap all associated environments, including `spoken-clean`, `math-stroke`, `didactic-insight`, and `student-interaction` blocks that are part of the proof's narrative. This project uses a custom wrapper that overrides the standard `amsthm` proof to provide enhanced visual styling (e.g., a "PROOF" watermark and an explicit "Q.E.D." badge).
+*   **The Master Narrative Proof (`\begin{proof}`):** Use `\begin{proof}[Optional Name]` as a master container to encapsulate the entire transcription of a formal, multi-part mathematical proof. It MUST wrap all associated environments, including `spoken-clean`, `math-stroke`, `didactic-insight`, and `student-interaction` blocks that are part of the proof's narrative. This project uses a custom wrapper that overrides the standard `amsthm` proof to provide enhanced visual styling (e.g., a "PROOF" watermark and an explicit "Q.E.D." badge).
+*   **The Inline Fallback Proof (`\begin{short-proof}`):** Use `\begin{short-proof}[Optional Name]` strictly *inside* a `math-stroke`, `nice-box`, or `color-box` for quick, self-contained proofs (e.g., a 3-line derivation of a corollary, or verifying a trivial property) that do not require interleaving `spoken-clean` blocks. Because this is a lightweight standard environment, it is completely safe to nest inside `math-stroke` without crashing the compiler.
+*   **CRITICAL PROOF RULE (vs. `math-stroke`):** NEVER use `math-stroke` as the outer container for a proof. You MUST use `\begin{proof}[Proof of ...] ... \end{proof}` as the master wrapper. 
+*   **Theorem Statement Requirement:** Before opening a `proof` environment, the theorem, lemma, or proposition being proven MUST have been formally stated in a preceding `math-stroke`, `nice-box`, or `color-box` block (unless it is an informal exercise given strictly verbally).
+*   **No Title Duplication & Sub-steps:** Inside the `proof` environment, the inner `math-stroke` blocks must NOT repeat the title of the proof or use the word "Proof" again. For logical sub-steps or directions, use clean labels like `\begin{math-stroke}[Forward Implication \texorpdfstring{$\implies$}{=>}]`, `\begin{math-stroke}[Implication \texorpdfstring{$\impliedby$}{<=}]`, or `\begin{math-stroke}[Base Case]`. If you cannot think of a highly descriptive sub-title, leave it empty.
 
 #### Ground Truth Examples: `proof`
 **Scenario:** A multi-part proof that combines spoken explanation with formal mathematics.
@@ -575,7 +601,7 @@ This environment gets uses for brief, objective stage directions that provide ph
     Okay, so let's prove that. So maybe to do the proof, I will do a drawing...
     \end{spoken-clean}
 
-    \begin{math-stroke}[Approximation with Dyadic Cubes]
+    \begin{math-stroke}[Approximation with Dyadic Cubes] % Note: Different title than the proof!
     % ... TikZ diagram and equations ...
     \end{math-stroke>
 

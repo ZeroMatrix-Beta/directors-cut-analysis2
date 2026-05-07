@@ -179,7 +179,6 @@ So, by definition of the limit, exists — so given that $\epsilon$ over there, 
 \end{spoken-clean}
 
 \begin{proof}[Formal Proof: Uniqueness of Limits]
-\begin{math-stroke}
 Assume $x_n \to x$ and $x_n \to y$ with $x \neq y$. By the first metric axiom, $d(x, y) > 0$. Let $d(x, y) = 3\epsilon$ for some $\epsilon > 0$.
 By the definition of convergence:
 \begin{itemize}
@@ -193,7 +192,6 @@ Let $N = \max(N_x, N_y)$. Then for all $n \ge N$, both conditions hold. Applying
 &< \epsilon + \epsilon = 2\epsilon
 \end{align*}
 This yields $3\epsilon < 2\epsilon$, which is a contradiction since $\epsilon > 0$. Thus, our assumption $x \neq y$ must be false, and $x = y$.
-\end{math-stroke}
 \end{proof}
 
 % \begin{ai-global-state-checkpoint-invisible-content}
@@ -330,12 +328,10 @@ So, let's prove that. Proof. \inlinemetanote{Writes on the board} So, what we ne
 % \end{ai-global-state-checkpoint-invisible-content}
 
 \begin{proof}[Proof of Lemma \ref{lem:convergence-acc-point-v1} (Partial)]
-\begin{math-stroke}
 We aim to show the equivalence:
 \[ x_n \to x \iff \left( \forall (x_{n_k}) \text{ s.t. } x_{n_k} \to y \implies y = x \right) \]
 The implication $(\impliedby)$ is considered trivial by the lecturer:
 If every convergent subsequence must converge to $x$, then since the sequence $(x_n)$ is a subsequence of itself (where $f = \id$), it must also converge to $x$.
-\end{math-stroke}
 \end{proof}
 
 \begin{student-interaction}
@@ -606,7 +602,6 @@ Let $(x_m)_{m \ge 0}$ be a sequence in $\mathbb{R}^n$. Then $x_m$ converges to $
 So, the way to find if a sequence converges in $\mathbb{R}^n$, it's just look at each coordinate, and if each coordinate is converging to the corresponding coordinate of the limit --- these are the coordinates of that, right? --- then you have the convergence, and this is if and only if. And we will first prove the lemma, and from this lemma we will get immediately that the $\mathbb{R}^n$ is complete. Okay.
 \end{spoken-clean}
 
-\begin{proof}[Proof of Lemma \ref{lem:coordinate-convergence}]
 \begin{spoken-clean}[00:17:21 - 00:18:42]
 Okay, let's do this implication, right? The implication to the right ($\implies$). So, I start --- starting point is I know that $x_m$ converges to $x$. What does it mean? \inlinemetanote{Writes on the board} For all $\epsilon$ positive, exists capital $N$ such that the modulus of $x_m - x$ is less than $\epsilon$ if $m$ is bigger than $N$. This is the definition of convergence in a metric space, and I'm using that in my metric space the distance is the modulus of the difference of points. So, this is the same as the distance between $x_m$ and $x$. It's the definition of the Euclidean distance. Right?
 \end{spoken-clean}
@@ -675,14 +670,12 @@ By choosing a sufficiently large $N$ such that every coordinate is \qt{close eno
 \begin{spoken-clean}[00:24:45 - 00:25:20]
 You see, this establishes that implication. So, I assumed that the coordinates converge, I needed to take a smaller $\epsilon$ divided by $n$, but then the vector converges. Right?
 \end{spoken-clean}
-\end{proof}
 
 \begin{spoken-clean}[00:25:20 - 00:26:35]
 And now, with exactly the same trick, exactly the same setup, I can prove the theorem. Proof of the theorem, today's theorem that is the completeness of $\mathbb{R}^n$. $\mathbb{R}^n$ complete. Right? So, how do you prove that something is complete? You need to take --- you give me a Cauchy sequence and I must show that the Cauchy sequence converges.
 \end{spoken-clean}
 
 \begin{proof}[Proof of Theorem \ref{thm:rn-complete}: Completeness of \texorpdfstring{$\mathbb{R}^n$}{Rn}]
-\begin{math-stroke}
 Let $(x_m)_{m \ge 0}$ be a Cauchy sequence in $\mathbb{R}^n$.
 \begin{description}
     \item[Step 1: Coordinate-wise Cauchy:] By the inequality in Equation \ref{eq:coord-norm-bound}, for each $i \in \{1, \dots, n\}$:
@@ -694,7 +687,6 @@ Let $(x_m)_{m \ge 0}$ be a Cauchy sequence in $\mathbb{R}^n$.
     \[ \lim_{m \to \infty} x_m = x \]
 \end{description}
 Thus, every Cauchy sequence in $\mathbb{R}^n$ converges, proving that $\mathbb{R}^n$ is complete.
-\end{math-stroke}
 \end{proof}
 
 \begin{spoken-clean}[00:26:35 - 00:28:08]

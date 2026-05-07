@@ -56,9 +56,7 @@ We define the \emph{open ball} of radius $r > 0$ centered at a point $x \in X$ i
 The open ball is the set of all points whose distance to the center $x$ is strictly less than the radius $r$. The strict inequality ($<$) is what makes the ball \qt{open}—it does not include its boundary.
 \end{explanation-of-steps}
 
-\begin{nice-box}[Notation Note]
-The lecturer notes that $B_r(x)$ is an equivalent and common notation for $B(x, r)$ found in many textbooks.
-\end{nice-box}
+\textbf{Notation Note:} The lecturer notes that $B_r(x)$ is an equivalent and common notation for $B(x, r)$ found in many textbooks.
 \end{math-stroke}
 
 \begin{spoken-clean}[00:03:13 - 00:05:12]
@@ -257,7 +255,6 @@ In any metric space $(X, d)$:
 So, this means that if you have some collection $\{U_i\}_{i \in I}$ of $U_i$ subset $X$ open, then the union of this collection (that can be --- the union of the collection is also open). Right? And also finite intersections of open sets are open. Right? So, this means that if $I$ is finite (is a finite set), the intersection --- let's say, let's put it like this: the intersection of $U_i$ for $i$ between $1$ and capital $N$ (a bounded number) --- this is open set.
 \end{spoken-clean}
 
-\begin{proof}[Proof of Proposition \ref{prop:open-sets-unions-intersections}]
 \begin{spoken-clean}[continued]
 The proof of this is just using the definition. So, if I want to check that a union is open, I take a point $x$ in this set that is the union. Let me call this in the union. And then this in particular $x$ belongs to one of them, because it's a union. I call $i_0$ is one of the $i$s. I any of them. And then since this --- this guy is open, exists some radius such that the ball of radius $r$ centered at $x$ is contained in $U_{i_0}$. But this is contained in the union. Which proves that this union is open, right?
 \end{spoken-clean}
@@ -300,7 +297,6 @@ Let $U_1, \dots, U_N$ be open sets. Let $x \in \bigcap_{i=1}^N U_i$.
 \end{description}
 Thus, the finite intersection is open.
 \end{math-stroke}
-\end{proof}
 
 % \begin{ai-global-state-checkpoint-invisible-content}
 % timestamp: 00:18:00
@@ -332,7 +328,6 @@ In any metric space $(X, d)$:
 \end{nice-box}
 
 \begin{math-stroke}[Proof via De Morgan's Laws]
-\begin{proof}
 The properties of closed sets follow directly from the properties of open sets using De Morgan's Laws:
 \begin{align}
 X \setminus \left( \bigcup_{i \in I} A_i \right) &= \bigcap_{i \in I} (X \setminus A_i) \label{eq:demorgan-union} \\
@@ -342,7 +337,6 @@ X \setminus \left( \bigcap_{i \in I} A_i \right) &= \bigcup_{i \in I} (X \setmin
     \item[Arbitrary Intersections:] Let $\{A_i\}_{i \in I}$ be closed. Then each $X \setminus A_i$ is open. By Proposition \ref{prop:open-sets-unions-intersections}, their arbitrary union $\bigcup (X \setminus A_i)$ is open. By Equation \ref{eq:demorgan-intersection}, this union is the complement of the intersection $\bigcap A_i$. Since the complement is open, the intersection is closed.
     \item[Finite Unions:] Let $A_1, \dots, A_N$ be closed. Then each $X \setminus A_i$ is open. By Proposition \ref{prop:open-sets-unions-intersections}, their finite intersection $\bigcap (X \setminus A_i)$ is open. By Equation \ref{eq:demorgan-union}, this intersection is the complement of the union $\bigcup A_i$. Since the complement is open, the union is closed.
 \end{description}
-\end{proof}
 \end{math-stroke}
 
 \begin{spoken-clean}[00:21:42 - 00:24:23]

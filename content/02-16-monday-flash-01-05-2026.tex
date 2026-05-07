@@ -618,7 +618,7 @@ The statement in Equation \ref{eq:triangle_xyz} is equivalent to the following s
 \end{equation}
 \end{color-box}
 
-\begin{proof}[Proof of Equivalence]
+\textbf{Proof of Equivalence:}
 To see the equivalence, we perform a change of variables. Let:
 \begin{align*}
 a &= y - x \\
@@ -629,7 +629,6 @@ Summing these vectors yields:
 Substituting these into Equation \ref{eq:triangle_xyz}, we obtain:
 \[ \|a + b\| \le \|a\| + \|b\| \]
 which is exactly the form of Equation \ref{eq:triangle_star}. Since the mapping $(x, y, z) \mapsto (a, b)$ is surjective, the two statements are logically equivalent.
-\end{proof}
 \end{math-stroke}
 
 \begin{spoken-clean}[00:29:18 - 00:31:17]
@@ -696,7 +695,6 @@ Ah, yes. Actually is the same but, yeah, now that you say it, is better. So, you
 \end{spoken-clean}
 
 \begin{math-stroke}[Proof of the Triangle Inequality (Corrected)]
-\begin{proof}
 We aim to prove Equation \ref{eq:triangle_star}: $\|x + y\| \le \|x\| + \|y\|$. Since both sides are non-negative, this is equivalent to proving:
 \begin{equation} \label{eq:triangle_sq_correct}
 \|x + y\|^2 \le (\|x\| + \|y\|)^2 = \|x\|^2 + \|y\|^2 + 2\|x\|\|y\|
@@ -716,7 +714,6 @@ Canceling the common terms $\|x\|^2$ and $\|y\|^2$ and dividing by 2, we find th
 \begin{equation} \label{eq:cs_goal}
 x \cdot y \le \|x\|\|y\|
 \end{equation}
-\end{proof}
 \end{math-stroke}
 
 \begin{spoken-clean}[00:03:28 - 00:05:50]
@@ -736,7 +733,6 @@ x \cdot y \le \|x\|\|y\|
 \end{nice-box}
 
 \begin{math-stroke}[Proof of the Cauchy-Schwarz Inequality]
-\begin{proof}
 The first observation is that if either $x = 0$ or $y = 0$, the inequality is trivially satisfied as $0 \le 0$. Therefore, we assume without loss of generality (WLOG) that both $x \neq 0$ and $y \neq 0$.
 
 Recall the definition of the scalar product:
@@ -759,7 +755,6 @@ Substituting this optimal value of $\lambda^2$ back into the inequality:
 \end{align*}
 Dividing by 2, we arrive at the Cauchy-Schwarz inequality:
 \[ x \cdot y \le \|x\|\|y\| \]
-\end{proof}
 \end{math-stroke}
 
 \begin{spoken-clean}[00:05:50 - 00:08:20]

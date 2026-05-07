@@ -196,7 +196,7 @@ Proof of number one. So, I need to do two implications. First I will do this sid
 And now, since by assumption $x_n$ is converging to $x$, by definition of convergence what did we mean? What was the definition of convergence? Remember: given any $\epsilon$ --- I called it in the definition this was the $\epsilon$, now is $r$ but is the same --- for $n$ large enough, bigger than a certain capital $N$, my sequence will belong to the ball of radius $\epsilon$. So, since $x_n$ converges to $x$, exists some capital $N$ (depending on $r$) such that $x_n$ belongs to the ball $B(x, r)$ for all $n$ bigger than $N$.
 \end{spoken-clean}
 
-\begin{math-stroke}[Proof: Implication \texorpdfstring{$\implies$}{=>}]
+\begin{math-stroke}[Forward Implication \texorpdfstring{$\implies$}{=>}]
 \begin{ai-proof-skeleton-invisible-content}
 % 1. Assume U is open and x_n -> x in U.
 % 2. Use openness to find a ball B(x, r) in U.
@@ -225,7 +225,7 @@ Now I will prove still of number one the second implication, the one this way ($
 So now, let's do a bit of logic. What is the negation of $U$ open? Remember now, every time: what is the definition of $U$ open? Before computing what is the negated statement we need to remember the original statement. $U$ open is: for every point in my set $U$, exists some radius such that the ball is contained in $U$. Right? And now we do the negation. The negation of \qt{for every point} is \qt{exists a point}. So the negation: $U$ is not open is the same as exists $x$ in $U$. Now it goes and it said \qt{for every point, exists a radius}. Now the exists when you negate is \qt{for every radius} positive, the ball is contained is \qt{is not contained}. Is the ball centered at $x$ with radius $r$ is not contained in $U$.
 \end{spoken-clean}
 
-\begin{math-stroke}[Proof: Implication \texorpdfstring{$\impliedby$}{<=} via Contraposition]
+\begin{math-stroke}[Implication \texorpdfstring{$\impliedby$}{<=} via Contraposition]
 \begin{ai-proof-skeleton-invisible-content}
 % 1. Assume U is not open.
 % 2. Negate the definition of openness: exists x in U s.t. for all r > 0, B(x, r) is not in U.
@@ -233,6 +233,7 @@ So now, let's do a bit of logic. What is the negation of $U$ open? Remember now,
 % 4. Show x_n -> x but x_n is never in U.
 \end{ai-proof-skeleton-invisible-content}
 We prove the converse by contraposition. Assume $U$ is \emph{not} open.
+
 \begin{description}
     \item[Step 1 (Negating Openness):] The negation of the definition of an open set is:
     \[ \exists x \in U \text{ s.t. } \forall r > 0, B(x, r) \not\subseteq U \]
@@ -279,12 +280,14 @@ Now, I'm saying: there exists a point that would be one of these points of the s
 Taking $r = 1/n$ for $n$ greater than or equal to 1, I produced a sequence of points --- so these balls are smaller and smaller --- and these points $x_r$ --- so I call $x_n$ this point $x_n$ is the $x$ for $r = 1/n$. These points are in balls closer and closer to $x$, so they are converging to the point $x$. Right? So I found a sequence that is converging to the point $x$ and that comes from the outside. But then, this is false (i.e., contradicts the assumption) because I'm saying that up to finitely many exceptions the sequence should be contained in $U$. And all of the elements of this sequence are outside of $U$, so this is false. So this contradicts that $x_n$ belongs to $U$ eventually, and it ends the proof of this implication. I proved that no left implies no right.
 \end{spoken-clean}
 
-\begin{math-stroke}[Conclusion of the Proof]
+\begin{math-stroke}[Conclusion]
 \begin{description}
     \item[Contradiction:] We have found a sequence $(x_n)$ such that $x_n \to x \in U$, but $x_n \notin U$ for \emph{all} $n$. This directly contradicts the property that $x_n$ must be in $U$ eventually.
 \end{description}
 Thus, the contrapositive is proven: if the \qt{eventually in $U$} property holds for all convergent sequences, then $U$ must be open.
 \end{math-stroke}
+
+\end{proof}
 
 \begin{spoken-clean}[00:25:30 - 00:27:23]
 Okay, is this okay, this type of proof? So I see this is the usual problem: when I see people that are sleeping, I don't know if they are completely lost, not sleeping but very serious, I don't know if they are completely lost, if they find it super boring or what is the problem. So if someone has questions and wants to participate, we can slow down and ask questions, otherwise we continue with other stuff. We still need to do this one (i.e., Part 2 of the Lemma), right?
