@@ -20,11 +20,46 @@
 % --- EMPHASIS STYLE OVERRIDE ---
 \DeclareTextFontCommand{\emph}{\bfseries}
 
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1in, headheight=35pt]{geometry}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref}
+
+% --- HYPERREF AESTHETICS ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=MidnightBlue,
+    filecolor=Magenta,      
+    urlcolor=MidnightBlue,
+    citecolor=MidnightBlue,
+    bookmarksopen=true
+}
+
 \usepackage{tcolorbox}
 \tcbuselibrary{skins, breakable, theorems}
+
+% --- TYPOGRAPHY & LAYOUT ENHANCEMENTS ---
+\usepackage{parskip} % Modern paragraph spacing (no indents, clean vertical space)
+\linespread{1.05}    % Palatino benefits immensely from slightly increased line spacing
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyhead[R]{\sffamily\color{Gray}\thepage}
+\fancyhead[L]{\sffamily\color{Gray}\leftmark}
+\fancyfoot[L]{\sffamily\color{Gray}\rightmark}
+\fancyfoot[R]{\sffamily\color{Gray}\lastxmark}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{Gray!50}\leaders\hrule height 0.5pt\hfill}}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{Gray!50}\leaders\hrule height 0.5pt\hfill}}
+
+% Redefine marks to capture both section and subsection
+\renewcommand{\sectionmark}[1]{%
+    \markright{\MakeUppercase{\thesection.\ #1}}%
+    \extramarks{}{}% Clear the subsection mark when a new section starts
+}
+\renewcommand{\subsectionmark}[1]{%
+    \extramarks{\MakeUppercase{\thesubsection.\ #1}}{\MakeUppercase{\thesubsection.\ #1}}%
+}
 
 % Fail-Safe TikZ Configuration
 \usepackage{tikz}
@@ -50,16 +85,18 @@
 \newcommand{\inlinemetanote}[1]{\textit{[\textcolor{Gray}{#1}]}}
 
 % Standard Math Environments
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}
+\newtheorem{definition}[theorem]{Definition}
 
 % --- NUMBEREd ENVIRONMENTS ---
 %\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 %\newtheorem{definition}[theorem]{Definition}
 \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
 
 % --- UNNUMBERED ENVIRONMENTS ---
 % The asterisk (*) prevents them from being numbered!
@@ -69,11 +106,11 @@
 \newtheorem*{definition*}{Definition}
 \newtheorem*{corollary*}{Corollary}
 \newtheorem*{claim*}{Claim}
+\newtheorem*{example*}{Example}
+\newtheorem*{exercise*}{Exercise}
 
 \newtheorem*{notation}{Notation}
 \newtheorem*{remark}{Remark}
-\newtheorem*{exercise}{Exercise}
-\newtheorem*{example}{Example}
 \newtheorem*{summary}{Summary}
 \newtheorem*{warmup}{Warm up}
 \newtheorem*{question}{Question}
@@ -109,6 +146,7 @@
     coltitle=black,
     attach boxed title to top left={xshift=10pt, yshift=-10pt},
     boxed title style={colback=gray!20, colframe=white, boxrule=0pt},
+    top=14pt,
     breakable
 }
 
@@ -140,7 +178,7 @@
     arc=4pt,
     drop fuzzy shadow=#1!30,
     attach boxed title to top left={xshift=10pt, yshift=-10pt},
-    boxed title style={colback=white, colframe=#1, boxrule=0.5pt},
+    boxed title style={colback=white, colframe=#1, boxrule=0.5pt, top=2pt, bottom=2pt, left=4pt, right=4pt},
     % Hide title area completely if the optional argument is not provided
     IfValueF={#2}{notitle}
 }
@@ -158,7 +196,7 @@
         arc=4pt,
         drop fuzzy shadow=#3,
         attach boxed title to top left={xshift=10pt, yshift=-10pt},
-        boxed title style={colback=white, colframe=#2, boxrule=0.5pt}
+        boxed title style={colback=white, colframe=#2, boxrule=0.5pt, top=2pt, bottom=2pt, left=4pt, right=4pt}
     }%
 }
 
@@ -239,13 +277,16 @@
 }
 
 % 9. Student Question, Student Interaction, or Common Confusion.
-\newtcolorbox{student-question}[1][Student Question]{
+\newtcolorbox{student-interaction}[1][Student Interaction]{
     enhanced,
     frame hidden,
-    colback=Gray!10,
-    borderline={0.5pt}{0pt}{Gray, dashed},
-    title={\sffamily\bfseries\textcolor{Gray!90!black}{#1}},
+    colback=Violet!5!white,
+    borderline west={3pt}{0pt}{Violet},
+    title={\sffamily\bfseries\textcolor{Violet!90!black}{#1}},
     attach title to upper=\par\vspace{1ex},
+    fontupper=\itshape,
+    left skip=20pt,
+    right skip=20pt,
     breakable
 }
 
@@ -287,6 +328,19 @@
     }
 }
 
+% 12. Lecture Break
+\newtcolorbox{lecture-break}[1][Lecture Break]{
+    enhanced,
+    frame hidden,
+    colback=white,
+    borderline top={0.5pt}{0pt}{Gray, dashed},
+    borderline bottom={0.5pt}{0pt}{Gray, dashed},
+    title={\sffamily\bfseries\centering\textcolor{Gray!90!black}{#1}},
+    attach title to upper=\par\vspace{1ex},
+    fontupper=\centering\itshape\color{Gray!90!black},
+    breakable
+}
+
 % ==========================================
 % INVISIBLE LAYER & FALLBACK ENVIRONMENTS (V1.17)
 % ==========================================
@@ -298,6 +352,7 @@
 \NewEnviron{ai-example-invisible-content}[1][]{}
 \NewEnviron{ai-discard-invisible-content}[1][]{}
 \NewEnviron{ai-retroactive-patch}[1][]{}
+\NewEnviron{ai-global-state-checkpoint-invisible-content}{}
 
 % Data Integrity Fallbacks (Rendered as visible warning boxes in case they appear in the source)
 \newtcolorbox{ai-logical-gap}[1][Logical Gap]{
@@ -381,6 +436,11 @@
     breakable
 }
 
+% Custom Lecture Chapter Command
+\newcommand{\lecturechapter}[4]{%
+  \chapter[#1, #2: #4]{{\Large\color{Gray}#1: #3} \texorpdfstring{\\[1ex]}{-- } {\LARGE #4}}%
+}
+
 % --- Chapter Formatting ---
 % Removes the massive default whitespace at the top of the page
 \titlespacing*{\chapter}{0pt}{-20pt}{40pt}
@@ -406,6 +466,8 @@
 
 \include{content/02-16-monday-flash-01-05-2026}
 \include{content/02-18-wednesday-copy-1}
+\include{content/thursday-to-merge-part1}
+\include{content/thursday-to-merge-part2}
 
 %\include{folder-34-april-27th-2026/response-2-april-27th-2026}
 %\include{folder-34-april-27th-2026/response-3-april-27th-2026}

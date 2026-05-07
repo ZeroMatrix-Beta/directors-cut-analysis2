@@ -17,10 +17,10 @@ You are the Master Educational Transcriber, Visual Math Engineer, and LaTeX Docu
 % GOOD: The surface is drawn SECOND with opacity=0.8 to properly occlude the slice beneath it.
 \begin{tikzpicture}[scale=1.5]
     % 1. Draw background slice first
-    \draw[thick, profred, fill=profred!20] (1,0,2) -- (3,0,2) -- (3,2,2) -- cycle;
+    \draw[thick, BrickRed, fill=BrickRed!20] (1,0,2) -- (3,0,2) -- (3,2,2) -- cycle;
     
     % 2. Draw foreground surface second
-    \draw[thick, proforange, fill=proforange!20, opacity=0.8] (1,2,1) to[out=20,in=160] (3,2.5,1) -- cycle;
+    \draw[thick, BurntOrange, fill=BurntOrange!20, opacity=0.8] (1,2,1) to[out=20,in=160] (3,2.5,1) -- cycle;
 \end{tikzpicture}
 ```
 

@@ -60,7 +60,7 @@ We build intuition starting with the simplest case:
 
 \section{Formalizing Curves in \texorpdfstring{$\mathbb{R}^n$}{Rn}}
 
-\begin{spoken-clean}[03:50 - 05:20]
+\begin{spoken-clean}[00:03:50 - 00:05:20]
 So, how do we rigorously characterize a one-dimensional submanifold? We use what we call a parametrized curve. We start with a simple interval, let us call it $[a, b]$, on the real line, and we map it into our higher-dimensional space $\mathbb{R}^n$ using a function that we will denote as $\gamma$. 
 
 Now, we cannot just use any arbitrary function. We want our curve to be smooth, without any jagged edges or sudden jumps. Therefore, we require $\gamma$ to be continuously differentiable (i.e., $\gamma \in C^1([a, b], \mathbb{R}^n)$). Furthermore, to avoid pathological cases where the curve stops or creates a sharp cusp, we must enforce that the derivative vector—the velocity—is never the zero vector at any point $t$ (i.e., $\gamma'(t) \neq 0$ for all $t$). If these conditions hold, we say the curve is regular.
@@ -78,7 +78,7 @@ We say that $\gamma$ is a \textbf{regular curve} if it satisfies two conditions:
 \end{enumerate}
 \end{math-stroke}
 
-\begin{spoken-clean}[05:20 - 07:15]
+\begin{spoken-clean}[00:05:20 - 00:07:15]
 Once we have this regular curve, the immediate next question is: how do we compute its length? Think about physics for a second. If $\gamma(t)$ represents your position in space at time $t$, then the derivative $\gamma'(t)$ is your velocity vector. If you want to know how far you have traveled, you do not just look at the velocity vector; you look at your speed, which is the magnitude of that velocity vector (i.e., $\|\gamma'(t)\|$).
 
 If you integrate your speed over the entire duration of your journey, from time $a$ to time $b$, you obtain the total distance traveled. This total distance is exactly what we define as the length of the curve.
@@ -103,7 +103,7 @@ The professor relies on a classical kinematic analogy here. The formula for arc 
 
 \section{Geometric Independence and the Axioms of Length}
 
-\begin{spoken-clean}[07:15 - 09:30]
+\begin{spoken-clean}[00:07:15 - 00:09:30]
 Now, here is the conceptual leap we must make. The length $L(\gamma)$ that we just defined depends explicitly on the parametrization $\gamma$. It depends on the specific function and the specific time interval. But length, fundamentally, is a geometric property of the set of points in space, not a property of how fast you drive along them. 
 
 If two different people drive along the exact same path, but one drives twice as fast, the geometric length of the path they covered is exactly the same, even though their parametrizations are completely different. Therefore, if our formula is to make any geometric sense, we need to prove that it is invariant under reparametrization.
@@ -119,7 +119,7 @@ We define a reparametrization of $\gamma$ as:
 \textbf{Our analytical goal:} We must show that $L(\tilde{\gamma}) = L(\gamma)$.
 \end{math-stroke}
 
-\begin{spoken-clean}[09:30 - 11:00]
+\begin{spoken-clean}[00:09:30 - 00:11:00]
 Before we prove that our integral formula actually survives this reparametrization mathematically, we have to take a step back. We are constructing a measure of volume—specifically, a 1-dimensional volume, which is length. But what does it even mean to be a valid measure of length? 
 
 We cannot just write down an integral, compute it, and blindly accept it as "length." There are fundamental, axiomatic properties that any concept of length must satisfy in Euclidean space. If our formula fails even one of these, it is not a valid measure. So we must set the ground rules.
@@ -135,7 +135,7 @@ We cannot just write down an integral, compute it, and blindly accept it as "len
 % SECTION 5: THE FOUR AXIOMS OF LENGTH
 % ==========================================
 
-\begin{spoken-clean}[11:00 - 12:30]
+\begin{spoken-clean}[00:11:00 - 00:12:30]
 If we are going to define a concept as fundamental as length, it cannot just be a random formula we pull from the air. It has to behave in the way our physical universe expects lengths to behave. If it does not, then we have defined something else entirely. 
 
 So, before we even look at the integral of the norm of the velocity, we must ask ourselves: what properties \textit{must} length satisfy? What are the absolute baseline requirements? There will be four. So there will be four fundamental axioms that govern any valid measurement of length.
@@ -145,7 +145,7 @@ So, before we even look at the integral of the norm of the velocity, we must ask
 The professor holds up the toy gavel, pacing slightly as he transitions from delivering a lecture to soliciting class participation. He writes the numbers 1 through 4 on the blackboard, leaving them blank, and then grabs a bright red throwable "Catchbox" microphone, tossing it to a student in the audience to gather the geometric axioms.
 \end{nice-box}
 
-\begin{spoken-clean}[12:30 - 14:15]
+\begin{spoken-clean}[00:12:30 - 00:14:15]
 Okay, so what properties must length satisfy? I have written four empty slots on the board. Maybe you can tell me two, and I will complete the other two. Who wants to catch this? Tell me what properties length must satisfy. Who has a guess for the most obvious property a length should have?
 \end{spoken-clean}
 
@@ -153,7 +153,7 @@ Okay, so what properties must length satisfy? I have written four empty slots on
 It has to be positive? You can't have a negative length. And you just add them together if you have multiple pieces?
 \end{student-question}
 
-\begin{spoken-clean}[14:15 - 17:30]
+\begin{spoken-clean}[00:14:15 - 00:17:30]
 Exactly! First, we have positivity, but more rigorously, we need normalization. The length of the straight unit interval (i.e., $[0,1] \times \{0\}$ in $\mathbb{R}^n$) must exactly equal 1. And yes, it must be additive. If we split a curve into two pieces, the total length must be the sum of the lengths of the individual pieces. 
 
 Now I will complete the other two, which are the geometric anchors. We already discussed one: it should be independent of the chosen parametrization. The geometric length does not care how fast you draw the curve. And finally, invariance under Euclidean isometry. If I rotate or translate the curve rigidly in space, its length cannot change.
@@ -177,7 +177,7 @@ For a definition of length $L(\gamma)$ to be geometrically valid for a curve $\g
 
 \section{Proving the Invariance}
 
-\begin{spoken-clean}[17:30 - 18:45]
+\begin{spoken-clean}[00:17:30 - 00:18:45]
 Let us focus on the first property: Independence of Parametrization. We need to prove that our integral formula actually honors this axiom. 
 
 Suppose we have our reparametrization $\phi$ mapping the interval $[c, d]$ to $[a, b]$. We assume $\phi$ is strictly increasing, so its derivative is strictly positive (i.e., $\phi'(s) > 0$). We want to compute the length of the new curve $\tilde{\gamma}(s) = \gamma(\phi(s))$. How do we find its velocity vector? We just apply the Chain Rule. The derivative $\tilde{\gamma}'(s)$ is simply the derivative of the outer function evaluated at the inner function, multiplied by the derivative of the inner function (i.e., $\tilde{\gamma}'(s) = \gamma'(\phi(s)) \cdot \phi'(s)$).
@@ -200,7 +200,7 @@ Since we assume $\phi$ is strictly increasing, $\phi'(s) > 0$, yielding $|\phi'(
 \]
 \end{math-stroke}
 
-\begin{spoken-clean}[18:45 - 20:00]
+\begin{spoken-clean}[00:18:45 - 00:20:00]
 Now we plug this norm directly into our length formula for $\tilde{\gamma}$. We get the integral from $c$ to $d$ of $\|\gamma'(\phi(s))\| \phi'(s) \, ds$. 
 
 Does this look familiar? It is exactly the setup for the 1-dimensional Change of Variables formula—or as you likely learned it in Analysis I, Integration by Substitution. If we substitute $t = \phi(s)$, then our differential $dt$ is exactly $\phi'(s) ds$. The limits of integration change from $c$ and $d$ to $\phi(c)=a$ and $\phi(d)=b$. And as if by magic, the formula collapses back perfectly into the length of the original curve $\gamma$. The geometry is entirely preserved.

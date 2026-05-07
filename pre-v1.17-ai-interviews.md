@@ -249,20 +249,16 @@ When the AI refers to "examples provided in the prompt" or "context" in the inte
 Independent of chosen parametrization. \textit{[Writes on the board]} Right? Okay. Can you throw the dice (i.e., the catch-box microphone) to someone else? Where to? Over there. Right.
 \end{spoken-clean}
 
-\begin{student-question}
-Um, you should be able to add the length of two curves together, so additivity.
-\end{student-question}
-
+\begin{student-be able to add the length of two curves together, so additivity.
+\end{student-interaction}
 \begin{spoken-clean}[continued]
 Loud, louder.
 \end{spoken-clean}
 
-\begin{student-question}[continued]
+\begin{student-interaction}[continued]
 You should, like, the length should have additivity as one of the properties, meaning you could add the distance of two paths.
-\end{student-question}
-
-\begin{spoken-clean}[continued]
-So, additivity. \textit{[Writes on the board]} Like the measure, right? Yes. Additivity. Anything that is measuring something, if you... so additivity means that if I cut into this curve, right, the length of this piece plus the length of this piece is the length of the total curve. If this is not happening, the definition of length must be ill-posed, right? So we need to check that. But the additivity since it is given by an integral is usually very easy, right? Because integrals are additive. Okay.
+\end{student-into
+\begin{spoken-clean}[continued]t{[Writes on the board]} Like the measure, right? Yes. Additivity. Anything that is measuring something, if you... so additivity means that if I cut into this curve, right, the length of this piece plus the length of this piece is the length of the total curve. If this is not happening, the definition of length must be ill-posed, right? So we need to check that. But the additivity since it is given by an integral is usually very easy, right? Because integrals are additive. Okay.
 \end{spoken-clean}
 
 \begin{math-stroke}[Properties of the Length Functional]

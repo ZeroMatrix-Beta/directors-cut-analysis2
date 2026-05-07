@@ -8,7 +8,6 @@
 % ==========================================
 
 
-\setcounter{chapter}{8}
 \lecturechapter{Wednesday}{Feb 18th}{February 18th 2026}{Metric Spaces: Sequences and Completeness}
 
 \begin{nice-box}[Context]
@@ -18,10 +17,7 @@ This lecture continues the exploration of Metric Spaces, transitioning from the 
 % ==========================================
 % SECTION 1: SEQUENCES IN METRIC SPACES
 % ==========================================
-\setcounter{section}{0}
-\section{Basics of Metric Spaces}
-\setcounter{subsection}{2}
-\subsection{Sequences, limits, and completeness}
+\section{Sequences in Metric Spaces}
 
 \begin{spoken-clean}[00:00:00 - 00:00:50]
 So, uh, hopefully by the second week it will all take us two seconds to go from chatting, uh, to full silence. So, uh, we will continue with metric spaces, provided my voice allows. Uh, remember last time we introduced this pair \inlinemetanote{points at the board}: $(X, d)$. $X$ is a set and $d$ was a map from $X \times X$ to positive numbers, or non-negative numbers. And now for today, you can forget about the rest of math you learned, because we are going to use only this and the three axioms. So, you just need to remember three pieces of information: the three axioms.
@@ -33,15 +29,14 @@ We operate within a metric space defined by the pair:
 where $X$ is a set and $d: X \times X \to [0, \infty)$ is a distance function satisfying the three fundamental axioms (identity of indiscernibles, symmetry, and the triangle inequality).
 \end{math-stroke}
 
-\subsection*{Definition of a Sequence}
+\subsection{Definition of a Sequence}
 
 \begin{spoken-clean}[00:00:50 - 00:01:50]
 So, uh, now we will learn again concepts you, uh, you saw in Analysis 1, and the first concept is that of sequence. \inlinemetanote{Writes on the board} Definition: sequence. You saw sequences of real numbers, uh, so if $X$ is a set, we define — we call sequence in $X$ a map that we put like this: $x$ from the natural numbers to $X$. This is small $x$, this is big $X$, okay?
 \end{spoken-clean}
 
 \begin{math-stroke}[Definition: Sequence]
-\setcounter{theorem}{14}
-\begin{definition}[Sequences in a set]\label{def:sequence}
+\begin{definition}[Sequence]\label{def:sequence}
 Let $X$ be a set. A \emph{sequence} in $X$ is a mapping from the set of natural numbers $\mathbb{N}$ to the set $X$:
 \[ x: \mathbb{N} \to X \]
 \end{definition}
@@ -64,15 +59,14 @@ While a sequence is formally a function, we typically employ subscript notation 
 \end{description}
 \end{math-stroke}
 
-\subsection*{Convergence and Limits}
+\subsection{Convergence and Limits}
 
 \begin{spoken-clean}[00:03:00 - 00:04:11]
 But now we are in a — in a metric space, so we can define also convergent sequence and limit. Definition number two will be: convergent sequence and limit. \inlinemetanote{Writes on the board} So, we say $(x_n)$ — so this is for a metric space, so $(X, d)$ is a metric space, $d$ is the distance, and $(x_n)_{n \ge 0}$ has limit $x$ in $X$ if... well, we can put it in many ways.
 \end{spoken-clean}
 
 \begin{math-stroke}[Definition: Convergence and Limit]
-\setcounter{theorem}{17}
-\begin{definition}[Convergent sequence]\label{def:convergence-limit}
+\begin{definition}[Convergence and Limit]\label{def:convergence-limit}
 Let $(X, d)$ be a metric space. A sequence $(x_n)_{n \ge 0}$ in $X$ is said to \emph{converge} to a limit $x \in X$ if the distance between the sequence elements and the limit point approaches zero:
 \[ d(x_n, x) \to 0 \quad \text{as real numbers}. \]
 \end{definition}
@@ -122,15 +116,14 @@ When the metric space $(X, d)$ is understood, we use the following standard nota
 % ==========================================
 % SECTION 2: UNIQUENESS OF LIMITS
 % ==========================================
-\section*{Uniqueness of Limits}
+\section{Uniqueness of Limits}
 
 \begin{spoken-clean}[00:07:38 - 00:09:12]
 Now, we define — given a convergent sequence, we define — or we said what is its limit. Now, first question: is the limit unique? Let's start for the very, very basic, uh, fundamental questions. So, first lemma. \inlinemetanote{Writes on the board} Oh, nice. What is this? Um, is — so, Lemma: the limit of a sequence is unique. Let's say: if — so in a metric space $(X, d)$, right? And now you take a sequence $(x_n)_{n \ge 0}$, and you have that $x_n$ converges to $x$ and you know also that $x_n$ converges to $y$, two points, given points of $X$. $x, y$ in $X$. So, this is a sequence, and this is an assumption. Assume that $x_n$ converges to $x$ and $x_n$ converges to $y$. Then $x = y$. Right?
 \end{spoken-clean}
 
 \begin{nice-box}[Lemma: Uniqueness of the Limit]
-\setcounter{theorem}{20}
-\begin{lemma}[Uniqueness of the limit]\label{lem:uniqueness-limit}
+\begin{lemma}[Uniqueness of the Limit]\label{lem:uniqueness-limit}
 In any metric space $(X, d)$, if a sequence $(x_n)$ converges to $x$ and also converges to $y$, then $x$ must be equal to $y$.
 \end{lemma}
 \end{nice-box}
@@ -219,9 +212,9 @@ This last line? \inlinemetanote{points at the board} Yes. Okay. This is the defi
 % ==========================================
 % SECTION 3: SUBSEQUENCES AND ACCUMULATION POINTS
 % ==========================================
-\section*{Subsequences and Accumulation Points}
+\section{Subsequences and Accumulation Points}
 
-\subsection*{Definition of a Subsequence}
+\subsection{Definition of a Subsequence}
 
 \begin{spoken-clean}[00:15:32 - 00:17:23]
 So, next thing that — that you learned in Analysis 1 is definition: subsequence. It will be the same. Right? If $(x_n)$ is a sequence in a set $X$, we define — so is there some problem or some...? You have some, yeah? No? No, but it's important — is there some confusion with this proof? I can spend more time, we have time. Yeah, good. \inlinemetanote{The lecturer retrieves the catch-box microphone} So, now is the tricky part, right? Almost. \inlinemetanote{Tosses microphone to student}
@@ -236,7 +229,6 @@ No, in this context, no. Okay. So, here you — you can use because your ambient
 \end{spoken-clean}
 
 \begin{math-stroke}[Definition: Subsequence]
-\setcounter{theorem}{21}
 \begin{definition}[Subsequence]\label{def:subsequence}
 Let $(x_n)_{n \ge 0}$ be a sequence in a set $X$. A \emph{subsequence} is any sequence of the form:
 \[ (x_{f(n)})_{n \ge 0} \]
@@ -258,15 +250,14 @@ In standard notation, we often write $n_k$ instead of $f(k)$, denoting the subse
 % open_loops: student question about epsilon-delta vs sequence definitions.
 % \end{ai-global-state-checkpoint-invisible-content}
 
-\subsection*{Accumulation Points}
+\subsection{Accumulation Points}
 
 \begin{spoken-clean}[00:17:23 - 00:18:44]
 So, something you already learned in $\mathbb{R}$ also: accumulation points. You know what is an accumulation point. Let's put in here. Definition: accumulation points. And we will give two things, two definitions. So, if $Y$ is a subset of $X$ — I will not write every time, but now unless — so every time $(X, d)$ is a metric space. And $Y$ is a subset of $X$, subset. We say that $y$ in $X$ is an accumulation point of $Y$ if exists a sequence $(y_n)$ contained in $Y$ such that $y_n$ converges to $y$. Bullet point number one. And bullet point number two is for sequence. So, if $(x_n)$ is a sequence of $X$, we say the $x$ is an accumulation point of this sequence if exists a subsequence that converges to $x$.
 \end{spoken-clean}
 
 \begin{math-stroke}[Definition: Accumulation Points]
-\setcounter{theorem}{22}
-\begin{definition}[Accumulation points]\label{def:accumulation-point}
+\begin{definition}[Accumulation Point]\label{def:accumulation-point}
 Let $(X, d)$ be a metric space.
 \begin{description}
     \item[For a Set:] A point $y \in X$ is an \emph{accumulation point} of a subset $Y \subseteq X$ if there exists a sequence $(y_n)_{n \ge 0}$ with $y_n \in Y$ for all $n$, such that:
@@ -300,7 +291,7 @@ The lecturer erases the left and center chalkboards to begin a new derivation.
 % ==========================================
 % SECTION 4: CHARACTERIZING CONVERGENCE VIA ACCUMULATION POINTS
 % ==========================================
-\section*{Characterizing Convergence via Accumulation Points}
+\section{Characterizing Convergence via Accumulation Points}
 
 \begin{spoken-clean}[00:03:13 - 00:05:03]
 Uh, let me prove something. Easy lemma. So, a sequence — this is to emphasize also that a sequence in general is not convergent. So, it will have several accumulation points. Many. So, when a sequence is convergent, it is exactly when the sequence has only one accumulation point. And this is something you know for — for real numbers, and now we see it is the same in a metric space.
@@ -310,11 +301,11 @@ Uh, let me prove something. Easy lemma. So, a sequence — this is to emphasize 
 \begin{nice-box}[Board Action]
 The lecturer writes the first version of the lemma on the board.
 \end{nice-box}
-\begin{lemma*}\label{lem:convergence-acc-point-v1}
+\begin{lemma}\label{lem:convergence-acc-point-v1}
 \textcolor{red}{\text{(Incorrect Statement)}} \\
 A sequence $(x_n)_{n \ge 0} \subset X$ in a metric space $(X, d)$ converges to $x$ if and only if $x$ is its sole accumulation point.
 \[ x_n \to x \iff x \text{ is its only acc. pt.} \]
-\end{lemma*}
+\end{lemma}
 \end{math-stroke}
 
 \begin{spoken-clean}[00:05:04 - 00:06:50]
@@ -387,10 +378,10 @@ The lecturer writes \qt{FALSE} over the first lemma and writes two new, correcte
 \textbf{FALSE}
 \end{color-box}
 \begin{math-stroke}[Correcting the Lemma]
-\begin{lemma*}[Lemma 1 - Corrected]\label{lem:convergence-acc-point-v2}
+\begin{lemma}[Lemma 1 - Corrected]\label{lem:convergence-acc-point-v2}
 A sequence $(x_n)_{n \ge 0} \subset X$ converges to $x$ if and only if every subsequence $(x_{n_k})_{k \ge 0}$ converges to $x$.
 \[ x_n \to x \iff \forall (x_{n_k})_{k \ge 0}, x_{n_k} \to x \]
-\end{lemma*}
+\end{lemma}
 
 \begin{explanation-of-steps}
 This version is trivially true because the sequence itself is a subsequence. If every subsequence converges to $x$, then the sequence must converge to $x$. Conversely, if the sequence converges to $x$, any selection of its elements (a subsequence) must also converge to $x$.
@@ -410,10 +401,10 @@ But what I wanted to put — Lemma 3, that is a bit more interesting, is that if
 \end{spoken-clean}
 
 \begin{math-stroke}[Lemma 3: Sub-subsequence Characterization]
-\begin{lemma*}[Sub-subsequence Characterization of Convergence]\label{lem:sub-subsequence}
+\begin{lemma}[Sub-subsequence Characterization of Convergence]\label{lem:sub-subsequence}
 Under the same assumptions as above, a sequence $(x_n)_{n \ge 0}$ converges to $x$ if and only if every subsequence $(x_{n_k})_{k \ge 0}$ contains a further subsequence (a \qt{sub-subsequence}) $(x_{n_{k_l}})_{l \ge 0}$ that converges to $x$:
 \[ x_n \to x \iff \forall (x_{n_k})_{k \ge 0}, \exists (x_{n_{k_l}})_{l \ge 0} \text{ s.t. } x_{n_{k_l}} \to x \]
-\end{lemma*}
+\end{lemma}
 \end{math-stroke}
 
 \begin{nice-box}[Exercise]
@@ -427,27 +418,25 @@ The lecturer erases the right chalkboard to transition to the next major topic: 
 % ==========================================
 % SECTION 5: COMPLETE METRIC SPACES
 % ==========================================
-\section*{Complete Metric Spaces}
+\section{Complete Metric Spaces}
 
 \begin{spoken-clean}[00:15:51 - 00:17:20]
 Actually, this false lemma is very appropriate because it will allow me to — so it will be a very good example to introduce two concepts. The next concept I'm going to introduce is the concept of complete space. Right? Complete space. We know that $\mathbb{R}^n$ is complete — we know that $\mathbb{R}$ is complete, sorry. Um, this we proved in Analysis 1. And now you are going to see the definition of complete space like in this abstract level, and we will prove that $\mathbb{R}^n$ is complete. Okay.
 \end{spoken-clean}
 
-\subsection*{Cauchy Sequences}
+\subsection{Cauchy Sequences}
 
 \begin{spoken-clean}[00:17:21 - 00:18:48]
 So, first we need to define Cauchy sequence. Cauchy sequence. \inlinemetanote{Writes on the board} So, it's the same definition as in $\mathbb{R}$, right? So, $(x_n)_{n \ge 0}$ is Cauchy — a sequence is Cauchy if for all $\epsilon$ positive, exists capital $N$ such that the distance between $x_n$ and $x_m$ is less than $\epsilon$ whenever $n$ and $m$ are both bigger than $N$. Right? If you wait enough --- so if both indices are sufficiently large, then the two --- the two points, any two points of the sequence become close. Right? This is the same as in $\mathbb{R}$. And now when you know Cauchy sequence, we can define a complete --- so complete space. \inlinemetanote{Writes on the board} We say that $(X, d)$ is complete if every sequence --- every Cauchy sequence converges to some limit in the space. Right?
 \end{spoken-clean}
 
 \begin{math-stroke}[Definition: Complete Metric Space]
-\setcounter{theorem}{26}
-\begin{definition}[Cauchy sequence]\label{def:cauchy-sequence-v2}
+\begin{definition}[Cauchy Sequence]\label{def:cauchy-sequence-v2}
 A sequence $(x_n)_{n \ge 0}$ in a metric space $(X, d)$ is \emph{Cauchy} if:
 \[ \forall \epsilon > 0, \exists N \in \mathbb{N} \text{ s.t. } d(x_n, x_m) < \epsilon \quad \text{whenever } n, m \ge N \]
 \end{definition}
 
-\setcounter{theorem}{28}
-\begin{definition}[Complete metric space]\label{def:complete-space-v2}
+\begin{definition}[Complete Metric Space]\label{def:complete-space-v2}
 A metric space $(X, d)$ is \emph{complete} if every Cauchy sequence in $X$ converges to a limit $x \in X$.
 \end{definition}
 \end{math-stroke}
@@ -475,7 +464,7 @@ The lecturer erases the left and center chalkboards to prepare for examples of c
 % ==========================================
 % SECTION 6: EXAMPLES OF (IN)COMPLETE SPACES
 % ==========================================
-\section*{Examples of (In)complete Spaces}
+\section{Examples of (In)complete Spaces}
 
 \begin{spoken-clean}[00:04:05 - 00:05:24]
 So, example of complete space we have $\mathbb{R}$, right? We have $\mathbb{R}$ with the distance --- the Euclidean distance. \inlinemetanote{Writes on the board} What is the Euclidean distance in $\mathbb{R}$? Is the distance between two numbers is just the absolute value of the difference, right? And now we take a subset of $\mathbb{R}$. $A$ subset $\mathbb{R}$. Then we can restrict the distance to $A$, the absolute value of the difference. Now, so let's say that Case number one: $A$ equals, say, $(0, \infty)$. Is this complete?
@@ -551,15 +540,14 @@ The lecturer erases the right chalkboard and prepares to state the main theorem 
 % ==========================================
 % SECTION 7: COMPLETENESS OF R^n
 % ==========================================
-\section*{Completeness of \texorpdfstring{$\mathbb{R}^n$}{Rn}}
+\section{Completeness of \texorpdfstring{$\mathbb{R}^n$}{Rn}}
 
 \begin{spoken-clean}[00:09:25 - 00:11:08]
 Okay, so now I can do two things. So, I don't see more questions, right? So, we can --- we can start to introduce open and closed sets in a metric space. Okay? And then --- the last five minutes I will --- I will discuss a bit because this year you already saw with Professor Figalli the construction of the reals, uh, with these Dedekind cuts, I think, right? So, you have a construction of the real numbers, but one can also construct really as --- as I said here, as a completion. So, if you make $\mathbb{Q}$ complete, there is a --- a way, an abstract way to make any metric space complete. We can discuss this very quickly for those interested. And this procedure applies to $\mathbb{Q}$ and gives you $\mathbb{R}$. And this is another way to construct a model of $\mathbb{R}$. But since this is not strictly needed now, it's just for extra information, and I will rush and be quick on that, and I will spend just the last five minutes. Now let's advance and introduce open and closed sets. Ah, okay, or maybe I can --- no, I think that --- sorry, maybe now I can prove, it's better that I prove that $\mathbb{R}^n$ is complete. It's a good time.
 \end{spoken-clean}
 
 \begin{nice-box}[Theorem: Completeness of \texorpdfstring{$\mathbb{R}^n$}{Rn}]
-\setcounter{theorem}{32}
-\begin{theorem}[Completeness of \texorpdfstring{$\mathbb{R}^n$}{Rn}]\label{thm:rn-complete}
+\begin{theorem}\label{thm:rn-complete}
 The space $\mathbb{R}^n$ equipped with the Euclidean distance $d_{\text{Eucl}}$ is a complete metric space.
 \end{theorem}
 \end{nice-box}
@@ -576,7 +564,7 @@ So, let's say this theorem. \inlinemetanote{Writes on the board} Sorry. $\mathbb
 % open_loops: none
 % \end{ai-global-state-checkpoint-invisible-content}
 
-\subsection*{Coordinate-wise Convergence}
+\subsection{Coordinate-wise Convergence}
 
 \begin{spoken-clean}[00:12:38 - 00:14:12]
 So, if $x_n$... ah, now we will have the usual notational problem. So, I will put $x_m$ \inlinemetanote{Writes on the board} a sequence in $\mathbb{R}^n$. I did not use sub-index $n$ here, because when I'm in $\mathbb{R}^n$, $n$ will be in this case the dimension. So, I cannot use $n$ here, okay? And then, when we have a sequence of points like this, $x_m$, remember that for a point in $\mathbb{R}^n$ --- so this is a bit of notation, but it's important that we clarify right now. So, in $\mathbb{R}^n$, we were denoting the points $x = (x_1, \dots, x_n)$. And these are the coordinates of the point that are $n$ real numbers.
@@ -595,8 +583,7 @@ But now, if I have a sequence of points, we will denote the coordinates like thi
 \end{spoken-clean}
 
 \begin{nice-box}[Lemma: Coordinate-wise Convergence]
-\setcounter{theorem}{25}
-\begin{lemma}[Convergence: in \texorpdfstring{$\mathbb{R}^n$}{Rn} versus coordinate-wise]\label{lem:coordinate-convergence}
+\begin{lemma}\label{lem:coordinate-convergence}
 Let $(x_m)_{m \ge 0}$ be a sequence in $\mathbb{R}^n$. Then $x_m$ converges to $x$ if and only if every coordinate converges to the corresponding coordinate of the limit:
 \[ x_m \to x \iff x_{m,i} \to x_i \quad \text{for all } i = 1, \dots, n \]
 \end{lemma}

@@ -7,7 +7,6 @@
 % removing redundant overlapping sections and TEIL 3.
 % ==========================================
 
-\setcounter{chapter}{8}
 \lecturechapter{Monday}{Feb 16th}{February 16th 2026}{Introduction}
 
 
@@ -18,7 +17,7 @@ This lecture marks the beginning of \emph{Analysis II: mehrere Variablen} (Multi
 % ==========================================
 % SECTION 1: INTRODUCTION AND LOGISTICS
 % ==========================================
-\section*{Introduction and Administrative Information}
+\section{Introduction and Administrative Information}
 
 \begin{spoken-clean}[00:00:00 - 00:01:20]
 Good morning. Good morning. Thank you. Please, please, please. Uh, good morning and welcome to Analysis 2. Uh, I have here a projection with my name, Joaquim Serra, the name of the coordinator, Enric Florit-Simón. Now, this is my introduction. Um, and then you know the times of the lectures, obviously, because you are here. Um, and I wanted to share before starting with the mathematical content some practical informations that are very important because we are a large group and the — the communication and everything needs to be done in a more or less structured way. Otherwise, otherwise we collapse.
@@ -44,7 +43,7 @@ Um, we will tell you more about the exam later on, right? Today I will tell you 
 % ==========================================
 % SECTION 2: OVERVIEW - ANALYSIS I VS II
 % ==========================================
-\section*{Overview: Analysis I vs. Analysis II}
+\section{Overview: Analysis I vs. Analysis II}
 
 \begin{spoken-clean}[00:05:07 - 00:07:20]
 Okay, now, just to start, um, we will give a very quick, so quick that is almost a cartoon, but a very quick overview of what is Analysis 1 and Analysis 2, right? It's very, very quick. \inlinemetanote{Starts writing on the left blackboard} So, Analysis 1. Um, is — sorry, but for me is very difficult to write big and then it's — so — so if — if you don't see something, I will try to say at loud everything I write, but if — if something — I mean, Analysis is... so, um, Analysis 1, calculus, sorry, it's the first day, right? Bear with me. Calculus is written — is spelled correctly? Yeah. Calculus of one variable, right? And then, if I ne — if — if we had to choose a representative theorem of Analysis 1 that a bit represents the course, uh, what would you choose? So, can you tell me — I know it's the first day, but let's start a bit of communication. Can you tell me at least two answers — so two people can tell me what is the representative — one representative theorem of Analysis 1? Yeah?
@@ -222,12 +221,12 @@ Now the small problem is that maybe some of you in physics or — or in previous
 \end{spoken-clean}
 
 \begin{math-stroke}[Definition of \texorpdfstring{$\mathbb{R}^n$}{Rn}]
-\begin{definition*}[The Space $\mathbb{R}^n$]
+\begin{definition}[The Space $\mathbb{R}^n$]
 The space $\mathbb{R}^n$ is defined as the set of all $n$-tuples of real numbers:
 \[ \mathbb{R}^n = \{ n\text{-tuples of real numbers} \} \]
 Formally, a point $x \in \mathbb{R}^n$ is represented by its coordinates:
 \[ x = (x_1, x_2, \dots, x_n) \quad \text{where } x_i \in \mathbb{R} \text{ for all } i \in \{1, \dots, n\} \]
-\end{definition*}
+\end{definition}
 \end{math-stroke}
 
 \begin{spoken-clean}[00:17:38 - 00:21:13]
@@ -267,7 +266,7 @@ And hopefully then you will know all of these elements. This element, uh, this i
 % ==========================================
 % SECTION 3: THE ROLE OF PROOFS IN ANALYSIS
 % ==========================================
-\section*{The Role of Proofs in Analysis}
+\section{The Role of Proofs in Analysis}
 
 \begin{spoken-clean}[00:22:00 - 00:24:15]
 Now I wanted to — to do a very small survey about your attitude, um, attitude towards proofs. Okay? This is important to mention that. \inlinemetanote{Moves to the right chalkboard} So I will put two columns. Column left is \qt{I find proofs} — so proofs I mean rigorous, long, very careful mathematical proofs with all details. Okay? This is mean proofs. So here I will put: I find proof, um, essential, illuminating, useful to clarify, the best part of any course. And on this column over here I will put: I find the proof innecessary, confusing, mysterious, I don't know when I have finished the proof or not, right? Because it looks like — it sounds convincing but — mysterious, no clear — no clear rules of the game.
@@ -471,18 +470,14 @@ So, you are unfolding this sum. Now, if you call the distance between these two 
 % ==========================================
 % SECTION 4: THE SPACE R^n
 % ==========================================
-\setcounter{section}{0}
-\section{Basics of Metric Spaces}
-\setcounter{subsection}{0}
-\subsection{The Euclidean space \texorpdfstring{$\mathbb{R}^n$}{Rn}}
+\section{The Space \texorpdfstring{$\mathbb{R}^n$}{Rn}}
 
 \begin{spoken-clean}[00:17:15 - 00:19:02]
 So, $\mathbb{R}^n$ we said before is the set of $n$-tuples of real numbers, right? \inlinemetanote{Writes on the board} And we will be concerned with $\mathbb{R}^n$, $n$ in $\mathbb{N}$ is the dimension of the space. Can you see from up there this? Yeah? You have very good eyes because I could not see anything. Okay. Now, $\mathbb{R}^n$ by itself --- well, --- just vectors of --- of numbers of real numbers is not --- that interesting, we will need to add some extra structure. So, what is the Euclidean --- Euclidean structure? You already know, I think, but we will say again.
 \end{spoken-clean}
 
 \begin{math-stroke}[Definition of \texorpdfstring{$\mathbb{R}^n$}{Rn}]
-\setcounter{theorem}{0}
-\begin{definition}[Euclidean Structure of \texorpdfstring{$\mathbb{R}^n$}{Rn}]
+\begin{definition}[The Space $\mathbb{R}^n$]
 The space $\mathbb{R}^n$ is the set of all $n$-tuples of real numbers:
 \[ \mathbb{R}^n = \{ x = (x_1, \dots, x_n) \mid x_i \in \mathbb{R} \} \]
 The natural number $n \in \mathbb{N}$ denotes the \emph{dimension} of the space.
@@ -576,13 +571,12 @@ Now, the first lemma I will prove about Euclidean distance is the triangle inequ
 
 \begin{math-stroke}[Lemma: The Triangle Inequality]
 \begin{color-box}{black}[Triangle Inequality]
-\setcounter{theorem}{1}
-\begin{proposition}[Triangle Inequality in \texorpdfstring{$\mathbb{R}^n$}{Rn}] \label{prop:triangle_inequality}
+\begin{lemma}[Triangle Inequality] \label{lem:triangle_inequality}
 For all $x, y, z \in \mathbb{R}^n$, the following inequality holds:
 \begin{equation} \label{eq:triangle_xyz}
 \|z - x\| \le \|y - x\| + \|z - y\|
 \end{equation}
-\end{proposition}
+\end{lemma}
 \end{color-box}
 
 \begin{center}
@@ -726,8 +720,7 @@ And this is an inequality that is famous. Now I will prove it in case you don't 
 \end{spoken-clean}
 
 \begin{nice-box}[Lemma: Cauchy-Schwarz Inequality]
-\setcounter{theorem}{2}
-\begin{lemma}[Cauchy-Schwarz Inequality in \texorpdfstring{$\mathbb{R}^n$}{Rn}] \label{lem:cauchy_schwarz}
+\begin{lemma}[Cauchy-Schwarz Inequality] \label{lem:cauchy_schwarz}
 For all $x, y \in \mathbb{R}^n$, the following inequality holds:
 \begin{equation} \label{eq:cauchy_schwarz}
 x \cdot y \le \|x\|\|y\|
@@ -779,8 +772,7 @@ The lecturer has finished the proofs of the triangle inequality and the Cauchy-S
 % ==========================================
 % SECTION 5: METRIC SPACES
 % ==========================================
-\setcounter{subsection}{1}
-\subsection{Definition of metric Space}
+\section{Metric Spaces}
 
 \begin{spoken-clean}[00:10:30 - 00:12:50]
 This is the structure $\mathbb{R}^n$ with this structure of the scalar product, the length, is the main structure we will use in the proof to do analysis. But there are --- now we need to understand convergence sequences in $\mathbb{R}^n$, we need to understand Cauchy sequences and all these things that you understood in $\mathbb{R}$. Everything --- a bit the summary --- everything that you learned how to do in $\mathbb{R}$, now we need to learn how to do in $\mathbb{R}^n$. But --- to make it more efficient, we will learn all these concepts in a more general, um, --- from a more general viewpoint, that is from the viewpoint of metric spaces. Right? So that later when you modify --- so when you go to other --- courses or in this course later on we will have different metric spaces, I don't need to redefine all the time what convergence means and so on.
@@ -793,8 +785,7 @@ The lecturer uses a playful analogy to explain the pedagogical value of abstract
 \end{didactic-insight}
 
 \begin{nice-box}[Definition: Metric Space]
-\setcounter{theorem}{3}
-\begin{definition}[Metric space] \label{def:metric_space}
+\begin{definition}[Metric Space] \label{def:metric_space}
 A \emph{metric space} is a pair $(X, d)$, where $X$ is a non-empty set and $d$ is a mapping (called the \emph{distance} or \emph{metric}):
 \[ d: X \times X \to [0, \infty) \]
 that satisfies the following three axioms for all $x, y, z \in X$:
