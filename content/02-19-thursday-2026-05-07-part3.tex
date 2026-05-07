@@ -6,14 +6,12 @@
 The lecturer erases the center and right chalkboards. He briefly writes down the exercise mentioned at the end of the previous segment before transitioning to the main topic of the second half of the lecture: Continuity.
 \end{meta-note}
 
-\begin{math-stroke}[Exercise: Completeness of Closed Subsets]
-\begin{nice-box}[Exercise]
-\setcounter{proposition}{49}
+\begin{nice-box}[Exercise] % This math-stroke is extracted from the blackboard at 00:00:24
+\setcounter{theorem}{48}
 \begin{proposition}\label{prop:closed-subset-complete-v2}
 Let $(X, d)$ be a complete metric space. If $A \subseteq X$ is a closed subset, then the metric subspace $(A, d|_A)$ is also a complete metric space.
 \end{proposition}
 \end{nice-box}
-\end{math-stroke}
 
 \begin{spoken-clean}[00:00:24 - 00:01:25]
 Okay, let's do this because, um, maybe you will find more exciting continuous functions. Since this proof over here \inlinemetanote{points at the board} is super similar to the previous one, and is again --- you see that these proofs are one-line proofs. It's just using the definitions and manipulating around. So, I give this proof --- I left this proof as an exercise. Try to do it, again. If you understood well the definitions and you can draw a picture of what's going on, this shouldn't be too difficult. 
@@ -37,7 +35,7 @@ So, this is the setup. Both --- both are different metric spaces. Well, differen
 \end{spoken-clean}
 
 \begin{math-stroke}[Definition: Continuity]
-\setcounter{section}{2} \setcounter{subsection}{1} \setcounter{definition}{52}
+\setcounter{section}{2} \setcounter{subsection}{1} \setcounter{theorem}{51}
 \begin{definition}[Continuity]\label{def:continuity}
 Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces. A mapping $f: X \to Y$ is said to be \emph{continuous} if it satisfies any of the following three equivalent conditions:
 \end{definition}
@@ -58,13 +56,14 @@ So, up to --- is very good. You said what is continuous at a point. For a contin
 \end{spoken-clean}
 
 \begin{math-stroke}[The Three Faces of Continuity]
-\setcounter{proposition}{53}
+\setcounter{theorem}{52}
 \begin{proposition}[The Three Faces of Continuity]\label{prop:three-faces-continuity}
 Let $f: (X, d_X) \to (Y, d_Y)$ be a map between metric spaces. The following are equivalent:
 \begin{enumerate}
     \setcounter{enumi}{0} \item \emph{\texorpdfstring{$\epsilon$}{epsilon}-\texorpdfstring{$\delta$}{delta} Continuity:}
     \[ \forall x \in X, \forall \epsilon > 0, \exists \delta > 0 \text{ s.t. } \forall x' \in X, d_X(x, x') < \delta \implies d_Y(f(x), f(x')) < \epsilon \]
 \end{enumerate}
+\end{proposition}
 \end{math-stroke}
 
 \begin{spoken-clean}[00:08:23 - 00:10:23]
