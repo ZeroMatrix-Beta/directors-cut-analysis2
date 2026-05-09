@@ -153,48 +153,50 @@ So, since this is maybe very symbolic, let me do a picture of what is going on. 
 
 \begin{math-stroke}[Visualizing Continuity]
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=1.2, node distance=0.5cm] % Increased node distance
 % \begin{ai-tikz-planner-invisible-content}
-% 1. Background: Two metric spaces X and Y.
+% 1. Background: Two metric spaces X and Y as ellipses.
 % 2. Midground: Point x in X and f(x) in Y.
 % 3. Foreground: Sequence x_n approaching x, and f(x_n) approaching f(x).
-% 4. Annotations: delta-ball in X and epsilon-ball in Y.
+% 4. Annotations: delta-ball in X and epsilon-ball in Y, with clear labels.
+% 5. Mapping arrow with label.
+% 6. Adjusted spacing for clarity.
 % \end{ai-tikz-planner-invisible-content}
     % Space X
-    \draw[thick] (0,0) ellipse (1.5cm and 1cm);
-    \node at (-1, 0.7) {$X$};
-    \coordinate (X) at (0.5, -0.2);
-    \fill (X) circle (1.5pt) node[below] {$x$};
+    \node[draw, thick, ellipse, minimum width=3cm, minimum height=2cm, label={above left:$X$}] (SpaceX) at (0,0) {};
+    \coordinate (X_pt) at (0.5, -0.2);
+    \fill (X_pt) circle (1.5pt) node[below=of X_pt] {$x$};
     
-    % delta-ball
-    \draw[dashed, MidnightBlue] (X) circle (0.4cm);
-    \node[MidnightBlue, below] at (0.5, -0.6) {\footnotesize $B_\delta(x)$};
+    % delta-ball (adjusted yshift)
+    \draw[dashed, MidnightBlue] (X_pt) circle (0.4cm);
+    \node[MidnightBlue, below=of X_pt, yshift=-0.8cm] {\footnotesize $B_\delta(x)$};
 
     % Space Y
-    \begin{scope}[shift={(5,0)}]
-        \draw[thick] (0,0) ellipse (1.5cm and 1cm);
-        \node at (1, 0.7) {$Y$};
-        \coordinate (FX) at (-0.5, -0.2);
-        \fill (FX) circle (1.5pt) node[below] {$f(x)$};
-        
-        % epsilon-ball
-        \draw[dashed, BrickRed] (FX) circle (0.6cm);
-        \node[BrickRed, below] at (-0.5, -0.8) {\footnotesize $B_\epsilon(f(x))$};
-    \end{scope}
+    \node[draw, thick, ellipse, minimum width=3cm, minimum height=2cm, label={above right:$Y$}] (SpaceY) at (6,0) {}; % Increased horizontal separation
+    \coordinate (FX_pt) at (5.5, -0.2);
+    \fill (FX_pt) circle (1.5pt) node[below=of FX_pt] {$f(x)$};
+    
+    % epsilon-ball (adjusted yshift)
+    \draw[dashed, BrickRed] (FX_pt) circle (0.6cm);
+    \node[BrickRed, below=of FX_pt, yshift=-1.0cm] {\footnotesize $B_\epsilon(f(x))$};
 
     % Mapping
-    \draw[->, thick] (1.8, 0.2) to[bend left=20] node[midway, above] {$f$} (3.2, 0.2);
+    \draw[->, thick] (SpaceX.east) to[bend left=20] node[midway, above] {$f$} (SpaceY.west);
 
-    % Sequence
+    % Sequence in X
     \foreach \i in {1, 2, 3, 4}
         \fill (0.5 - 0.8/\i, -0.2 + 0.5/\i) circle (1pt);
-    \node at (-0.3, 0.4) {\footnotesize $x_n$};
+    \node[font=\footnotesize, above right=of X_pt, xshift=-0.8cm, yshift=0.5cm] {$x_n \to x$}; % Adjusted xshift and yshift
     
+    % Sequence in Y
     \foreach \i in {1, 2, 3, 4}
-        \fill (4.5 - 0.4/\i, -0.2 + 0.3/\i) circle (1pt);
-    \node at (4.1, 0.2) {\footnotesize $f(x_n)$};
+        \fill (5.5 - 0.4/\i, -0.2 + 0.3/\i) circle (1pt);
+    \node[font=\footnotesize, above left=of FX_pt, xshift=0.8cm, yshift=0.5cm] {$f(x_n) \to f(x)$}; % Adjusted xshift and yshift
 \end{tikzpicture}
 \end{center}
+\begin{explanation-of-steps}[Geometric Interpretation of Continuity]
+This diagram clearly illustrates the $\epsilon$-$\delta$ definition of continuity in metric spaces. The sequence $(x_n)$ in $X$ converges to $x$, and its image $(f(x_n))$ in $Y$ converges to $f(x)$. The dashed circles represent open balls, showing that for any $\epsilon$-ball around $f(x)$, there exists a $\delta$-ball around $x$ whose image is entirely contained within the $\epsilon$-ball.
+\end{explanation-of-steps}
 \end{math-stroke}
 
 \begin{spoken-clean}[00:22:32 - 00:24:26]

@@ -14,8 +14,6 @@ Your core responsibilities are:
 - **Analyze Transcripts:** Review past `.tex` files to identify failure patterns and inform protocol improvements.
 - **Maintain Documentation:** Keep the project's `.md` files clean and logically structured.
 
----
-
 ## Core Operating Rules
 
 ### 1. Preamble Synchronization (Top Priority)
@@ -24,22 +22,25 @@ This is your most critical task. Any change to `gemini.md` or `gemini-no-segment
 ### 2. Direct & Concise Communication
 Keep your answers short and not conversational. Your responses must be brief and to the point, avoiding conversational filler, greetings, or apologies. Focus on delivering the requested code change or analysis directly. This serves the purpose of your answers not being cut off.
 
-### 3. Ask When Ambiguous
+### 3. Prioritize Explicit Examples Over Ambiguous Rules
+When refining the master protocols (`gemini.md`, `gemini-no-segment-time-restriction.md`), do not just state a rule abstractly. You **MUST** provide a clear, copy-pasteable `GOOD Example` or a `Chapter Example` code block to eliminate ambiguity for the transcription AI. This is especially critical for complex or non-obvious syntax, such as the requirement to use `\setcounter{chapter}{<value-1>}` *before* `\lecturechapter{...}`. An explicit example is the most effective way to ensure compliance.
+
+### 4. Ask When Ambiguous
 If a request is unclear or conflicts with existing protocols, you **MUST** ask for clarification before proceeding. Do not guess the user's intent.
 
-### 4. Treat AI Feedback as Data
+### 5. Treat AI Feedback as Data
 The AI interview logs (`pre-v1.17-ai-interviews.md`) are a source of diagnostic data, not direct instructions. Use them to identify weaknesses in the master protocols, but wait for a human directive before implementing changes.
 
-### 5. Strict Versioning
+### 6. Strict Versioning
 Treat `gemini.md` and `gemini-no-segment-time-restriction.md` like source code. Follow the semantic versioning (Major.Minor.Patch) outlined in the protocol. Increment the patch version for any small fix or refinement.
 
-### 6. Strict Protocol Separation (Segmented vs. Full-Length)
+### 7. Strict Protocol Separation (Segmented vs. Full-Length)
 Never mix the roles of `gemini.md` and `gemini-no-segment-time-restriction.md`. You must keep the 9-11 minute segment chunking rules strictly within `gemini.md`. Conversely, keep the "single-pass" and "full video transcription" formulations strictly within `gemini-no-segment-time-restriction.md`. Do not cross-pollinate these mutually exclusive processing directives.
 
-### 7. Implicit Protocol Reference
+### 8. Implicit Protocol Reference
 If the user refers to `gemini.md` in a prompt, you must assume they are also referring to the no-time-restriction version (`gemini-no-segment-time-restriction.md`). Both master protocols should be updated simultaneously for any general rule changes.
 
----
+**Both master protocols should be updated simultaneously for any rule changes, *except* those explicitly related to segment or video length and chunking.**
 
 ## Key Architectural Concepts
 
