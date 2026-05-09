@@ -203,7 +203,7 @@ Your task is to combine these files into one master `.tex` document by intellige
 
     \begin{definition}[Closure]\label{def:closure-v2}
     The \emph{closure} of a set $\Omega \subseteq X$, denoted $\overline{\Omega}$, is the set of all points that can be reached as limits of sequences in $\Omega$:
-    \[ \overline{\Omega} = \{ x \in X \mid \exists (x_n)_{n \ge 0} \subset \Omega \text{ s.t. } x_n \to x \} \]
+    \[ \overline{\Omega} = \{ x \in X \mid \exists (x_n)_{n \ge 0} \subset \Omega \text{ such that } x_n \to x \} \]
     \end{definition}
     \end{math-stroke}
 
@@ -431,7 +431,7 @@ Let $(X, d)$ be a metric space.
 \begin{enumerate}
     \setcounter{enumi}{0} \item A subset $U \subseteq X$ is \emph{open} if and only if for every sequence $(x_n)_{n \ge 0}$ in $X$ converging to a point $x \in U$, the sequence elements $x_n$ belong to $U$ \qt{eventually}.
     \setcounter{enumi}{1} \item A subset $A \subseteq X$ is \emph{closed} if and only if for every sequence $(x_n)_{n \ge 0}$ contained in $A$ that converges to a limit $x \in X$, the limit $x$ must also belong to $A$.
-\end{enumerate}
+    \end{enumerate}
 \end{lemma}
 \end{nice-box}
 
@@ -448,7 +448,7 @@ So, this concept of \qt{up to finitely many exceptions} is very useful and is ve
 \begin{definition}[Eventually]\label{def:eventually-v2}
 A property $P(x_n)$ is said to hold \emph{eventually} for a sequence $(x_n)_{n \ge 0}$ if there exists some threshold $N \in \mathbb{N}$ such that the property holds for all elements beyond that threshold:
 \[ \exists N \in \mathbb{N} \text{ s.t. } \forall n \ge N, P(x_n) \text{ is true} \]
-\end{definition}
+    \end{definition}
 
 \begin{explanation-of-steps}
 The term \qt{eventually} is a rigorous shorthand for \qt{for all but finitely many terms}. In the context of Lemma \ref{lem:topo-sequences}, it means that while the first few terms of a sequence might lie outside the open set $U$, the \qt{tail} of the sequence must be entirely contained within $U$.
