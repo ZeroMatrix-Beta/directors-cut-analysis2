@@ -381,6 +381,140 @@ While each $U_k$ is an open set, their infinite intersection is the singleton se
 \end{example}
 \end{math-stroke}
 
+\begin{math-stroke}[Example: Infinite Intersection of Open Sets]
+\setcounter{theorem}{44}
+\begin{example}[Infinite Intersection of Open Sets]\label{ex:infinite-intersection}
+The finiteness condition for the intersection of open sets is necessary. Consider the metric space $(\mathbb{R}, d_{\text{Eucl}})$ and the following collection of open intervals:
+\[ U_k = \left( -\frac{1}{k}, \frac{1}{k} \right) \quad \text{for } k \in \mathbb{N} = \{1, 2, 3, \dots\} \]
+Each $U_k$ is an open set. However, their infinite intersection is:
+\[ \bigcap_{k=1}^{\infty} U_k = \{0\} \]
+
+\begin{center}
+\begin{tikzpicture}[scale=2.5]
+    % \begin{ai-tikz-planner-invisible-content}
+    % 1. Background: Horizontal real number axis with staggered ticks to prevent fraction overlap.
+    % 2. Midground: Nested intervals U_1, U_2, U_3 shifted higher (y=0.4, 0.6, 0.8) to leave space for the limit point.
+    % 3. Labels: Placed to the 'right' of the intervals.
+    % 4. Foreground: The limit point {0} clearly marked above the origin, free of intersections.
+    % 5. Contrast & Grayscale Guidelines Applied: 
+    %    - U1 Interval: SkyBlue (Very Light Group 1, 080% Luminance). [cite: 110, 111]
+    %    - U2 Interval: Orange (Medium Grays Group 3, 054% Luminance). [cite: 114, 115]
+    %    - U3 Interval: Plum (Dark Grays Group 4, 026% Luminance). [cite: 116, 119, 140]
+    %    - Limit Point {0}: BrickRed (Near Black Group 5, 009% Luminance) to provide maximum contrast. 
+    % \end{ai-tikz-planner-invisible-content}
+
+    % The R-Axis
+    \draw[->, thick] (-1.5,0) -- (1.5,0) node[right] {$\mathbb{R}$};
+    
+    % Axis ticks and labels (Staggered to prevent overlap)
+    \draw[thick] (-1, 0.05) -- (-1, -0.05) node[below] {\tiny $-1$};
+    \draw[thick] (1, 0.05) -- (1, -0.05) node[below] {\tiny $1$};
+    
+    % Dropped ticks for 1/2 to give 1/3 room
+    \draw[thick] (-0.5, 0.05) -- (-0.5, -0.25) node[below] {\tiny $-1/2$};
+    \draw[thick] (0.5, 0.05) -- (0.5, -0.25) node[below] {\tiny $1/2$};
+    
+    % Standard ticks for 1/3
+    \draw[thick] (-0.333, 0.05) -- (-0.333, -0.05) node[below] {\tiny $-1/3$};
+    \draw[thick] (0.333, 0.05) -- (0.333, -0.05) node[below] {\tiny $1/3$};
+
+    % U_1 Interval
+    \draw[ultra thick, SkyBlue] (-1, 0.8) -- (1, 0.8);
+    \node[SkyBlue, right] at (1, 0.8) {\footnotesize $U_1$};
+    
+    % U_2 Interval
+    \draw[ultra thick, Orange] (-0.5, 0.6) -- (0.5, 0.6);
+    \node[Orange, right] at (0.5, 0.6) {\footnotesize $U_2$};
+    
+    % U_3 Interval
+    \draw[ultra thick, Plum] (-0.333, 0.4) -- (0.333, 0.4);
+    \node[Plum, right] at (0.333, 0.4) {\footnotesize $U_3$};
+
+    % The limit point
+    \fill[BrickRed] (0,0) circle (1.2pt);
+    \node[BrickRed, above, yshift=2pt] at (0,0) {\footnotesize $\{0\}$};
+\end{tikzpicture}
+\end{center}
+\begin{explanation-of-steps}
+While each $U_k$ is an open set, as $k \to \infty$, the intervals shrink around the origin. The only point contained in \emph{every} interval is $0$. Therefore, the infinite intersection is the singleton set $\{0\}$. This set is \emph{closed} but \emph{not open} in $\mathbb{R}$, because any open ball $B(0, r) = (-r, r)$ around $0$ will inevitably contain points other than $0$. This clearly demonstrates that the property of openness is not necessarily preserved under infinite intersections.
+\end{explanation-of-steps}
+\end{example}
+\end{math-stroke}
+
+\begin{math-stroke}[Example: Infinite Intersection of Open Sets]
+\setcounter{theorem}{44}
+\begin{example}[Infinite Intersection of Open Sets]\label{ex:infinite-intersection}
+The finiteness condition for the intersection of open sets is necessary. Consider the metric space $(\mathbb{R}, d_{\text{Eucl}})$ and the following collection of open intervals:
+\[ U_k = \left( -\frac{1}{k}, \frac{1}{k} \right) \quad \text{for } k \in \mathbb{N} = \{1, 2, 3, \dots\} \]
+Each $U_k$ is an open set. However, their infinite intersection is:
+\[ \bigcap_{k=1}^{\infty} U_k = \{0\} \]
+
+\begin{center}
+\begin{tikzpicture}[scale=2.5]
+    % \begin{ai-tikz-planner-invisible-content}
+    % 1. Background Layer 1: Dashed drop lines connecting interval bounds to the axis. Drawn first to stay behind the colored intervals.
+    % 2. Background Layer 2: Horizontal real number axis with staggered ticks to prevent fraction overlap.
+    % 3. Midground: Nested intervals U_1, U_2, U_3 shifted higher (y=0.4, 0.6, 0.8) to leave space for the limit point. 
+    % 4. Labels: Placed to the 'right' of the intervals.
+    % 5. Foreground: The limit point {0} clearly marked above the origin, free of intersections.
+    % 6. Contrast & Grayscale Guidelines Applied: 
+    %    - Drop Lines: Gray (Group 11 / Group 3, 050% Luminance), thin and dashed for subtlety.
+    %    - U1 Interval: SkyBlue (Very Light Group 1, 080% Luminance).
+    %    - U2 Interval: Orange (Medium Grays Group 3, 054% Luminance).
+    %    - U3 Interval: Plum (Dark Grays Group 4, 026% Luminance).
+    %    - Limit Point {0}: BrickRed (Near Black Group 5, 009% Luminance) to provide maximum contrast.
+    % \end{ai-tikz-planner-invisible-content}
+
+    % Dashed drop lines (Background)
+    \draw[dashed, Gray, thin] (-1, 0.8) -- (-1, 0);
+    \draw[dashed, Gray, thin] (1, 0.8) -- (1, 0);
+    
+    \draw[dashed, Gray, thin] (-0.5, 0.6) -- (-0.5, 0);
+    \draw[dashed, Gray, thin] (0.5, 0.6) -- (0.5, 0);
+    
+    \draw[dashed, Gray, thin] (-0.333, 0.4) -- (-0.333, 0);
+    \draw[dashed, Gray, thin] (0.333, 0.4) -- (0.333, 0);
+
+    % The R-Axis
+    \draw[->, thick] (-1.5,0) -- (1.5,0) node[right] {$\mathbb{R}$};
+    
+    % Axis ticks and labels (Staggered to prevent overlap)
+    \draw[thick] (-1, 0.05) -- (-1, -0.05) node[below] {\tiny $-1$};
+    \draw[thick] (1, 0.05) -- (1, -0.05) node[below] {\tiny $1$};
+    
+    % Dropped ticks for 1/2 to give 1/3 room
+    \draw[thick] (-0.5, 0.05) -- (-0.5, -0.25) node[below] {\tiny $-1/2$};
+    \draw[thick] (0.5, 0.05) -- (0.5, -0.25) node[below] {\tiny $1/2$};
+    
+    % Standard ticks for 1/3
+    \draw[thick] (-0.333, 0.05) -- (-0.333, -0.05) node[below] {\tiny $-1/3$};
+    \draw[thick] (0.333, 0.05) -- (0.333, -0.05) node[below] {\tiny $1/3$};
+
+    % U_1 Interval (Foreground)
+    \draw[ultra thick, SkyBlue] (-1, 0.8) -- (1, 0.8);
+    \node[SkyBlue, right] at (1, 0.8) {\footnotesize $U_1$};
+    
+    % U_2 Interval (Foreground)
+    \draw[ultra thick, Orange] (-0.5, 0.6) -- (0.5, 0.6);
+    \node[Orange, right] at (0.5, 0.6) {\footnotesize $U_2$};
+    
+    % U_3 Interval (Foreground)
+    \draw[ultra thick, Plum] (-0.333, 0.4) -- (0.333, 0.4);
+    \node[Plum, right] at (0.333, 0.4) {\footnotesize $U_3$};
+
+    % The limit point
+    \fill[BrickRed] (0,0) circle (1.2pt);
+    \node[BrickRed, above, yshift=2pt] at (0,0) {\footnotesize $\{0\}$};
+\end{tikzpicture}
+\end{center}
+\begin{explanation-of-steps}
+While each $U_k$ is an open set, as $k \to \infty$, the intervals shrink around the origin. The only point contained in \emph{every} interval is $0$. Therefore, the infinite intersection is the singleton set $\{0\}$. This set is \emph{closed} but \emph{not open} in $\mathbb{R}$, because any open ball $B(0, r) = (-r, r)$ around $0$ will inevitably contain points other than $0$. This clearly demonstrates that the property of openness is not necessarily preserved under infinite intersections.
+\end{explanation-of-steps}
+\end{example}
+\end{math-stroke}
+
+
+
 % \begin{ai-global-state-checkpoint-invisible-content}
 % timestamp: 00:24:00
 % topic: Counter-example for infinite intersections of open sets.

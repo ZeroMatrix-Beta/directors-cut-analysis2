@@ -15,6 +15,8 @@ For any lists, bullet points, or sequential steps, you MUST explicitly use `\beg
 *   **Stage Directions:** To add physical context, you MUST inject brief, objective stage directions using the custom `\inlinemetanote{...}` macro (e.g., `\inlinemetanote{points at the board}`).
 *   **Continuity:** If a speech block is interrupted by a `student-interaction` or board action, resume the subsequent speech with a valid timestamp. While a full timestamp is preferred for chronological accuracy, using `\begin{spoken-clean}[continued]` is permissible for very short interjections immediately following an interruption.
 
+
+
 #### Ground Truth Examples: `spoken-clean` & `\inlinemetanote`
 
 **Pacing & Punctuation:**
@@ -446,7 +448,7 @@ This environment gets uses for brief, objective stage directions that provide ph
     ```latex
     \begin{nice-box}[The Practical Substitution Rule]
     \begin{theorem}[The Practical Substitution Rule]
-    \label{thm:practical_substitution}
+    \label[thoerem]{thm:practical_substitution}
     ...
     \end{theorem}
     \end{nice-box}
@@ -482,6 +484,30 @@ This environment gets uses for brief, objective stage directions that provide ph
     \end{spoken-clean}
     \end{proof}
     ```
+
+### Short Proof (`\begin{short-proof}...\end{short-proof}`) and usage of `\cref{}` and `\labelcref{}`.
+Short proofs can be used inside math-stroke if they don't need to span the narrative of the lecturer (i.e. a spoken-clean block) or multiple math-stroke block's, like this
+
+```latex
+\begin{math-stroke}[Proof Sketch of \cref{prop:open-sets-properties} \labelcref{prop:open-sets-properties:2:finite-intersections}: Finite Intersections of Open Sets]
+  \begin{ai-proof-skeleton-invisible-content}
+  % 1. Take x in the intersection of U_1, ..., U_N.
+  % 2. For each i, x is in U_i, so there exists r_i > 0 s.t. B(x, r_i) is in U_i.
+  % 3. Let r = min(r_1, ..., r_N). Since N is finite, r > 0.
+  % 4. Then B(x, r) is in B(x, r_i) for all i, so B(x, r) is in the intersection.
+  \end{ai-proof-skeleton-invisible-content}
+\begin{short-proof}[Proof Sketch]
+  Let $U = \bigcap_{i=1}^N U_i$ where each $U_i$ is open. Take $x \in U$.
+  Then $x \in U_i$ for all $i \in \{1, \dots, N\}$. Since each $U_i$ is open:
+  \[ \forall i \exists r_i > 0 \text{ such that } B(x, r_i) \subseteq U_i \]
+  Let $r := \min(r_1, r_2, \dots, r_N)$. Because we are taking the minimum of a \emph{finite} set of positive numbers, $r > 0$.
+  Then for all $i$, $B(x, r) \subseteq B(x, r_i) \subseteq U_i$.
+  Therefore, $B(x, r) \subseteq \bigcap_{i=1}^N U_i = U$, proving that $U$ is open.
+\end{short-proof}
+\end{math-stroke}
+```
+
+Of course, short-proof can used for other things than proof sketches (for example ordinary, standard proofs). You are encouraged to use `\begin{short-proof}` ... `\end{short-proof}` without any optional `[...]` to just display the word "Proof:" to have some visual variety between the title of the math-stroke block and the proof-display itself. (In other words: If you put the title of the proof and the reference to the lemma/theorem into the math-stroke block, you may want to consider just using `\begin{short-proof}` ... `\end{short-proof}`).
 
 ### The Invisible Layer (Internal AI Scratchpads & Fallbacks)
 

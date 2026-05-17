@@ -23,6 +23,7 @@
 \usepackage[margin=1in, headheight=35pt]{geometry}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{hyperref}
+\usepackage[nameinlink, capitalize]{cleveref}
 
 % --- HYPERREF AESTHETICS ---
 \hypersetup{
@@ -43,12 +44,16 @@
 
 % --- LIST SPACING FIX ---
 \usepackage{enumitem}
-\setlist{
+\setlist[enumerate]{
     topsep=0.5ex,
     itemsep=0.5ex,
     parsep=\parskip,
-    partopsep=0pt
+    partopsep=0pt,
+    label=\textbf{(\alph*)},
+    ref=(\alph*) % WICHTIG: ref ohne \textbf, damit die Nummer im Text normal bleibt
 }
+
+
 
 % Make description labels flow like normal inline text with stretchable spaces
 \setlist[description]{
@@ -132,6 +137,17 @@
 \newtheorem*{answer}{Answer}
 \newtheorem*{importantremark}{Important remark}
 \newtheorem*{goals}{Goals}
+
+% ==========================================
+% SETTING UP CREFNAME
+% ==========================================
+
+%\crefname{enumi}{item}{items} % For standard enumerate items
+%\crefname{enumii}{sub-item}{sub-items} % For nested enumerate items
+\crefalias{lemma}{lemma}
+\crefalias{theorem}{theorem}
+\crefalias{definition}{definition}
+\crefalias{proposition}{proposition}
 
 % ==========================================
 % REDESIGNED META-ENVIRONMENTS

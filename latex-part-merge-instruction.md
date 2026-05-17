@@ -170,7 +170,7 @@ Your task is to combine these files into one master `.tex` document by intellige
 
     \begin{definition}[Closure]\label{def:closure}
     The \emph{closure} of a set $\Omega \subseteq X$, denoted $\overline{\Omega}$, is the set of all points that can be reached as limits of sequences in $\Omega$:
-    \[ \overline{\Omega} = \{ x \in X \mid \exists (x_n)_{n \ge 0} \subset \Omega \text{ s.t. } x_n \to x \} \]
+    \[ \overline{\Omega} = \{ x \in X \mid \exists (x_n)_{n \ge 0} \subset \Omega \text{ such that } x_n \to x \} \]
     \end{definition}
     \end{math-stroke}
 

@@ -112,6 +112,10 @@ The hard specifications are described in the file "gemini-hard-specs.md"
 
 The environments are described in the file "gemini-environments.md"
 
+## Cross-Referencing Guide
+
+The cross-referencing guide is described in the file "latex-cross-referencing-guide.md"
+
 ## More Examples
 
 For more examples, have a look at the file "gemini-big-examples.md"

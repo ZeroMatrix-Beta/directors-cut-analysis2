@@ -213,13 +213,16 @@ The \emph{topology} $\mathcal{T}$ associated with a metric space $(X, d)$ is the
 Now, to see a bit more what are --- because this is still a bit abstract --- to see a bit more practically how we identify open and closed sets, we are going to do it through sequences. Well, let me first do a lemma, maybe, that we will use many times. Lemma: unions and intersections of open sets. This is one of the basic properties. It's very simple, but since we will use many, many times, I prove it now. So, it says that if you have --- I will put it with words and then we will prove with symbols. So, arbitrary unions of open sets are open. This means that if you have some collection $\{U_i\}_{i \in I}$ of $U_i \subseteq X$ open, then the union of this collection (that can be the union of the collection) is also open. Right?
 \end{spoken-clean}
 
-\begin{nice-box}[Lemma: Unions and Intersections of Open Sets]
+\begin{nice-box}[Proposition: Unions and Intersections of Open Sets]
 \setcounter{theorem}{42}
-\begin{proposition}[Unions and Intersections of Open Sets]\label{prop:open-sets-properties}
+\begin{proposition}[Unions and Intersections of Open Sets]
+  \label[proposition]{prop:open-sets-properties}
 In any metric space $(X, d)$:
 \begin{enumerate}
     \setcounter{enumi}{0} \item \emph{Arbitrary Unions:} The union of any collection of open sets is open.
-    \setcounter{enumi}{1} \item \emph{Finite Intersections:} The intersection of a finite number of open sets is open.
+    \label[proposition]{prop:open-sets-properties:1:arbitrary-unions}
+    \setcounter{enumi}{1} \item \emph{Finite Intersections:} The intersection of a finite number of open sets is open. 
+    \label[proposition]{prop:open-sets-properties:2:finite-intersections}
 \end{enumerate}
 \end{proposition}
 \end{nice-box}
@@ -272,19 +275,21 @@ The lecturer hints at a deep topological property: in a \qt{connected} space (li
 So, I am saying that when you take open sets, when you take finitely many intersections of open sets, you get something open. Why? I will say with words and then you try to write down, okay? So, you have finitely many open sets. And now you take a point that is in the intersection of these finitely many. This means that the point is in all of them. And now, for each of the sets, you pick a radius that is different in every time. But there are finitely many radii that you can put your ball in the open set. And if you take the minimum of all these radii, it will be good. With the minimum of the finitely many radii, you will fall inside of the intersection. Okay? You don't need to understand what I said, please try to do the exercise. If there are problems doing this, you have it in the notes. But I think this is a very good opportunity to do as an exercise to see if we understood the definitions. Because it's one line, so it's not --- you don't need to think too much.
 \end{spoken-clean}
 
-\begin{math-stroke}[Proof Sketch: Finite Intersections of Open Sets]
+\begin{math-stroke}[Proof Sketch of \cref{prop:open-sets-properties} \labelcref{prop:open-sets-properties:2:finite-intersections}: Finite Intersections of Open Sets]
 \begin{ai-proof-skeleton-invisible-content}
 % 1. Take x in the intersection of U_1, ..., U_N.
 % 2. For each i, x is in U_i, so there exists r_i > 0 s.t. B(x, r_i) is in U_i.
 % 3. Let r = min(r_1, ..., r_N). Since N is finite, r > 0.
 % 4. Then B(x, r) is in B(x, r_i) for all i, so B(x, r) is in the intersection.
 \end{ai-proof-skeleton-invisible-content}
+\begin{short-proof}[Proof Sketch]
 Let $U = \bigcap_{i=1}^N U_i$ where each $U_i$ is open. Take $x \in U$.
 Then $x \in U_i$ for all $i \in \{1, \dots, N\}$. Since each $U_i$ is open:
-\[ \forall i, \exists r_i > 0 \text{ s.t. } B(x, r_i) \subseteq U_i \]
+\[ \forall i, \exists r_i > 0 \text{ such that } B(x, r_i) \subseteq U_i \]
 Let $r = \min(r_1, r_2, \dots, r_N)$. Because we are taking the minimum of a \emph{finite} set of positive numbers, $r > 0$.
 Then for all $i$, $B(x, r) \subseteq B(x, r_i) \subseteq U_i$.
 Therefore, $B(x, r) \subseteq \bigcap_{i=1}^N U_i = U$, proving that $U$ is open.
+\end{short-proof}
 \end{math-stroke}
 
 \begin{spoken-clean}[00:21:15 - 00:24:04]
